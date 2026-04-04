@@ -26,4 +26,11 @@ class BookmarksViewModel @Inject constructor(
             bookmarkRepository.toggleBookmark(wordId)
         }
     }
+
+    /** 즐겨찾기 단어를 공유용 텍스트로 반환 */
+    fun getShareText(): String {
+        return bookmarkedWords.value.joinToString("\n") { word ->
+            "${word.word} - ${word.meaning}"
+        }
+    }
 }

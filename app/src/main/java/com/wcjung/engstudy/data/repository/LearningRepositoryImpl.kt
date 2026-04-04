@@ -1,5 +1,6 @@
 package com.wcjung.engstudy.data.repository
 
+import com.wcjung.engstudy.data.local.dao.DailyStudyCount
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
 import com.wcjung.engstudy.domain.model.LearningProgress
@@ -15,13 +16,11 @@ class LearningRepositoryImpl @Inject constructor(
 ) : LearningRepository {
 
     override fun getWordsForReview(count: Int): Flow<List<Word>> =
-        learningProgressDao.getWordsForReview(
-            now = System.currentTimeMillis(),
-            count = count
-        ).map { entities -> entities.map { it.toDomain() } }
+        learningProgressDao.getWordsForReview(count = count)
+            .map { entities -> entities.map { it.toDomain() } }
 
     override fun getDueReviewCount(): Flow<Int> =
-        learningProgressDao.getDueReviewCount(System.currentTimeMillis())
+        learningProgressDao.getDueReviewCount()
 
     override fun getLearnedWordCount(): Flow<Int> =
         learningProgressDao.getLearnedWordCount()
@@ -33,20 +32,19 @@ class LearningRepositoryImpl @Inject constructor(
         learningProgressDao.getProgressForWord(wordId)?.toDomain()
 
     override suspend fun updateProgress(progress: LearningProgress) {
-        val existing = learningProgressDao.getProgressForWord(progress.wordId)
-        val entity = LearningProgressEntity(
-            id = existing?.id ?: 0,
-            wordId = progress.wordId,
-            easeFactor = progress.easeFactor,
-            intervalDays = progress.intervalDays,
-            repetitions = progress.repetitions,
-            nextReviewDate = progress.nextReviewDate,
-            lastReviewedDate = progress.lastReviewedDate,
-            timesCorrect = progress.timesCorrect,
-            timesIncorrect = progress.timesIncorrect,
-            isLearned = progress.isLearned
+        learningProgressDao.upsertProgressForWord(
+            LearningProgressEntity(
+                wordId = progress.wordId,
+                easeFactor = progress.easeFactor,
+                intervalDays = progress.intervalDays,
+                repetitions = progress.repetitions,
+                nextReviewDate = progress.nextReviewDate,
+                lastReviewedDate = progress.lastReviewedDate,
+                timesCorrect = progress.timesCorrect,
+                timesIncorrect = progress.timesIncorrect,
+                isLearned = progress.isLearned
+            )
         )
-        learningProgressDao.upsertProgress(entity)
     }
 
     override fun getReviewedCountForDay(dayStart: Long, dayEnd: Long): Flow<Int> =
@@ -55,13 +53,21 @@ class LearningRepositoryImpl @Inject constructor(
     override fun getTotalStudyDays(): Flow<Int> =
         learningProgressDao.getTotalStudyDays()
 
-    override fun getLearnedCountByDomain(): Flow<Map<String, Int>> =
-        learningProgressDao.getLearnedCountByDomain().map { list ->
-            list.associate { it.domain to it.count }
-        }
+    override fun getLearnedCountByStage(): Flow<Map<Int, Int>> =
+        learningProgressDao.getLearnedCountByStage()
+            .map { list -> list.associate { it.stage to it.count } }
 
-    override fun getLearnedCountByAgeGroup(): Flow<Map<String, Int>> =
-        learningProgressDao.getLearnedCountByAgeGroup().map { list ->
-            list.associate { it.age_group to it.count }
-        }
+    override fun getLearnedCountByDomain(): Flow<Map<String, Int>> =
+        learningProgressDao.getLearnedCountByDomain()
+            .map { list -> list.associate { it.domain to it.count } }
+
+    override fun getLearnedWordCountByStage(stage: Int): Flow<Int> =
+        learningProgressDao.getLearnedWordCountByStage(stage)
+
+    override suspend fun markAsKnown(wordId: Int) {
+        learningProgressDao.markAsKnown(wordId)
+    }
+
+    override fun getDailyStudyCounts(sinceTimestamp: Long): Flow<List<DailyStudyCount>> =
+        learningProgressDao.getDailyStudyCounts(sinceTimestamp)
 }

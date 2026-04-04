@@ -7,9 +7,11 @@ import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.LearningRepository
+import com.wcjung.engstudy.domain.repository.WrongAnswerRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
+import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,7 +25,9 @@ class SpellingQuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val wordRepository: WordRepository,
     private val learningRepository: LearningRepository,
-    private val spacedRepetition: CalculateSpacedRepetitionUseCase
+    private val spacedRepetition: CalculateSpacedRepetitionUseCase,
+    private val updateStreak: UpdateStreakUseCase,
+    private val wrongAnswerRepository: WrongAnswerRepository
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.SpellingQuiz>()
@@ -58,7 +62,7 @@ class SpellingQuizViewModel @Inject constructor(
         viewModelScope.launch {
             val words = wordRepository.getNewWordsForStudy(
                 count = 10,
-                ageGroup = route.ageGroup,
+                stage = route.stage,
                 domain = route.domain
             ).first()
             _words.value = words
@@ -85,9 +89,17 @@ class SpellingQuizViewModel @Inject constructor(
             val quality = spacedRepetition.qualityFromSimpleRating(rating)
             val result = spacedRepetition.calculate(progress, quality)
 
-            if (isCorrect) correctCount++ else {
+            if (isCorrect) {
+                correctCount++
+            } else {
                 incorrectCount++
                 incorrectWords.add(word)
+                wrongAnswerRepository.insertWrongAnswer(
+                    wordId = word.id,
+                    wrongAnswer = _userInput.value.trim(),
+                    correctAnswer = word.word,
+                    quizType = "spelling"
+                )
             }
 
             learningRepository.updateProgress(
@@ -102,6 +114,7 @@ class SpellingQuizViewModel @Inject constructor(
                     isLearned = result.intervalDays >= 21
                 )
             )
+            updateStreak()
         }
     }
 

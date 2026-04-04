@@ -21,14 +21,18 @@ class BootReceiver : BroadcastReceiver() {
     lateinit var userPreferences: UserPreferences
 
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
-            CoroutineScope(Dispatchers.IO).launch {
+        if (intent.action != Intent.ACTION_BOOT_COMPLETED) return
+        val pendingResult = goAsync()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
                 val enabled = userPreferences.notificationEnabled.first()
                 if (enabled) {
                     val hour = userPreferences.notificationHour.first()
                     val minute = userPreferences.notificationMinute.first()
                     notificationHelper.scheduleReminder(hour, minute)
                 }
+            } finally {
+                pendingResult.finish()
             }
         }
     }

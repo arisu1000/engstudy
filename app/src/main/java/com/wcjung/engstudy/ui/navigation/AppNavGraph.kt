@@ -3,7 +3,7 @@ package com.wcjung.engstudy.ui.navigation
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Badge
@@ -26,9 +26,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.wcjung.engstudy.ui.screen.bookmarks.BookmarksScreen
+import com.wcjung.engstudy.ui.screen.edu.EduFlashCardScreen
+import com.wcjung.engstudy.ui.screen.edu.EduHomeScreen
+import com.wcjung.engstudy.ui.screen.edu.EduQuizScreen
+import com.wcjung.engstudy.ui.screen.edu.EduWordListScreen
 import com.wcjung.engstudy.ui.screen.flashcard.FlashCardScreen
 import com.wcjung.engstudy.ui.screen.home.HomeScreen
 import com.wcjung.engstudy.ui.screen.home.HomeViewModel
+import com.wcjung.engstudy.ui.screen.placementtest.PlacementTestScreen
 import com.wcjung.engstudy.ui.screen.quiz.QuizScreen
 import com.wcjung.engstudy.ui.screen.review.ReviewScreen
 import com.wcjung.engstudy.ui.screen.spelling.SpellingQuizScreen
@@ -38,6 +43,7 @@ import com.wcjung.engstudy.ui.screen.statistics.StatisticsScreen
 import com.wcjung.engstudy.ui.screen.study.StudyScreen
 import com.wcjung.engstudy.ui.screen.worddetail.WordDetailScreen
 import com.wcjung.engstudy.ui.screen.wordlist.WordListScreen
+import com.wcjung.engstudy.ui.screen.wronganswer.WrongAnswerScreen
 
 data class BottomNavItem(
     val screen: Screen,
@@ -53,7 +59,7 @@ fun EngStudyNavHost() {
 
     val bottomNavItems = listOf(
         BottomNavItem(Screen.Home, "홈", Icons.Default.Home),
-        BottomNavItem(Screen.Study, "학습", Icons.Default.MenuBook),
+        BottomNavItem(Screen.Study, "학습", Icons.AutoMirrored.Filled.MenuBook),
         BottomNavItem(Screen.Review, "복습", Icons.Default.Refresh),
         BottomNavItem(Screen.Profile, "프로필", Icons.Default.Person)
     )
@@ -107,28 +113,30 @@ fun EngStudyNavHost() {
         ) {
             composable<Screen.Home> {
                 HomeScreen(
-                    onNavigateToWordList = { domain, ageGroup ->
-                        navController.navigate(Screen.WordList(domain, ageGroup))
+                    onNavigateToWordList = { domain, stage ->
+                        navController.navigate(Screen.WordList(domain, stage))
                     },
                     onNavigateToSearch = { navController.navigate(Screen.Search) },
                     onNavigateToWordDetail = { wordId ->
                         navController.navigate(Screen.WordDetail(wordId))
-                    }
+                    },
+                    onNavigateToEdu = { navController.navigate(Screen.EduHome) },
+                    onNavigateToPlacementTest = { navController.navigate(Screen.PlacementTest) }
                 )
             }
             composable<Screen.Study> {
                 StudyScreen(
-                    onStartFlashCard = { domain, ageGroup ->
-                        navController.navigate(Screen.FlashCard(domain, ageGroup))
+                    onStartFlashCard = { domain, stage ->
+                        navController.navigate(Screen.FlashCard(domain, stage))
                     },
-                    onStartQuiz = { domain, ageGroup ->
-                        navController.navigate(Screen.Quiz(domain, ageGroup))
+                    onStartQuiz = { domain, stage ->
+                        navController.navigate(Screen.Quiz(domain, stage))
                     },
-                    onStartSpellingQuiz = { domain, ageGroup ->
-                        navController.navigate(Screen.SpellingQuiz(domain, ageGroup))
+                    onStartSpellingQuiz = { domain, stage ->
+                        navController.navigate(Screen.SpellingQuiz(domain, stage))
                     },
-                    onNavigateToWordList = { domain, ageGroup ->
-                        navController.navigate(Screen.WordList(domain, ageGroup))
+                    onNavigateToWordList = { domain, stage ->
+                        navController.navigate(Screen.WordList(domain, stage))
                     }
                 )
             }
@@ -144,7 +152,8 @@ fun EngStudyNavHost() {
                     onNavigateToStatistics = { navController.navigate(Screen.Statistics) },
                     onNavigateToBookmarks = { navController.navigate(Screen.Bookmarks) },
                     onNavigateToSettings = { navController.navigate(Screen.Settings) },
-                    onNavigateToSearch = { navController.navigate(Screen.Search) }
+                    onNavigateToSearch = { navController.navigate(Screen.Search) },
+                    onNavigateToWrongAnswers = { navController.navigate(Screen.WrongAnswers) }
                 )
             }
             composable<Screen.WordList> {
@@ -201,6 +210,46 @@ fun EngStudyNavHost() {
                     onNavigateBack = { navController.popBackStack() }
                 )
             }
+            composable<Screen.WrongAnswers> {
+                WrongAnswerScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.PlacementTest> {
+                PlacementTestScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onTestComplete = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.EduHome> {
+                EduHomeScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToWordList = { level ->
+                        navController.navigate(Screen.EduWordList(level))
+                    },
+                    onNavigateToFlashCard = { level ->
+                        navController.navigate(Screen.EduFlashCard(level))
+                    },
+                    onNavigateToQuiz = { level ->
+                        navController.navigate(Screen.EduQuiz(level))
+                    }
+                )
+            }
+            composable<Screen.EduWordList> {
+                EduWordListScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.EduFlashCard> {
+                EduFlashCardScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.EduQuiz> {
+                EduQuizScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
         }
     }
 }
@@ -210,12 +259,14 @@ fun ProfileScreen(
     onNavigateToStatistics: () -> Unit,
     onNavigateToBookmarks: () -> Unit,
     onNavigateToSettings: () -> Unit,
-    onNavigateToSearch: () -> Unit
+    onNavigateToSearch: () -> Unit,
+    onNavigateToWrongAnswers: () -> Unit
 ) {
     com.wcjung.engstudy.ui.screen.profile.ProfileScreen(
         onNavigateToStatistics = onNavigateToStatistics,
         onNavigateToBookmarks = onNavigateToBookmarks,
         onNavigateToSettings = onNavigateToSettings,
-        onNavigateToSearch = onNavigateToSearch
+        onNavigateToSearch = onNavigateToSearch,
+        onNavigateToWrongAnswers = onNavigateToWrongAnswers
     )
 }

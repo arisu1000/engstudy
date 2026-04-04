@@ -7,6 +7,7 @@ import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
+import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
 import com.wcjung.engstudy.util.TtsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,6 +21,7 @@ import javax.inject.Inject
 class ReviewViewModel @Inject constructor(
     private val learningRepository: LearningRepository,
     private val spacedRepetition: CalculateSpacedRepetitionUseCase,
+    private val updateStreak: UpdateStreakUseCase,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
@@ -31,6 +33,9 @@ class ReviewViewModel @Inject constructor(
 
     private val _isFlipped = MutableStateFlow(false)
     val isFlipped: StateFlow<Boolean> = _isFlipped
+
+    private val _isFinished = MutableStateFlow(false)
+    val isFinished: StateFlow<Boolean> = _isFinished
 
     val currentWord: Word?
         get() = dueWords.value.getOrNull(_currentIndex.value)
@@ -59,9 +64,14 @@ class ReviewViewModel @Inject constructor(
                     isLearned = result.intervalDays >= 21
                 )
             )
+            updateStreak()
 
             _isFlipped.value = false
-            _currentIndex.value = _currentIndex.value + 1
+            val nextIndex = _currentIndex.value + 1
+            _currentIndex.value = nextIndex
+            if (nextIndex >= dueWords.value.size) {
+                _isFinished.value = true
+            }
         }
     }
 }

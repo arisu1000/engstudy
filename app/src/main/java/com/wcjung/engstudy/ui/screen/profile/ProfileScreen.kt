@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.EditNote
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
@@ -33,7 +34,8 @@ fun ProfileScreen(
     onNavigateToStatistics: () -> Unit,
     onNavigateToBookmarks: () -> Unit,
     onNavigateToSettings: () -> Unit,
-    onNavigateToSearch: () -> Unit
+    onNavigateToSearch: () -> Unit,
+    onNavigateToWrongAnswers: () -> Unit = {}
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(title = { Text("프로필") })
@@ -50,6 +52,12 @@ fun ProfileScreen(
                 title = "즐겨찾기",
                 subtitle = "저장한 단어를 확인합니다",
                 onClick = onNavigateToBookmarks
+            )
+            ProfileMenuItem(
+                icon = Icons.Default.EditNote,
+                title = "오답 노트",
+                subtitle = "퀴즈에서 틀린 단어를 확인합니다",
+                onClick = onNavigateToWrongAnswers
             )
             ProfileMenuItem(
                 icon = Icons.Default.Search,

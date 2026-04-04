@@ -17,15 +17,15 @@ interface WordDao {
     @Query(
         """
         SELECT * FROM words
-        WHERE (:domain IS NULL OR domain = :domain)
-        AND (:ageGroup IS NULL OR age_group = :ageGroup)
+        WHERE (:stage IS NULL OR stage = :stage)
+        AND (:domain IS NULL OR domain = :domain)
         ORDER BY frequency_rank ASC
         LIMIT :limit OFFSET :offset
         """
     )
     fun getWordsByFilter(
+        stage: Int? = null,
         domain: String? = null,
-        ageGroup: String? = null,
         limit: Int = 50,
         offset: Int = 0
     ): Flow<List<WordEntity>>
@@ -34,7 +34,7 @@ interface WordDao {
         """
         SELECT * FROM words
         WHERE word LIKE '%' || :query || '%'
-        OR meaning_ko LIKE '%' || :query || '%'
+        OR meaning LIKE '%' || :query || '%'
         ORDER BY frequency_rank ASC
         LIMIT 50
         """
@@ -45,7 +45,7 @@ interface WordDao {
         """
         SELECT * FROM words
         WHERE id NOT IN (SELECT word_id FROM learning_progress WHERE is_learned = 1)
-        AND (:ageGroup IS NULL OR age_group = :ageGroup)
+        AND (:stage IS NULL OR stage = :stage)
         AND (:domain IS NULL OR domain = :domain)
         ORDER BY frequency_rank ASC
         LIMIT :count
@@ -53,21 +53,30 @@ interface WordDao {
     )
     fun getNewWordsForStudy(
         count: Int = 20,
-        ageGroup: String? = null,
+        stage: Int? = null,
         domain: String? = null
     ): Flow<List<WordEntity>>
 
     @Query("SELECT COUNT(*) FROM words")
     fun getTotalWordCount(): Flow<Int>
 
+    @Query("SELECT COUNT(*) FROM words WHERE stage = :stage")
+    fun getWordCountByStage(stage: Int): Flow<Int>
+
     @Query("SELECT COUNT(*) FROM words WHERE domain = :domain")
     fun getWordCountByDomain(domain: String): Flow<Int>
 
-    @Query("SELECT COUNT(*) FROM words WHERE age_group = :ageGroup")
-    fun getWordCountByAgeGroup(ageGroup: String): Flow<Int>
-
-    @Query("SELECT * FROM words WHERE id = (ABS(:dateSeed) % (SELECT COUNT(*) FROM words)) + 1")
+    @Query("SELECT * FROM words ORDER BY id ASC LIMIT 1 OFFSET (ABS(:dateSeed) % (SELECT COUNT(*) FROM words))")
     suspend fun getWordOfTheDay(dateSeed: Long): WordEntity?
+
+    @Query(
+        """
+        SELECT * FROM words
+        WHERE stage = :stage AND id != :excludeId
+        ORDER BY RANDOM() LIMIT :count
+        """
+    )
+    suspend fun getRandomWordsInStage(stage: Int, excludeId: Int, count: Int = 3): List<WordEntity>
 
     @Query(
         """
@@ -78,12 +87,19 @@ interface WordDao {
     )
     suspend fun getRandomWordsInDomain(domain: String, excludeId: Int, count: Int = 3): List<WordEntity>
 
-    @Query("SELECT * FROM words WHERE age_group = :ageGroup AND id != :excludeId ORDER BY RANDOM() LIMIT :count")
-    suspend fun getRandomWordsInAgeGroup(ageGroup: String, excludeId: Int, count: Int = 3): List<WordEntity>
-
     @Query("SELECT DISTINCT domain FROM words ORDER BY domain")
     fun getAllDomains(): Flow<List<String>>
 
-    @Query("SELECT DISTINCT age_group FROM words ORDER BY age_group")
-    fun getAllAgeGroups(): Flow<List<String>>
+    @Query("SELECT DISTINCT stage FROM words ORDER BY stage")
+    fun getAllStages(): Flow<List<Int>>
+
+    @Query(
+        """
+        SELECT * FROM words
+        WHERE stage = :stage
+        ORDER BY RANDOM()
+        LIMIT :count
+        """
+    )
+    suspend fun getRandomWordsByStage(stage: Int, count: Int = 10): List<WordEntity>
 }

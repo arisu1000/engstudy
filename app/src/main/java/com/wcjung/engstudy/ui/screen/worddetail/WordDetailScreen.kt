@@ -13,8 +13,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.VolumeUp
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,6 +42,7 @@ fun WordDetailScreen(
 ) {
     val word by viewModel.word.collectAsState()
     val isBookmarked by viewModel.isBookmarked.collectAsState()
+    val isMarkedAsKnown by viewModel.isMarkedAsKnown.collectAsState()
 
     Scaffold(
         topBar = {
@@ -87,7 +90,7 @@ fun WordDetailScreen(
                                 style = MaterialTheme.typography.headlineLarge
                             )
                             IconButton(onClick = { viewModel.ttsManager.speak(w.word) }) {
-                                Icon(Icons.Default.VolumeUp, contentDescription = "발음 듣기")
+                                Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "발음 듣기")
                             }
                         }
                         Text(
@@ -103,7 +106,7 @@ fun WordDetailScreen(
                         )
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = w.meaningKo,
+                            text = w.meaning,
                             style = MaterialTheme.typography.titleLarge,
                             color = MaterialTheme.colorScheme.onPrimaryContainer
                         )
@@ -115,7 +118,7 @@ fun WordDetailScreen(
                     Text(text = w.exampleEn, style = MaterialTheme.typography.bodyLarge)
                     IconButton(onClick = { viewModel.ttsManager.speak(w.exampleEn) }) {
                         Icon(
-                            Icons.Default.VolumeUp,
+                            Icons.AutoMirrored.Filled.VolumeUp,
                             contentDescription = "예문 듣기",
                             tint = MaterialTheme.colorScheme.primary
                         )
@@ -154,13 +157,26 @@ fun WordDetailScreen(
                     }
                 }
 
+                // "이미 알아요" 버튼
+                Button(
+                    onClick = { viewModel.markAsKnown() },
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = !isMarkedAsKnown,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                        contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+                    )
+                ) {
+                    Text(if (isMarkedAsKnown) "학습 완료됨" else "이미 알아요")
+                }
+
                 // 메타 정보
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     InfoChip(label = "분야", value = w.domain.displayNameKo)
-                    InfoChip(label = "수준", value = w.ageGroup.displayNameKo)
+                    InfoChip(label = "단계", value = w.stage.displayNameKo)
                     InfoChip(label = "빈도", value = "#${w.frequencyRank}")
                 }
 

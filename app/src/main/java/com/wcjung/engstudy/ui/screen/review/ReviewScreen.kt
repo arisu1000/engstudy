@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.VolumeUp
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -46,6 +46,7 @@ fun ReviewScreen(
     val dueWords by viewModel.dueWords.collectAsState()
     val currentIndex by viewModel.currentIndex.collectAsState()
     val isFlipped by viewModel.isFlipped.collectAsState()
+    val isFinished by viewModel.isFinished.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(
@@ -54,8 +55,8 @@ fun ReviewScreen(
             }
         )
 
-        if (dueWords.isEmpty() || currentIndex >= dueWords.size) {
-            // 복습할 단어 없음
+        if (isFinished || dueWords.isEmpty() || currentIndex >= dueWords.size) {
+            // 복습 완료 또는 복습할 단어 없음
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -70,13 +71,13 @@ fun ReviewScreen(
                         modifier = Modifier.padding(16.dp)
                     )
                     Text(
-                        text = if (currentIndex > 0) "복습 완료!" else "복습할 단어가 없습니다",
+                        text = if (isFinished || currentIndex > 0) "복습 완료!" else "복습할 단어가 없습니다",
                         style = MaterialTheme.typography.headlineSmall,
                         textAlign = TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = if (currentIndex > 0) "${currentIndex}개 단어를 복습했습니다"
+                        text = if (isFinished || currentIndex > 0) "${currentIndex}개 단어를 복습했습니다"
                         else "새로운 단어를 학습하면 복습 일정이 생성됩니다",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -138,7 +139,7 @@ fun ReviewScreen(
                                     )
                                     Spacer(modifier = Modifier.height(16.dp))
                                     IconButton(onClick = { viewModel.ttsManager.speak(word.word) }) {
-                                        Icon(Icons.Default.VolumeUp, contentDescription = "발음 듣기")
+                                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "발음 듣기")
                                     }
                                 }
                             } else {
@@ -149,7 +150,7 @@ fun ReviewScreen(
                                         .graphicsLayer { rotationY = 180f }
                                 ) {
                                     Text(
-                                        text = word.meaningKo,
+                                        text = word.meaning,
                                         style = MaterialTheme.typography.headlineMedium,
                                         textAlign = TextAlign.Center
                                     )

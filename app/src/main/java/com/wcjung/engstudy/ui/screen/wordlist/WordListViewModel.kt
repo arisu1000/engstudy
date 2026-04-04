@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
+import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.ui.navigation.Screen
 import com.wcjung.engstudy.util.TtsManager
@@ -13,6 +14,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,12 +24,13 @@ class WordListViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val wordRepository: WordRepository,
     private val bookmarkRepository: BookmarkRepository,
+    private val learningRepository: LearningRepository,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.WordList>()
     val domain: String? = route.domain
-    val ageGroup: String? = route.ageGroup
+    val stage: Int? = route.stage
 
     private val _words = MutableStateFlow<List<Word>>(emptyList())
     val words: StateFlow<List<Word>> = _words
@@ -46,7 +49,7 @@ class WordListViewModel @Inject constructor(
         viewModelScope.launch {
             wordRepository.getWordsByFilter(
                 domain = domain,
-                ageGroup = ageGroup,
+                stage = stage,
                 limit = pageSize,
                 offset = currentOffset
             ).collect { words ->
@@ -56,12 +59,21 @@ class WordListViewModel @Inject constructor(
         }
     }
 
+    val bookmarkedIds: StateFlow<Set<Int>> = bookmarkRepository.getBookmarkedWords()
+        .map { words -> words.map { it.id }.toSet() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
+
     fun toggleBookmark(wordId: Int) {
         viewModelScope.launch {
             bookmarkRepository.toggleBookmark(wordId)
         }
     }
 
-    fun isBookmarked(wordId: Int) = bookmarkRepository.isBookmarked(wordId)
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+    fun markAsKnown(wordId: Int) {
+        viewModelScope.launch {
+            learningRepository.markAsKnown(wordId)
+            // 이미 알아요로 표시한 단어를 목록에서 제거
+            _words.value = _words.value.filter { it.id != wordId }
+        }
+    }
 }

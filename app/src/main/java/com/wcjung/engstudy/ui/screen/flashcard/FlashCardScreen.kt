@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.VolumeUp
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -27,6 +27,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -145,7 +146,7 @@ fun FlashCardScreen(
                                     )
                                     Spacer(modifier = Modifier.height(16.dp))
                                     IconButton(onClick = { viewModel.ttsManager.speak(word.word) }) {
-                                        Icon(Icons.Default.VolumeUp, contentDescription = "발음 듣기")
+                                        Icon(Icons.AutoMirrored.Filled.VolumeUp, contentDescription = "발음 듣기")
                                     }
                                     Spacer(modifier = Modifier.height(16.dp))
                                     Text(
@@ -163,7 +164,7 @@ fun FlashCardScreen(
                                         .graphicsLayer { rotationY = 180f }
                                 ) {
                                     Text(
-                                        text = word.meaningKo,
+                                        text = word.meaning,
                                         style = MaterialTheme.typography.headlineMedium,
                                         textAlign = TextAlign.Center
                                     )
@@ -192,6 +193,16 @@ fun FlashCardScreen(
 
                     Spacer(modifier = Modifier.height(16.dp))
 
+                    // "이미 알아요" 버튼 (앞면에서도 표시)
+                    if (!isFlipped) {
+                        TextButton(
+                            onClick = { viewModel.markAsKnown() },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("이미 알아요")
+                        }
+                    }
+
                     // 평가 버튼 (뒷면일 때만 표시)
                     if (isFlipped) {
                         Row(
@@ -217,6 +228,12 @@ fun FlashCardScreen(
                                 onClick = { viewModel.rate(SimpleRating.EASY) },
                                 modifier = Modifier.weight(1f)
                             ) { Text("쉬움") }
+                        }
+                        TextButton(
+                            onClick = { viewModel.markAsKnown() },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("이미 알아요")
                         }
                     }
                 }

@@ -97,7 +97,7 @@ fun SpellingQuizScreen(
                             )
                             Spacer(modifier = Modifier.height(16.dp))
                             Text(
-                                text = word.meaningKo,
+                                text = word.meaning,
                                 style = MaterialTheme.typography.headlineMedium,
                                 textAlign = TextAlign.Center
                             )
@@ -195,7 +195,7 @@ private fun FinishedContent(
             Spacer(modifier = Modifier.height(16.dp))
             Text("틀린 단어:", style = MaterialTheme.typography.titleSmall)
             viewModel.getIncorrectWords().forEach { word ->
-                Text("${word.word} - ${word.meaningKo}")
+                Text("${word.word} - ${word.meaning}")
             }
         }
 

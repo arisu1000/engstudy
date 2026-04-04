@@ -27,11 +27,18 @@ class SettingsViewModel @Inject constructor(
     val dailyGoal: StateFlow<Int> = userPreferences.dailyGoal
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 20)
 
+    val themeMode: StateFlow<String> = userPreferences.themeMode
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), "system")
+
     val notificationEnabled: StateFlow<Boolean> = userPreferences.notificationEnabled
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
 
     fun setDarkMode(enabled: Boolean) {
         viewModelScope.launch { userPreferences.setDarkMode(enabled) }
+    }
+
+    fun setThemeMode(mode: String) {
+        viewModelScope.launch { userPreferences.setThemeMode(mode) }
     }
 
     fun setTtsSpeed(speed: Float) {

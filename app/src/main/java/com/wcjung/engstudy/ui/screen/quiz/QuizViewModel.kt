@@ -7,9 +7,11 @@ import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.LearningRepository
+import com.wcjung.engstudy.domain.repository.WrongAnswerRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
+import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,7 +32,9 @@ class QuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val wordRepository: WordRepository,
     private val learningRepository: LearningRepository,
-    private val spacedRepetition: CalculateSpacedRepetitionUseCase
+    private val spacedRepetition: CalculateSpacedRepetitionUseCase,
+    private val updateStreak: UpdateStreakUseCase,
+    private val wrongAnswerRepository: WrongAnswerRepository
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.Quiz>()
@@ -62,23 +66,23 @@ class QuizViewModel @Inject constructor(
         viewModelScope.launch {
             val words = wordRepository.getNewWordsForStudy(
                 count = 20,
-                ageGroup = route.ageGroup,
+                stage = route.stage,
                 domain = route.domain
             ).first()
 
             val questions = words.mapIndexed { index, word ->
                 val isEnToKo = index % 2 == 0
-                val distractors = wordRepository.getRandomWordsInDomain(
-                    domain = word.domain.key,
+                val distractors = wordRepository.getRandomWordsInStage(
+                    stage = word.stage.level,
                     excludeId = word.id,
                     count = 3
                 )
                 val options = if (isEnToKo) {
-                    (distractors.map { it.meaningKo } + word.meaningKo).shuffled()
+                    (distractors.map { it.meaning } + word.meaning).shuffled()
                 } else {
                     (distractors.map { it.word } + word.word).shuffled()
                 }
-                val correctAnswer = if (isEnToKo) word.meaningKo else word.word
+                val correctAnswer = if (isEnToKo) word.meaning else word.word
                 QuizQuestion(
                     word = word,
                     options = options,
@@ -104,9 +108,19 @@ class QuizViewModel @Inject constructor(
             val quality = spacedRepetition.qualityFromSimpleRating(rating)
             val result = spacedRepetition.calculate(progress, quality)
 
-            if (isCorrect) correctCount++ else {
+            if (isCorrect) {
+                correctCount++
+            } else {
                 incorrectCount++
                 incorrectWords.add(question.word)
+                val userAnswer = question.options[index]
+                val correctAnswer = question.options[question.correctIndex]
+                wrongAnswerRepository.insertWrongAnswer(
+                    wordId = question.word.id,
+                    wrongAnswer = userAnswer,
+                    correctAnswer = correctAnswer,
+                    quizType = "quiz"
+                )
             }
 
             learningRepository.updateProgress(
@@ -121,6 +135,7 @@ class QuizViewModel @Inject constructor(
                     isLearned = result.intervalDays >= 21
                 )
             )
+            updateStreak()
         }
     }
 

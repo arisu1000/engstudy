@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
+import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.ui.navigation.Screen
 import com.wcjung.engstudy.util.TtsManager
@@ -22,6 +23,7 @@ class WordDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val wordRepository: WordRepository,
     private val bookmarkRepository: BookmarkRepository,
+    private val learningRepository: LearningRepository,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
@@ -43,6 +45,16 @@ class WordDetailViewModel @Inject constructor(
     fun toggleBookmark() {
         viewModelScope.launch {
             bookmarkRepository.toggleBookmark(wordId)
+        }
+    }
+
+    private val _isMarkedAsKnown = MutableStateFlow(false)
+    val isMarkedAsKnown: StateFlow<Boolean> = _isMarkedAsKnown
+
+    fun markAsKnown() {
+        viewModelScope.launch {
+            learningRepository.markAsKnown(wordId)
+            _isMarkedAsKnown.value = true
         }
     }
 }

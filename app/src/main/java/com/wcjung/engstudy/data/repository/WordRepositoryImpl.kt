@@ -14,58 +14,49 @@ class WordRepositoryImpl @Inject constructor(
 ) : WordRepository {
 
     override fun getWordsByFilter(
+        stage: Int?,
         domain: String?,
-        ageGroup: String?,
         limit: Int,
         offset: Int
     ): Flow<List<Word>> =
-        wordDao.getWordsByFilter(domain, ageGroup, limit, offset).map { entities ->
-            entities.map { it.toDomain() }
-        }
+        wordDao.getWordsByFilter(stage, domain, limit, offset)
+            .map { entities -> entities.map { it.toDomain() } }
 
     override fun searchWords(query: String): Flow<List<Word>> =
-        wordDao.searchWords(query).map { entities ->
-            entities.map { it.toDomain() }
-        }
+        wordDao.searchWords(query).map { entities -> entities.map { it.toDomain() } }
 
     override fun getNewWordsForStudy(
         count: Int,
-        ageGroup: String?,
+        stage: Int?,
         domain: String?
     ): Flow<List<Word>> =
-        wordDao.getNewWordsForStudy(count, ageGroup, domain).map { entities ->
-            entities.map { it.toDomain() }
-        }
+        wordDao.getNewWordsForStudy(count, stage, domain)
+            .map { entities -> entities.map { it.toDomain() } }
 
     override suspend fun getWordById(id: Int): Word? =
         wordDao.getWordById(id)?.toDomain()
 
     override suspend fun getWordOfTheDay(): Word? {
-        val today = LocalDate.now()
-        val seed = today.toEpochDay()
+        val seed = LocalDate.now().toEpochDay()
         return wordDao.getWordOfTheDay(seed)?.toDomain()
     }
 
-    override suspend fun getRandomWordsInDomain(
-        domain: String,
-        excludeId: Int,
-        count: Int
-    ): List<Word> =
-        wordDao.getRandomWordsInDomain(domain, excludeId, count).map { it.toDomain() }
+    override suspend fun getRandomWordsInStage(stage: Int, excludeId: Int, count: Int): List<Word> =
+        wordDao.getRandomWordsInStage(stage, excludeId, count).map { it.toDomain() }
 
-    override suspend fun getRandomWordsInAgeGroup(
-        ageGroup: String,
-        excludeId: Int,
-        count: Int
-    ): List<Word> =
-        wordDao.getRandomWordsInAgeGroup(ageGroup, excludeId, count).map { it.toDomain() }
+    override suspend fun getRandomWordsInDomain(domain: String, excludeId: Int, count: Int): List<Word> =
+        wordDao.getRandomWordsInDomain(domain, excludeId, count).map { it.toDomain() }
 
     override fun getTotalWordCount(): Flow<Int> = wordDao.getTotalWordCount()
 
-    override fun getWordCountByDomain(domain: String): Flow<Int> =
-        wordDao.getWordCountByDomain(domain)
+    override fun getWordCountByStage(stage: Int): Flow<Int> = wordDao.getWordCountByStage(stage)
+
+    override fun getWordCountByDomain(domain: String): Flow<Int> = wordDao.getWordCountByDomain(domain)
 
     override fun getAllDomains(): Flow<List<String>> = wordDao.getAllDomains()
 
-    override fun getAllAgeGroups(): Flow<List<String>> = wordDao.getAllAgeGroups()
+    override fun getAllStages(): Flow<List<Int>> = wordDao.getAllStages()
+
+    override suspend fun getRandomWordsByStage(stage: Int, count: Int): List<Word> =
+        wordDao.getRandomWordsByStage(stage, count).map { it.toDomain() }
 }

@@ -8,6 +8,6 @@ data class StudyStatistics(
     val totalStudyDays: Int,
     val todayReviewedCount: Int,
     val streakDays: Int,
-    val learnedByDomain: Map<Domain, Int>,
-    val learnedByAgeGroup: Map<AgeGroup, Int>
+    val learnedByStage: Map<Stage, Int>,
+    val learnedByDomain: Map<Domain, Int>
 )

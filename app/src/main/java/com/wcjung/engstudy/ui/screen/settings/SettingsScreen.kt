@@ -1,5 +1,6 @@
 package com.wcjung.engstudy.ui.screen.settings
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -35,6 +37,7 @@ fun SettingsScreen(
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val darkMode by viewModel.darkMode.collectAsState()
+    val themeMode by viewModel.themeMode.collectAsState()
     val ttsSpeed by viewModel.ttsSpeed.collectAsState()
     val dailyGoal by viewModel.dailyGoal.collectAsState()
     val notificationEnabled by viewModel.notificationEnabled.collectAsState()
@@ -58,13 +61,27 @@ fun SettingsScreen(
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
-            // 다크 모드
-            SettingsSwitch(
-                title = "다크 모드",
-                subtitle = "어두운 화면 테마를 사용합니다",
-                checked = darkMode,
-                onCheckedChange = { viewModel.setDarkMode(it) }
+            // 테마 모드
+            Text("화면 테마", style = MaterialTheme.typography.titleSmall)
+            Text(
+                text = "앱의 밝기 테마를 선택합니다",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                val themeModes = listOf("system" to "시스템", "light" to "라이트", "dark" to "다크")
+                themeModes.forEach { (mode, label) ->
+                    FilterChip(
+                        selected = themeMode == mode,
+                        onClick = { viewModel.setThemeMode(mode) },
+                        label = { Text(label) }
+                    )
+                }
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -95,7 +112,7 @@ fun SettingsScreen(
             Slider(
                 value = dailyGoal.toFloat(),
                 onValueChange = { viewModel.setDailyGoal(it.toInt()) },
-                valueRange = 5f..50f,
+                valueRange = 10f..100f,
                 steps = 8,
                 modifier = Modifier.fillMaxWidth()
             )

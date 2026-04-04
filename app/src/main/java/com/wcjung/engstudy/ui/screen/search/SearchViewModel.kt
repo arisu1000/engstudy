@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -36,12 +37,13 @@ class SearchViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
+    val bookmarkedIds: StateFlow<Set<Int>> = bookmarkRepository.getBookmarkedWords()
+        .map { words -> words.map { it.id }.toSet() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
+
     fun updateQuery(query: String) {
         _query.value = query
     }
-
-    fun isBookmarked(wordId: Int) = bookmarkRepository.isBookmarked(wordId)
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
 
     fun toggleBookmark(wordId: Int) {
         viewModelScope.launch {

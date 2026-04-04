@@ -37,6 +37,7 @@ fun SearchScreen(
 ) {
     val query by viewModel.query.collectAsState()
     val results by viewModel.searchResults.collectAsState()
+    val bookmarkedIds by viewModel.bookmarkedIds.collectAsState()
 
     Scaffold(
         topBar = {
@@ -92,10 +93,9 @@ fun SearchScreen(
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     items(results, key = { it.id }) { word ->
-                        val isBookmarked by viewModel.isBookmarked(word.id).collectAsState()
                         WordCard(
                             word = word,
-                            isBookmarked = isBookmarked,
+                            isBookmarked = bookmarkedIds.contains(word.id),
                             onTap = { onNavigateToWordDetail(word.id) },
                             onSpeak = { viewModel.ttsManager.speak(word.word) },
                             onToggleBookmark = { viewModel.toggleBookmark(word.id) }

@@ -10,6 +10,7 @@ import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
+import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
 import com.wcjung.engstudy.util.TtsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,6 +26,7 @@ class FlashCardViewModel @Inject constructor(
     private val wordRepository: WordRepository,
     private val learningRepository: LearningRepository,
     private val spacedRepetition: CalculateSpacedRepetitionUseCase,
+    private val updateStreak: UpdateStreakUseCase,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
@@ -56,7 +58,7 @@ class FlashCardViewModel @Inject constructor(
         viewModelScope.launch {
             val words = wordRepository.getNewWordsForStudy(
                 count = 20,
-                ageGroup = route.ageGroup,
+                stage = route.stage,
                 domain = route.domain
             ).first()
             _words.value = words
@@ -89,6 +91,7 @@ class FlashCardViewModel @Inject constructor(
                     isLearned = result.intervalDays >= 21
                 )
             )
+            updateStreak()
 
             moveToNext()
         }
@@ -101,6 +104,15 @@ class FlashCardViewModel @Inject constructor(
             _isFinished.value = true
         } else {
             _currentIndex.value = nextIndex
+        }
+    }
+
+    fun markAsKnown() {
+        val word = currentWord ?: return
+        viewModelScope.launch {
+            learningRepository.markAsKnown(word.id)
+            correctCount++
+            moveToNext()
         }
     }
 

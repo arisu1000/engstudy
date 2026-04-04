@@ -9,7 +9,7 @@ import androidx.compose.material.icons.filled.Flight
 import androidx.compose.material.icons.filled.Gavel
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocalHospital
-import androidx.compose.material.icons.filled.MenuBook
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material.icons.filled.Science
@@ -52,7 +52,7 @@ fun Domain.icon(): ImageVector = when (this) {
     Domain.TECHNOLOGY -> Icons.Default.Computer
     Domain.MEDICINE -> Icons.Default.LocalHospital
     Domain.LAW -> Icons.Default.Gavel
-    Domain.EDUCATION -> Icons.Default.MenuBook
+    Domain.EDUCATION -> Icons.AutoMirrored.Filled.MenuBook
     Domain.ARTS -> Icons.Default.Brush
     Domain.SPORTS -> Icons.Default.SportsBasketball
     Domain.TRAVEL -> Icons.Default.Flight
