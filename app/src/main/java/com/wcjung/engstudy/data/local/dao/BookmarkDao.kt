@@ -1,0 +1,35 @@
+package com.wcjung.engstudy.data.local.dao
+
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.wcjung.engstudy.data.local.entity.BookmarkEntity
+import com.wcjung.engstudy.data.local.entity.WordEntity
+import kotlinx.coroutines.flow.Flow
+
+@Dao
+interface BookmarkDao {
+
+    @Query(
+        """
+        SELECT w.* FROM words w
+        INNER JOIN bookmarks b ON w.id = b.word_id
+        ORDER BY b.created_at DESC
+        """
+    )
+    fun getBookmarkedWords(): Flow<List<WordEntity>>
+
+    @Query("SELECT EXISTS(SELECT 1 FROM bookmarks WHERE word_id = :wordId)")
+    fun isBookmarked(wordId: Int): Flow<Boolean>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addBookmark(bookmark: BookmarkEntity)
+
+    @Query("DELETE FROM bookmarks WHERE word_id = :wordId")
+    suspend fun removeBookmark(wordId: Int)
+
+    @Query("SELECT COUNT(*) FROM bookmarks")
+    fun getBookmarkCount(): Flow<Int>
+}

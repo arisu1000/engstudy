@@ -1,0 +1,19 @@
+package com.wcjung.engstudy.ui.navigation
+
+import kotlinx.serialization.Serializable
+
+sealed interface Screen {
+    @Serializable data object Home : Screen
+    @Serializable data object Study : Screen
+    @Serializable data object Review : Screen
+    @Serializable data object Profile : Screen
+    @Serializable data class WordList(val domain: String? = null, val ageGroup: String? = null) : Screen
+    @Serializable data class WordDetail(val wordId: Int) : Screen
+    @Serializable data class FlashCard(val domain: String? = null, val ageGroup: String? = null) : Screen
+    @Serializable data class Quiz(val domain: String? = null, val ageGroup: String? = null) : Screen
+    @Serializable data class SpellingQuiz(val domain: String? = null, val ageGroup: String? = null) : Screen
+    @Serializable data object Bookmarks : Screen
+    @Serializable data object Search : Screen
+    @Serializable data object Statistics : Screen
+    @Serializable data object Settings : Screen
+}

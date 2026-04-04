@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EngStudy</string>
+    <string name="nav_home">홈</string>
+    <string name="nav_study">학습</string>
+    <string name="nav_review">복습</string>
+    <string name="nav_profile">프로필</string>
+    <string name="word_of_the_day">오늘의 단어</string>
+    <string name="words_learned">학습 완료</string>
+    <string name="due_reviews">복습 예정</string>
+    <string name="streak_days">연속 학습일</string>
+    <string name="flashcard">플래시카드</string>
+    <string name="quiz">퀴즈</string>
+    <string name="spelling">스펠링</string>
+    <string name="bookmarks">즐겨찾기</string>
+    <string name="search">검색</string>
+    <string name="settings">설정</string>
+    <string name="statistics">학습 통계</string>
+    <string name="dark_mode">다크 모드</string>
+    <string name="tts_speed">발음 속도</string>
+    <string name="daily_goal">일일 목표</string>
+    <string name="notification_time">알림 시간</string>
+    <string name="know_it">알아요</string>
+    <string name="dont_know">모르겠어요</string>
+    <string name="again">다시</string>
+    <string name="hard">어려움</string>
+    <string name="good">보통</string>
+    <string name="easy">쉬움</string>
+    <string name="start_study">학습 시작</string>
+    <string name="words">단어</string>
+    <string name="all_domains">전체 분야</string>
+    <string name="all_levels">전체 수준</string>
+    <string name="frequency_order">빈도순</string>
+    <string name="alphabetical_order">알파벳순</string>
+    <string name="example_sentence">예문</string>
+    <string name="synonyms">유의어</string>
+    <string name="antonyms">반의어</string>
+    <string name="no_words_to_review">복습할 단어가 없습니다</string>
+    <string name="tts_not_available">TTS 엔진을 사용할 수 없습니다. 기기 설정에서 TTS를 설치해 주세요.</string>
+</resources>
