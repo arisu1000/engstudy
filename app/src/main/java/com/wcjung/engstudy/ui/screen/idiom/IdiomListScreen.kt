@@ -1,5 +1,7 @@
 package com.wcjung.engstudy.ui.screen.idiom
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,8 +15,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -24,9 +29,13 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -46,6 +55,8 @@ fun IdiomListScreen(
     val idioms by viewModel.idioms.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
+    val knownIds by viewModel.knownIds.collectAsState()
+    val hideKnown by viewModel.hideKnown.collectAsState()
     val typeName = viewModel.type?.let { IdiomType.fromKey(it).displayNameKo } ?: "전체"
 
     Scaffold(
@@ -55,6 +66,14 @@ fun IdiomListScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "뒤로")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { viewModel.toggleHideKnown() }) {
+                        Icon(
+                            if (hideKnown) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                            contentDescription = if (hideKnown) "아는 표현 표시" else "아는 표현 숨기기"
+                        )
                     }
                 }
             )
@@ -99,8 +118,45 @@ fun IdiomListScreen(
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     item { Spacer(modifier = Modifier.height(4.dp)) }
-                    items(idioms) { idiom ->
-                        IdiomCard(idiom)
+                    items(idioms, key = { it.id }) { idiom ->
+                        val isKnown = knownIds.contains(idiom.id)
+                        val dismissState = rememberSwipeToDismissBoxState()
+
+                        LaunchedEffect(dismissState.currentValue) {
+                            if (dismissState.currentValue == SwipeToDismissBoxValue.EndToStart) {
+                                viewModel.markAsKnown(idiom.id)
+                            }
+                        }
+
+                        SwipeToDismissBox(
+                            state = dismissState,
+                            enableDismissFromStartToEnd = false,
+                            backgroundContent = {
+                                val color by animateColorAsState(
+                                    targetValue = when (dismissState.targetValue) {
+                                        SwipeToDismissBoxValue.EndToStart ->
+                                            MaterialTheme.colorScheme.tertiaryContainer
+                                        else -> MaterialTheme.colorScheme.surface
+                                    },
+                                    label = "swipeBg"
+                                )
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(color)
+                                        .padding(horizontal = 20.dp),
+                                    contentAlignment = Alignment.CenterEnd
+                                ) {
+                                    Icon(
+                                        Icons.Default.CheckCircle,
+                                        contentDescription = "이미 알아요",
+                                        tint = MaterialTheme.colorScheme.onTertiaryContainer
+                                    )
+                                }
+                            }
+                        ) {
+                            IdiomCard(idiom = idiom, isKnown = isKnown)
+                        }
                     }
                     item { Spacer(modifier = Modifier.height(16.dp)) }
                 }
@@ -110,7 +166,7 @@ fun IdiomListScreen(
 }
 
 @Composable
-private fun IdiomCard(idiom: Idiom) {
+private fun IdiomCard(idiom: Idiom, isKnown: Boolean = false) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
             Row(
@@ -124,6 +180,14 @@ private fun IdiomCard(idiom: Idiom) {
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.weight(1f)
                 )
+                if (isKnown) {
+                    Icon(
+                        Icons.Default.CheckCircle,
+                        contentDescription = "이미 알아요",
+                        tint = MaterialTheme.colorScheme.tertiary,
+                        modifier = Modifier.padding(end = 4.dp)
+                    )
+                }
                 Card(
                     colors = CardDefaults.cardColors(
                         containerColor = if (idiom.type == IdiomType.PHRASAL_VERB) {

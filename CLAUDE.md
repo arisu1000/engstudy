@@ -26,7 +26,7 @@
 | 언어 | Kotlin 2.1 |
 | UI | Jetpack Compose + Material 3 |
 | 아키텍처 | MVVM + Clean Architecture |
-| DB | Room (pre-populated from assets), version 5 |
+| DB | Room (pre-populated from assets), version 7 |
 | DI | Hilt |
 | Navigation | Compose Navigation (type-safe routes) |
 | 비동기 | Coroutines + Flow |
@@ -39,18 +39,18 @@
 ```
 com.wcjung.engstudy/
 ├── data/
-│   ├── local/          # Room DB, DAOs, Entities (WordEntity, EduWordEntity, IdiomEntity 등)
-│   ├── repository/     # Repository 구현체 (EduWordRepository, IdiomRepository 포함)
+│   ├── local/          # Room DB, DAOs, Entities (WordEntity, EduWordEntity, IdiomEntity, ExampleSentenceEntity, KnownItemEntity 등)
+│   ├── repository/     # Repository 구현체 (EduWordRepository, IdiomRepository, SentenceRepository 포함)
 │   └── datastore/      # DataStore UserPreferences
 ├── domain/
-│   ├── model/          # Domain 모델 (Word, EduWord, EduLevel, Idiom, IdiomType 등)
+│   ├── model/          # Domain 모델 (Word, EduWord, EduLevel, Idiom, IdiomType, ExampleSentence, GrammarLevel 등)
 │   ├── repository/     # Repository 인터페이스
 │   └── usecase/        # SM-2 알고리즘 등 UseCase
 ├── ui/
 │   ├── navigation/     # NavGraph, Screen routes
 │   ├── theme/          # Material 3 테마
 │   ├── components/     # 공유 컴포넌트 (WordCard, DomainChip, ComboEffect, LevelUpEffect)
-│   └── screen/         # 22개 화면 (home, study, flashcard, quiz, spelling, review, wordlist, worddetail, bookmarks, search, statistics, settings, profile, eduhome, eduwordlist, eduflashcard, eduquiz, wronganswer, challenge, idiomhome, idiomlist, idiomquiz)
+│   └── screen/         # 24개 화면 (home, study, flashcard, quiz, spelling, review, wordlist, worddetail, bookmarks, search, statistics, settings, profile, eduhome, eduwordlist, eduflashcard, eduquiz, wronganswer, challenge, idiomhome, idiomlist, idiomquiz, grammarhome, grammarlist)
 ├── util/               # TtsManager, NotificationHelper, Receivers
 └── di/                 # Hilt 모듈 (App, Database, Repository)
 ```
@@ -59,7 +59,7 @@ com.wcjung.engstudy/
 
 - `assets/databases/engstudy.db`에 사전 생성된 SQLite DB 탑재
 - `Room.databaseBuilder().createFromAsset()` 사용
-- DB version 6 / `fallbackToDestructiveMigration()` 적용 (개발 중 파괴적 마이그레이션 허용)
+- DB version 7 / `fallbackToDestructiveMigration()` 적용 (개발 중 파괴적 마이그레이션 허용)
 - 단어 데이터 생성: `scripts/build_word_db.py` — wordfreq, MUSE en-ko 사전, kengdic 외부 소스를 조합하여 14,060개 단어 생성
 
 ### 스키마 요약
@@ -83,6 +83,16 @@ com.wcjung.engstudy/
 - `type`: `'idiom'` 또는 `'phrasal_verb'`
 - `meaning_type`: 의미 언어 (`'en'` 또는 `'ko'`)
 - `category`: 분류 (`'daily'` 등)
+
+**`example_sentences` 테이블** (v7 추가)
+- 문법 주제별 영한 예문 5,108개
+- `grammar_topic`: 영문 문법 주제, `grammar_topic_ko`: 한국어 주제명
+- `level`: 난이도 (`'초급'`, `'중급'`, `'고급'`)
+
+**`known_items` 테이블** (v7 추가)
+- edu_words, idioms 등에 대한 "이미 알아요" 범용 추적
+- `item_id` + `item_type`(unique): `'edu_word'`, `'idiom'` 등
+- `marked_at`: 마킹 시점 timestamp
 
 ### 외부 데이터 소스
 - **wordfreq** (Python 라이브러리): 빈도 점수 기반 Stage 분류
@@ -118,7 +128,7 @@ SM-2 간격반복: `CalculateSpacedRepetitionUseCase`
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
-- Room DB version 4, `fallbackToDestructiveMigration()` 사용 중 — 정식 마이그레이션 경로 미작성
+- Room DB version 7, `fallbackToDestructiveMigration()` 사용 중 — 정식 마이그레이션 경로 미작성
 - `words` 스키마에서 `age_group` 제거, `meaning_ko` → `meaning`으로 컬럼명 변경됨
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요
 - `scripts/build_word_db.py` 실행 전 `wordfreq`, `muse`, `kengdic` 등 Python 의존성 설치 필요

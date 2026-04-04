@@ -32,6 +32,8 @@ import com.wcjung.engstudy.ui.screen.edu.EduHomeScreen
 import com.wcjung.engstudy.ui.screen.edu.EduQuizScreen
 import com.wcjung.engstudy.ui.screen.edu.EduWordListScreen
 import com.wcjung.engstudy.ui.screen.flashcard.FlashCardScreen
+import com.wcjung.engstudy.ui.screen.grammar.GrammarHomeScreen
+import com.wcjung.engstudy.ui.screen.grammar.GrammarListScreen
 import com.wcjung.engstudy.ui.screen.home.HomeScreen
 import com.wcjung.engstudy.ui.screen.idiom.IdiomHomeScreen
 import com.wcjung.engstudy.ui.screen.idiom.IdiomListScreen
@@ -127,7 +129,8 @@ fun EngStudyNavHost() {
                     onNavigateToEdu = { navController.navigate(Screen.EduHome) },
                     onNavigateToPlacementTest = { navController.navigate(Screen.PlacementTest) },
                     onNavigateToDailyChallenge = { navController.navigate(Screen.DailyChallenge) },
-                    onNavigateToIdiom = { navController.navigate(Screen.IdiomHome) }
+                    onNavigateToIdiom = { navController.navigate(Screen.IdiomHome) },
+                    onNavigateToGrammar = { navController.navigate(Screen.GrammarHome) }
                 )
             }
             composable<Screen.Study> {
@@ -279,6 +282,19 @@ fun EngStudyNavHost() {
             }
             composable<Screen.IdiomQuiz> {
                 IdiomQuizScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.GrammarHome> {
+                GrammarHomeScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToList = { topic ->
+                        navController.navigate(Screen.GrammarList(topic))
+                    }
+                )
+            }
+            composable<Screen.GrammarList> {
+                GrammarListScreen(
                     onNavigateBack = { navController.popBackStack() }
                 )
             }

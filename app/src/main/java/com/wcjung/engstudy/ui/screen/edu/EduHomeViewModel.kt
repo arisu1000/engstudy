@@ -2,6 +2,7 @@ package com.wcjung.engstudy.ui.screen.edu
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.wcjung.engstudy.data.local.dao.KnownItemDao
 import com.wcjung.engstudy.domain.model.EduLevel
 import com.wcjung.engstudy.domain.repository.EduWordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EduHomeViewModel @Inject constructor(
-    private val eduWordRepository: EduWordRepository
+    private val eduWordRepository: EduWordRepository,
+    private val knownItemDao: KnownItemDao
 ) : ViewModel() {
 
     val totalCount: StateFlow<Int> = eduWordRepository.getTotalCount()
@@ -23,4 +25,8 @@ class EduHomeViewModel @Inject constructor(
         eduWordRepository.getCountByLevel(level.key)
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
     }
+
+    /** edu_word 타입의 전체 "이미 알아요" 수 */
+    val knownCount: StateFlow<Int> = knownItemDao.getKnownCount(EduWordListViewModel.ITEM_TYPE)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
 }

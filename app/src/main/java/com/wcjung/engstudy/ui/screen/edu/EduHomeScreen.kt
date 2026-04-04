@@ -48,6 +48,7 @@ fun EduHomeScreen(
     viewModel: EduHomeViewModel = hiltViewModel()
 ) {
     val totalCount by viewModel.totalCount.collectAsState()
+    val knownCount by viewModel.knownCount.collectAsState()
 
     Scaffold(
         topBar = {
@@ -106,6 +107,14 @@ fun EduHomeScreen(
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.primary
                         )
+                        if (knownCount > 0) {
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Text(
+                                "이미 아는 단어: ${knownCount}개",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.6f)
+                            )
+                        }
                     }
                 }
             }

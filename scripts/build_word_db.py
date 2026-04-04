@@ -29,10 +29,10 @@ UNMATCHED_PATH = os.path.join(SCRIPT_DIR, "unmatched_words.json")
 # Room 호환 설정 - AppDatabase.version과 일치시켜야 함
 # AppDatabase.kt의 version을 변경하면 여기도 함께 변경할 것
 # =====================================================================
-ROOM_DB_VERSION = 6
+ROOM_DB_VERSION = 7
 # Room이 생성하는 identity hash (app/build/.../AppDatabase_Impl.java에서 확인 가능)
 # 스키마가 바뀌면 빌드 후 이 값을 업데이트해야 함
-ROOM_IDENTITY_HASH = "4e9d43daf3ba0b98d947977dcf6e07d9"
+ROOM_IDENTITY_HASH = "90d07bfa248b01c3a5cbc93c5655b8b4"
 
 
 def get_stage(zipf_score):
@@ -309,6 +309,30 @@ def create_schema(cursor):
     cursor.execute("CREATE INDEX index_idioms_type ON idioms(type)")
     cursor.execute("CREATE INDEX index_idioms_category ON idioms(category)")
     cursor.execute("CREATE INDEX index_idioms_phrase ON idioms(phrase)")
+
+    # example_sentences 테이블 (문법 예문)
+    cursor.execute("""
+        CREATE TABLE example_sentences (
+            id INTEGER PRIMARY KEY NOT NULL,
+            sentence_en TEXT NOT NULL,
+            sentence_ko TEXT NOT NULL,
+            grammar_topic TEXT NOT NULL DEFAULT 'general',
+            grammar_topic_ko TEXT NOT NULL DEFAULT '일반',
+            level TEXT NOT NULL DEFAULT '초급',
+            word_count INTEGER NOT NULL DEFAULT 0
+        )
+    """)
+
+    # known_items 테이블 (edu_word/idiom "이미 알아요" 추적)
+    cursor.execute("""
+        CREATE TABLE known_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            item_id INTEGER NOT NULL,
+            item_type TEXT NOT NULL,
+            marked_at INTEGER NOT NULL
+        )
+    """)
+    cursor.execute("CREATE UNIQUE INDEX index_known_items_item_id_item_type ON known_items(item_id, item_type)")
 
 
 def set_room_metadata(conn):

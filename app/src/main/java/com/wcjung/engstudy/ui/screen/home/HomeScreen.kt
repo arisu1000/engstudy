@@ -48,6 +48,7 @@ fun HomeScreen(
     onNavigateToPlacementTest: () -> Unit = {},
     onNavigateToDailyChallenge: () -> Unit = {},
     onNavigateToIdiom: () -> Unit = {},
+    onNavigateToGrammar: () -> Unit = {},
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val wordOfTheDay by viewModel.wordOfTheDay.collectAsState()
@@ -271,6 +272,42 @@ fun HomeScreen(
                         )
                         Text(
                             "일상 회화에 자주 쓰이는 숙어와 구동사",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
+                        )
+                    }
+                    Text(
+                        "바로가기 >",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
+            }
+
+            // 문법 예문
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onNavigateToGrammar() },
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                )
+            ) {
+                Row(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column {
+                        Text(
+                            "문법 예문",
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                        )
+                        Text(
+                            "문법 주제별 영한 예문으로 학습",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
                         )

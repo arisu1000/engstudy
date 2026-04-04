@@ -7,7 +7,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.wcjung.engstudy.data.local.AppDatabase
 import com.wcjung.engstudy.data.local.dao.BookmarkDao
 import com.wcjung.engstudy.data.local.dao.EduWordDao
+import com.wcjung.engstudy.data.local.dao.ExampleSentenceDao
 import com.wcjung.engstudy.data.local.dao.IdiomDao
+import com.wcjung.engstudy.data.local.dao.KnownItemDao
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.dao.WordDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
@@ -21,6 +23,29 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+
+    val MIGRATION_6_7 = object : Migration(6, 7) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """CREATE TABLE IF NOT EXISTS example_sentences (
+                    id INTEGER PRIMARY KEY NOT NULL,
+                    sentence_en TEXT NOT NULL,
+                    sentence_ko TEXT NOT NULL,
+                    grammar_topic TEXT NOT NULL DEFAULT 'general',
+                    grammar_topic_ko TEXT NOT NULL DEFAULT '일반',
+                    level TEXT NOT NULL DEFAULT '초급',
+                    word_count INTEGER NOT NULL DEFAULT 0)"""
+            )
+            db.execSQL(
+                """CREATE TABLE IF NOT EXISTS known_items (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    item_id INTEGER NOT NULL,
+                    item_type TEXT NOT NULL,
+                    marked_at INTEGER NOT NULL)"""
+            )
+            db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS index_known_items_item_id_item_type ON known_items(item_id, item_type)")
+        }
+    }
 
     val MIGRATION_5_6 = object : Migration(5, 6) {
         override fun migrate(db: SupportSQLiteDatabase) {
@@ -67,7 +92,7 @@ object DatabaseModule {
             "engstudy.db"
         )
             .createFromAsset("databases/engstudy.db")
-            .addMigrations(MIGRATION_4_5, MIGRATION_5_6)
+            .addMigrations(MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7)
             // TODO: Before release, write proper migrations for all versions and remove fallbackToDestructiveMigration.
             // Kept temporarily as a safety net during development — only triggers if no migration path exists.
             .fallbackToDestructiveMigration()
@@ -92,4 +117,10 @@ object DatabaseModule {
 
     @Provides
     fun provideIdiomDao(database: AppDatabase): IdiomDao = database.idiomDao()
+
+    @Provides
+    fun provideSentenceDao(database: AppDatabase): ExampleSentenceDao = database.sentenceDao()
+
+    @Provides
+    fun provideKnownItemDao(database: AppDatabase): KnownItemDao = database.knownItemDao()
 }
