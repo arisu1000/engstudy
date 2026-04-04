@@ -88,7 +88,7 @@ class FlashCardViewModel @Inject constructor(
                     lastReviewedDate = System.currentTimeMillis(),
                     timesCorrect = progress.timesCorrect + if (quality >= 3) 1 else 0,
                     timesIncorrect = progress.timesIncorrect + if (quality < 3) 1 else 0,
-                    isLearned = result.intervalDays >= 21
+                    isLearned = result.isLearned
                 )
             )
             updateStreak()

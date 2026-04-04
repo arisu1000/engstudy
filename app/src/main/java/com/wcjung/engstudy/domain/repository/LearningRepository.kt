@@ -1,6 +1,6 @@
 package com.wcjung.engstudy.domain.repository
 
-import com.wcjung.engstudy.data.local.dao.DailyStudyCount
+import com.wcjung.engstudy.domain.model.DailyStudyRecord
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
 import kotlinx.coroutines.flow.Flow
@@ -18,5 +18,5 @@ interface LearningRepository {
     fun getLearnedCountByStage(): Flow<Map<Int, Int>>
     fun getLearnedCountByDomain(): Flow<Map<String, Int>>
     fun getLearnedWordCountByStage(stage: Int): Flow<Int>
-    fun getDailyStudyCounts(sinceTimestamp: Long): Flow<List<DailyStudyCount>>
+    fun getDailyStudyCounts(sinceTimestamp: Long): Flow<List<DailyStudyRecord>>
 }

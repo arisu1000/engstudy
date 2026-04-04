@@ -77,16 +77,21 @@ class QuizViewModel @Inject constructor(
                     excludeId = word.id,
                     count = 3
                 )
-                val options = if (isEnToKo) {
-                    (distractors.map { it.meaning } + word.meaning).shuffled()
+                val distractorTexts = if (isEnToKo) {
+                    distractors.map { it.meaning }
                 } else {
-                    (distractors.map { it.word } + word.word).shuffled()
+                    distractors.map { it.word }
                 }
-                val correctAnswer = if (isEnToKo) word.meaning else word.word
+                // 정답의 원래 인덱스를 추적하여 중복 의미가 있어도 정확히 식별한다
+                val allOptions = distractorTexts + if (isEnToKo) word.meaning else word.word
+                val indexed = allOptions.mapIndexed { i, s -> i to s }.shuffled()
+                val correctOriginalIndex = distractorTexts.size // 정답은 항상 마지막에 추가됨
+                val correctIndex = indexed.indexOfFirst { it.first == correctOriginalIndex }
+                val options = indexed.map { it.second }
                 QuizQuestion(
                     word = word,
                     options = options,
-                    correctIndex = options.indexOf(correctAnswer),
+                    correctIndex = correctIndex,
                     isEnToKo = isEnToKo
                 )
             }
@@ -132,7 +137,7 @@ class QuizViewModel @Inject constructor(
                     lastReviewedDate = System.currentTimeMillis(),
                     timesCorrect = progress.timesCorrect + if (isCorrect) 1 else 0,
                     timesIncorrect = progress.timesIncorrect + if (!isCorrect) 1 else 0,
-                    isLearned = result.intervalDays >= 21
+                    isLearned = result.isLearned
                 )
             )
             updateStreak()

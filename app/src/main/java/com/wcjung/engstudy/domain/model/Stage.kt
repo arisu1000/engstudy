@@ -15,7 +15,8 @@ enum class Stage(
     NEAR_NATIVE(6, "네이티브", "Near-Native", "-", "원어민 수준");
 
     companion object {
+        /** 알 수 없는 level 값에 대해 가장 안전한 기초 단계를 기본값으로 사용한다 */
         fun fromLevel(level: Int): Stage =
-            entries.find { it.level == level } ?: INTERMEDIATE
+            entries.find { it.level == level } ?: FOUNDATION
     }
 }

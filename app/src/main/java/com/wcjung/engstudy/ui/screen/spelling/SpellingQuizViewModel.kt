@@ -111,7 +111,7 @@ class SpellingQuizViewModel @Inject constructor(
                     lastReviewedDate = System.currentTimeMillis(),
                     timesCorrect = progress.timesCorrect + if (isCorrect) 1 else 0,
                     timesIncorrect = progress.timesIncorrect + if (!isCorrect) 1 else 0,
-                    isLearned = result.intervalDays >= 21
+                    isLearned = result.isLearned
                 )
             )
             updateStreak()

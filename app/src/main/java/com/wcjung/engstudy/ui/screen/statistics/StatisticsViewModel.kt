@@ -53,7 +53,7 @@ class StatisticsViewModel @Inject constructor(
         val sinceTimestamp = threeMonthsAgo.atStartOfDay(ZoneId.systemDefault())
             .toInstant().toEpochMilli()
         learningRepository.getDailyStudyCounts(sinceTimestamp)
-            .map { list -> list.associate { it.study_date to it.count } }
+            .map { list -> list.associate { it.studyDate to it.count } }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyMap())
     }
 

@@ -39,7 +39,6 @@ fun StudyCalendar(
 ) {
     val today = LocalDate.now()
     val startDate = today.minusMonths(3).with(DayOfWeek.MONDAY)
-    val totalDays = startDate.until(today).days + 1
 
     // 주 단위로 그룹화
     val weeks = mutableListOf<List<LocalDate?>>()

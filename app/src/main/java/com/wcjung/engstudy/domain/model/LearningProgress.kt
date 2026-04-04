@@ -16,5 +16,6 @@ data class SpacedRepetitionResult(
     val easeFactor: Float,
     val intervalDays: Int,
     val repetitions: Int,
-    val nextReviewDate: Long
+    val nextReviewDate: Long,
+    val isLearned: Boolean
 )

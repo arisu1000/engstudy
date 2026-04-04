@@ -93,11 +93,23 @@ interface LearningProgressDao {
     )
     fun getLearnedWordCountByStage(stage: Int): Flow<Int>
 
+    /**
+     * 단어를 "이미 아는 단어"로 표시한다.
+     * 기존 progress가 있으면 times_correct/times_incorrect를 보존하고,
+     * 없으면 새로 생성한다.
+     */
     @Query(
         """
-        INSERT OR REPLACE INTO learning_progress
+        INSERT INTO learning_progress
         (word_id, ease_factor, interval_days, repetitions, next_review_date, last_reviewed_date, times_correct, times_incorrect, is_learned)
         VALUES (:wordId, 2.5, 21, 5, :now, :now, 1, 0, 1)
+        ON CONFLICT(word_id) DO UPDATE SET
+            is_learned = 1,
+            interval_days = 21,
+            repetitions = MAX(repetitions, 5),
+            ease_factor = ease_factor,
+            next_review_date = :now,
+            last_reviewed_date = :now
         """
     )
     suspend fun markAsKnown(wordId: Int, now: Long = System.currentTimeMillis())

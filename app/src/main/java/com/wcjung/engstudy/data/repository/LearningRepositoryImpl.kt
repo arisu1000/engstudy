@@ -1,8 +1,8 @@
 package com.wcjung.engstudy.data.repository
 
-import com.wcjung.engstudy.data.local.dao.DailyStudyCount
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
+import com.wcjung.engstudy.domain.model.DailyStudyRecord
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.model.toDomain
@@ -68,6 +68,8 @@ class LearningRepositoryImpl @Inject constructor(
         learningProgressDao.markAsKnown(wordId)
     }
 
-    override fun getDailyStudyCounts(sinceTimestamp: Long): Flow<List<DailyStudyCount>> =
-        learningProgressDao.getDailyStudyCounts(sinceTimestamp)
+    override fun getDailyStudyCounts(sinceTimestamp: Long): Flow<List<DailyStudyRecord>> =
+        learningProgressDao.getDailyStudyCounts(sinceTimestamp).map { list ->
+            list.map { DailyStudyRecord(studyDate = it.study_date, count = it.count) }
+        }
 }

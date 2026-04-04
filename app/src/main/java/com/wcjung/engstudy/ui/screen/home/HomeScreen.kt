@@ -196,7 +196,7 @@ fun HomeScreen(
                             color = MaterialTheme.colorScheme.onSecondaryContainer
                         )
                         Text(
-                            "2022 개정 교육과�� 기본어휘",
+                            "2022 개정 교육과정 기본어휘",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
                         )

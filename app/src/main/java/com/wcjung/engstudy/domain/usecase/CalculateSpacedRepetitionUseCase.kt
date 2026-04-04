@@ -37,13 +37,12 @@ class CalculateSpacedRepetitionUseCase @Inject constructor() {
             1 to 0
         }
 
-        val isLearned = newInterval >= 21
-
         return SpacedRepetitionResult(
             easeFactor = newEaseFactor,
             intervalDays = newInterval,
             repetitions = newRepetitions,
-            nextReviewDate = System.currentTimeMillis() + (newInterval * 86_400_000L)
+            nextReviewDate = System.currentTimeMillis() + (newInterval * 86_400_000L),
+            isLearned = newInterval >= 21
         )
     }
 

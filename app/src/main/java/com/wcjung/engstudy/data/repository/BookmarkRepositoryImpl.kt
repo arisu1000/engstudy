@@ -1,12 +1,10 @@
 package com.wcjung.engstudy.data.repository
 
 import com.wcjung.engstudy.data.local.dao.BookmarkDao
-import com.wcjung.engstudy.data.local.entity.BookmarkEntity
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.model.toDomain
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -23,12 +21,7 @@ class BookmarkRepositoryImpl @Inject constructor(
         bookmarkDao.isBookmarked(wordId)
 
     override suspend fun toggleBookmark(wordId: Int) {
-        val isCurrentlyBookmarked = bookmarkDao.isBookmarked(wordId).first()
-        if (isCurrentlyBookmarked) {
-            bookmarkDao.removeBookmark(wordId)
-        } else {
-            bookmarkDao.addBookmark(BookmarkEntity(wordId = wordId))
-        }
+        bookmarkDao.toggleBookmarkAtomic(wordId)
     }
 
     override fun getBookmarkCount(): Flow<Int> =

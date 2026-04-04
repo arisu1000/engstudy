@@ -66,8 +66,9 @@ class HomeViewModel @Inject constructor(
     }
 
     /** 레벨 테스트 완료 여부 */
+    /** 초기값 false: DataStore 로딩 전에 레벨 테스트 배너가 잠깐 보이는 것이 숨기는 것보다 안전하다 */
     val hasCompletedPlacementTest: StateFlow<Boolean> = userPreferences.hasCompletedPlacementTest
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), true)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
 
     init {
         loadWordOfTheDay()

@@ -47,7 +47,7 @@ fun EduHomeScreen(
     onNavigateToQuiz: (String?) -> Unit = {},
     viewModel: EduHomeViewModel = hiltViewModel()
 ) {
-    val totalCount by viewModel.totalCount.collectAsState(initial = 0)
+    val totalCount by viewModel.totalCount.collectAsState()
 
     Scaffold(
         topBar = {
@@ -133,7 +133,7 @@ fun EduHomeScreen(
 
             // 레벨별 카드
             items(EduLevel.entries.toList()) { level ->
-                val count by viewModel.getCountByLevel(level).collectAsState(initial = 0)
+                val count by viewModel.levelCounts[level]!!.collectAsState()
                 LevelCard(
                     title = level.displayNameKo,
                     description = when (level) {

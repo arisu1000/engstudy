@@ -121,14 +121,13 @@ class PlacementTestViewModel @Inject constructor(
         _stageResults.value = results
 
         // 추천 스테이지: 80% 미만인 첫 번째 스테이지
+        // total == 0인 스테이지는 문제가 출제되지 않은 것이므로 건너뛴다
         var recommended = 1
         for (stage in 1..4) {
             val (correct, total) = results[stage] ?: (0 to 0)
-            if (total > 0 && correct.toFloat() / total >= 0.8f) {
-                recommended = stage + 1
-            } else {
-                break
-            }
+            if (total == 0) continue
+            if (correct.toFloat() / total < 0.8f) break
+            recommended = stage + 1
         }
         // 최대 stage 4까지 (5, 6은 테스트에 포함하지 않으므로)
         _recommendedStage.value = recommended.coerceAtMost(4)

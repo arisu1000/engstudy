@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.wcjung.engstudy.domain.model.WrongAnswer
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -93,7 +94,7 @@ fun WrongAnswerScreen(
 
 @Composable
 private fun WrongAnswerCard(
-    entry: com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
+    entry: WrongAnswer
 ) {
     val dateFormat = SimpleDateFormat("MM/dd HH:mm", Locale.getDefault())
     val dateString = dateFormat.format(Date(entry.createdAt))
