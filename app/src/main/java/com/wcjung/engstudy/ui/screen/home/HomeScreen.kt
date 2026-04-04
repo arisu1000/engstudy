@@ -46,6 +46,8 @@ fun HomeScreen(
     onNavigateToWordDetail: (Int) -> Unit,
     onNavigateToEdu: () -> Unit = {},
     onNavigateToPlacementTest: () -> Unit = {},
+    onNavigateToDailyChallenge: () -> Unit = {},
+    onNavigateToIdiom: () -> Unit = {},
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val wordOfTheDay by viewModel.wordOfTheDay.collectAsState()
@@ -148,6 +150,42 @@ fun HomeScreen(
                 }
             }
 
+            // 오늘의 챌린지
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onNavigateToDailyChallenge() },
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.tertiaryContainer
+                )
+            ) {
+                Row(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column {
+                        Text(
+                            "\uC624\uB298\uC758 \uCC4C\uB9B0\uC9C0 \uD83C\uDFC6",
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.onTertiaryContainer
+                        )
+                        Text(
+                            "\uB9E4\uC77C \uAC19\uC740 \uB2E8\uC5B4\uB85C \uAC00\uC871\uACFC \uACA8\uB8E8\uC138\uC694!",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.7f)
+                        )
+                    }
+                    Text(
+                        "\uC2DC\uC791 >",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.tertiary
+                    )
+                }
+            }
+
             // 오늘의 학습 목표
             DailyProgressCard(
                 todayCount = todayLearnedCount,
@@ -197,6 +235,42 @@ fun HomeScreen(
                         )
                         Text(
                             "2022 개정 교육과정 기본어휘",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
+                        )
+                    }
+                    Text(
+                        "바로가기 >",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
+            }
+
+            // 숙어/구동사
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onNavigateToIdiom() },
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                )
+            ) {
+                Row(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column {
+                        Text(
+                            "숙어/구동사",
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                        )
+                        Text(
+                            "일상 회화에 자주 쓰이는 숙어와 구동사",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.7f)
                         )

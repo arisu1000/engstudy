@@ -102,4 +102,19 @@ interface WordDao {
         """
     )
     suspend fun getRandomWordsByStage(stage: Int, count: Int = 10): List<WordEntity>
+
+    /**
+     * 날짜 시드를 사용하여 결정적 의사난수 순서로 단어를 선택한다.
+     * 같은 seed를 넣으면 모든 기기에서 동일한 결과가 나오므로
+     * 서버 없이도 가족 간 같은 단어로 챌린지를 할 수 있다.
+     */
+    @Query("SELECT * FROM words ORDER BY (id * :seed) % 99991 LIMIT :count")
+    suspend fun getDailyChallengeWords(seed: Long, count: Int = 10): List<WordEntity>
+
+    /**
+     * 지정한 ID 목록을 제외하고 무작위 단어를 가져온다.
+     * 일일 챌린지에서 오답 보기를 생성할 때 사용한다.
+     */
+    @Query("SELECT * FROM words WHERE id NOT IN (:excludeIds) ORDER BY RANDOM() LIMIT :count")
+    suspend fun getRandomWordsExcluding(excludeIds: List<Int>, count: Int): List<WordEntity>
 }

@@ -6,9 +6,11 @@ import com.wcjung.engstudy.data.local.dao.BookmarkDao
 import com.wcjung.engstudy.data.local.dao.EduWordDao
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.dao.WordDao
+import com.wcjung.engstudy.data.local.dao.IdiomDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
 import com.wcjung.engstudy.data.local.entity.BookmarkEntity
 import com.wcjung.engstudy.data.local.entity.EduWordEntity
+import com.wcjung.engstudy.data.local.entity.IdiomEntity
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
 import com.wcjung.engstudy.data.local.entity.WordEntity
 import com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
@@ -19,9 +21,10 @@ import com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
         LearningProgressEntity::class,
         BookmarkEntity::class,
         EduWordEntity::class,
-        WrongAnswerEntity::class
+        WrongAnswerEntity::class,
+        IdiomEntity::class
     ],
-    version = 5,
+    version = 6,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -30,4 +33,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun bookmarkDao(): BookmarkDao
     abstract fun eduWordDao(): EduWordDao
     abstract fun wrongAnswerDao(): WrongAnswerDao
+    abstract fun idiomDao(): IdiomDao
 }

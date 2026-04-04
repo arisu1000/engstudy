@@ -1,11 +1,11 @@
-package com.wcjung.engstudy.ui.screen.edu
+package com.wcjung.engstudy.ui.screen.idiom
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.wcjung.engstudy.domain.model.EduWord
-import com.wcjung.engstudy.domain.repository.EduWordRepository
+import com.wcjung.engstudy.domain.model.Idiom
+import com.wcjung.engstudy.domain.repository.IdiomRepository
 import com.wcjung.engstudy.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,23 +15,23 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-data class EduQuizQuestion(
-    val word: EduWord,
+data class IdiomQuizQuestion(
+    val idiom: Idiom,
     val options: List<String>,
     val correctIndex: Int
 )
 
 @HiltViewModel
-class EduQuizViewModel @Inject constructor(
+class IdiomQuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val eduWordRepository: EduWordRepository
+    private val idiomRepository: IdiomRepository
 ) : ViewModel() {
 
-    private val route = savedStateHandle.toRoute<Screen.EduQuiz>()
-    val level: String? = route.level
+    private val route = savedStateHandle.toRoute<Screen.IdiomQuiz>()
+    val type: String? = route.type
 
-    private val _questions = MutableStateFlow<List<EduQuizQuestion>>(emptyList())
-    val questions: StateFlow<List<EduQuizQuestion>> = _questions.asStateFlow()
+    private val _questions = MutableStateFlow<List<IdiomQuizQuestion>>(emptyList())
+    val questions: StateFlow<List<IdiomQuizQuestion>> = _questions.asStateFlow()
 
     private val _currentIndex = MutableStateFlow(0)
     val currentIndex: StateFlow<Int> = _currentIndex.asStateFlow()
@@ -50,9 +50,9 @@ class EduQuizViewModel @Inject constructor(
 
     private var correctCount = 0
     private var incorrectCount = 0
-    private val incorrectWords = mutableListOf<EduWord>()
+    private val incorrectIdioms = mutableListOf<Idiom>()
 
-    val currentQuestion: EduQuizQuestion?
+    val currentQuestion: IdiomQuizQuestion?
         get() = _questions.value.getOrNull(_currentIndex.value)
 
     init {
@@ -61,26 +61,24 @@ class EduQuizViewModel @Inject constructor(
 
     private fun loadQuestions() {
         viewModelScope.launch {
-            val wordList = if (level != null) {
-                eduWordRepository.getWordsByLevel(level).first()
+            val idiomList = if (type != null) {
+                idiomRepository.getByType(type).first()
             } else {
-                eduWordRepository.getAllWords().first()
+                idiomRepository.getAllIdioms().first()
             }
 
-            val selectedWords = wordList.shuffled().take(20)
+            val selectedIdioms = idiomList.shuffled().take(20)
 
-            val questions = selectedWords.map { word ->
-                val effectiveLevel = level ?: word.level.key
-                val distractors = eduWordRepository.getRandomWordsInLevel(
-                    level = effectiveLevel,
-                    excludeId = word.id,
+            val questions = selectedIdioms.map { idiom ->
+                val distractors = idiomRepository.getRandomIdioms(
+                    excludeId = idiom.id,
                     count = 3
                 )
-                val options = (distractors.map { it.word } + word.word).shuffled()
-                EduQuizQuestion(
-                    word = word,
+                val options = (distractors.map { it.phrase } + idiom.phrase).shuffled()
+                IdiomQuizQuestion(
+                    idiom = idiom,
                     options = options,
-                    correctIndex = options.indexOf(word.word)
+                    correctIndex = options.indexOf(idiom.phrase)
                 )
             }
             _questions.value = questions
@@ -103,7 +101,7 @@ class EduQuizViewModel @Inject constructor(
         } else {
             incorrectCount++
             _comboCount.value = 0
-            incorrectWords.add(question.word)
+            incorrectIdioms.add(question.idiom)
         }
     }
 
@@ -119,5 +117,5 @@ class EduQuizViewModel @Inject constructor(
 
     fun getCorrectCount() = correctCount
     fun getIncorrectCount() = incorrectCount
-    fun getIncorrectWords() = incorrectWords.toList()
+    fun getIncorrectIdioms() = incorrectIdioms.toList()
 }

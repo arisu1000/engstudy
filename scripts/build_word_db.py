@@ -29,10 +29,10 @@ UNMATCHED_PATH = os.path.join(SCRIPT_DIR, "unmatched_words.json")
 # Room 호환 설정 - AppDatabase.version과 일치시켜야 함
 # AppDatabase.kt의 version을 변경하면 여기도 함께 변경할 것
 # =====================================================================
-ROOM_DB_VERSION = 5
+ROOM_DB_VERSION = 6
 # Room이 생성하는 identity hash (app/build/.../AppDatabase_Impl.java에서 확인 가능)
 # 스키마가 바뀌면 빌드 후 이 값을 업데이트해야 함
-ROOM_IDENTITY_HASH = "4bf9ef576d8768cee15139237343fcab"
+ROOM_IDENTITY_HASH = "4e9d43daf3ba0b98d947977dcf6e07d9"
 
 
 def get_stage(zipf_score):
@@ -291,6 +291,24 @@ def create_schema(cursor):
         )
     """)
     cursor.execute("CREATE INDEX index_wrong_answers_word_id ON wrong_answers(word_id)")
+
+    # idioms 테이블 (숙어/구동사)
+    cursor.execute("""
+        CREATE TABLE idioms (
+            id INTEGER PRIMARY KEY NOT NULL,
+            phrase TEXT NOT NULL,
+            meaning TEXT NOT NULL,
+            meaning_type TEXT NOT NULL DEFAULT 'en',
+            type TEXT NOT NULL DEFAULT 'idiom',
+            example_en TEXT NOT NULL DEFAULT '',
+            example_ko TEXT NOT NULL DEFAULT '',
+            difficulty INTEGER NOT NULL DEFAULT 3,
+            category TEXT NOT NULL DEFAULT 'daily'
+        )
+    """)
+    cursor.execute("CREATE INDEX index_idioms_type ON idioms(type)")
+    cursor.execute("CREATE INDEX index_idioms_category ON idioms(category)")
+    cursor.execute("CREATE INDEX index_idioms_phrase ON idioms(phrase)")
 
 
 def set_room_metadata(conn):

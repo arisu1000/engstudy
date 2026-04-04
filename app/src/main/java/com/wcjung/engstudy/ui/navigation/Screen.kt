@@ -22,4 +22,8 @@ sealed interface Screen {
     @Serializable data class EduFlashCard(val level: String? = null) : Screen
     @Serializable data class EduQuiz(val level: String? = null) : Screen
     @Serializable data object PlacementTest : Screen
+    @Serializable data object DailyChallenge : Screen
+    @Serializable data object IdiomHome : Screen
+    @Serializable data class IdiomList(val type: String? = null) : Screen
+    @Serializable data class IdiomQuiz(val type: String? = null) : Screen
 }

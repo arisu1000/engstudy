@@ -59,4 +59,10 @@ class WordRepositoryImpl @Inject constructor(
 
     override suspend fun getRandomWordsByStage(stage: Int, count: Int): List<Word> =
         wordDao.getRandomWordsByStage(stage, count).map { it.toDomain() }
+
+    override suspend fun getDailyChallengeWords(seed: Long, count: Int): List<Word> =
+        wordDao.getDailyChallengeWords(seed, count).map { it.toDomain() }
+
+    override suspend fun getRandomWordsExcluding(excludeIds: List<Int>, count: Int): List<Word> =
+        wordDao.getRandomWordsExcluding(excludeIds, count).map { it.toDomain() }
 }

@@ -26,12 +26,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.wcjung.engstudy.ui.screen.bookmarks.BookmarksScreen
+import com.wcjung.engstudy.ui.screen.challenge.DailyChallengeScreen
 import com.wcjung.engstudy.ui.screen.edu.EduFlashCardScreen
 import com.wcjung.engstudy.ui.screen.edu.EduHomeScreen
 import com.wcjung.engstudy.ui.screen.edu.EduQuizScreen
 import com.wcjung.engstudy.ui.screen.edu.EduWordListScreen
 import com.wcjung.engstudy.ui.screen.flashcard.FlashCardScreen
 import com.wcjung.engstudy.ui.screen.home.HomeScreen
+import com.wcjung.engstudy.ui.screen.idiom.IdiomHomeScreen
+import com.wcjung.engstudy.ui.screen.idiom.IdiomListScreen
+import com.wcjung.engstudy.ui.screen.idiom.IdiomQuizScreen
 import com.wcjung.engstudy.ui.screen.home.HomeViewModel
 import com.wcjung.engstudy.ui.screen.placementtest.PlacementTestScreen
 import com.wcjung.engstudy.ui.screen.quiz.QuizScreen
@@ -121,7 +125,9 @@ fun EngStudyNavHost() {
                         navController.navigate(Screen.WordDetail(wordId))
                     },
                     onNavigateToEdu = { navController.navigate(Screen.EduHome) },
-                    onNavigateToPlacementTest = { navController.navigate(Screen.PlacementTest) }
+                    onNavigateToPlacementTest = { navController.navigate(Screen.PlacementTest) },
+                    onNavigateToDailyChallenge = { navController.navigate(Screen.DailyChallenge) },
+                    onNavigateToIdiom = { navController.navigate(Screen.IdiomHome) }
                 )
             }
             composable<Screen.Study> {
@@ -221,6 +227,11 @@ fun EngStudyNavHost() {
                     onTestComplete = { navController.popBackStack() }
                 )
             }
+            composable<Screen.DailyChallenge> {
+                DailyChallengeScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
             composable<Screen.EduHome> {
                 EduHomeScreen(
                     onNavigateBack = { navController.popBackStack() },
@@ -247,6 +258,27 @@ fun EngStudyNavHost() {
             }
             composable<Screen.EduQuiz> {
                 EduQuizScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.IdiomHome> {
+                IdiomHomeScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToList = { type ->
+                        navController.navigate(Screen.IdiomList(type))
+                    },
+                    onNavigateToQuiz = { type ->
+                        navController.navigate(Screen.IdiomQuiz(type))
+                    }
+                )
+            }
+            composable<Screen.IdiomList> {
+                IdiomListScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.IdiomQuiz> {
+                IdiomQuizScreen(
                     onNavigateBack = { navController.popBackStack() }
                 )
             }

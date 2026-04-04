@@ -38,4 +38,8 @@ interface WordRepository {
     fun getAllStages(): Flow<List<Int>>
 
     suspend fun getRandomWordsByStage(stage: Int, count: Int = 10): List<Word>
+
+    suspend fun getDailyChallengeWords(seed: Long, count: Int = 10): List<Word>
+
+    suspend fun getRandomWordsExcluding(excludeIds: List<Int>, count: Int): List<Word>
 }

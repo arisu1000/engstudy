@@ -16,11 +16,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import android.content.Intent
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.School
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.DirectionsWalk
 import androidx.compose.material3.Card
@@ -39,6 +41,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -60,14 +63,30 @@ fun StatisticsScreen(
     val streakDays by viewModel.streakDays.collectAsState()
     val badges by viewModel.badges.collectAsState()
     val dailyStudyCounts by viewModel.dailyStudyCounts.collectAsState()
+    val context = LocalContext.current
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("학습 통계") },
+                title = { Text("\uD559\uC2B5 \uD1B5\uACC4") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "뒤로")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "\uB4A4\uB85C")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = {
+                        val reportText = viewModel.generateReport()
+                        val sendIntent = Intent().apply {
+                            action = Intent.ACTION_SEND
+                            putExtra(Intent.EXTRA_TEXT, reportText)
+                            type = "text/plain"
+                        }
+                        context.startActivity(
+                            Intent.createChooser(sendIntent, "\uB9AC\uD3EC\uD2B8 \uACF5\uC720\uD558\uAE30")
+                        )
+                    }) {
+                        Icon(Icons.Default.Share, contentDescription = "\uB9AC\uD3EC\uD2B8 \uACF5\uC720")
                     }
                 }
             )

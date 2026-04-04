@@ -51,6 +51,12 @@ class QuizViewModel @Inject constructor(
     private val _isFinished = MutableStateFlow(false)
     val isFinished: StateFlow<Boolean> = _isFinished
 
+    private val _comboCount = MutableStateFlow(0)
+    val comboCount: StateFlow<Int> = _comboCount
+
+    private val _maxCombo = MutableStateFlow(0)
+    val maxCombo: StateFlow<Int> = _maxCombo
+
     private var correctCount = 0
     private var incorrectCount = 0
     private val incorrectWords = mutableListOf<Word>()
@@ -115,8 +121,13 @@ class QuizViewModel @Inject constructor(
 
             if (isCorrect) {
                 correctCount++
+                _comboCount.value++
+                if (_comboCount.value > _maxCombo.value) {
+                    _maxCombo.value = _comboCount.value
+                }
             } else {
                 incorrectCount++
+                _comboCount.value = 0
                 incorrectWords.add(question.word)
                 val userAnswer = question.options[index]
                 val correctAnswer = question.options[question.correctIndex]
