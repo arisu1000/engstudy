@@ -20,7 +20,8 @@ from wordfreq import top_n_list, zipf_frequency
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 DB_PATH = os.path.join(PROJECT_ROOT, "app", "src", "main", "assets", "databases", "engstudy.db")
-MUSE_PATH = os.path.join(SCRIPT_DIR, "en-ko-muse.txt")
+# MUSE 제거됨 (CC BY-NC 4.0 → 상업적 사용 불가)
+# kengdic만 사용 (MPL 2.0 → 상업적 사용 가능)
 KENGDIC_PATH = os.path.join(SCRIPT_DIR, "kengdic", "kengdic.tsv")
 EDU_XLS_PATH = os.path.join(SCRIPT_DIR, "edu_3000.xls")
 UNMATCHED_PATH = os.path.join(SCRIPT_DIR, "unmatched_words.json")
@@ -50,24 +51,6 @@ def get_stage(zipf_score):
         return 6
 
 
-def load_muse():
-    d = {}
-    if not os.path.exists(MUSE_PATH):
-        print("  WARNING: MUSE 파일 없음")
-        return d
-    with open(MUSE_PATH, encoding="utf-8") as f:
-        for line in f:
-            parts = line.strip().split('\t')
-            if len(parts) == 2:
-                en, ko = parts[0].lower().strip(), parts[1].strip()
-                if en and ko and ko != en:
-                    if en not in d:
-                        d[en] = []
-                    if ko not in d[en] and len(d[en]) < 3:
-                        d[en].append(ko)
-    return d
-
-
 def load_kengdic():
     d = {}
     if not os.path.exists(KENGDIC_PATH):
@@ -88,16 +71,10 @@ def load_kengdic():
     return d
 
 
-def get_meaning(word, muse, kengdic):
-    meanings = []
-    if word in muse:
-        meanings.extend(muse[word])
+def get_meaning(word, kengdic):
+    """kengdic에서 한국어 뜻 가져오기 (MUSE 제거됨)"""
     if word in kengdic:
-        for m in kengdic[word]:
-            if m not in meanings:
-                meanings.append(m)
-    if meanings:
-        return ", ".join(meanings[:3]), "ko"
+        return ", ".join(kengdic[word][:3]), "ko"
     return None, None
 
 
@@ -392,12 +369,10 @@ def build_database(target_count=20000):
     print("외부 소스 기반 단어 DB 생성 (v5 스키마)")
     print("=" * 60)
 
-    # 1. 외부 소스 로드
+    # 1. 외부 소스 로드 (kengdic만 사용 - 라이선스 안전)
     print("\n[1/6] 소스 로드 중...")
-    muse = load_muse()
-    print(f"  MUSE: {len(muse)} 영어 단어")
     kengdic = load_kengdic()
-    print(f"  kengdic: {len(kengdic)} 영어 단어")
+    print(f"  kengdic: {len(kengdic)} 영어 단어 (MPL 2.0)")
 
     # 2. wordfreq에서 영어 단어 가져오기
     print("\n[2/6] wordfreq에서 영어 단어 추출 중...")
@@ -425,7 +400,7 @@ def build_database(target_count=20000):
         if word in FUNCTION_WORDS:
             meaning, meaning_type, pos = FUNCTION_WORDS[word]
         else:
-            meaning, meaning_type = get_meaning(word, muse, kengdic)
+            meaning, meaning_type = get_meaning(word, kengdic)
             pos = guess_pos(word)
             if meaning is None:
                 unmatched.append({'word': word, 'stage': stage, 'zipf': zipf})
