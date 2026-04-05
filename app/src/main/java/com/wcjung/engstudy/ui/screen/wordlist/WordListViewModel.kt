@@ -72,8 +72,14 @@ class WordListViewModel @Inject constructor(
     fun markAsKnown(wordId: Int) {
         viewModelScope.launch {
             learningRepository.markAsKnown(wordId)
-            // 이미 알아요로 표시한 단어를 목록에서 제거
             _words.value = _words.value.filter { it.id != wordId }
+        }
+    }
+
+    fun markMultipleAsKnown(wordIds: List<Int>) {
+        viewModelScope.launch {
+            wordIds.forEach { learningRepository.markAsKnown(it) }
+            _words.value = _words.value.filter { it.id !in wordIds }
         }
     }
 }

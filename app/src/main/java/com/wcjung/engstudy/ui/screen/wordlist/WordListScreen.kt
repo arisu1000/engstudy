@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,6 +14,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Checklist
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DoneAll
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -28,6 +35,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -47,6 +57,9 @@ fun WordListScreen(
     val isLoading by viewModel.isLoading.collectAsState()
     val bookmarkedIds by viewModel.bookmarkedIds.collectAsState()
 
+    var isSelectMode by remember { mutableStateOf(false) }
+    var selectedIds by remember { mutableStateOf(setOf<Int>()) }
+
     val title = buildString {
         viewModel.domain?.let { append(Domain.fromKey(it).displayNameKo) }
         if (viewModel.domain != null && viewModel.stage != null) append(" · ")
@@ -57,13 +70,74 @@ fun WordListScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(title) },
+                title = {
+                    if (isSelectMode) {
+                        Text("${selectedIds.size}개 선택됨")
+                    } else {
+                        Text(title)
+                    }
+                },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "뒤로")
+                    if (isSelectMode) {
+                        IconButton(onClick = {
+                            isSelectMode = false
+                            selectedIds = emptySet()
+                        }) {
+                            Icon(Icons.Default.Close, contentDescription = "선택 취소")
+                        }
+                    } else {
+                        IconButton(onClick = onNavigateBack) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "뒤로")
+                        }
+                    }
+                },
+                actions = {
+                    if (isSelectMode) {
+                        // 전체 선택/해제
+                        IconButton(onClick = {
+                            selectedIds = if (selectedIds.size == words.size) {
+                                emptySet()
+                            } else {
+                                words.map { it.id }.toSet()
+                            }
+                        }) {
+                            Icon(Icons.Default.DoneAll, contentDescription = "전체 선택")
+                        }
+                    } else {
+                        // 선택 모드 진입
+                        IconButton(onClick = { isSelectMode = true }) {
+                            Icon(Icons.Default.Checklist, contentDescription = "선택 모드")
+                        }
                     }
                 }
             )
+        },
+        bottomBar = {
+            if (isSelectMode && selectedIds.isNotEmpty()) {
+                BottomAppBar {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Button(
+                            onClick = {
+                                viewModel.markMultipleAsKnown(selectedIds.toList())
+                                selectedIds = emptySet()
+                                isSelectMode = false
+                            }
+                        ) {
+                            Icon(
+                                Icons.Default.CheckCircle,
+                                contentDescription = null,
+                                modifier = Modifier.padding(end = 8.dp)
+                            )
+                            Text("${selectedIds.size}개 이미 알아요")
+                        }
+                    }
+                }
+            }
         }
     ) { innerPadding ->
         if (isLoading) {
@@ -79,54 +153,88 @@ fun WordListScreen(
                     start = 16.dp,
                     end = 16.dp,
                     top = innerPadding.calculateTopPadding() + 8.dp,
-                    bottom = 16.dp
+                    bottom = innerPadding.calculateBottomPadding() + 16.dp
                 ),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(words, key = { it.id }) { word ->
-                    val dismissState = rememberSwipeToDismissBoxState()
-
-                    // 스와이프 완료 시 "이미 알아요" 처리
-                    LaunchedEffect(dismissState.currentValue) {
-                        if (dismissState.currentValue == SwipeToDismissBoxValue.EndToStart) {
-                            viewModel.markAsKnown(word.id)
-                        }
-                    }
-
-                    SwipeToDismissBox(
-                        state = dismissState,
-                        enableDismissFromStartToEnd = false,
-                        backgroundContent = {
-                            val color by animateColorAsState(
-                                targetValue = when (dismissState.targetValue) {
-                                    SwipeToDismissBoxValue.EndToStart ->
-                                        MaterialTheme.colorScheme.tertiaryContainer
-                                    else -> MaterialTheme.colorScheme.surface
-                                },
-                                label = "swipeBg"
+                    if (isSelectMode) {
+                        // 선택 모드: 체크박스 표시
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Checkbox(
+                                checked = selectedIds.contains(word.id),
+                                onCheckedChange = { checked ->
+                                    selectedIds = if (checked) {
+                                        selectedIds + word.id
+                                    } else {
+                                        selectedIds - word.id
+                                    }
+                                }
                             )
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .background(color)
-                                    .padding(horizontal = 20.dp),
-                                contentAlignment = Alignment.CenterEnd
-                            ) {
-                                Icon(
-                                    Icons.Default.CheckCircle,
-                                    contentDescription = "이미 알아요",
-                                    tint = MaterialTheme.colorScheme.onTertiaryContainer
+                            Box(modifier = Modifier.weight(1f)) {
+                                WordCard(
+                                    word = word,
+                                    isBookmarked = bookmarkedIds.contains(word.id),
+                                    onTap = {
+                                        selectedIds = if (selectedIds.contains(word.id)) {
+                                            selectedIds - word.id
+                                        } else {
+                                            selectedIds + word.id
+                                        }
+                                    },
+                                    onSpeak = { viewModel.ttsManager.speak(word.word) },
+                                    onToggleBookmark = { viewModel.toggleBookmark(word.id) }
                                 )
                             }
                         }
-                    ) {
-                        WordCard(
-                            word = word,
-                            isBookmarked = bookmarkedIds.contains(word.id),
-                            onTap = { onNavigateToWordDetail(word.id) },
-                            onSpeak = { viewModel.ttsManager.speak(word.word) },
-                            onToggleBookmark = { viewModel.toggleBookmark(word.id) }
-                        )
+                    } else {
+                        // 일반 모드: 스와이프
+                        val dismissState = rememberSwipeToDismissBoxState()
+
+                        LaunchedEffect(dismissState.currentValue) {
+                            if (dismissState.currentValue == SwipeToDismissBoxValue.EndToStart) {
+                                viewModel.markAsKnown(word.id)
+                            }
+                        }
+
+                        SwipeToDismissBox(
+                            state = dismissState,
+                            enableDismissFromStartToEnd = false,
+                            backgroundContent = {
+                                val color by animateColorAsState(
+                                    targetValue = when (dismissState.targetValue) {
+                                        SwipeToDismissBoxValue.EndToStart ->
+                                            MaterialTheme.colorScheme.tertiaryContainer
+                                        else -> MaterialTheme.colorScheme.surface
+                                    },
+                                    label = "swipeBg"
+                                )
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .background(color)
+                                        .padding(horizontal = 20.dp),
+                                    contentAlignment = Alignment.CenterEnd
+                                ) {
+                                    Icon(
+                                        Icons.Default.CheckCircle,
+                                        contentDescription = "이미 알아요",
+                                        tint = MaterialTheme.colorScheme.onTertiaryContainer
+                                    )
+                                }
+                            }
+                        ) {
+                            WordCard(
+                                word = word,
+                                isBookmarked = bookmarkedIds.contains(word.id),
+                                onTap = { onNavigateToWordDetail(word.id) },
+                                onSpeak = { viewModel.ttsManager.speak(word.word) },
+                                onToggleBookmark = { viewModel.toggleBookmark(word.id) }
+                            )
+                        }
                     }
                 }
             }
