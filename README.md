@@ -3,6 +3,12 @@
 한국어 사용자를 위한 오프라인 영어 단어장 Android 앱입니다.
 48세 IT 엔지니어 아버지와 12세 아들이 함께 사용하는 가족 앱으로 기획되었습니다.
 
+## 스크린샷
+
+<p align="center">
+  <img src="docs/screenshot_home.png" alt="EngStudy 홈 화면" width="300"/>
+</p>
+
 ## 주요 기능
 
 ### 콘텐츠 (총 21,268개)
