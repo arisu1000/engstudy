@@ -3,7 +3,7 @@
 ## 프로젝트 개요
 한국어 사용자를 위한 오프라인 영어 단어장 Android 앱. 48세 IT 엔지니어 아버지와 12세 아들이 함께 사용하는 가족 앱으로 기획되었다. 21,268개 콘텐츠(단어·관용구·예문)를 앱 내 SQLite DB에 내장하고, Stage 기반 학습, 교육부 필수 단어, 숙어/구동사, 문법 예문, SM-2 간격반복, 일일 챌린지, 배지/게임화, 홈 위젯 등을 제공한다.
 
-모든 데이터 소스는 상업적 이용 가능 라이선스로 검증 완료. MUSE(CC BY-NC)는 라이선스 위험으로 제거됨.
+모든 데이터 소스는 상업적 이용 가능 라이선스로 검증 완료.
 
 ## 빌드 & 테스트 명령어
 
@@ -95,15 +95,14 @@ com.wcjung.engstudy/
 - `Room.databaseBuilder().createFromAsset()` 사용
 - DB version 7 / `fallbackToDestructiveMigration()` 적용 (개발 중, 릴리즈 전 정식 마이그레이션 필요)
 - Room identity hash: `90d07bfa248b01c3a5cbc93c5655b8b4`
-- DB 생성 스크립트: `scripts/build_word_db.py` — kengdic만 사용 (MUSE 제거됨)
+- DB 생성 스크립트: `scripts/build_word_db.py` — kengdic + Free Dictionary API
 
 ### 스키마 요약 (8개 테이블)
 
 **`words` 테이블** — 12,068개 (kengdic MPL 2.0 + Free Dictionary API)
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
-- `meaning` TEXT: 단어 의미 (이전 `meaning_ko` 컬럼에서 변경됨)
+- `meaning` TEXT: 단어 의미
 - `meaning_type` TEXT: 의미 언어 구분 (`'ko'` 또는 `'en'`)
-- `age_group` 컬럼 제거됨
 
 **`edu_words` 테이블** — 3,000개 (교육부 공공데이터)
 - 초중고 교육과정 필수 영단어
@@ -145,7 +144,6 @@ com.wcjung.engstudy/
 | 교육부 공공데이터 | 정부 공공저작물 | 교육부 단어 |
 | Semigradsky/phrasal-verbs | MIT | 숙어/구동사 |
 | wordfreq | MIT | 빈도 점수 기반 Stage 분류 |
-| MUSE en-ko | **제거됨** (CC BY-NC → 상업 불가) | N/A |
 
 ## 핵심 알고리즘
 
@@ -190,8 +188,6 @@ com.wcjung.engstudy/
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
 - Room DB version 7, `fallbackToDestructiveMigration()` 사용 중 — 릴리즈 전 정식 마이그레이션 경로 작성 필요 (TODO)
-- `words` 스키마에서 `age_group` 제거, `meaning_ko` → `meaning`으로 컬럼명 변경됨
-- MUSE en-ko 사전은 CC BY-NC로 상업적 이용 불가 → `build_word_db.py`에서 완전히 제거됨
 - Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 앱 설정/정보 화면에 표기할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요
-- `scripts/build_word_db.py` 실행 전 `wordfreq`, `kengdic` Python 의존성 설치 필요 (MUSE 불필요)
+- `scripts/build_word_db.py` 실행 전 `wordfreq`, `kengdic` Python 의존성 설치 필요

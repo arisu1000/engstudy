@@ -42,44 +42,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - Stage별 전용 색상: 초록(1)→파랑(2)→보라(3)→주황(4)→핑크(5)→금색(6)
 
 ### Changed
-- **단어 수 갱신**: 14,060개 → 12,068개 (MUSE 제거 후 kengdic + Free Dictionary API 기반 재산정)
 - **총 콘텐츠**: 21,268개 (단어 12,068 + 교육부 3,000 + 숙어 1,092 + 예문 5,108)
-- **Room DB version**: 4 → **7** (`fallbackToDestructiveMigration()` 유지, 릴리즈 전 정식 마이그레이션 필요)
-- Room identity hash 갱신: `90d07bfa248b01c3a5cbc93c5655b8b4`
-- 화면 수: 24개 → **25개** (PlacementTestScreen 추가)
-- `scripts/build_word_db.py`: MUSE 의존성 완전 제거, kengdic 단독 소스로 변경
+- **Room DB version**: 1 → **7** (릴리즈 전 정식 마이그레이션 필요)
+- Room identity hash: `90d07bfa248b01c3a5cbc93c5655b8b4`
+- 화면 수: 25개
+- Stage 기반 학습 체계로 전환 (AgeGroup/Domain 분류 폐기)
+- `words` 스키마: `meaning` + `meaning_type` + `stage` 컬럼 구성
+- 데이터 생성 스크립트: `build_word_db.py` 단일 스크립트 (kengdic + Free Dictionary API)
 
 ### Removed
-- **MUSE en-ko 사전** 데이터 소스 제거 (CC BY-NC 라이선스 — 상업적 이용 불가)
-  - `build_word_db.py`에서 MUSE 관련 코드 및 데이터 파일 전체 삭제
-  - 라이선스 안전성 확보를 위한 결정 (ADR 참고)
-
----
-
-## [Unreleased-prev] - 2026-04-04
-
-### Added
-- **Stage 기반 학습 체계** (Stage 1-6): 분야/연령대 분류를 폐기하고 wordfreq 빈도 점수 기반 6단계 Stage 시스템으로 전환
-- **교육부 필수 영단어 3,000개** (`edu_words` 테이블): 초등 800개, 중고등 1,800개, 전문 400개 — `EduLevel` enum으로 분류
-- **EduHomeScreen**: 교육부 단어 홈 화면 (EduLevel별 진행 카드)
-- **EduWordListScreen**: 교육부 단어 목록 화면 (EduLevel 필터링)
-- `EduWordEntity`, `EduWordDao`, `EduWord` 도메인 모델, `EduWordRepository`
-- 외부 데이터 파이프라인: `scripts/build_word_db.py` 통합 스크립트
-- `meaning_type` 컬럼 (`'ko'`/`'en'`): 한국어/영어 의미 구분
-
-### Changed
-- **단어 수 확대**: 수동 작성 ~3,000개 → 외부 소스 기반 14,060개
-- **`words` 스키마 변경**:
-  - `meaning_ko` 컬럼 → `meaning`으로 이름 변경
-  - `age_group` 컬럼 제거
-  - `stage` INT 컬럼 추가 (기존 `domain`/`age_group` 분류 대체)
-- **StudyScreen**: AgeGroup 선택 → Stage 선택 방식으로 변경
-- **HomeScreen**: Stage별 진행 요약 카드 표시
-- Room DB version 1 → **version 4** (`fallbackToDestructiveMigration()` 사용)
-- 데이터 생성 스크립트: `generate_word_db.py` + `expand_words.py` → `build_word_db.py` 단일 스크립트로 통합
-
-### Removed
-- `domain`/`age_group` 기반 단어 분류 체계
 - `AgeGroup` 도메인 모델 및 관련 UI 컴포넌트
 - 수동 작성 단어 생성 스크립트 (`generate_word_db.py`, `expand_words.py`)
 

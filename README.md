@@ -81,8 +81,7 @@
 
 ## 단어 데이터 생성
 
-kengdic(MPL 2.0)을 기반으로 DB를 생성합니다.
-MUSE en-ko 사전은 CC BY-NC 라이선스로 상업적 이용이 불가하여 제거되었습니다.
+kengdic(MPL 2.0) + Free Dictionary API를 기반으로 DB를 생성합니다.
 
 ```bash
 cd scripts
@@ -117,7 +116,6 @@ scripts/
 | 교육부 공공데이터 | 정부 공공저작물 | 가능 |
 | phrasal-verbs (Semigradsky) | MIT | 가능 |
 | wordfreq | MIT | 가능 |
-| MUSE en-ko | 제거됨 (CC BY-NC) | 해당 없음 |
 
 ## 라이선스
 
