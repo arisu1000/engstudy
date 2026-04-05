@@ -5,9 +5,7 @@
 
 ## 스크린샷
 
-<p align="center">
-  <img src="docs/screenshot_home.png" alt="EngStudy 홈 화면" width="300"/>
-</p>
+![EngStudy 홈 화면](docs/screenshot_home.png)
 
 ## 주요 기능
 
