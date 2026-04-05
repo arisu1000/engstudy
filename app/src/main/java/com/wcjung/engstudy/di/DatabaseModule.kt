@@ -24,6 +24,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
+    val MIGRATION_7_8 = object : Migration(7, 8) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("ALTER TABLE learning_progress ADD COLUMN is_excluded INTEGER NOT NULL DEFAULT 0")
+        }
+    }
+
     val MIGRATION_6_7 = object : Migration(6, 7) {
         override fun migrate(db: SupportSQLiteDatabase) {
             db.execSQL(
@@ -92,7 +98,7 @@ object DatabaseModule {
             "engstudy.db"
         )
             .createFromAsset("databases/engstudy.db")
-            .addMigrations(MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7)
+            .addMigrations(MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8)
             // TODO: Before release, write proper migrations for all versions and remove fallbackToDestructiveMigration.
             // Kept temporarily as a safety net during development — only triggers if no migration path exists.
             .fallbackToDestructiveMigration()

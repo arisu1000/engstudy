@@ -14,6 +14,7 @@ import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.RemoveCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
@@ -35,7 +36,8 @@ fun ProfileScreen(
     onNavigateToBookmarks: () -> Unit,
     onNavigateToSettings: () -> Unit,
     onNavigateToSearch: () -> Unit,
-    onNavigateToWrongAnswers: () -> Unit = {}
+    onNavigateToWrongAnswers: () -> Unit = {},
+    onNavigateToExcludedWords: () -> Unit = {}
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(title = { Text("프로필") })
@@ -58,6 +60,12 @@ fun ProfileScreen(
                 title = "오답 노트",
                 subtitle = "퀴즈에서 틀린 단어를 확인합니다",
                 onClick = onNavigateToWrongAnswers
+            )
+            ProfileMenuItem(
+                icon = Icons.Default.RemoveCircle,
+                title = "제외된 단어",
+                subtitle = "학습에서 완전히 제외한 단어를 관리합니다",
+                onClick = onNavigateToExcludedWords
             )
             ProfileMenuItem(
                 icon = Icons.Default.Search,

@@ -26,6 +26,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.wcjung.engstudy.ui.screen.bookmarks.BookmarksScreen
+import com.wcjung.engstudy.ui.screen.excluded.ExcludedWordsScreen
 import com.wcjung.engstudy.ui.screen.challenge.DailyChallengeScreen
 import com.wcjung.engstudy.ui.screen.edu.EduFlashCardScreen
 import com.wcjung.engstudy.ui.screen.edu.EduHomeScreen
@@ -162,7 +163,8 @@ fun EngStudyNavHost() {
                     onNavigateToBookmarks = { navController.navigate(Screen.Bookmarks) },
                     onNavigateToSettings = { navController.navigate(Screen.Settings) },
                     onNavigateToSearch = { navController.navigate(Screen.Search) },
-                    onNavigateToWrongAnswers = { navController.navigate(Screen.WrongAnswers) }
+                    onNavigateToWrongAnswers = { navController.navigate(Screen.WrongAnswers) },
+                    onNavigateToExcludedWords = { navController.navigate(Screen.ExcludedWords) }
                 )
             }
             composable<Screen.WordList> {
@@ -298,6 +300,11 @@ fun EngStudyNavHost() {
                     onNavigateBack = { navController.popBackStack() }
                 )
             }
+            composable<Screen.ExcludedWords> {
+                ExcludedWordsScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
         }
     }
 }
@@ -308,13 +315,15 @@ fun ProfileScreen(
     onNavigateToBookmarks: () -> Unit,
     onNavigateToSettings: () -> Unit,
     onNavigateToSearch: () -> Unit,
-    onNavigateToWrongAnswers: () -> Unit
+    onNavigateToWrongAnswers: () -> Unit,
+    onNavigateToExcludedWords: () -> Unit = {}
 ) {
     com.wcjung.engstudy.ui.screen.profile.ProfileScreen(
         onNavigateToStatistics = onNavigateToStatistics,
         onNavigateToBookmarks = onNavigateToBookmarks,
         onNavigateToSettings = onNavigateToSettings,
         onNavigateToSearch = onNavigateToSearch,
-        onNavigateToWrongAnswers = onNavigateToWrongAnswers
+        onNavigateToWrongAnswers = onNavigateToWrongAnswers,
+        onNavigateToExcludedWords = onNavigateToExcludedWords
     )
 }

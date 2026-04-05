@@ -30,5 +30,6 @@ fun LearningProgressEntity.toDomain(): LearningProgress = LearningProgress(
     lastReviewedDate = lastReviewedDate,
     timesCorrect = timesCorrect,
     timesIncorrect = timesIncorrect,
-    isLearned = isLearned
+    isLearned = isLearned,
+    isExcluded = isExcluded
 )

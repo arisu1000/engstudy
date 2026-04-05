@@ -30,7 +30,7 @@ import com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
         ExampleSentenceEntity::class,
         KnownItemEntity::class
     ],
-    version = 7,
+    version = 8,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {

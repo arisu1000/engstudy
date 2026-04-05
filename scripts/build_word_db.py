@@ -30,10 +30,10 @@ UNMATCHED_PATH = os.path.join(SCRIPT_DIR, "unmatched_words.json")
 # Room 호환 설정 - AppDatabase.version과 일치시켜야 함
 # AppDatabase.kt의 version을 변경하면 여기도 함께 변경할 것
 # =====================================================================
-ROOM_DB_VERSION = 7
+ROOM_DB_VERSION = 8
 # Room이 생성하는 identity hash (app/build/.../AppDatabase_Impl.java에서 확인 가능)
 # 스키마가 바뀌면 빌드 후 이 값을 업데이트해야 함
-ROOM_IDENTITY_HASH = "90d07bfa248b01c3a5cbc93c5655b8b4"
+ROOM_IDENTITY_HASH = "b6a6b78c7c0dcc56f3afa584c57bbe10"
 
 
 def get_stage(zipf_score):
@@ -249,6 +249,7 @@ def create_schema(cursor):
             times_correct INTEGER NOT NULL DEFAULT 0,
             times_incorrect INTEGER NOT NULL DEFAULT 0,
             is_learned INTEGER NOT NULL DEFAULT 0,
+            is_excluded INTEGER NOT NULL DEFAULT 0,
             FOREIGN KEY (word_id) REFERENCES words(id) ON DELETE CASCADE
         )
     """)

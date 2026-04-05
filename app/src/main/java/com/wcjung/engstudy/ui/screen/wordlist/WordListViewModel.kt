@@ -69,6 +69,7 @@ class WordListViewModel @Inject constructor(
         }
     }
 
+    /** 이미 알아요 - 학습 완료 표시 (복습에는 나올 수 있음) */
     fun markAsKnown(wordId: Int) {
         viewModelScope.launch {
             learningRepository.markAsKnown(wordId)
@@ -76,9 +77,26 @@ class WordListViewModel @Inject constructor(
         }
     }
 
+    /** 여러 단어 이미 알아요 일괄 처리 */
     fun markMultipleAsKnown(wordIds: List<Int>) {
         viewModelScope.launch {
             wordIds.forEach { learningRepository.markAsKnown(it) }
+            _words.value = _words.value.filter { it.id !in wordIds }
+        }
+    }
+
+    /** 완전 제외 - 모든 학습/복습에서 영구 제외 */
+    fun excludeWord(wordId: Int) {
+        viewModelScope.launch {
+            learningRepository.excludeWord(wordId)
+            _words.value = _words.value.filter { it.id != wordId }
+        }
+    }
+
+    /** 여러 단어 완전 제외 일괄 처리 */
+    fun excludeMultiple(wordIds: List<Int>) {
+        viewModelScope.launch {
+            wordIds.forEach { learningRepository.excludeWord(it) }
             _words.value = _words.value.filter { it.id !in wordIds }
         }
     }

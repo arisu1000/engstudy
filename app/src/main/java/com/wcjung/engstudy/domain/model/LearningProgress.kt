@@ -9,7 +9,8 @@ data class LearningProgress(
     val lastReviewedDate: Long? = null,
     val timesCorrect: Int = 0,
     val timesIncorrect: Int = 0,
-    val isLearned: Boolean = false
+    val isLearned: Boolean = false,
+    val isExcluded: Boolean = false
 )
 
 data class SpacedRepetitionResult(

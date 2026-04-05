@@ -19,4 +19,8 @@ interface LearningRepository {
     fun getLearnedCountByDomain(): Flow<Map<String, Int>>
     fun getLearnedWordCountByStage(stage: Int): Flow<Int>
     fun getDailyStudyCounts(sinceTimestamp: Long): Flow<List<DailyStudyRecord>>
+    suspend fun excludeWord(wordId: Int)
+    suspend fun restoreWord(wordId: Int)
+    fun getExcludedWords(): Flow<List<Word>>
+    fun getExcludedWordCount(): Flow<Int>
 }

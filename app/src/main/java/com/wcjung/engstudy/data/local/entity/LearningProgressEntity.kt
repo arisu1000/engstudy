@@ -31,5 +31,6 @@ data class LearningProgressEntity(
     @ColumnInfo(name = "last_reviewed_date") val lastReviewedDate: Long? = null,
     @ColumnInfo(name = "times_correct") val timesCorrect: Int = 0,
     @ColumnInfo(name = "times_incorrect") val timesIncorrect: Int = 0,
-    @ColumnInfo(name = "is_learned") val isLearned: Boolean = false
+    @ColumnInfo(name = "is_learned") val isLearned: Boolean = false,
+    @ColumnInfo(name = "is_excluded") val isExcluded: Boolean = false
 )

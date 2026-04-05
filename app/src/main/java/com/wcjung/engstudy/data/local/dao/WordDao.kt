@@ -41,10 +41,13 @@ interface WordDao {
     )
     fun searchWords(query: String): Flow<List<WordEntity>>
 
+    /**
+     * 학습할 새 단어 - 이미 아는 단어 + 완전 제외 단어 모두 제외
+     */
     @Query(
         """
         SELECT * FROM words
-        WHERE id NOT IN (SELECT word_id FROM learning_progress WHERE is_learned = 1)
+        WHERE id NOT IN (SELECT word_id FROM learning_progress WHERE is_learned = 1 OR is_excluded = 1)
         AND (:stage IS NULL OR stage = :stage)
         AND (:domain IS NULL OR domain = :domain)
         ORDER BY frequency_rank ASC
@@ -66,7 +69,20 @@ interface WordDao {
     @Query("SELECT COUNT(*) FROM words WHERE domain = :domain")
     fun getWordCountByDomain(domain: String): Flow<Int>
 
-    @Query("SELECT * FROM words ORDER BY id ASC LIMIT 1 OFFSET (ABS(:dateSeed) % (SELECT COUNT(*) FROM words))")
+    /**
+     * 오늘의 단어 - 완전 제외 단어 제외
+     */
+    @Query(
+        """
+        SELECT * FROM words
+        WHERE id NOT IN (SELECT word_id FROM learning_progress WHERE is_excluded = 1)
+        ORDER BY id ASC
+        LIMIT 1 OFFSET (ABS(:dateSeed) % (
+            SELECT COUNT(*) FROM words
+            WHERE id NOT IN (SELECT word_id FROM learning_progress WHERE is_excluded = 1)
+        ))
+        """
+    )
     suspend fun getWordOfTheDay(dateSeed: Long): WordEntity?
 
     @Query(
@@ -93,28 +109,22 @@ interface WordDao {
     @Query("SELECT DISTINCT stage FROM words ORDER BY stage")
     fun getAllStages(): Flow<List<Int>>
 
-    @Query(
-        """
-        SELECT * FROM words
-        WHERE stage = :stage
-        ORDER BY RANDOM()
-        LIMIT :count
-        """
-    )
+    @Query("SELECT * FROM words WHERE stage = :stage ORDER BY RANDOM() LIMIT :count")
     suspend fun getRandomWordsByStage(stage: Int, count: Int = 10): List<WordEntity>
 
     /**
-     * 날짜 시드를 사용하여 결정적 의사난수 순서로 단어를 선택한다.
-     * 같은 seed를 넣으면 모든 기기에서 동일한 결과가 나오므로
-     * 서버 없이도 가족 간 같은 단어로 챌린지를 할 수 있다.
+     * 일일 챌린지 - 완전 제외 단어 제외, 결정적 순서
      */
-    @Query("SELECT * FROM words ORDER BY (id * :seed) % 99991 LIMIT :count")
+    @Query(
+        """
+        SELECT * FROM words
+        WHERE id NOT IN (SELECT word_id FROM learning_progress WHERE is_excluded = 1)
+        ORDER BY (id * :seed) % 99991
+        LIMIT :count
+        """
+    )
     suspend fun getDailyChallengeWords(seed: Long, count: Int = 10): List<WordEntity>
 
-    /**
-     * 지정한 ID 목록을 제외하고 무작위 단어를 가져온다.
-     * 일일 챌린지에서 오답 보기를 생성할 때 사용한다.
-     */
     @Query("SELECT * FROM words WHERE id NOT IN (:excludeIds) ORDER BY RANDOM() LIMIT :count")
     suspend fun getRandomWordsExcluding(excludeIds: List<Int>, count: Int): List<WordEntity>
 }

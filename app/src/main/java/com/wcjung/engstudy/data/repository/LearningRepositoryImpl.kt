@@ -72,4 +72,19 @@ class LearningRepositoryImpl @Inject constructor(
         learningProgressDao.getDailyStudyCounts(sinceTimestamp).map { list ->
             list.map { DailyStudyRecord(studyDate = it.study_date, count = it.count) }
         }
+
+    override suspend fun excludeWord(wordId: Int) {
+        learningProgressDao.excludeWord(wordId)
+    }
+
+    override suspend fun restoreWord(wordId: Int) {
+        learningProgressDao.restoreWord(wordId)
+    }
+
+    override fun getExcludedWords(): Flow<List<Word>> =
+        learningProgressDao.getExcludedWords()
+            .map { entities -> entities.map { it.toDomain() } }
+
+    override fun getExcludedWordCount(): Flow<Int> =
+        learningProgressDao.getExcludedWordCount()
 }
