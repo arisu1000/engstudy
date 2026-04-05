@@ -1,5 +1,9 @@
 # EngStudy - 영어 단어장
 
+<p align="center">
+  <img src="app/src/main/res/drawable/engstudy_launcher_drawn_icon_1775349320734.png" width="128" height="128" alt="EngStudy Logo">
+</p>
+
 한국어 사용자를 위한 오프라인 영어 단어장 Android 앱입니다.
 48세 IT 엔지니어 아버지와 12세 아들이 함께 사용하는 가족 앱으로 기획되었습니다.
 
