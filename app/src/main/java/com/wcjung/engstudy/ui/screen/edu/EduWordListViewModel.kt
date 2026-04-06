@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,30 +48,14 @@ class EduWordListViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(true)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
-    private var currentOffset = 0
-    private val pageSize = 50
-
     init {
-        if (level == null) {
-            viewModelScope.launch {
-                eduWordRepository.getAllWords().collect { allWords ->
-                    _allWords.value = allWords
-                    _isLoading.value = false
-                }
-            }
-        } else {
-            loadMore()
-        }
-    }
-
-    fun loadMore() {
-        if (level == null) return
         viewModelScope.launch {
-            val newWords = eduWordRepository.getWordsByLevelPaged(level, pageSize, currentOffset)
-                .first()
-            _allWords.value = _allWords.value + newWords
-            currentOffset += newWords.size
-            _isLoading.value = false
+            val source = if (level == null) eduWordRepository.getAllWords()
+                         else eduWordRepository.getWordsByLevel(level)
+            source.collect { allWords ->
+                _allWords.value = allWords
+                _isLoading.value = false
+            }
         }
     }
 
