@@ -10,6 +10,7 @@ import com.wcjung.engstudy.domain.model.Idiom
 import com.wcjung.engstudy.domain.repository.IdiomRepository
 import com.wcjung.engstudy.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -50,36 +51,27 @@ class IdiomListViewModel @Inject constructor(
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
 
-    init {
-        loadIdioms()
-    }
+    private var activeJob: Job? = null
 
-    private fun loadIdioms() {
-        viewModelScope.launch {
-            val flow = if (type != null) {
-                idiomRepository.getByType(type)
-            } else {
-                idiomRepository.getAllIdioms()
-            }
-            flow.collect { list ->
-                _allIdioms.value = list
-                _isLoading.value = false
-            }
-        }
+    init {
+        search("")
     }
 
     fun search(query: String) {
         _searchQuery.value = query
-        viewModelScope.launch {
+        activeJob?.cancel()
+        activeJob = viewModelScope.launch {
             if (query.isBlank()) {
-                loadIdioms()
+                val flow = if (type != null) idiomRepository.getByType(type)
+                           else idiomRepository.getAllIdioms()
+                flow.collect { list ->
+                    _allIdioms.value = list
+                    _isLoading.value = false
+                }
             } else {
                 idiomRepository.searchIdioms(query).collect { list ->
-                    _allIdioms.value = if (type != null) {
-                        list.filter { it.type.key == type }
-                    } else {
-                        list
-                    }
+                    _allIdioms.value = if (type != null) list.filter { it.type.key == type }
+                                       else list
                 }
             }
         }
