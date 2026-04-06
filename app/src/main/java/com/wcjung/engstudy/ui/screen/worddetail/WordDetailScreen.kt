@@ -43,6 +43,8 @@ fun WordDetailScreen(
     val word by viewModel.word.collectAsState()
     val isBookmarked by viewModel.isBookmarked.collectAsState()
     val isMarkedAsKnown by viewModel.isMarkedAsKnown.collectAsState()
+    val meanings by viewModel.meanings.collectAsState()
+    val examples by viewModel.examples.collectAsState()
 
     Scaffold(
         topBar = {
@@ -104,30 +106,74 @@ fun WordDetailScreen(
                             style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.tertiary
                         )
+                        // 의미: word_meanings 테이블 우선, 없으면 meaning 필드 폴백
                         Spacer(modifier = Modifier.height(4.dp))
-                        Text(
-                            text = w.meaning,
-                            style = MaterialTheme.typography.titleLarge,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer
-                        )
+                        if (meanings.isNotEmpty()) {
+                            meanings.forEachIndexed { index, wm ->
+                                Row(
+                                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                    verticalAlignment = Alignment.Top
+                                ) {
+                                    Text(
+                                        text = "${index + 1}.",
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.6f)
+                                    )
+                                    Text(
+                                        text = wm.pos,
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.tertiary,
+                                        modifier = Modifier.padding(top = 2.dp)
+                                    )
+                                    Text(
+                                        text = wm.meaning,
+                                        style = MaterialTheme.typography.titleMedium,
+                                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                                    )
+                                }
+                            }
+                        } else {
+                            Text(
+                                text = w.meaning,
+                                style = MaterialTheme.typography.titleLarge,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer
+                            )
+                        }
                     }
                 }
 
-                // 예문
-                DetailSection(title = "예문") {
-                    Text(text = w.exampleEn, style = MaterialTheme.typography.bodyLarge)
-                    IconButton(onClick = { viewModel.ttsManager.speak(w.exampleEn) }) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.VolumeUp,
-                            contentDescription = "예문 듣기",
-                            tint = MaterialTheme.colorScheme.primary
-                        )
+                // 예문: word_examples 테이블 우선, 없으면 example_en/example_ko 폴백
+                val displayExamples = if (examples.isNotEmpty()) {
+                    examples.map { it.sentenceEn to it.sentenceKo }
+                } else if (w.exampleEn.isNotBlank()) {
+                    listOf(w.exampleEn to w.exampleKo)
+                } else emptyList()
+
+                if (displayExamples.isNotEmpty()) {
+                    DetailSection(title = "예문") {
+                        displayExamples.forEachIndexed { index, (en, ko) ->
+                            if (index > 0) Spacer(modifier = Modifier.height(12.dp))
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(
+                                    text = en,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                IconButton(onClick = { viewModel.ttsManager.speak(en) }) {
+                                    Icon(
+                                        Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "예문 듣기",
+                                        tint = MaterialTheme.colorScheme.primary
+                                    )
+                                }
+                            }
+                            Text(
+                                text = ko,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
                     }
-                    Text(
-                        text = w.exampleKo,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
                 }
 
                 // 유의어

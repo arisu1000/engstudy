@@ -1,7 +1,11 @@
 package com.wcjung.engstudy.data.repository
 
 import com.wcjung.engstudy.data.local.dao.WordDao
+import com.wcjung.engstudy.data.local.dao.WordMeaningDao
+import com.wcjung.engstudy.data.local.dao.WordExampleDao
 import com.wcjung.engstudy.domain.model.Word
+import com.wcjung.engstudy.domain.model.WordMeaning
+import com.wcjung.engstudy.domain.model.WordExample
 import com.wcjung.engstudy.domain.model.toDomain
 import com.wcjung.engstudy.domain.repository.WordRepository
 import kotlinx.coroutines.flow.Flow
@@ -10,7 +14,9 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 class WordRepositoryImpl @Inject constructor(
-    private val wordDao: WordDao
+    private val wordDao: WordDao,
+    private val wordMeaningDao: WordMeaningDao,
+    private val wordExampleDao: WordExampleDao
 ) : WordRepository {
 
     override fun getWordsByFilter(
@@ -21,6 +27,21 @@ class WordRepositoryImpl @Inject constructor(
     ): Flow<List<Word>> =
         wordDao.getWordsByFilter(stage, domain, limit, offset)
             .map { entities -> entities.map { it.toDomain() } }
+
+    override suspend fun getWordsPage(
+        stage: Int?,
+        domain: String?,
+        showExcluded: Boolean,
+        limit: Int,
+        offset: Int
+    ): List<Word> {
+        val entities = if (showExcluded) {
+            wordDao.getWordsPageShowAll(stage, domain, limit, offset)
+        } else {
+            wordDao.getWordsPageHideExcluded(stage, domain, limit, offset)
+        }
+        return entities.map { it.toDomain() }
+    }
 
     override fun searchWords(query: String): Flow<List<Word>> =
         wordDao.searchWords(query).map { entities -> entities.map { it.toDomain() } }
@@ -65,4 +86,10 @@ class WordRepositoryImpl @Inject constructor(
 
     override suspend fun getRandomWordsExcluding(excludeIds: List<Int>, count: Int): List<Word> =
         wordDao.getRandomWordsExcluding(excludeIds, count).map { it.toDomain() }
+
+    override fun getMeaningsForWord(wordId: Int): Flow<List<WordMeaning>> =
+        wordMeaningDao.getMeaningsForWord(wordId).map { entities -> entities.map { it.toDomain() } }
+
+    override fun getExamplesForWord(wordId: Int): Flow<List<WordExample>> =
+        wordExampleDao.getExamplesForWord(wordId).map { entities -> entities.map { it.toDomain() } }
 }

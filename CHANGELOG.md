@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] - 2026-04-06
+
+### Added
+- **다중 의미 테이블** (`word_meanings`, DB v9): WordNet 빈도 기반 의미 순서 정렬
+  - `WordMeaningEntity`, `WordMeaningDao`, `WordMeaning` 도메인 모델
+  - `WordRepository.getMeaningsForWord()` / `WordRepositoryImpl` 구현
+  - `WordDetailScreen`: 의미별 품사(POS) 태그 표시, 빈도 순서로 나열
+  - 폴백: `word_meanings`가 없으면 기존 `meaning` 필드 표시
+- **단어별 예문 테이블** (`word_examples`, DB v9): Tatoeba + Claude Haiku 보완
+  - `WordExampleEntity`, `WordExampleDao`, `WordExample` 도메인 모델
+  - `WordRepository.getExamplesForWord()` / `WordRepositoryImpl` 구현
+  - `WordDetailScreen`: 예문 최대 3개 표시 (출처별: tatoeba/llm)
+  - 폴백: `word_examples`가 없으면 기존 `example_en`/`example_ko` 표시
+- **DB 생성 스크립트 2종**
+  - `scripts/build_meanings.py`: kengdic + WordNet(NLTK)으로 word_meanings 채우기
+  - `scripts/build_examples.py`: Tatoeba 매칭으로 word_examples 채우기 (LLM 0토큰)
+  - `scripts/build_examples_llm.py`: Anthropic Batch API로 미커버 단어 보완
+
 ## [Unreleased] - 2026-04-04
 
 ### Added
@@ -35,6 +53,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **다크모드 3단계**: 시스템/라이트/다크 직접 선택 (DataStore 저장)
 - **일일 학습 목표** 설정 및 홈 화면 진행률 표시
 - **"이미 알아요" 마킹**: words, edu_words, idioms 개별 건너뛰기 지원
+  - `WordListScreen`에서 다중 선택 후 일괄 "이미 알아요" 마킹 가능
+- **단어 완전 제외 & 복원** (`ExcludedWordsScreen`, v8)
+  - `learning_progress.is_excluded` 컬럼으로 학습/퀴즈/복습 전 영역에서 제외
+  - 프로필 → "제외된 단어"에서 제외 목록 확인 및 개별 복원
 - **EduFlashcardScreen**, **EduQuizScreen**: 교육부 단어 전용 플래시카드/퀴즈 화면 추가
 - 커스텀 브랜드 컬러 테마 (Dynamic Color 미사용)
   - Light: Indigo blue + Deep orange + Teal
@@ -43,9 +65,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - **총 콘텐츠**: 21,268개 (단어 12,068 + 교육부 3,000 + 숙어 1,092 + 예문 5,108)
-- **Room DB version**: 1 → **7** (릴리즈 전 정식 마이그레이션 필요)
+- **Room DB version**: 1 → **8** (릴리즈 전 정식 마이그레이션 필요)
 - Room identity hash: `90d07bfa248b01c3a5cbc93c5655b8b4`
-- 화면 수: 25개
+- 화면 수: 26개 (`ExcludedWordsScreen` 추가)
 - Stage 기반 학습 체계로 전환 (AgeGroup/Domain 분류 폐기)
 - `words` 스키마: `meaning` + `meaning_type` + `stage` 컬럼 구성
 - 데이터 생성 스크립트: `build_word_db.py` 단일 스크립트 (kengdic + Free Dictionary API)

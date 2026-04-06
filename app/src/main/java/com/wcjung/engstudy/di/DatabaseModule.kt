@@ -13,6 +13,8 @@ import com.wcjung.engstudy.data.local.dao.KnownItemDao
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.dao.WordDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
+import com.wcjung.engstudy.data.local.dao.WordMeaningDao
+import com.wcjung.engstudy.data.local.dao.WordExampleDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,6 +25,33 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+
+    val MIGRATION_8_9 = object : Migration(8, 9) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """CREATE TABLE IF NOT EXISTS word_meanings (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    word_id INTEGER NOT NULL,
+                    meaning TEXT NOT NULL,
+                    pos TEXT NOT NULL DEFAULT 'noun',
+                    meaning_type TEXT NOT NULL DEFAULT 'ko',
+                    sense_order INTEGER NOT NULL DEFAULT 0,
+                    source TEXT NOT NULL DEFAULT 'kengdic',
+                    FOREIGN KEY (word_id) REFERENCES words(id) ON DELETE CASCADE)"""
+            )
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_word_meanings_word_id ON word_meanings(word_id)")
+            db.execSQL(
+                """CREATE TABLE IF NOT EXISTS word_examples (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    word_id INTEGER NOT NULL,
+                    sentence_en TEXT NOT NULL,
+                    sentence_ko TEXT NOT NULL,
+                    source TEXT NOT NULL DEFAULT 'tatoeba',
+                    FOREIGN KEY (word_id) REFERENCES words(id) ON DELETE CASCADE)"""
+            )
+            db.execSQL("CREATE INDEX IF NOT EXISTS index_word_examples_word_id ON word_examples(word_id)")
+        }
+    }
 
     val MIGRATION_7_8 = object : Migration(7, 8) {
         override fun migrate(db: SupportSQLiteDatabase) {
@@ -98,7 +127,7 @@ object DatabaseModule {
             "engstudy.db"
         )
             .createFromAsset("databases/engstudy.db")
-            .addMigrations(MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8)
+            .addMigrations(MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9)
             // TODO: Before release, write proper migrations for all versions and remove fallbackToDestructiveMigration.
             // Kept temporarily as a safety net during development — only triggers if no migration path exists.
             .fallbackToDestructiveMigration()
@@ -129,4 +158,10 @@ object DatabaseModule {
 
     @Provides
     fun provideKnownItemDao(database: AppDatabase): KnownItemDao = database.knownItemDao()
+
+    @Provides
+    fun provideWordMeaningDao(database: AppDatabase): WordMeaningDao = database.wordMeaningDao()
+
+    @Provides
+    fun provideWordExampleDao(database: AppDatabase): WordExampleDao = database.wordExampleDao()
 }

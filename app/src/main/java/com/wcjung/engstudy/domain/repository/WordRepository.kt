@@ -1,6 +1,8 @@
 package com.wcjung.engstudy.domain.repository
 
 import com.wcjung.engstudy.domain.model.Word
+import com.wcjung.engstudy.domain.model.WordMeaning
+import com.wcjung.engstudy.domain.model.WordExample
 import kotlinx.coroutines.flow.Flow
 
 interface WordRepository {
@@ -10,6 +12,14 @@ interface WordRepository {
         limit: Int = 50,
         offset: Int = 0
     ): Flow<List<Word>>
+
+    suspend fun getWordsPage(
+        stage: Int?,
+        domain: String?,
+        showExcluded: Boolean,
+        limit: Int,
+        offset: Int
+    ): List<Word>
 
     fun searchWords(query: String): Flow<List<Word>>
 
@@ -42,4 +52,8 @@ interface WordRepository {
     suspend fun getDailyChallengeWords(seed: Long, count: Int = 10): List<Word>
 
     suspend fun getRandomWordsExcluding(excludeIds: List<Int>, count: Int): List<Word>
+
+    fun getMeaningsForWord(wordId: Int): Flow<List<WordMeaning>>
+
+    fun getExamplesForWord(wordId: Int): Flow<List<WordExample>>
 }

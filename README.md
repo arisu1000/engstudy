@@ -43,7 +43,8 @@
 
 ### 편의 기능
 - **오답 노트**: 퀴즈 오답 자동 수집 및 재학습
-- **"이미 알아요" 마킹**: 단어/교육부 단어/숙어 개별 건너뛰기
+- **"이미 알아요" 마킹**: 단어/교육부 단어/숙어 개별 건너뛰기 (단어 목록에서 다중 선택 지원)
+- **단어 완전 제외 & 복원**: 단어를 학습 전 영역에서 완전히 제외하고, 프로필에서 복원 가능
 - **TTS 발음**: Android 내장 TextToSpeech
 - **북마크**: 즐겨찾기 + 내보내기/공유
 - **검색**: 영어/한국어 양방향 (300ms debounce)
@@ -60,7 +61,7 @@
 | 언어 | Kotlin 2.1 |
 | UI | Jetpack Compose + Material 3 |
 | 아키텍처 | MVVM + Clean Architecture |
-| DB | Room v7 (pre-populated SQLite) |
+| DB | Room v9 (pre-populated SQLite) |
 | DI | Hilt |
 | Navigation | Compose Navigation (type-safe routes) |
 | 비동기 | Coroutines + Flow |
@@ -84,12 +85,19 @@
 
 ## 단어 데이터 생성
 
-kengdic(MPL 2.0) + Free Dictionary API를 기반으로 DB를 생성합니다.
+kengdic(MPL 2.0) + Free Dictionary API + Tatoeba(CC BY 2.0 FR)를 기반으로 DB를 생성합니다.
 
 ```bash
-cd scripts
-pip install wordfreq        # Python 의존성 설치
-python build_word_db.py     # DB 생성
+pip install wordfreq nltk anthropic   # Python 의존성 설치
+python3 -c "import nltk; nltk.download('wordnet')"
+
+python3 scripts/generate_word_db.py   # 기본 단어 DB 생성
+python3 scripts/build_meanings.py     # 다중 의미 생성 (WordNet 빈도 기반)
+python3 scripts/build_examples.py     # Tatoeba 예문 매칭 (LLM 0토큰)
+
+# (선택) 미커버 단어 예문 LLM 보완 — Anthropic API 키 필요, 약 $0.15
+# export ANTHROPIC_API_KEY=sk-ant-...
+# python3 scripts/build_examples_llm.py
 ```
 
 생성된 `engstudy.db`를 `app/src/main/assets/databases/`에 배치합니다.
@@ -98,9 +106,9 @@ python build_word_db.py     # DB 생성
 
 ```
 app/src/main/java/com/wcjung/engstudy/
-├── data/           # Room DB (8개 테이블), Repository 구현, DataStore
+├── data/           # Room DB (10개 테이블, v9), Repository 구현, DataStore
 ├── domain/         # 도메인 모델, Repository 인터페이스, UseCase (SM-2 등)
-├── ui/             # Compose UI (25개 화면, 네비게이션, 테마)
+├── ui/             # Compose UI (26개 화면, 네비게이션, 테마)
 ├── util/           # TTS, 알림, 홈 위젯
 └── di/             # Hilt DI 모듈
 scripts/

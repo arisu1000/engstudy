@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.Word
+import com.wcjung.engstudy.domain.model.WordMeaning
+import com.wcjung.engstudy.domain.model.WordExample
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
 import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
@@ -35,6 +37,12 @@ class WordDetailViewModel @Inject constructor(
 
     val isBookmarked: StateFlow<Boolean> = bookmarkRepository.isBookmarked(wordId)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+
+    val meanings: StateFlow<List<WordMeaning>> = wordRepository.getMeaningsForWord(wordId)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    val examples: StateFlow<List<WordExample>> = wordRepository.getExamplesForWord(wordId)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     init {
         viewModelScope.launch {

@@ -28,3 +28,4 @@ scripts/word_data/
 scripts/edu_3000.xls
 scripts/unmatched_words.json
 scripts/remaining_words.json
+scripts/uncovered_words.json

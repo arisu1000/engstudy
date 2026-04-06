@@ -54,7 +54,7 @@ com.wcjung.engstudy/
 │   ├── navigation/     # NavGraph, Screen routes
 │   ├── theme/          # Material 3 테마 (커스텀 브랜드 컬러, Dynamic Color 미사용)
 │   ├── components/     # 공유 컴포넌트 (WordCard, DomainChip, ComboEffect, LevelUpEffect)
-│   └── screen/         # 25개 화면 (아래 목록 참조)
+│   └── screen/         # 26개 화면 (아래 목록 참조)
 ├── util/               # TtsManager, NotificationHelper, Receivers
 └── di/                 # Hilt 모듈 (App, Database, Repository)
 ```
@@ -88,16 +88,18 @@ com.wcjung.engstudy/
 | grammarlist | 문법 예문 목록 |
 | dailychallenge | 일일 챌린지 |
 | placementtest | 배치 테스트 |
+| excludedwords | 제외된 단어 관리 (복원 가능) |
 
 ## DB 전략
 
 - `assets/databases/engstudy.db`에 사전 생성된 SQLite DB 탑재
 - `Room.databaseBuilder().createFromAsset()` 사용
-- DB version 7 / `fallbackToDestructiveMigration()` 적용 (개발 중, 릴리즈 전 정식 마이그레이션 필요)
-- Room identity hash: `90d07bfa248b01c3a5cbc93c5655b8b4`
-- DB 생성 스크립트: `scripts/build_word_db.py` — kengdic + Free Dictionary API
+- DB version 9 / `fallbackToDestructiveMigration()` 적용 (개발 중, 릴리즈 전 정식 마이그레이션 필요)
+- Room identity hash: 스키마 JSON `app/schemas/9.json` 참조
+- DB 생성 스크립트: `scripts/generate_word_db.py` — kengdic + Free Dictionary API
+- 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
 
-### 스키마 요약 (8개 테이블)
+### 스키마 요약 (10개 테이블, DB v9)
 
 **`words` 테이블** — 12,068개 (kengdic MPL 2.0 + Free Dictionary API)
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
@@ -121,6 +123,7 @@ com.wcjung.engstudy/
 
 **`learning_progress` 테이블**
 - SM-2 간격반복 진행 상태 (ease factor, interval, next review date 등)
+- `is_excluded` BOOLEAN (v8 추가): 단어 완전 제외 플래그 — 제외된 단어는 학습/퀴즈/복습에서 제외됨
 
 **`bookmarks` 테이블**
 - 사용자 북마크 단어
@@ -133,6 +136,19 @@ com.wcjung.engstudy/
 - edu_words, idioms 등에 대한 "이미 알아요" 범용 추적
 - `item_id` + `item_type`(unique): `'edu_word'`, `'idiom'` 등
 - `marked_at`: 마킹 시점 timestamp
+
+**`word_meanings` 테이블** (v9 추가)
+- words 테이블의 다중 의미를 별도 저장 (WordNet 빈도 기반 정렬)
+- `word_id` FK → words.id, `sense_order` INT (0=가장 흔한 의미)
+- `pos`: 품사 문자열 (noun/verb/adjective/adverb)
+- `meaning_type`: `'ko'` (한국어)
+- 생성: `scripts/build_meanings.py` (kengdic + NLTK WordNet)
+
+**`word_examples` 테이블** (v9 추가)
+- words 테이블의 단어별 예문 저장 (단어당 최대 3개)
+- `word_id` FK → words.id, `source`: `'tatoeba'` 또는 `'llm'`
+- 생성 Phase 1: `scripts/build_examples.py` (Tatoeba, LLM 0토큰)
+- 생성 Phase 2: `scripts/build_examples_llm.py` (Claude Haiku Batch API, 미커버 단어만)
 
 ### 데이터 소스 라이선스
 
@@ -179,15 +195,29 @@ com.wcjung.engstudy/
 - `StatisticsViewModel.generateReport()`: 학습 통계를 이모지 포함 텍스트로 포맷
 - `Intent.ACTION_SEND`로 카카오톡/메시지 등 모든 앱과 공유 가능
 
+### 단어 완전 제외 & 복원
+- `WordListScreen`에서 다중 선택 후 "완전 제외" 가능
+- `learning_progress.is_excluded = true`로 마킹 → 학습/퀴즈/복습 전 영역에서 제외
+- `ExcludedWordsScreen`(프로필 → 제외된 단어)에서 제외 목록 확인 및 개별 복원
+
 ### 브랜드 컬러 (Dynamic Color 미사용)
 - Light: Indigo blue + Deep orange + Teal
 - Dark: Navy black + Lavender + Salmon accents
 - Stage별 전용 색상: 초록→파랑→보라→주황→핑크→금색
 
+## TODO
+
+- [ ] **단어 예문 LLM 보완**: `scripts/build_examples_llm.py` 실행 — Anthropic API 키 필요 (console.anthropic.com)
+  - 현재 Tatoeba 커버리지: 23.5% (2,842/12,068 단어)
+  - 미커버 9,226개 단어 목록: `scripts/uncovered_words.json`
+  - 예상 비용: ~$0.15 (Claude Haiku Batch API)
+- [ ] DB v9 정식 마이그레이션 경로 작성 (릴리즈 전 `fallbackToDestructiveMigration` 제거)
+- [ ] Tatoeba 저작자 표시 (CC BY 2.0 FR) 앱 설정/정보 화면에 추가
+
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
-- Room DB version 7, `fallbackToDestructiveMigration()` 사용 중 — 릴리즈 전 정식 마이그레이션 경로 작성 필요 (TODO)
+- Room DB version 8, `fallbackToDestructiveMigration()` 사용 중 — 릴리즈 전 정식 마이그레이션 경로 작성 필요 (TODO)
 - Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 앱 설정/정보 화면에 표기할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요
 - `scripts/build_word_db.py` 실행 전 `wordfreq`, `kengdic` Python 의존성 설치 필요
