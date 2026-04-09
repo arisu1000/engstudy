@@ -1,5 +1,7 @@
 package com.wcjung.engstudy.ui.screen.idiom
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,6 +26,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +35,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
@@ -40,6 +44,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -167,6 +172,7 @@ fun IdiomListScreen(
 
 @Composable
 private fun IdiomCard(idiom: Idiom, isKnown: Boolean = false) {
+    val context = LocalContext.current
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(12.dp)) {
             Row(
@@ -224,6 +230,24 @@ private fun IdiomCard(idiom: Idiom, isKnown: Boolean = false) {
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                 )
+            }
+        }
+        HorizontalDivider(modifier = Modifier.padding(horizontal = 12.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End
+        ) {
+            TextButton(onClick = {
+                val uri = Uri.parse("https://en.dict.naver.com/#/search?query=${Uri.encode(idiom.phrase)}")
+                context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+            }) {
+                Text("네이버 사전", style = MaterialTheme.typography.labelSmall)
+            }
+            TextButton(onClick = {
+                val uri = Uri.parse("https://dictionary.cambridge.org/dictionary/english/${Uri.encode(idiom.phrase)}")
+                context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+            }) {
+                Text("Cambridge", style = MaterialTheme.typography.labelSmall)
             }
         }
     }

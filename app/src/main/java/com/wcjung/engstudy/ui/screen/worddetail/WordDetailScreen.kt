@@ -1,5 +1,7 @@
 package com.wcjung.engstudy.ui.screen.worddetail
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,8 +14,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -23,6 +25,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -31,6 +34,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 
@@ -214,6 +218,34 @@ fun WordDetailScreen(
                     )
                 ) {
                     Text(if (isMarkedAsKnown) "학습 완료됨" else "이미 알아요")
+                }
+
+                // 외부 사전 링크
+                val context = LocalContext.current
+                DetailSection(title = "사전에서 찾기") {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        OutlinedButton(
+                            onClick = {
+                                val uri = Uri.parse("https://en.dict.naver.com/#/search?query=${Uri.encode(w.word)}")
+                                context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                            },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Text("네이버 사전")
+                        }
+                        OutlinedButton(
+                            onClick = {
+                                val uri = Uri.parse("https://dictionary.cambridge.org/dictionary/english/${Uri.encode(w.word)}")
+                                context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                            },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            Text("Cambridge")
+                        }
+                    }
                 }
 
                 // 메타 정보
