@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.CheckCircle
@@ -18,6 +20,8 @@ import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DoneAll
 import androidx.compose.material.icons.filled.RemoveCircle
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
@@ -35,10 +39,12 @@ import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -46,6 +52,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.wcjung.engstudy.domain.model.Domain
 import com.wcjung.engstudy.domain.model.Stage
 import com.wcjung.engstudy.ui.components.WordCard
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -56,10 +64,31 @@ fun WordListScreen(
 ) {
     val words by viewModel.words.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val isLoadingMore by viewModel.isLoadingMore.collectAsState()
     val bookmarkedIds by viewModel.bookmarkedIds.collectAsState()
+    val showExcluded by viewModel.showExcluded.collectAsState()
 
     var isSelectMode by remember { mutableStateOf(false) }
     var selectedIds by remember { mutableStateOf(setOf<Int>()) }
+
+    val lazyListState = rememberLazyListState()
+
+    // 스크롤 끝 근처에 도달하면 추가 로드
+    val shouldLoadMore by remember {
+        derivedStateOf {
+            val layoutInfo = lazyListState.layoutInfo
+            val totalItems = layoutInfo.totalItemsCount
+            val lastVisible = layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0
+            totalItems > 0 && lastVisible >= totalItems - 5
+        }
+    }
+
+    LaunchedEffect(lazyListState) {
+        snapshotFlow { shouldLoadMore }
+            .distinctUntilChanged()
+            .filter { it }
+            .collect { viewModel.loadMore() }
+    }
 
     val title = buildString {
         viewModel.domain?.let { append(Domain.fromKey(it).displayNameKo) }
@@ -94,7 +123,6 @@ fun WordListScreen(
                 },
                 actions = {
                     if (isSelectMode) {
-                        // 전체 선택/해제
                         IconButton(onClick = {
                             selectedIds = if (selectedIds.size == words.size) {
                                 emptySet()
@@ -105,7 +133,13 @@ fun WordListScreen(
                             Icon(Icons.Default.DoneAll, contentDescription = "전체 선택")
                         }
                     } else {
-                        // 선택 모드 진입
+                        // 제외 단어 표시 토글
+                        IconButton(onClick = { viewModel.toggleShowExcluded() }) {
+                            Icon(
+                                if (showExcluded) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                                contentDescription = if (showExcluded) "제외 단어 숨기기" else "제외 단어 보기"
+                            )
+                        }
                         IconButton(onClick = { isSelectMode = true }) {
                             Icon(Icons.Default.Checklist, contentDescription = "선택 모드")
                         }
@@ -169,6 +203,7 @@ fun WordListScreen(
             }
         } else {
             LazyColumn(
+                state = lazyListState,
                 contentPadding = PaddingValues(
                     start = 16.dp,
                     end = 16.dp,
@@ -179,7 +214,6 @@ fun WordListScreen(
             ) {
                 items(words, key = { it.id }) { word ->
                     if (isSelectMode) {
-                        // 선택 모드: 체크박스 표시
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier.fillMaxWidth()
@@ -211,7 +245,6 @@ fun WordListScreen(
                             }
                         }
                     } else {
-                        // 일반 모드: 스와이프
                         val dismissState = rememberSwipeToDismissBoxState()
 
                         LaunchedEffect(dismissState.currentValue) {
@@ -254,6 +287,20 @@ fun WordListScreen(
                                 onSpeak = { viewModel.ttsManager.speak(word.word) },
                                 onToggleBookmark = { viewModel.toggleBookmark(word.id) }
                             )
+                        }
+                    }
+                }
+
+                // 추가 로드 중 인디케이터
+                if (isLoadingMore) {
+                    item {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator(modifier = Modifier.size(24.dp))
                         }
                     }
                 }

@@ -38,25 +38,68 @@ class WordListViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(true)
     val isLoading: StateFlow<Boolean> = _isLoading
 
+    private val _isLoadingMore = MutableStateFlow(false)
+    val isLoadingMore: StateFlow<Boolean> = _isLoadingMore
+
+    private val _showExcluded = MutableStateFlow(false)
+    val showExcluded: StateFlow<Boolean> = _showExcluded
+
     private var currentOffset = 0
     private val pageSize = 50
+    private var hasMore = true
+    private var isLoadingMoreInProgress = false
 
     init {
-        loadWords()
+        loadInitial()
     }
 
-    private fun loadWords() {
+    private fun loadInitial() {
+        currentOffset = 0
+        _words.value = emptyList()
+        hasMore = true
+        _isLoading.value = true
         viewModelScope.launch {
-            wordRepository.getWordsByFilter(
-                domain = domain,
+            val page = wordRepository.getWordsPage(
                 stage = stage,
+                domain = domain,
+                showExcluded = _showExcluded.value,
+                limit = pageSize,
+                offset = 0
+            )
+            _words.value = page
+            currentOffset = page.size
+            hasMore = page.size == pageSize
+            _isLoading.value = false
+        }
+    }
+
+    fun loadMore() {
+        if (isLoadingMoreInProgress || !hasMore) return
+        isLoadingMoreInProgress = true
+        _isLoadingMore.value = true
+        viewModelScope.launch {
+            val page = wordRepository.getWordsPage(
+                stage = stage,
+                domain = domain,
+                showExcluded = _showExcluded.value,
                 limit = pageSize,
                 offset = currentOffset
-            ).collect { words ->
-                _words.value = words
-                _isLoading.value = false
+            )
+            if (page.isEmpty()) {
+                hasMore = false
+            } else {
+                _words.value = _words.value + page
+                currentOffset += page.size
+                if (page.size < pageSize) hasMore = false
             }
+            _isLoadingMore.value = false
+            isLoadingMoreInProgress = false
         }
+    }
+
+    fun toggleShowExcluded() {
+        _showExcluded.value = !_showExcluded.value
+        loadInitial()
     }
 
     val bookmarkedIds: StateFlow<Set<Int>> = bookmarkRepository.getBookmarkedWords()
@@ -89,7 +132,9 @@ class WordListViewModel @Inject constructor(
     fun excludeWord(wordId: Int) {
         viewModelScope.launch {
             learningRepository.excludeWord(wordId)
-            _words.value = _words.value.filter { it.id != wordId }
+            if (!_showExcluded.value) {
+                _words.value = _words.value.filter { it.id != wordId }
+            }
         }
     }
 
@@ -97,7 +142,9 @@ class WordListViewModel @Inject constructor(
     fun excludeMultiple(wordIds: List<Int>) {
         viewModelScope.launch {
             wordIds.forEach { learningRepository.excludeWord(it) }
-            _words.value = _words.value.filter { it.id !in wordIds }
+            if (!_showExcluded.value) {
+                _words.value = _words.value.filter { it.id !in wordIds }
+            }
         }
     }
 }

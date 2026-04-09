@@ -30,6 +30,41 @@ interface WordDao {
         offset: Int = 0
     ): Flow<List<WordEntity>>
 
+    /** 제외 단어 숨김 (단어 목록 페이지네이션용) */
+    @Query(
+        """
+        SELECT * FROM words
+        WHERE (:stage IS NULL OR stage = :stage)
+        AND (:domain IS NULL OR domain = :domain)
+        AND id NOT IN (SELECT word_id FROM learning_progress WHERE is_excluded = 1)
+        ORDER BY frequency_rank ASC
+        LIMIT :limit OFFSET :offset
+        """
+    )
+    suspend fun getWordsPageHideExcluded(
+        stage: Int?,
+        domain: String?,
+        limit: Int,
+        offset: Int
+    ): List<WordEntity>
+
+    /** 제외 단어 포함 (단어 목록 페이지네이션용) */
+    @Query(
+        """
+        SELECT * FROM words
+        WHERE (:stage IS NULL OR stage = :stage)
+        AND (:domain IS NULL OR domain = :domain)
+        ORDER BY frequency_rank ASC
+        LIMIT :limit OFFSET :offset
+        """
+    )
+    suspend fun getWordsPageShowAll(
+        stage: Int?,
+        domain: String?,
+        limit: Int,
+        offset: Int
+    ): List<WordEntity>
+
     @Query(
         """
         SELECT * FROM words
