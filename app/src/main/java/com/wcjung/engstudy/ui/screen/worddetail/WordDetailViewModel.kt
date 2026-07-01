@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,13 +45,13 @@ class WordDetailViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     init {
-        viewModelScope.launch {
+        launchSafely {
             _word.value = wordRepository.getWordById(wordId)
         }
     }
 
     fun toggleBookmark() {
-        viewModelScope.launch {
+        launchSafely {
             bookmarkRepository.toggleBookmark(wordId)
         }
     }
@@ -60,7 +60,7 @@ class WordDetailViewModel @Inject constructor(
     val isMarkedAsKnown: StateFlow<Boolean> = _isMarkedAsKnown
 
     fun markAsKnown() {
-        viewModelScope.launch {
+        launchSafely {
             learningRepository.markAsKnown(wordId)
             _isMarkedAsKnown.value = true
         }

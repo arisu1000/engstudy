@@ -2,7 +2,6 @@ package com.wcjung.engstudy.ui.screen.idiom
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.Idiom
 import com.wcjung.engstudy.domain.repository.IdiomRepository
@@ -12,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 data class IdiomQuizQuestion(
@@ -60,7 +59,7 @@ class IdiomQuizViewModel @Inject constructor(
     }
 
     private fun loadQuestions() {
-        viewModelScope.launch {
+        launchSafely {
             val idiomList = if (type != null) {
                 idiomRepository.getByType(type).first()
             } else {

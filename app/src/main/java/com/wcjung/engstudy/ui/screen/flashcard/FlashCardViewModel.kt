@@ -2,7 +2,6 @@ package com.wcjung.engstudy.ui.screen.flashcard
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
@@ -17,7 +16,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -55,7 +54,7 @@ class FlashCardViewModel @Inject constructor(
     }
 
     private fun loadWords() {
-        viewModelScope.launch {
+        launchSafely {
             val words = wordRepository.getNewWordsForStudy(
                 count = 20,
                 stage = route.stage,
@@ -71,7 +70,7 @@ class FlashCardViewModel @Inject constructor(
 
     fun rate(rating: SimpleRating) {
         val word = currentWord ?: return
-        viewModelScope.launch {
+        launchSafely {
             val progress = learningRepository.getProgressForWord(word.id)
                 ?: LearningProgress(wordId = word.id)
             val quality = spacedRepetition.qualityFromSimpleRating(rating)
@@ -109,7 +108,7 @@ class FlashCardViewModel @Inject constructor(
 
     fun markAsKnown() {
         val word = currentWord ?: return
-        viewModelScope.launch {
+        launchSafely {
             learningRepository.markAsKnown(word.id)
             correctCount++
             moveToNext()

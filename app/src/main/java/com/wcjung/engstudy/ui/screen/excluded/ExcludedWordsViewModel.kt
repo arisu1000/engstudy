@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,7 +23,7 @@ class ExcludedWordsViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0)
 
     fun restoreWord(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             learningRepository.restoreWord(wordId)
         }
     }

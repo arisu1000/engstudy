@@ -2,7 +2,6 @@ package com.wcjung.engstudy.ui.screen.quiz
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
@@ -17,7 +16,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 data class QuizQuestion(
@@ -69,7 +68,7 @@ class QuizViewModel @Inject constructor(
     }
 
     private fun loadQuestions() {
-        viewModelScope.launch {
+        launchSafely {
             val words = wordRepository.getNewWordsForStudy(
                 count = 20,
                 stage = route.stage,
@@ -112,7 +111,7 @@ class QuizViewModel @Inject constructor(
         val question = currentQuestion ?: return
         val isCorrect = index == question.correctIndex
 
-        viewModelScope.launch {
+        launchSafely {
             val progress = learningRepository.getProgressForWord(question.word.id)
                 ?: LearningProgress(wordId = question.word.id)
             val rating = if (isCorrect) SimpleRating.GOOD else SimpleRating.AGAIN

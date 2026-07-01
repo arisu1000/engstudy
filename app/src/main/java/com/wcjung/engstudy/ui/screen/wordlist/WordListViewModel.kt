@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -58,7 +58,7 @@ class WordListViewModel @Inject constructor(
         _words.value = emptyList()
         hasMore = true
         _isLoading.value = true
-        viewModelScope.launch {
+        launchSafely {
             val page = wordRepository.getWordsPage(
                 stage = stage,
                 domain = domain,
@@ -77,7 +77,7 @@ class WordListViewModel @Inject constructor(
         if (isLoadingMoreInProgress || !hasMore) return
         isLoadingMoreInProgress = true
         _isLoadingMore.value = true
-        viewModelScope.launch {
+        launchSafely {
             val page = wordRepository.getWordsPage(
                 stage = stage,
                 domain = domain,
@@ -107,14 +107,14 @@ class WordListViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
 
     fun toggleBookmark(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             bookmarkRepository.toggleBookmark(wordId)
         }
     }
 
     /** 이미 알아요 - 학습 완료 표시 (복습에는 나올 수 있음) */
     fun markAsKnown(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             learningRepository.markAsKnown(wordId)
             _words.value = _words.value.filter { it.id != wordId }
         }
@@ -122,7 +122,7 @@ class WordListViewModel @Inject constructor(
 
     /** 여러 단어 이미 알아요 일괄 처리 */
     fun markMultipleAsKnown(wordIds: List<Int>) {
-        viewModelScope.launch {
+        launchSafely {
             wordIds.forEach { learningRepository.markAsKnown(it) }
             _words.value = _words.value.filter { it.id !in wordIds }
         }
@@ -130,7 +130,7 @@ class WordListViewModel @Inject constructor(
 
     /** 완전 제외 - 모든 학습/복습에서 영구 제외 */
     fun excludeWord(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             learningRepository.excludeWord(wordId)
             if (!_showExcluded.value) {
                 _words.value = _words.value.filter { it.id != wordId }
@@ -140,7 +140,7 @@ class WordListViewModel @Inject constructor(
 
     /** 여러 단어 완전 제외 일괄 처리 */
     fun excludeMultiple(wordIds: List<Int>) {
-        viewModelScope.launch {
+        launchSafely {
             wordIds.forEach { learningRepository.excludeWord(it) }
             if (!_showExcluded.value) {
                 _words.value = _words.value.filter { it.id !in wordIds }

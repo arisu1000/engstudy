@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,7 +46,7 @@ class ReviewViewModel @Inject constructor(
 
     fun rate(rating: SimpleRating) {
         val word = currentWord ?: return
-        viewModelScope.launch {
+        launchSafely {
             val progress = learningRepository.getProgressForWord(word.id)
                 ?: LearningProgress(wordId = word.id)
             val quality = spacedRepetition.qualityFromSimpleRating(rating)

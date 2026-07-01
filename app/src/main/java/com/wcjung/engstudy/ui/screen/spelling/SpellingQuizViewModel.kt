@@ -2,7 +2,6 @@ package com.wcjung.engstudy.ui.screen.spelling
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
@@ -17,7 +16,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -65,7 +64,7 @@ class SpellingQuizViewModel @Inject constructor(
     }
 
     private fun loadWords() {
-        viewModelScope.launch {
+        launchSafely {
             val words = wordRepository.getNewWordsForStudy(
                 count = 10,
                 stage = route.stage,
@@ -88,7 +87,7 @@ class SpellingQuizViewModel @Inject constructor(
         val isCorrect = _userInput.value.trim().equals(word.word, ignoreCase = true)
         _answerState.value = if (isCorrect) AnswerState.Correct else AnswerState.Incorrect(word.word)
 
-        viewModelScope.launch {
+        launchSafely {
             val progress = learningRepository.getProgressForWord(word.id)
                 ?: LearningProgress(wordId = word.id)
             val rating = if (isCorrect) SimpleRating.GOOD else SimpleRating.AGAIN

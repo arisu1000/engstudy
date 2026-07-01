@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import java.time.LocalDate
 import java.time.ZoneId
 import javax.inject.Inject
@@ -75,7 +75,7 @@ class HomeViewModel @Inject constructor(
     }
 
     private fun loadWordOfTheDay() {
-        viewModelScope.launch {
+        launchSafely {
             _wordOfTheDay.value = wordRepository.getWordOfTheDay()
         }
     }

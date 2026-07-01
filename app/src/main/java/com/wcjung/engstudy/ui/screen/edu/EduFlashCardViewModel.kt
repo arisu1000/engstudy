@@ -2,7 +2,6 @@ package com.wcjung.engstudy.ui.screen.edu
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.EduWord
 import com.wcjung.engstudy.domain.repository.EduWordRepository
@@ -12,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,7 +37,7 @@ class EduFlashCardViewModel @Inject constructor(
     }
 
     private fun loadWords() {
-        viewModelScope.launch {
+        launchSafely {
             val wordList = if (level != null) {
                 eduWordRepository.getWordsByLevel(level).first()
             } else {

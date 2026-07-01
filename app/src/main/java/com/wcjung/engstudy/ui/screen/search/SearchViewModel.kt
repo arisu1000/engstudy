@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @OptIn(FlowPreview::class)
@@ -46,7 +46,7 @@ class SearchViewModel @Inject constructor(
     }
 
     fun toggleBookmark(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             bookmarkRepository.toggleBookmark(wordId)
         }
     }

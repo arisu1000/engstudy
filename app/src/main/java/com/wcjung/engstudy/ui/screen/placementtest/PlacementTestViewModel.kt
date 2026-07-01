@@ -1,14 +1,13 @@
 package com.wcjung.engstudy.ui.screen.placementtest
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.wcjung.engstudy.data.datastore.UserPreferences
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.WordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 /**
@@ -60,7 +59,7 @@ class PlacementTestViewModel @Inject constructor(
     }
 
     private fun loadQuestions() {
-        viewModelScope.launch {
+        launchSafely {
             val allQuestions = mutableListOf<Question>()
 
             // Stage 1-4에서 각 10-13개씩 단어를 가져와 문제를 생성
@@ -133,7 +132,7 @@ class PlacementTestViewModel @Inject constructor(
         _recommendedStage.value = recommended.coerceAtMost(4)
         _isFinished.value = true
 
-        viewModelScope.launch {
+        launchSafely {
             userPreferences.setRecommendedStage(_recommendedStage.value)
             userPreferences.setPlacementTestCompleted()
         }

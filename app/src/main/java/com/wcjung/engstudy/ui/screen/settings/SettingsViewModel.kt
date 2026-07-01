@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,23 +34,23 @@ class SettingsViewModel @Inject constructor(
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
 
     fun setDarkMode(enabled: Boolean) {
-        viewModelScope.launch { userPreferences.setDarkMode(enabled) }
+        launchSafely { userPreferences.setDarkMode(enabled) }
     }
 
     fun setThemeMode(mode: String) {
-        viewModelScope.launch { userPreferences.setThemeMode(mode) }
+        launchSafely { userPreferences.setThemeMode(mode) }
     }
 
     fun setTtsSpeed(speed: Float) {
-        viewModelScope.launch { userPreferences.setTtsSpeed(speed) }
+        launchSafely { userPreferences.setTtsSpeed(speed) }
     }
 
     fun setDailyGoal(goal: Int) {
-        viewModelScope.launch { userPreferences.setDailyGoal(goal) }
+        launchSafely { userPreferences.setDailyGoal(goal) }
     }
 
     fun setNotificationEnabled(enabled: Boolean) {
-        viewModelScope.launch {
+        launchSafely {
             userPreferences.setNotificationEnabled(enabled)
             if (enabled) {
                 val hour = userPreferences.notificationHour.first()

@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -49,7 +49,7 @@ class EduWordListViewModel @Inject constructor(
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     init {
-        viewModelScope.launch {
+        launchSafely {
             val source = if (level == null) eduWordRepository.getAllWords()
                          else eduWordRepository.getWordsByLevel(level)
             source.collect { allWords ->
@@ -60,13 +60,13 @@ class EduWordListViewModel @Inject constructor(
     }
 
     fun markAsKnown(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             knownItemDao.markAsKnown(KnownItemEntity(itemId = wordId, itemType = ITEM_TYPE))
         }
     }
 
     fun unmarkKnown(wordId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             knownItemDao.unmarkKnown(wordId, ITEM_TYPE)
         }
     }

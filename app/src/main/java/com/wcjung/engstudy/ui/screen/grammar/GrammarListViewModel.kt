@@ -2,7 +2,6 @@ package com.wcjung.engstudy.ui.screen.grammar
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.ExampleSentence
 import com.wcjung.engstudy.domain.repository.SentenceRepository
@@ -11,7 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -34,7 +33,7 @@ class GrammarListViewModel @Inject constructor(
     }
 
     private fun loadSentences() {
-        viewModelScope.launch {
+        launchSafely {
             val flow = if (topic != null) {
                 sentenceRepository.getByGrammarTopic(topic)
             } else {

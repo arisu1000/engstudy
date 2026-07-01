@@ -1,14 +1,13 @@
 package com.wcjung.engstudy.ui.screen.challenge
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.usecase.GetDailyChallengeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 data class ChallengeQuestion(
@@ -51,9 +50,9 @@ class DailyChallengeViewModel @Inject constructor(
     }
 
     private fun loadChallenge() {
-        viewModelScope.launch {
+        launchSafely {
             val words = getDailyChallenge.getTodayWords()
-            if (words.isEmpty()) return@launch
+            if (words.isEmpty()) return@launchSafely
 
             val wordIds = words.map { it.id }
 

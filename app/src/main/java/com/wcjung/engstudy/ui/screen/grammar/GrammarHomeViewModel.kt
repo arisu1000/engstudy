@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 data class TopicInfo(
@@ -42,7 +42,7 @@ class GrammarHomeViewModel @Inject constructor(
      * topic 목록이 적으므로(약 20개) 순차 조회해도 성능 문제 없다.
      */
     private fun loadTopics() {
-        viewModelScope.launch {
+        launchSafely {
             val topicNames = sentenceRepository.getAllTopics().first()
             val result = mutableListOf<TopicInfo>()
             for (name in topicNames) {

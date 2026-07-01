@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.launch
+import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
 
 @HiltViewModel
@@ -60,7 +60,7 @@ class IdiomListViewModel @Inject constructor(
     fun search(query: String) {
         _searchQuery.value = query
         activeJob?.cancel()
-        activeJob = viewModelScope.launch {
+        activeJob = launchSafely {
             if (query.isBlank()) {
                 val flow = if (type != null) idiomRepository.getByType(type)
                            else idiomRepository.getAllIdioms()
@@ -78,13 +78,13 @@ class IdiomListViewModel @Inject constructor(
     }
 
     fun markAsKnown(idiomId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             knownItemDao.markAsKnown(KnownItemEntity(itemId = idiomId, itemType = ITEM_TYPE))
         }
     }
 
     fun unmarkKnown(idiomId: Int) {
-        viewModelScope.launch {
+        launchSafely {
             knownItemDao.unmarkKnown(idiomId, ITEM_TYPE)
         }
     }
