@@ -40,6 +40,14 @@ android {
     buildFeatures {
         compose = true
     }
+
+    testOptions {
+        unitTests {
+            // JVM 유닛 테스트에서 android.util.Log 등 안드로이드 stub 호출이
+            // "not mocked" 예외를 던지지 않고 기본값을 반환하도록 한다.
+            isReturnDefaultValues = true
+        }
+    }
 }
 
 kotlin {
