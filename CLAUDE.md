@@ -28,7 +28,7 @@
 | 언어 | Kotlin 2.1 |
 | UI | Jetpack Compose + Material 3 |
 | 아키텍처 | MVVM + Clean Architecture |
-| DB | Room (pre-populated from assets), version 7 |
+| DB | Room (pre-populated from assets), version 9 |
 | DI | Hilt |
 | Navigation | Compose Navigation (type-safe routes) |
 | 비동기 | Coroutines + Flow |
@@ -211,13 +211,13 @@ com.wcjung.engstudy/
   - 현재 Tatoeba 커버리지: 23.5% (2,842/12,068 단어)
   - 미커버 9,226개 단어 목록: `scripts/uncovered_words.json`
   - 예상 비용: ~$0.15 (Claude Haiku Batch API)
-- [ ] DB v9 정식 마이그레이션 경로 작성 (릴리즈 전 `fallbackToDestructiveMigration` 제거)
+- [x] DB v9까지 정식 마이그레이션(4→9) 작성 및 `fallbackToDestructiveMigration` 제거 완료 (업그레이드 시 사용자 데이터 보존)
 - [ ] Tatoeba 저작자 표시 (CC BY 2.0 FR) 앱 설정/정보 화면에 추가
 
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
-- Room DB version 8, `fallbackToDestructiveMigration()` 사용 중 — 릴리즈 전 정식 마이그레이션 경로 작성 필요 (TODO)
+- Room DB version 9 — 업그레이드는 명시적 Migration(4→9)으로 처리하며 사용자 데이터를 보존한다. v10+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud)
 - Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 앱 설정/정보 화면에 표기할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요
 - `scripts/build_word_db.py` 실행 전 `wordfreq`, `kengdic` Python 의존성 설치 필요

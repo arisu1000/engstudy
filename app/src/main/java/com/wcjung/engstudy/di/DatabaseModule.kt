@@ -128,9 +128,13 @@ object DatabaseModule {
         )
             .createFromAsset("databases/engstudy.db")
             .addMigrations(MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9)
-            // TODO: Before release, write proper migrations for all versions and remove fallbackToDestructiveMigration.
-            // Kept temporarily as a safety net during development — only triggers if no migration path exists.
-            .fallbackToDestructiveMigration()
+            // 업그레이드는 항상 명시적 마이그레이션(4→9)으로만 처리한다.
+            // learning_progress/bookmarks/wrong_answers/known_items 등 사용자 데이터가
+            // 같은 DB에 저장되므로, 파괴적 폴백을 쓰면 스키마 변경 시 사용자 학습 기록이 전부 유실된다.
+            // 향후 v10+ 추가 시에는 반드시 대응 Migration을 addMigrations에 등록해야 하며,
+            // 누락 시 앱이 조용히 데이터를 지우는 대신 즉시 예외로 실패(fail-loud)한다.
+            // 다운그레이드만 방어적으로 재생성 허용(정상 배포에서는 발생하지 않음).
+            .fallbackToDestructiveMigrationOnDowngrade()
             .build()
     }
 
