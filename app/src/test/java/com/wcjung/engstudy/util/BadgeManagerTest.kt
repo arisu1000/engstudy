@@ -30,8 +30,12 @@ class BadgeManagerTest {
         learnedByDomain = emptyMap()
     )
 
-    private fun earned(stats: StudyStatistics, id: String): Boolean =
-        BadgeManager.calculateBadges(stats).first { it.id == id }.isEarned
+    private fun earned(
+        stats: StudyStatistics,
+        id: String,
+        stageTotals: Map<Stage, Int> = emptyMap()
+    ): Boolean =
+        BadgeManager.calculateBadges(stats, stageTotals).first { it.id == id }.isEarned
 
     @Test
     fun `첫 걸음 뱃지는 단어 0개면 미획득`() {
@@ -70,6 +74,21 @@ class BadgeManagerTest {
         assertTrue(
             earned(stats(learnedByStage = mapOf(Stage.FOUNDATION to 800)), "stage_1")
         )
+    }
+
+    @Test
+    fun `실제 스테이지 총 단어 수가 주어지면 근사치 대신 그 값으로 판정한다`() {
+        // 실제 총 단어 수를 500으로 전달하면 근사치(800)가 아니라 500 기준으로 완료 판정
+        val stats = stats(learnedByStage = mapOf(Stage.FOUNDATION to 500))
+        assertFalse(earned(stats, "stage_1")) // 근사치 800 기준이면 미완료지만
+        assertTrue(earned(stats, "stage_1", stageTotals = mapOf(Stage.FOUNDATION to 500)))
+    }
+
+    @Test
+    fun `stageTotals에 값이 없거나 0이면 근사치 폴백을 사용한다`() {
+        // 0이 전달되면 무시하고 근사치(800)로 폴백
+        val stats = stats(learnedByStage = mapOf(Stage.FOUNDATION to 800))
+        assertTrue(earned(stats, "stage_1", stageTotals = mapOf(Stage.FOUNDATION to 0)))
     }
 
     @Test

@@ -10,7 +10,14 @@ import com.wcjung.engstudy.domain.model.StudyStatistics
  */
 object BadgeManager {
 
-    fun calculateBadges(stats: StudyStatistics): List<Badge> {
+    /**
+     * @param stageTotals 스테이지별 실제 총 단어 수(DB 기준). 제공되면 스테이지 완료
+     *   판정에 사용하고, 값이 없거나 0인 스테이지는 [getTotalWordsForStage] 근사치로 대체한다.
+     */
+    fun calculateBadges(
+        stats: StudyStatistics,
+        stageTotals: Map<Stage, Int> = emptyMap()
+    ): List<Badge> {
         val badges = mutableListOf<Badge>()
 
         // 학습 시작 뱃지
@@ -64,12 +71,13 @@ object BadgeManager {
         // 스테이지 완료 뱃지
         Stage.entries.forEach { stage ->
             val learnedInStage = stats.learnedByStage[stage] ?: 0
+            val totalInStage = stageTotals[stage]?.takeIf { it > 0 } ?: getTotalWordsForStage(stage)
             badges += Badge(
                 id = "stage_${stage.level}",
                 name = "Stage ${stage.level} 완료",
                 description = "${stage.displayNameKo} 단계 전체 학습",
                 icon = "stage",
-                isEarned = learnedInStage > 0 && learnedInStage >= getTotalWordsForStage(stage)
+                isEarned = learnedInStage > 0 && learnedInStage >= totalInStage
             )
         }
 
@@ -77,9 +85,9 @@ object BadgeManager {
     }
 
     /**
-     * 스테이지별 총 단어 수 기준값.
-     * 실제 DB에서 조회하면 정확하지만, 뱃지 판정용 근사치를 사용한다.
-     * TODO(wcjung): 실제 DB 기반으로 스테이지별 총 단어 수를 조회하도록 개선
+     * 스테이지별 총 단어 수 근사치(폴백).
+     * 정확한 판정을 위해서는 [calculateBadges]에 실제 DB 기준 stageTotals를 전달한다.
+     * 이 값은 stageTotals가 비어 있거나 해당 스테이지 값이 없을 때만 사용된다.
      */
     private fun getTotalWordsForStage(stage: Stage): Int {
         return when (stage) {

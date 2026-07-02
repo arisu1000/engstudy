@@ -10,6 +10,7 @@ import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.util.BadgeManager
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -61,8 +62,15 @@ class StatisticsViewModel @Inject constructor(
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyMap())
     }
 
-    /** 학습 통계를 종합하여 뱃지 목록을 계산한다 */
-    val badges: StateFlow<List<Badge>> = combine(
+    /** 스테이지별 실제 총 단어 수 (Stage -> count). 뱃지 완료 판정 및 리포트에 사용 */
+    private val stageTotalsByStage: Flow<Map<Stage, Int>> = combine(
+        Stage.entries.map { stage -> wordRepository.getWordCountByStage(stage.level) }
+    ) { counts ->
+        Stage.entries.mapIndexed { index, stage -> stage to counts[index] }.toMap()
+    }
+
+    /** 뱃지 판정용 학습 통계 */
+    private val statsFlow: Flow<StudyStatistics> = combine(
         learningRepository.getLearnedWordCount(),
         userPreferences.streakDays,
         learningRepository.getLearnedCountByStage(),
@@ -72,7 +80,7 @@ class StatisticsViewModel @Inject constructor(
         val byStage = byStageInt.entries.associate { (level, count) ->
             Stage.fromLevel(level) to count
         }
-        val stats = StudyStatistics(
+        StudyStatistics(
             totalWords = 0,
             learnedWords = learned,
             inProgressWords = 0,
@@ -83,7 +91,17 @@ class StatisticsViewModel @Inject constructor(
             learnedByStage = byStage,
             learnedByDomain = emptyMap()
         )
-        BadgeManager.calculateBadges(stats)
+    }
+
+    /**
+     * 학습 통계를 종합하여 뱃지 목록을 계산한다.
+     * 스테이지 완료 판정은 하드코딩 근사치가 아니라 실제 DB의 스테이지별 단어 수를 사용한다.
+     */
+    val badges: StateFlow<List<Badge>> = combine(
+        statsFlow,
+        stageTotalsByStage
+    ) { stats, stageTotals ->
+        BadgeManager.calculateBadges(stats, stageTotals)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     /**
@@ -134,12 +152,10 @@ class StatisticsViewModel @Inject constructor(
         }
     }
 
-    /** 단계별 총 단어 수 (리포트 생성용) */
-    val stageWordCounts: StateFlow<Map<Int, Int>> = combine(
-        Stage.entries.map { stage -> wordRepository.getWordCountByStage(stage.level) }
-    ) { counts ->
-        Stage.entries.mapIndexed { index, stage -> stage.level to counts[index] }.toMap()
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyMap())
+    /** 단계별 총 단어 수 (리포트 생성용, level -> count) */
+    val stageWordCounts: StateFlow<Map<Int, Int>> = stageTotalsByStage
+        .map { totals -> totals.mapKeys { (stage, _) -> stage.level } }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyMap())
 
     /** 오늘 복습한 단어 수 */
     val todayReviewedCount: StateFlow<Int> = run {
