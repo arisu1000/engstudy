@@ -26,7 +26,6 @@ class UserPreferences @Inject constructor(
         val NOTIFICATION_HOUR = intPreferencesKey("notification_hour")
         val NOTIFICATION_MINUTE = intPreferencesKey("notification_minute")
         val NOTIFICATION_ENABLED = booleanPreferencesKey("notification_enabled")
-        val PREFERRED_STAGE = intPreferencesKey("preferred_stage")
         val STREAK_DAYS = intPreferencesKey("streak_days")
         val LAST_STUDY_DATE = longPreferencesKey("last_study_date")
         val THEME_MODE = stringPreferencesKey("theme_mode")
@@ -40,7 +39,6 @@ class UserPreferences @Inject constructor(
     val notificationHour: Flow<Int> = dataStore.data.map { it[Keys.NOTIFICATION_HOUR] ?: 20 }
     val notificationMinute: Flow<Int> = dataStore.data.map { it[Keys.NOTIFICATION_MINUTE] ?: 0 }
     val notificationEnabled: Flow<Boolean> = dataStore.data.map { it[Keys.NOTIFICATION_ENABLED] ?: false }
-    val preferredStage: Flow<Int?> = dataStore.data.map { it[Keys.PREFERRED_STAGE] }
     val streakDays: Flow<Int> = dataStore.data.map { it[Keys.STREAK_DAYS] ?: 0 }
     val lastStudyDate: Flow<Long> = dataStore.data.map { it[Keys.LAST_STUDY_DATE] ?: 0L }
     val themeMode: Flow<String> = dataStore.data.map { it[Keys.THEME_MODE] ?: "system" }
@@ -68,16 +66,6 @@ class UserPreferences @Inject constructor(
 
     suspend fun setNotificationEnabled(enabled: Boolean) {
         dataStore.edit { it[Keys.NOTIFICATION_ENABLED] = enabled }
-    }
-
-    suspend fun setPreferredStage(stage: Int?) {
-        dataStore.edit {
-            if (stage != null) {
-                it[Keys.PREFERRED_STAGE] = stage
-            } else {
-                it.remove(Keys.PREFERRED_STAGE)
-            }
-        }
     }
 
     suspend fun setThemeMode(mode: String) {

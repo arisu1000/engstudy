@@ -25,6 +25,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.wcjung.engstudy.domain.model.Domain
 import com.wcjung.engstudy.domain.model.Stage
 import com.wcjung.engstudy.ui.components.DomainChip
@@ -42,10 +45,21 @@ fun StudyScreen(
     onStartFlashCard: (String?, Int?) -> Unit,
     onStartQuiz: (String?, Int?) -> Unit,
     onStartSpellingQuiz: (String?, Int?) -> Unit,
-    onNavigateToWordList: (String?, Int?) -> Unit
+    onNavigateToWordList: (String?, Int?) -> Unit,
+    viewModel: StudyViewModel = hiltViewModel()
 ) {
     var selectedDomain by remember { mutableStateOf<Domain?>(null) }
     var selectedStage by remember { mutableStateOf<Stage?>(null) }
+
+    // 배치 테스트 추천 단계를 기본 선택으로 반영한다. 사용자가 직접 조작한 뒤에는
+    // 추천값이 다시 덮어쓰지 않도록 한 번만 적용한다.
+    val recommendedStage by viewModel.initialSelectedStage.collectAsState()
+    var stageAdjustedByUser by remember { mutableStateOf(false) }
+    LaunchedEffect(recommendedStage) {
+        if (!stageAdjustedByUser && recommendedStage != null) {
+            selectedStage = recommendedStage
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -85,6 +99,7 @@ fun StudyScreen(
                     FilterChip(
                         selected = selectedStage == stage,
                         onClick = {
+                            stageAdjustedByUser = true
                             selectedStage = if (selectedStage == stage) null else stage
                         },
                         label = { Text(stage.displayNameKo) }

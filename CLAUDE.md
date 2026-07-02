@@ -174,7 +174,8 @@ com.wcjung.engstudy/
 - `WordDao.getDailyChallengeWords()`: `ORDER BY (id * :seed) % 99991` SQL로 구현
 
 ### 배치 테스트: `PlacementTestScreen`
-- 초기 레벨 평가로 학습 시작 Stage를 자동 추천
+- 초기 레벨 평가로 학습 시작 Stage를 자동 추천, `recommendedStage`로 저장
+- 테스트 완료 시 학습 화면(`StudyScreen`)의 단계 선택 기본값으로 추천 Stage가 반영됨 (`StudyViewModel.initialSelectedStage`)
 
 ## 주요 UI/UX 기능
 
