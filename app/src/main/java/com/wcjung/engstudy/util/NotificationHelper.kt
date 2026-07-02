@@ -33,7 +33,13 @@ class NotificationHelper @Inject constructor(
         manager.createNotificationChannel(channel)
     }
 
-    fun showReminderNotification() {
+    /**
+     * 학습 리마인더 알림을 표시한다.
+     *
+     * @param dueReviewCount 복습 예정 단어 수. 0보다 크면 구체적인 개수를 안내해
+     *   재방문 동기를 높이고, 없으면 일반 학습 독려 문구를 사용한다.
+     */
+    fun showReminderNotification(dueReviewCount: Int = 0) {
         val intent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -41,10 +47,16 @@ class NotificationHelper @Inject constructor(
             context, 0, intent, PendingIntent.FLAG_IMMUTABLE
         )
 
+        val contentText = if (dueReviewCount > 0) {
+            "복습할 단어 ${dueReviewCount}개가 기다리고 있어요. 지금 복습해볼까요?"
+        } else {
+            "오늘의 단어를 학습하고 복습해보세요."
+        }
+
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle("영어 단어 복습 시간!")
-            .setContentText("오늘의 단어를 학습하고 복습해보세요.")
+            .setContentText(contentText)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
