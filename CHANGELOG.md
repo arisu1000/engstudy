@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] - 2026-07-03
+
+### Fixed
+- **단어 대표 뜻 품질 개선**: kengdic.tsv가 가나다순 정렬이라 희귀 의미가 먼저 노출되던 문제 보정
+  (예: white → "공백의, 눈이 많은" → "흰")
+  - `scripts/apply_edu_meanings.py` 신규: 교육부 `edu_words`와 겹치는 2,736개 단어의
+    `words.meaning`을 교육부 검수 뜻으로 교체, `word_meanings`의 sense_order 0에 삽입 (source='edu')
+  - 나머지 미겹침 단어(~9,300개)는 LLM 배치 재생성으로 후속 개선 예정 (TODO 참조)
+
 ## [Unreleased] - 2026-04-06
 
 ### Added

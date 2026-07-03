@@ -98,12 +98,13 @@ com.wcjung.engstudy/
 - Room identity hash: 스키마 JSON `app/schemas/9.json` 참조
 - DB 생성 스크립트: `scripts/generate_word_db.py` — kengdic + Free Dictionary API
 - 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
+- 대표 뜻 보정: `scripts/apply_edu_meanings.py` — kengdic이 가나다순 정렬이라 희귀 의미가 먼저 노출되는 문제를 교육부 뜻으로 보정 (빌드 파이프라인 마지막 단계, 멱등)
 
 ### 스키마 요약 (10개 테이블, DB v9)
 
 **`words` 테이블** — 12,068개 (kengdic MPL 2.0 + Free Dictionary API)
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
-- `meaning` TEXT: 단어 의미
+- `meaning` TEXT: 단어 의미 — 교육부 단어와 겹치는 2,736개는 교육부 검수 뜻 사용 (`scripts/apply_edu_meanings.py`)
 - `meaning_type` TEXT: 의미 언어 구분 (`'ko'` 또는 `'en'`)
 
 **`edu_words` 테이블** — 3,000개 (교육부 공공데이터)
@@ -208,6 +209,7 @@ com.wcjung.engstudy/
 
 ## TODO
 
+- [ ] **단어 뜻 LLM 재생성**: 교육부 뜻으로 보정되지 않은 ~9,300개 단어의 대표 뜻이 여전히 kengdic 가나다순 (희귀 의미 우선 노출). `build_examples_llm.py`와 같은 Claude Haiku Batch API 방식으로 "가장 흔한 뜻 1~3개" 재생성 필요 (예상 비용 ~$1-3)
 - [ ] **단어 예문 LLM 보완**: `scripts/build_examples_llm.py` 실행 — Anthropic API 키 필요 (console.anthropic.com)
   - 현재 Tatoeba 커버리지: 23.5% (2,842/12,068 단어)
   - 미커버 9,226개 단어 목록: `scripts/uncovered_words.json`
