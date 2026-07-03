@@ -10,7 +10,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   (예: white → "공백의, 눈이 많은" → "흰")
   - `scripts/apply_edu_meanings.py` 신규: 교육부 `edu_words`와 겹치는 2,736개 단어의
     `words.meaning`을 교육부 검수 뜻으로 교체, `word_meanings`의 sense_order 0에 삽입 (source='edu')
-  - 나머지 미겹침 단어(~9,300개)는 LLM 배치 재생성으로 후속 개선 예정 (TODO 참조)
+  - `scripts/build_meanings_llm.py` 신규: 나머지 9,240개 단어를 로컬 LLM(Ollama gemma4)으로
+    재생성 — "가장 흔한 뜻 1~3개 + 품사"를 `words.meaning`과 `word_meanings`(source='llm')에 적용,
+    기존 kengdic 의미는 뒤 순서로 보존 (최대 5개)
+  - 품질 게이트: 교육부 검수 뜻 100개 샘플과 대조 후 전체 실행 (실질 오류 ~1%)
+  - 숫자·약어 15개(tv, ai, forty 등)는 스크립트 내 `MANUAL_SENSES` 수동 뜻으로 처리
+  - 생성 결과는 `scripts/meanings_llm_results.jsonl`로 보존 — `--apply`로 재생성 없이 재적용 가능
 
 ## [Unreleased] - 2026-04-06
 
