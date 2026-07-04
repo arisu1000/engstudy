@@ -28,7 +28,7 @@
 | 언어 | Kotlin 2.1 |
 | UI | Jetpack Compose + Material 3 |
 | 아키텍처 | MVVM + Clean Architecture |
-| DB | Room (pre-populated from assets), version 9 |
+| DB | Room (pre-populated from assets), version 10 |
 | DI | Hilt |
 | Navigation | Compose Navigation (type-safe routes) |
 | 비동기 | Coroutines + Flow |
@@ -94,8 +94,8 @@ com.wcjung.engstudy/
 
 - `assets/databases/engstudy.db`에 사전 생성된 SQLite DB 탑재
 - `Room.databaseBuilder().createFromAsset()` 사용
-- DB version 9 / `fallbackToDestructiveMigration()` 적용 (개발 중, 릴리즈 전 정식 마이그레이션 필요)
-- Room identity hash: 스키마 JSON `app/schemas/9.json` 참조
+- DB version 10 / 명시적 마이그레이션(4→10)으로 업그레이드 처리 (사용자 데이터 보존)
+- Room identity hash: 스키마 JSON `app/schemas/10.json` 참조 (asset DB의 room_master_table과 build_word_db.py의 ROOM_IDENTITY_HASH도 함께 갱신할 것)
 - DB 생성 스크립트: `scripts/generate_word_db.py` — kengdic + Free Dictionary API
 - 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
 - 대표 뜻 보정 (kengdic이 가나다순 정렬이라 희귀 의미가 먼저 노출되는 문제):
@@ -224,7 +224,8 @@ com.wcjung.engstudy/
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
-- Room DB version 9 — 업그레이드는 명시적 Migration(4→9)으로 처리하며 사용자 데이터를 보존한다. v10+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud)
+- Room DB version 10 — 업그레이드는 명시적 Migration(4→10)으로 처리하며 사용자 데이터를 보존한다. v11+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud)
+- 콘텐츠(단어 뜻 등)만 갱신하는 릴리즈: `RefreshWordContentMigration`(9→10) 패턴 참조 — asset DB를 임시 복사해 콘텐츠 테이블만 교체. words는 FK CASCADE(wrong_answers 등) 때문에 DELETE 금지, id 기준 UPDATE만 사용. asset DB의 user_version과 room_master_table identity hash를 새 버전에 맞게 스탬프해야 신규 설치가 크래시하지 않음
 - Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 앱 설정/정보 화면에 표기할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요
 - `scripts/build_word_db.py` 실행 전 `wordfreq`, `kengdic` Python 의존성 설치 필요

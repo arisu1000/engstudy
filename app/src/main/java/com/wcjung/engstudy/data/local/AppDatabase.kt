@@ -36,7 +36,7 @@ import com.wcjung.engstudy.data.local.entity.WordExampleEntity
         WordMeaningEntity::class,
         WordExampleEntity::class
     ],
-    version = 9,
+    version = 10,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {

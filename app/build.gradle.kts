@@ -41,6 +41,11 @@ android {
         compose = true
     }
 
+    sourceSets {
+        // Room MigrationTestHelper가 과거 버전 스키마 JSON을 읽을 수 있도록 노출
+        getByName("androidTest").assets.srcDir("$projectDir/schemas")
+    }
+
     testOptions {
         unitTests {
             // JVM 유닛 테스트에서 android.util.Log 등 안드로이드 stub 호출이

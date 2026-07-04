@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] - 2026-07-04
+
+### Added
+- **DB v10 콘텐츠 갱신 마이그레이션** (`RefreshWordContentMigration`): 기존 설치 사용자에게
+  개선된 단어 뜻을 전달하면서 학습 데이터는 보존
+  - APK 내장 asset DB를 임시 파일로 복사해 `words`(id 기준 UPDATE)와 `word_meanings`(전체 교체)만 갱신
+  - `learning_progress`/`bookmarks`/`wrong_answers`/`known_items` 보존 —
+    words는 FK CASCADE 연쇄 삭제 방지를 위해 DELETE 없이 UPDATE만 수행
+  - asset DB의 `user_version`(10)과 `room_master_table` identity hash를 현행 스키마로 스탬프
+    (신규 설치는 마이그레이션 없이 asset을 그대로 사용)
+  - 회귀 테스트: `RefreshWordContentMigrationTest`(androidTest) — 뜻 갱신 + 사용자 데이터 보존 검증,
+    에뮬레이터에서 업그레이드/신규 설치 두 경로 모두 확인
+
 ## [Unreleased] - 2026-07-03
 
 ### Fixed
