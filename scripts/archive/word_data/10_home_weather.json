@@ -1,0 +1,302 @@
+[
+ {
+  "word": "furniture",
+  "meaning": "가구",
+  "pos": "noun",
+  "pron": "/ˈfɜːrnɪtʃər/",
+  "ex_en": "They bought new furniture.",
+  "ex_ko": "새 가구를 샀다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "curtain",
+  "meaning": "커튼",
+  "pos": "noun",
+  "pron": "/ˈkɜːrtən/",
+  "ex_en": "Close the curtains.",
+  "ex_ko": "커튼을 치세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "pillow",
+  "meaning": "베개",
+  "pos": "noun",
+  "pron": "/ˈpɪloʊ/",
+  "ex_en": "She fluffed the pillows.",
+  "ex_ko": "베개를 부풀렸다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "blanket",
+  "meaning": "담요",
+  "pos": "noun",
+  "pron": "/ˈblæŋkɪt/",
+  "ex_en": "Cover with a blanket.",
+  "ex_ko": "담요를 덮으세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "towel",
+  "meaning": "수건",
+  "pos": "noun",
+  "pron": "/ˈtaʊəl/",
+  "ex_en": "Hand me a towel.",
+  "ex_ko": "수건을 건네주세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "carpet",
+  "meaning": "카펫",
+  "pos": "noun",
+  "pron": "/ˈkɑːrpɪt/",
+  "ex_en": "The carpet was cleaned.",
+  "ex_ko": "카펫이 청소되었다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "drawer",
+  "meaning": "서랍",
+  "pos": "noun",
+  "pron": "/drɔːr/",
+  "ex_en": "Put socks in the drawer.",
+  "ex_ko": "양말을 서랍에 넣으세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "shelf",
+  "meaning": "선반",
+  "pos": "noun",
+  "pron": "/ʃelf/",
+  "ex_en": "Put books on the shelf.",
+  "ex_ko": "선반에 책을 놓으세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "faucet",
+  "meaning": "수도꼭지",
+  "pos": "noun",
+  "pron": "/ˈfɔːsɪt/",
+  "ex_en": "The faucet is leaking.",
+  "ex_ko": "수도꼭지가 새고 있다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "ceiling",
+  "meaning": "천장",
+  "pos": "noun",
+  "pron": "/ˈsiːlɪŋ/",
+  "ex_en": "The ceiling is white.",
+  "ex_ko": "천장은 흰색이다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "basement",
+  "meaning": "지하실",
+  "pos": "noun",
+  "pron": "/ˈbeɪsmənt/",
+  "ex_en": "Boxes are in the basement.",
+  "ex_ko": "상자가 지하실에 있다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "garage",
+  "meaning": "차고",
+  "pos": "noun",
+  "pron": "/ɡəˈrɑːʒ/",
+  "ex_en": "Park in the garage.",
+  "ex_ko": "차고에 주차하세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "balcony",
+  "meaning": "발코니",
+  "pos": "noun",
+  "pron": "/ˈbælkəni/",
+  "ex_en": "They had coffee on the balcony.",
+  "ex_ko": "발코니에서 커피를 마셨다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "fence",
+  "meaning": "울타리",
+  "pos": "noun",
+  "pron": "/fens/",
+  "ex_en": "They built a fence.",
+  "ex_ko": "울타리를 쳤다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "chimney",
+  "meaning": "굴뚝",
+  "pos": "noun",
+  "pron": "/ˈtʃɪmni/",
+  "ex_en": "Smoke rose from the chimney.",
+  "ex_ko": "굴뚝에서 연기가 올라갔다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "blizzard",
+  "meaning": "눈보라",
+  "pos": "noun",
+  "pron": "/ˈblɪzərd/",
+  "ex_en": "The blizzard closed roads.",
+  "ex_ko": "눈보라가 도로를 폐쇄했다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "hail",
+  "meaning": "우박",
+  "pos": "noun",
+  "pron": "/heɪl/",
+  "ex_en": "Hail damaged crops.",
+  "ex_ko": "우박이 농작물을 손상시켰다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "breeze",
+  "meaning": "산들바람",
+  "pos": "noun",
+  "pron": "/briːz/",
+  "ex_en": "A cool breeze blew.",
+  "ex_ko": "시원한 산들바람이 불었다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "humidity",
+  "meaning": "습도",
+  "pos": "noun",
+  "pron": "/hjuːˈmɪdɪti/",
+  "ex_en": "Humidity was unbearable.",
+  "ex_ko": "습도가 견딜 수 없었다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fog",
+  "meaning": "안개",
+  "pos": "noun",
+  "pron": "/fɒɡ/",
+  "ex_en": "Dense fog reduced visibility.",
+  "ex_ko": "짙은 안개가 가시성을 줄였다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "frost",
+  "meaning": "서리",
+  "pos": "noun",
+  "pron": "/frɒst/",
+  "ex_en": "Frost covered the grass.",
+  "ex_ko": "서리가 잔디를 덮었다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "thunder",
+  "meaning": "천둥",
+  "pos": "noun",
+  "pron": "/ˈθʌndər/",
+  "ex_en": "Thunder rumbled.",
+  "ex_ko": "천둥이 울렸다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "lightning",
+  "meaning": "번개",
+  "pos": "noun",
+  "pron": "/ˈlaɪtnɪŋ/",
+  "ex_en": "Lightning struck the tree.",
+  "ex_ko": "번개가 나무를 쳤다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "flood",
+  "meaning": "홍수",
+  "pos": "noun",
+  "pron": "/flʌd/",
+  "ex_en": "Heavy rain caused flooding.",
+  "ex_ko": "폭우가 홍수를 일으켰다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "tornado",
+  "meaning": "토네이도",
+  "pos": "noun",
+  "pron": "/tɔːrˈneɪdoʊ/",
+  "ex_en": "The tornado destroyed homes.",
+  "ex_ko": "토네이도가 집을 파괴했다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "volcano",
+  "meaning": "화산",
+  "pos": "noun",
+  "pron": "/vɒlˈkeɪnoʊ/",
+  "ex_en": "The volcano erupted.",
+  "ex_ko": "화산이 폭발했다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "tide",
+  "meaning": "조수",
+  "pos": "noun",
+  "pron": "/taɪd/",
+  "ex_en": "The tide comes in twice daily.",
+  "ex_ko": "조수는 매일 두 번 들어온다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "horizon",
+  "meaning": "수평선",
+  "pos": "noun",
+  "pron": "/həˈraɪzən/",
+  "ex_en": "The sun set below the horizon.",
+  "ex_ko": "태양이 수평선 아래로 졌다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rainbow",
+  "meaning": "무지개",
+  "pos": "noun",
+  "pron": "/ˈreɪnboʊ/",
+  "ex_en": "A rainbow appeared.",
+  "ex_ko": "무지개가 나타났다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "earthquake",
+  "meaning": "지진",
+  "pos": "noun",
+  "pron": "/ˈɜːrθkweɪk/",
+  "ex_en": "The earthquake was strong.",
+  "ex_ko": "지진이 강했다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ }
+]

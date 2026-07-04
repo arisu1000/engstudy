@@ -1,0 +1,302 @@
+[
+ {
+  "word": "ankle",
+  "meaning": "발목",
+  "pos": "noun",
+  "pron": "/ˈæŋkəl/",
+  "ex_en": "She twisted her ankle.",
+  "ex_ko": "그녀는 발목을 삐었다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "wrist",
+  "meaning": "손목",
+  "pos": "noun",
+  "pron": "/rɪst/",
+  "ex_en": "He wore a watch on his wrist.",
+  "ex_ko": "그는 손목에 시계를 착용했다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "elbow",
+  "meaning": "팔꿈치",
+  "pos": "noun",
+  "pron": "/ˈelboʊ/",
+  "ex_en": "Don't put elbows on the table.",
+  "ex_ko": "식탁에 팔꿈치를 올리지 마세요.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "shoulder",
+  "meaning": "어깨",
+  "pos": "noun",
+  "pron": "/ˈʃoʊldər/",
+  "ex_en": "He put his arm around her shoulder.",
+  "ex_ko": "그는 어깨에 팔을 둘렀다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "chest",
+  "meaning": "가슴",
+  "pos": "noun",
+  "pron": "/tʃest/",
+  "ex_en": "He felt pain in his chest.",
+  "ex_ko": "가슴에 통증을 느꼈다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "forehead",
+  "meaning": "이마",
+  "pos": "noun",
+  "pron": "/ˈfɔːrhed/",
+  "ex_en": "She wiped sweat from her forehead.",
+  "ex_ko": "이마에서 땀을 닦았다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "thumb",
+  "meaning": "엄지손가락",
+  "pos": "noun",
+  "pron": "/θʌm/",
+  "ex_en": "She gave a thumbs up.",
+  "ex_ko": "엄지를 들었다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "jaw",
+  "meaning": "턱",
+  "pos": "noun",
+  "pron": "/dʒɔː/",
+  "ex_en": "He broke his jaw.",
+  "ex_ko": "턱이 부러졌다.",
+  "domain": "MEDICINE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "spine",
+  "meaning": "척추",
+  "pos": "noun",
+  "pron": "/spaɪn/",
+  "ex_en": "Protect your spine when lifting.",
+  "ex_ko": "들 때 척추를 보호하세요.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rib",
+  "meaning": "갈비뼈",
+  "pos": "noun",
+  "pron": "/rɪb/",
+  "ex_en": "He cracked a rib.",
+  "ex_ko": "갈비뼈에 금이 갔다.",
+  "domain": "MEDICINE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "kidney",
+  "meaning": "신장",
+  "pos": "noun",
+  "pron": "/ˈkɪdni/",
+  "ex_en": "Kidneys filter blood.",
+  "ex_ko": "신장은 혈액을 걸러준다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "liver",
+  "meaning": "간",
+  "pos": "noun",
+  "pron": "/ˈlɪvər/",
+  "ex_en": "The liver detoxifies the body.",
+  "ex_ko": "간은 독소를 제거한다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "lung",
+  "meaning": "폐",
+  "pos": "noun",
+  "pron": "/lʌŋ/",
+  "ex_en": "Smoking damages the lungs.",
+  "ex_ko": "흡연은 폐를 손상시킨다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "skull",
+  "meaning": "두개골",
+  "pos": "noun",
+  "pron": "/skʌl/",
+  "ex_en": "The helmet protected his skull.",
+  "ex_ko": "헬멧이 두개골을 보호했다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "muscle",
+  "meaning": "근육",
+  "pos": "noun",
+  "pron": "/ˈmʌsəl/",
+  "ex_en": "Exercise builds muscle.",
+  "ex_ko": "운동은 근육을 키운다.",
+  "domain": "MEDICINE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "bone",
+  "meaning": "뼈",
+  "pos": "noun",
+  "pron": "/boʊn/",
+  "ex_en": "Calcium strengthens bones.",
+  "ex_ko": "칼슘은 뼈를 튼튼하게 한다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "skin",
+  "meaning": "피부",
+  "pos": "noun",
+  "pron": "/skɪn/",
+  "ex_en": "Apply sunscreen to protect skin.",
+  "ex_ko": "피부 보호를 위해 자외선 차단제를 바르세요.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "nerve",
+  "meaning": "신경",
+  "pos": "noun",
+  "pron": "/nɜːrv/",
+  "ex_en": "The dentist hit a nerve.",
+  "ex_ko": "치과의사가 신경을 건드렸다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "joint",
+  "meaning": "관절",
+  "pos": "noun",
+  "pron": "/dʒɔɪnt/",
+  "ex_en": "Joint pain is common in elderly.",
+  "ex_ko": "관절 통증은 노인에게 흔하다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "symptom",
+  "meaning": "증상",
+  "pos": "noun",
+  "pron": "/ˈsɪmptəm/",
+  "ex_en": "Fever is a common symptom.",
+  "ex_ko": "열은 흔한 증상이다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "surgery",
+  "meaning": "수술",
+  "pos": "noun",
+  "pron": "/ˈsɜːrdʒəri/",
+  "ex_en": "The surgery was successful.",
+  "ex_ko": "수술은 성공적이었다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bandage",
+  "meaning": "붕대",
+  "pos": "noun",
+  "pron": "/ˈbændɪdʒ/",
+  "ex_en": "She wrapped the wound.",
+  "ex_ko": "상처에 붕대를 감았다.",
+  "domain": "MEDICINE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "bruise",
+  "meaning": "멍",
+  "pos": "noun",
+  "pron": "/bruːz/",
+  "ex_en": "He had a bruise on his arm.",
+  "ex_ko": "팔에 멍이 있었다.",
+  "domain": "MEDICINE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "fracture",
+  "meaning": "골절",
+  "pos": "noun",
+  "pron": "/ˈfræktʃər/",
+  "ex_en": "The X-ray showed a fracture.",
+  "ex_ko": "엑스레이에 골절이 보였다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "infection",
+  "meaning": "감염",
+  "pos": "noun",
+  "pron": "/ɪnˈfekʃən/",
+  "ex_en": "The wound became infected.",
+  "ex_ko": "상처가 감염되었다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fever",
+  "meaning": "열",
+  "pos": "noun",
+  "pron": "/ˈfiːvər/",
+  "ex_en": "She has a high fever.",
+  "ex_ko": "고열이 있다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "cough",
+  "meaning": "기침",
+  "pos": "noun",
+  "pron": "/kɒf/",
+  "ex_en": "He has a bad cough.",
+  "ex_ko": "심한 기침이 있다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "sneeze",
+  "meaning": "재채기하다",
+  "pos": "verb",
+  "pron": "/sniːz/",
+  "ex_en": "She sneezed three times.",
+  "ex_ko": "세 번 재채기했다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "swollen",
+  "meaning": "부어오른",
+  "pos": "adjective",
+  "pron": "/ˈswoʊlən/",
+  "ex_en": "Her ankle was swollen.",
+  "ex_ko": "발목이 부어올랐다.",
+  "domain": "MEDICINE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "dizzy",
+  "meaning": "어지러운",
+  "pos": "adjective",
+  "pron": "/ˈdɪzi/",
+  "ex_en": "She felt dizzy.",
+  "ex_ko": "어지러움을 느꼈다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ }
+]

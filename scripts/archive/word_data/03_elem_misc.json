@@ -1,0 +1,702 @@
+[
+ {
+  "w": "yellow",
+  "p": "/ˈjɛloʊ/",
+  "m": "노란",
+  "t": "adjective",
+  "e": "The sun is yellow.",
+  "k": "태양은 노랗습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "pink",
+  "p": "/pɪŋk/",
+  "m": "분홍색의",
+  "t": "adjective",
+  "e": "She wears a pink dress.",
+  "k": "분홍색 옷을 입었습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "brown",
+  "p": "/braʊn/",
+  "m": "갈색의",
+  "t": "adjective",
+  "e": "The bear is brown.",
+  "k": "곰이 갈색입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "purple",
+  "p": "/ˈpɜːrpəl/",
+  "m": "보라색의",
+  "t": "adjective",
+  "e": "I like purple flowers.",
+  "k": "보라색 꽃을 좋아합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "gray",
+  "p": "/ɡreɪ/",
+  "m": "회색의",
+  "t": "adjective",
+  "e": "The sky is gray today.",
+  "k": "오늘 하늘이 회색입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "north",
+  "p": "",
+  "m": "/nɔːrθ/",
+  "t": "북쪽",
+  "e": "Seoul is in the north.",
+  "k": "서울은 북쪽에 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "south",
+  "p": "",
+  "m": "/saʊθ/",
+  "t": "남쪽",
+  "e": "Busan is in the south.",
+  "k": "부산은 남쪽에 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "east",
+  "p": "",
+  "m": "/iːst/",
+  "t": "동쪽",
+  "e": "The sun rises in the east.",
+  "k": "해가 동쪽에서 뜹니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "west",
+  "p": "",
+  "m": "/wɛst/",
+  "t": "서쪽",
+  "e": "The sun sets in the west.",
+  "k": "해가 서쪽으로 집니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "right",
+  "p": "/raɪt/",
+  "m": "오른쪽, 옳은",
+  "t": "adjective",
+  "e": "Turn right at the corner.",
+  "k": "모퉁이에서 오른쪽으로 도세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "left",
+  "p": "/lɛft/",
+  "m": "왼쪽",
+  "t": "adjective",
+  "e": "Turn left here.",
+  "k": "여기서 왼쪽으로 도세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "up",
+  "p": "/ʌp/",
+  "m": "위로",
+  "t": "adverb",
+  "e": "Look up at the sky.",
+  "k": "하늘을 올려다보세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "down",
+  "p": "/daʊn/",
+  "m": "아래로",
+  "t": "adverb",
+  "e": "Sit down please.",
+  "k": "앉아 주세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "inside",
+  "p": "/ɪnˈsaɪd/",
+  "m": "안쪽에",
+  "t": "adverb",
+  "e": "Come inside.",
+  "k": "안으로 들어오세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "outside",
+  "p": "/ˌaʊtˈsaɪd/",
+  "m": "바깥에",
+  "t": "adverb",
+  "e": "Let's play outside.",
+  "k": "밖에서 놀자.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "front",
+  "p": "",
+  "m": "/frʌnt/",
+  "t": "앞",
+  "e": "Stand in front.",
+  "k": "앞에 서세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "behind",
+  "p": "/bɪˈhaɪnd/",
+  "m": "뒤에",
+  "t": "preposition",
+  "e": "The cat is behind the door.",
+  "k": "고양이가 문 뒤에 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "near",
+  "p": "/nɪr/",
+  "m": "가까운",
+  "t": "adjective",
+  "e": "The school is near my house.",
+  "k": "학교가 집 근처입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "far",
+  "p": "/fɑːr/",
+  "m": "먼",
+  "t": "adjective",
+  "e": "The airport is far from here.",
+  "k": "공항이 여기서 멀어요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "spring",
+  "p": "",
+  "m": "/sprɪŋ/",
+  "t": "봄",
+  "e": "Flowers bloom in spring.",
+  "k": "봄에 꽃이 핍니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "summer",
+  "p": "",
+  "m": "/ˈsʌmər/",
+  "t": "여름",
+  "e": "Summer is hot.",
+  "k": "여름은 덥습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "autumn",
+  "p": "",
+  "m": "/ˈɔːtəm/",
+  "t": "가을",
+  "e": "Leaves fall in autumn.",
+  "k": "가을에 낙엽이 집니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "winter",
+  "p": "",
+  "m": "/ˈwɪntər/",
+  "t": "겨울",
+  "e": "Winter is cold.",
+  "k": "겨울은 춥습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "Sunday",
+  "p": "",
+  "m": "/ˈsʌndeɪ/",
+  "t": "일요일",
+  "e": "I rest on Sunday.",
+  "k": "일요일에 쉽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "Monday",
+  "p": "",
+  "m": "/ˈmʌndeɪ/",
+  "t": "월요일",
+  "e": "Monday is the first day.",
+  "k": "월요일이 첫날입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "January",
+  "p": "",
+  "m": "/ˈdʒænjuˌɛri/",
+  "t": "1월",
+  "e": "January is cold.",
+  "k": "1월은 춥습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "February",
+  "p": "",
+  "m": "/ˈfɛbruˌɛri/",
+  "t": "2월",
+  "e": "February is short.",
+  "k": "2월은 짧습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "March",
+  "p": "",
+  "m": "/mɑːrtʃ/",
+  "t": "3월",
+  "e": "March brings spring.",
+  "k": "3월에 봄이 옵니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "April",
+  "p": "",
+  "m": "/ˈeɪprəl/",
+  "t": "4월",
+  "e": "It rains in April.",
+  "k": "4월에 비가 옵니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "May",
+  "p": "",
+  "m": "/meɪ/",
+  "t": "5월",
+  "e": "May is beautiful.",
+  "k": "5월은 아름답습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "June",
+  "p": "",
+  "m": "/dʒuːn/",
+  "t": "6월",
+  "e": "June starts summer.",
+  "k": "6월에 여름이 시작됩니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "July",
+  "p": "",
+  "m": "/dʒʊˈlaɪ/",
+  "t": "7월",
+  "e": "July is very hot.",
+  "k": "7월은 매우 덥습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "August",
+  "p": "",
+  "m": "/ˈɔːɡəst/",
+  "t": "8월",
+  "e": "We go to the beach in August.",
+  "k": "8월에 해변에 갑니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "September",
+  "p": "",
+  "m": "/sɛpˈtɛmbər/",
+  "t": "9월",
+  "e": "School starts in September.",
+  "k": "9월에 학교가 시작됩니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "October",
+  "p": "",
+  "m": "/ɑːkˈtoʊbər/",
+  "t": "10월",
+  "e": "October is cool.",
+  "k": "10월은 선선합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "November",
+  "p": "",
+  "m": "/noʊˈvɛmbər/",
+  "t": "11월",
+  "e": "November is chilly.",
+  "k": "11월은 쌀쌀합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "December",
+  "p": "",
+  "m": "/dɪˈsɛmbər/",
+  "t": "12월",
+  "e": "December brings snow.",
+  "k": "12월에 눈이 옵니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "warm",
+  "p": "/wɔːrm/",
+  "m": "따뜻한",
+  "t": "adjective",
+  "e": "The weather is warm.",
+  "k": "날씨가 따뜻합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "cool",
+  "p": "/kuːl/",
+  "m": "시원한",
+  "t": "adjective",
+  "e": "The breeze is cool.",
+  "k": "바람이 시원합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "dry",
+  "p": "/draɪ/",
+  "m": "마른, 건조한",
+  "t": "adjective",
+  "e": "The desert is dry.",
+  "k": "사막은 건조합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "wet",
+  "p": "/wɛt/",
+  "m": "젖은",
+  "t": "adjective",
+  "e": "My shoes are wet.",
+  "k": "신발이 젖었습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "deep",
+  "p": "/diːp/",
+  "m": "깊은",
+  "t": "adjective",
+  "e": "The lake is deep.",
+  "k": "호수가 깊습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "wide",
+  "p": "/waɪd/",
+  "m": "넓은",
+  "t": "adjective",
+  "e": "The road is wide.",
+  "k": "길이 넓습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "narrow",
+  "p": "/ˈnæroʊ/",
+  "m": "좁은",
+  "t": "adjective",
+  "e": "The path is narrow.",
+  "k": "길이 좁습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "thick",
+  "p": "/θɪk/",
+  "m": "두꺼운",
+  "t": "adjective",
+  "e": "The book is thick.",
+  "k": "책이 두껍습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "thin",
+  "p": "/θɪn/",
+  "m": "얇은, 마른",
+  "t": "adjective",
+  "e": "The paper is thin.",
+  "k": "종이가 얇습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "empty",
+  "p": "/ˈɛmpti/",
+  "m": "빈",
+  "t": "adjective",
+  "e": "The box is empty.",
+  "k": "상자가 비어 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "full",
+  "p": "/fʊl/",
+  "m": "가득 찬",
+  "t": "adjective",
+  "e": "The glass is full.",
+  "k": "잔이 가득 찼습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "rich",
+  "p": "/rɪtʃ/",
+  "m": "부자인",
+  "t": "adjective",
+  "e": "The man is rich.",
+  "k": "그 남자는 부자입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "poor",
+  "p": "/pʊr/",
+  "m": "가난한",
+  "t": "adjective",
+  "e": "Help the poor.",
+  "k": "가난한 사람을 도우세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "quiet",
+  "p": "/ˈkwaɪət/",
+  "m": "조용한",
+  "t": "adjective",
+  "e": "The library is quiet.",
+  "k": "도서관이 조용합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "noisy",
+  "p": "/ˈnɔɪzi/",
+  "m": "시끄러운",
+  "t": "adjective",
+  "e": "The street is noisy.",
+  "k": "거리가 시끄럽습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "safe",
+  "p": "/seɪf/",
+  "m": "안전한",
+  "t": "adjective",
+  "e": "This place is safe.",
+  "k": "이곳은 안전합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "dangerous",
+  "p": "/ˈdeɪndʒərəs/",
+  "m": "위험한",
+  "t": "adjective",
+  "e": "The road is dangerous.",
+  "k": "길이 위험합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "possible",
+  "p": "/ˈpɑːsɪbəl/",
+  "m": "가능한",
+  "t": "adjective",
+  "e": "Everything is possible.",
+  "k": "모든 것이 가능합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "special",
+  "p": "/ˈspɛʃəl/",
+  "m": "특별한",
+  "t": "adjective",
+  "e": "Today is a special day.",
+  "k": "오늘은 특별한 날입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "favorite",
+  "p": "/ˈfeɪvərɪt/",
+  "m": "가장 좋아하는",
+  "t": "adjective",
+  "e": "This is my favorite color.",
+  "k": "이것이 가장 좋아하는 색입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "correct",
+  "p": "/kəˈrɛkt/",
+  "m": "올바른",
+  "t": "adjective",
+  "e": "Your answer is correct.",
+  "k": "답이 맞습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "wrong",
+  "p": "/rɔːŋ/",
+  "m": "틀린",
+  "t": "adjective",
+  "e": "This answer is wrong.",
+  "k": "이 답은 틀렸습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "true",
+  "p": "/truː/",
+  "m": "사실인",
+  "t": "adjective",
+  "e": "The story is true.",
+  "k": "그 이야기는 사실입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "false",
+  "p": "/fɔːls/",
+  "m": "거짓의",
+  "t": "adjective",
+  "e": "The statement is false.",
+  "k": "그 진술은 거짓입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "alive",
+  "p": "/əˈlaɪv/",
+  "m": "살아있는",
+  "t": "adjective",
+  "e": "The fish is alive.",
+  "k": "물고기가 살아있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "dead",
+  "p": "/dɛd/",
+  "m": "죽은",
+  "t": "adjective",
+  "e": "The flower is dead.",
+  "k": "꽃이 죽었습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "free",
+  "p": "/friː/",
+  "m": "자유로운, 무료의",
+  "t": "adjective",
+  "e": "The bird is free.",
+  "k": "새가 자유롭습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "own",
+  "p": "/oʊn/",
+  "m": "자신의, 소유하다",
+  "t": "adjective/verb",
+  "e": "I have my own room.",
+  "k": "내 방이 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "whole",
+  "p": "/hoʊl/",
+  "m": "전체의",
+  "t": "adjective",
+  "e": "I ate the whole cake.",
+  "k": "케이크를 전부 먹었습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "only",
+  "p": "/ˈoʊnli/",
+  "m": "유일한",
+  "t": "adjective",
+  "e": "She is the only child.",
+  "k": "그녀는 외동입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "real",
+  "p": "/riːl/",
+  "m": "진짜의",
+  "t": "adjective",
+  "e": "Is this real gold?",
+  "k": "이것이 진짜 금인가요?",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "second",
+  "p": "/ˈsɛkənd/",
+  "m": "두 번째",
+  "t": "adjective",
+  "e": "This is my second try.",
+  "k": "두 번째 시도입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "third",
+  "p": "/θɜːrd/",
+  "m": "세 번째",
+  "t": "adjective",
+  "e": "I am in third grade.",
+  "k": "3학년입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ }
+]

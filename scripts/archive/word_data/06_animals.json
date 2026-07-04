@@ -1,0 +1,252 @@
+[
+ {
+  "word": "dolphin",
+  "meaning": "돌고래",
+  "pos": "noun",
+  "pron": "/ˈdɒlfɪn/",
+  "ex_en": "Dolphins are intelligent.",
+  "ex_ko": "돌고래는 지능이 높다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "whale",
+  "meaning": "고래",
+  "pos": "noun",
+  "pron": "/weɪl/",
+  "ex_en": "Blue whales are the largest animals.",
+  "ex_ko": "대왕고래는 가장 큰 동물이다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "eagle",
+  "meaning": "독수리",
+  "pos": "noun",
+  "pron": "/ˈiːɡəl/",
+  "ex_en": "The eagle soared above.",
+  "ex_ko": "독수리가 위를 날았다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "penguin",
+  "meaning": "펭귄",
+  "pos": "noun",
+  "pron": "/ˈpeŋɡwɪn/",
+  "ex_en": "Penguins live in Antarctica.",
+  "ex_ko": "펭귄은 남극에 산다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "parrot",
+  "meaning": "앵무새",
+  "pos": "noun",
+  "pron": "/ˈpærət/",
+  "ex_en": "Parrots mimic human speech.",
+  "ex_ko": "앵무새는 사람 말을 따라한다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "squirrel",
+  "meaning": "다람쥐",
+  "pos": "noun",
+  "pron": "/ˈskwɜːrəl/",
+  "ex_en": "The squirrel collected acorns.",
+  "ex_ko": "다람쥐가 도토리를 모았다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "deer",
+  "meaning": "사슴",
+  "pos": "noun",
+  "pron": "/dɪər/",
+  "ex_en": "A deer ran across the road.",
+  "ex_ko": "사슴이 도로를 건넜다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "fox",
+  "meaning": "여우",
+  "pos": "noun",
+  "pron": "/fɒks/",
+  "ex_en": "The fox is clever.",
+  "ex_ko": "여우는 영리하다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "wolf",
+  "meaning": "늑대",
+  "pos": "noun",
+  "pron": "/wʊlf/",
+  "ex_en": "Wolves hunt in packs.",
+  "ex_ko": "늑대는 무리로 사냥한다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "shark",
+  "meaning": "상어",
+  "pos": "noun",
+  "pron": "/ʃɑːrk/",
+  "ex_en": "Sharks are feared predators.",
+  "ex_ko": "상어는 두려운 포식자이다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "turtle",
+  "meaning": "거북",
+  "pos": "noun",
+  "pron": "/ˈtɜːrtəl/",
+  "ex_en": "Sea turtles lay eggs on beaches.",
+  "ex_ko": "바다거북은 해변에 알을 낳는다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "butterfly",
+  "meaning": "나비",
+  "pos": "noun",
+  "pron": "/ˈbʌtərflaɪ/",
+  "ex_en": "Butterflies love colorful flowers.",
+  "ex_ko": "나비는 화려한 꽃을 좋아한다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "insect",
+  "meaning": "곤충",
+  "pos": "noun",
+  "pron": "/ˈɪnsekt/",
+  "ex_en": "Insects have six legs.",
+  "ex_ko": "곤충은 다리가 6개이다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "spider",
+  "meaning": "거미",
+  "pos": "noun",
+  "pron": "/ˈspaɪdər/",
+  "ex_en": "Spiders spin webs.",
+  "ex_ko": "거미는 거미줄을 친다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "bee",
+  "meaning": "벌",
+  "pos": "noun",
+  "pron": "/biː/",
+  "ex_en": "Bees make honey.",
+  "ex_ko": "벌은 꿀을 만든다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "ant",
+  "meaning": "개미",
+  "pos": "noun",
+  "pron": "/ænt/",
+  "ex_en": "Ants work together.",
+  "ex_ko": "개미는 함께 일한다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "frog",
+  "meaning": "개구리",
+  "pos": "noun",
+  "pron": "/frɒɡ/",
+  "ex_en": "Frogs live near water.",
+  "ex_ko": "개구리는 물 근처에 산다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "snake",
+  "meaning": "뱀",
+  "pos": "noun",
+  "pron": "/sneɪk/",
+  "ex_en": "Some snakes are poisonous.",
+  "ex_ko": "일부 뱀은 독이 있다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "octopus",
+  "meaning": "문어",
+  "pos": "noun",
+  "pron": "/ˈɒktəpəs/",
+  "ex_en": "An octopus has eight arms.",
+  "ex_ko": "문어는 팔이 8개이다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "giraffe",
+  "meaning": "기린",
+  "pos": "noun",
+  "pron": "/dʒɪˈrɑːf/",
+  "ex_en": "Giraffes are the tallest animals.",
+  "ex_ko": "기린은 가장 키가 크다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "camel",
+  "meaning": "낙타",
+  "pos": "noun",
+  "pron": "/ˈkæməl/",
+  "ex_en": "Camels survive without water.",
+  "ex_ko": "낙타는 물 없이 생존한다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "owl",
+  "meaning": "올빼미",
+  "pos": "noun",
+  "pron": "/aʊl/",
+  "ex_en": "Owls are active at night.",
+  "ex_ko": "올빼미는 밤에 활동한다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "pigeon",
+  "meaning": "비둘기",
+  "pos": "noun",
+  "pron": "/ˈpɪdʒɪn/",
+  "ex_en": "Pigeons are found in cities.",
+  "ex_ko": "비둘기는 도시에 있다.",
+  "domain": "SCIENCE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "crow",
+  "meaning": "까마귀",
+  "pos": "noun",
+  "pron": "/kroʊ/",
+  "ex_en": "Crows are intelligent birds.",
+  "ex_ko": "까마귀는 지능이 높은 새이다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "leopard",
+  "meaning": "표범",
+  "pos": "noun",
+  "pron": "/ˈlepərd/",
+  "ex_en": "Leopards are excellent climbers.",
+  "ex_ko": "표범은 뛰어난 등반가이다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ }
+]

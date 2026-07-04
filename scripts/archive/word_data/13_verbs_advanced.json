@@ -1,0 +1,3302 @@
+[
+ {
+  "word": "abolish",
+  "meaning": "폐지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "abuse",
+  "meaning": "남용하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accelerate",
+  "meaning": "가속하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accompany",
+  "meaning": "동행하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "activate",
+  "meaning": "활성화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "adhere",
+  "meaning": "부착하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "administer",
+  "meaning": "관리하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "adopt",
+  "meaning": "입양하다; 채택하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "affirm",
+  "meaning": "단언하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "aggravate",
+  "meaning": "악화시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "align",
+  "meaning": "정렬하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "alleviate",
+  "meaning": "완화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "amend",
+  "meaning": "수정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "amplify",
+  "meaning": "증폭하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "annex",
+  "meaning": "합병하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "applaud",
+  "meaning": "박수치다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "appoint",
+  "meaning": "임명하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "appraise",
+  "meaning": "평가하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "apprehend",
+  "meaning": "체포하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "assemble",
+  "meaning": "조립하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "assert",
+  "meaning": "주장하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "assure",
+  "meaning": "보장하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "automate",
+  "meaning": "자동화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "avail",
+  "meaning": "이용하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "avert",
+  "meaning": "피하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "backfire",
+  "meaning": "역효과를 내다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "ban",
+  "meaning": "금지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bargain",
+  "meaning": "흥정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bestow",
+  "meaning": "수여하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "betray",
+  "meaning": "배신하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bewilder",
+  "meaning": "당황시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bid",
+  "meaning": "입찰하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bind",
+  "meaning": "묶다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bloom",
+  "meaning": "꽃피다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "boast",
+  "meaning": "자랑하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "boost",
+  "meaning": "증가시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bounce",
+  "meaning": "튀다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "boycott",
+  "meaning": "불매운동하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "brag",
+  "meaning": "허풍치다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "breed",
+  "meaning": "번식시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bribe",
+  "meaning": "뇌물을 주다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "broadcast",
+  "meaning": "방송하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "bypass",
+  "meaning": "우회하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "calibrate",
+  "meaning": "보정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "cater",
+  "meaning": "음식을 제공하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "certify",
+  "meaning": "인증하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "circulate",
+  "meaning": "순환하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "cite",
+  "meaning": "인용하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "clarify",
+  "meaning": "명확히 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "classify",
+  "meaning": "분류하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "cling",
+  "meaning": "달라붙다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "commemorate",
+  "meaning": "기념하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "commend",
+  "meaning": "칭찬하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "commission",
+  "meaning": "위임하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "complement",
+  "meaning": "보완하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "comprehend",
+  "meaning": "이해하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "comprise",
+  "meaning": "구성하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "conceal",
+  "meaning": "숨기다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "condemn",
+  "meaning": "비난하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "condone",
+  "meaning": "용인하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "confer",
+  "meaning": "수여하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "confess",
+  "meaning": "고백하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "confiscate",
+  "meaning": "압수하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "conform",
+  "meaning": "따르다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "confront",
+  "meaning": "직면하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "congregate",
+  "meaning": "모이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "conjecture",
+  "meaning": "추측하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "conserve",
+  "meaning": "보존하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "constrain",
+  "meaning": "제약하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "consult",
+  "meaning": "상담하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "contaminate",
+  "meaning": "오염시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "contend",
+  "meaning": "경쟁하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "convert",
+  "meaning": "변환하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "convey",
+  "meaning": "전달하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "coordinate",
+  "meaning": "조정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "cope",
+  "meaning": "대처하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "correspond",
+  "meaning": "대응하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "counsel",
+  "meaning": "상담하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "counteract",
+  "meaning": "대응하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "crawl",
+  "meaning": "기어가다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "criticize",
+  "meaning": "비판하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "curb",
+  "meaning": "억제하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "customize",
+  "meaning": "맞춤화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dazzle",
+  "meaning": "눈부시게 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "deceive",
+  "meaning": "속이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "declare",
+  "meaning": "선언하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "decorate",
+  "meaning": "장식하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "deem",
+  "meaning": "간주하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "defer",
+  "meaning": "연기하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "defy",
+  "meaning": "거역하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "demolish",
+  "meaning": "철거하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "deposit",
+  "meaning": "예금하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "deprive",
+  "meaning": "박탈하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "designate",
+  "meaning": "지정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "detect",
+  "meaning": "탐지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "deteriorate",
+  "meaning": "악화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dictate",
+  "meaning": "받아쓰게 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "differentiate",
+  "meaning": "구별하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "digest",
+  "meaning": "소화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "diminish",
+  "meaning": "줄이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "discard",
+  "meaning": "폐기하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "discharge",
+  "meaning": "방출하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "disclose",
+  "meaning": "공개하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "discourage",
+  "meaning": "낙담시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "discriminate",
+  "meaning": "차별하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "disguise",
+  "meaning": "변장하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dismantle",
+  "meaning": "해체하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dismiss",
+  "meaning": "해고하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dispatch",
+  "meaning": "파견하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "disperse",
+  "meaning": "분산시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dispose",
+  "meaning": "처리하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dispute",
+  "meaning": "논쟁하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dissolve",
+  "meaning": "녹이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "disturb",
+  "meaning": "방해하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "diverge",
+  "meaning": "갈라지다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "divert",
+  "meaning": "전환하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "donate",
+  "meaning": "기부하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "drain",
+  "meaning": "배수하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "drift",
+  "meaning": "표류하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dwell",
+  "meaning": "거주하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "edit",
+  "meaning": "편집하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "elect",
+  "meaning": "선출하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "elevate",
+  "meaning": "높이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "embrace",
+  "meaning": "포옹하다; 받아들이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "emit",
+  "meaning": "방출하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "emphasize",
+  "meaning": "강조하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "enact",
+  "meaning": "제정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "endorse",
+  "meaning": "지지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "endure",
+  "meaning": "견디다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "engage",
+  "meaning": "참여시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "enlarge",
+  "meaning": "확대하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "enrich",
+  "meaning": "풍요롭게 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "entail",
+  "meaning": "수반하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "envision",
+  "meaning": "상상하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "eradicate",
+  "meaning": "근절하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "erect",
+  "meaning": "세우다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "erupt",
+  "meaning": "분출하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "escort",
+  "meaning": "호위하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "evade",
+  "meaning": "회피하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exaggerate",
+  "meaning": "과장하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exclaim",
+  "meaning": "외치다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "execute",
+  "meaning": "실행하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exempt",
+  "meaning": "면제하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exert",
+  "meaning": "발휘하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "expel",
+  "meaning": "추방하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fabricate",
+  "meaning": "조작하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fascinate",
+  "meaning": "매혹하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "filter",
+  "meaning": "걸러내다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "flourish",
+  "meaning": "번성하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "forbid",
+  "meaning": "금지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "forge",
+  "meaning": "위조하다; 구축하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "foster",
+  "meaning": "촉진하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "found",
+  "meaning": "설립하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "furnish",
+  "meaning": "가구를 비치하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "grasp",
+  "meaning": "잡다; 파악하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "grieve",
+  "meaning": "슬퍼하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "grin",
+  "meaning": "활짝 웃다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "groan",
+  "meaning": "신음하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "halt",
+  "meaning": "멈추다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "hamper",
+  "meaning": "방해하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "harass",
+  "meaning": "괴롭히다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "hinder",
+  "meaning": "방해하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "hoist",
+  "meaning": "들어올리다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "humiliate",
+  "meaning": "모욕하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "illuminate",
+  "meaning": "조명하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "illustrate",
+  "meaning": "설명하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "immerse",
+  "meaning": "몰입시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "immigrate",
+  "meaning": "이민 오다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "impair",
+  "meaning": "손상시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "implicate",
+  "meaning": "연루시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "impose",
+  "meaning": "부과하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "impress",
+  "meaning": "감동시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "incline",
+  "meaning": "기울이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "indulge",
+  "meaning": "빠지다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inflict",
+  "meaning": "가하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inhabit",
+  "meaning": "거주하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inherit",
+  "meaning": "상속하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inject",
+  "meaning": "주입하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inquire",
+  "meaning": "문의하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "insert",
+  "meaning": "삽입하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inspect",
+  "meaning": "검사하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "instruct",
+  "meaning": "지시하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "insure",
+  "meaning": "보험에 들다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "intend",
+  "meaning": "의도하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "interfere",
+  "meaning": "간섭하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "interrupt",
+  "meaning": "방해하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "invade",
+  "meaning": "침략하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "investigate",
+  "meaning": "조사하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "irritate",
+  "meaning": "짜증나게 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "isolate",
+  "meaning": "격리하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "kneel",
+  "meaning": "무릎꿇다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "label",
+  "meaning": "라벨을 붙이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "lag",
+  "meaning": "뒤처지다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "lean",
+  "meaning": "기대다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "linger",
+  "meaning": "남아있다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "lobby",
+  "meaning": "로비하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "locate",
+  "meaning": "위치를 찾다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "manipulate",
+  "meaning": "조작하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "manufacture",
+  "meaning": "제조하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "maximize",
+  "meaning": "최대화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "mediate",
+  "meaning": "중재하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "memorize",
+  "meaning": "암기하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "merge",
+  "meaning": "합병하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "mislead",
+  "meaning": "오도하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "multiply",
+  "meaning": "곱하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "neglect",
+  "meaning": "방치하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "nod",
+  "meaning": "끄덕이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "nominate",
+  "meaning": "지명하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "notify",
+  "meaning": "통보하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "nurture",
+  "meaning": "양육하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "obey",
+  "meaning": "복종하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "object",
+  "meaning": "반대하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "oblige",
+  "meaning": "의무를 지우다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "occupy",
+  "meaning": "점령하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "offend",
+  "meaning": "불쾌하게 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "omit",
+  "meaning": "생략하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "oppose",
+  "meaning": "반대하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "oppress",
+  "meaning": "억압하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "orient",
+  "meaning": "방향을 정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "originate",
+  "meaning": "유래하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "outweigh",
+  "meaning": "~보다 크다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "overlook",
+  "meaning": "간과하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "overtake",
+  "meaning": "추월하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "overwhelm",
+  "meaning": "압도하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "pause",
+  "meaning": "멈추다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "penetrate",
+  "meaning": "관통하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "plead",
+  "meaning": "탄원하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "pledge",
+  "meaning": "서약하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "plunge",
+  "meaning": "급락하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "portray",
+  "meaning": "묘사하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "possess",
+  "meaning": "소유하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "precede",
+  "meaning": "선행하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "prescribe",
+  "meaning": "처방하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "preserve",
+  "meaning": "보존하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "preside",
+  "meaning": "주재하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "prevail",
+  "meaning": "만연하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "privilege",
+  "meaning": "특권을 주다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "probe",
+  "meaning": "조사하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "proclaim",
+  "meaning": "선포하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "procure",
+  "meaning": "조달하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "prompt",
+  "meaning": "촉구하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "pronounce",
+  "meaning": "발음하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "propel",
+  "meaning": "추진하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "provoke",
+  "meaning": "도발하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "qualify",
+  "meaning": "자격을 얻다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "quote",
+  "meaning": "인용하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "raid",
+  "meaning": "급습하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rally",
+  "meaning": "결집하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "reassure",
+  "meaning": "안심시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rebel",
+  "meaning": "반란하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "recall",
+  "meaning": "회상하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "reckon",
+  "meaning": "생각하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "reform",
+  "meaning": "개혁하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "refrain",
+  "meaning": "삼가다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "reject",
+  "meaning": "거부하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "relieve",
+  "meaning": "완화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "relocate",
+  "meaning": "이전하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "render",
+  "meaning": "만들다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "repay",
+  "meaning": "상환하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "repeal",
+  "meaning": "폐지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "resemble",
+  "meaning": "닮다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "resent",
+  "meaning": "분개하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "resign",
+  "meaning": "사직하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "resume",
+  "meaning": "재개하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "retrieve",
+  "meaning": "회수하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "revise",
+  "meaning": "수정하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "revive",
+  "meaning": "소생시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rotate",
+  "meaning": "회전하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "scan",
+  "meaning": "스캔하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "scatter",
+  "meaning": "흩뿌리다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "seize",
+  "meaning": "잡다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "shed",
+  "meaning": "흘리다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "shelter",
+  "meaning": "보호하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "shift",
+  "meaning": "이동하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "shrink",
+  "meaning": "줄어들다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "simplify",
+  "meaning": "단순화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sink",
+  "meaning": "가라앉다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "slash",
+  "meaning": "삭감하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "soar",
+  "meaning": "급등하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "speculate",
+  "meaning": "추측하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sponsor",
+  "meaning": "후원하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "squeeze",
+  "meaning": "짜다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stabilize",
+  "meaning": "안정시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stagger",
+  "meaning": "비틀거리다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "starve",
+  "meaning": "굶주리다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stem",
+  "meaning": "유래하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stimulate",
+  "meaning": "자극하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stir",
+  "meaning": "젓다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "strengthen",
+  "meaning": "강화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stretch",
+  "meaning": "뻗다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "strive",
+  "meaning": "노력하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "subscribe",
+  "meaning": "구독하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "summarize",
+  "meaning": "요약하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "supervise",
+  "meaning": "감독하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "supplement",
+  "meaning": "보충하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "suppress",
+  "meaning": "억압하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "surge",
+  "meaning": "급등하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "surrender",
+  "meaning": "항복하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "suspend",
+  "meaning": "중단하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sustain",
+  "meaning": "유지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "swell",
+  "meaning": "부풀다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "tempt",
+  "meaning": "유혹하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "terminate",
+  "meaning": "종료하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "terrify",
+  "meaning": "겁먹게 하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "testify",
+  "meaning": "증언하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "tolerate",
+  "meaning": "참다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "trace",
+  "meaning": "추적하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "transmit",
+  "meaning": "전달하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "transplant",
+  "meaning": "이식하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "trigger",
+  "meaning": "유발하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "triumph",
+  "meaning": "승리하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "undergo",
+  "meaning": "겪다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "undertake",
+  "meaning": "수행하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "undo",
+  "meaning": "되돌리다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "unfold",
+  "meaning": "펼치다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "unify",
+  "meaning": "통합하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "unveil",
+  "meaning": "공개하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "uphold",
+  "meaning": "지지하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "urge",
+  "meaning": "촉구하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "vanish",
+  "meaning": "사라지다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "verify",
+  "meaning": "확인하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "violate",
+  "meaning": "위반하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "visualize",
+  "meaning": "시각화하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "wander",
+  "meaning": "방황하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "weaken",
+  "meaning": "약화시키다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "weave",
+  "meaning": "짜다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "whisper",
+  "meaning": "속삭이다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "withdraw",
+  "meaning": "철회하다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "withstand",
+  "meaning": "견디다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "wither",
+  "meaning": "시들다",
+  "pos": "verb",
+  "pron": "",
+  "ex_en": "",
+  "ex_ko": "",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ }
+]

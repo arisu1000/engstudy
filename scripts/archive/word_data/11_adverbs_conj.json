@@ -1,0 +1,1232 @@
+[
+ {
+  "word": "absolutely",
+  "meaning": "절대적으로",
+  "pos": "adverb",
+  "pron": "/ˌæbsəˈluːtli/",
+  "ex_en": "You are absolutely right.",
+  "ex_ko": "당신이 절대적으로 맞다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accidentally",
+  "meaning": "우연히",
+  "pos": "adverb",
+  "pron": "/ˌæksɪˈdentəli/",
+  "ex_en": "She accidentally broke the vase.",
+  "ex_ko": "그녀는 우연히 꽃병을 깼다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accordingly",
+  "meaning": "따라서",
+  "pos": "adverb",
+  "pron": "/əˈkɔːrdɪŋli/",
+  "ex_en": "Act accordingly.",
+  "ex_ko": "그에 따라 행동하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accurately",
+  "meaning": "정확하게",
+  "pos": "adverb",
+  "pron": "/ˈækjʊrətli/",
+  "ex_en": "Measure accurately.",
+  "ex_ko": "정확하게 측정하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "actually",
+  "meaning": "실제로",
+  "pos": "adverb",
+  "pron": "/ˈæktʃuəli/",
+  "ex_en": "Actually, I disagree.",
+  "ex_ko": "실제로, 나는 동의하지 않는다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "additionally",
+  "meaning": "추가적으로",
+  "pos": "adverb",
+  "pron": "/əˈdɪʃənəli/",
+  "ex_en": "Additionally, we need more data.",
+  "ex_ko": "추가적으로, 더 많은 데이터가 필요하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "adequately",
+  "meaning": "적절하게",
+  "pos": "adverb",
+  "pron": "/ˈædɪkwɪtli/",
+  "ex_en": "The issue was adequately addressed.",
+  "ex_ko": "문제가 적절하게 다루어졌다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "allegedly",
+  "meaning": "주장에 따르면",
+  "pos": "adverb",
+  "pron": "/əˈledʒɪdli/",
+  "ex_en": "He allegedly committed the crime.",
+  "ex_ko": "주장에 따르면 그가 범죄를 저질렀다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "alternatively",
+  "meaning": "대안으로",
+  "pos": "adverb",
+  "pron": "/ɔːlˈtɜːrnətɪvli/",
+  "ex_en": "Alternatively, we could take the bus.",
+  "ex_ko": "대안으로, 버스를 탈 수 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "altogether",
+  "meaning": "완전히, 전부",
+  "pos": "adverb",
+  "pron": "/ˌɔːltəˈɡeðər/",
+  "ex_en": "Altogether, there were 50 guests.",
+  "ex_ko": "전부 합해서 50명의 손님이 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "annually",
+  "meaning": "매년",
+  "pos": "adverb",
+  "pron": "/ˈænjuəli/",
+  "ex_en": "The event is held annually.",
+  "ex_ko": "행사는 매년 개최된다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "apparently",
+  "meaning": "분명히, 보아하니",
+  "pos": "adverb",
+  "pron": "/əˈpærəntli/",
+  "ex_en": "Apparently, she quit her job.",
+  "ex_ko": "보아하니, 그녀는 직장을 그만둔 것 같다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "approximately",
+  "meaning": "대략",
+  "pos": "adverb",
+  "pron": "/əˈprɒksɪmɪtli/",
+  "ex_en": "It costs approximately .",
+  "ex_ko": "대략 이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "automatically",
+  "meaning": "자동으로",
+  "pos": "adverb",
+  "pron": "/ˌɔːtəˈmætɪkli/",
+  "ex_en": "The door opens automatically.",
+  "ex_ko": "문이 자동으로 열린다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "barely",
+  "meaning": "거의 ~않다",
+  "pos": "adverb",
+  "pron": "/ˈbeərli/",
+  "ex_en": "I could barely hear him.",
+  "ex_ko": "거의 그의 말을 들을 수 없었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "basically",
+  "meaning": "기본적으로",
+  "pos": "adverb",
+  "pron": "/ˈbeɪsɪkli/",
+  "ex_en": "Basically, we need more time.",
+  "ex_ko": "기본적으로, 더 많은 시간이 필요하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "briefly",
+  "meaning": "간단히",
+  "pos": "adverb",
+  "pron": "/ˈbriːfli/",
+  "ex_en": "Let me explain briefly.",
+  "ex_ko": "간단히 설명하겠습니다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "broadly",
+  "meaning": "넓게, 대체로",
+  "pos": "adverb",
+  "pron": "/ˈbrɔːdli/",
+  "ex_en": "Broadly speaking, the plan is good.",
+  "ex_ko": "대체로, 계획은 좋다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "cautiously",
+  "meaning": "조심스럽게",
+  "pos": "adverb",
+  "pron": "/ˈkɔːʃəsli/",
+  "ex_en": "She cautiously opened the door.",
+  "ex_ko": "그녀는 조심스럽게 문을 열었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "certainly",
+  "meaning": "확실히",
+  "pos": "adverb",
+  "pron": "/ˈsɜːrtənli/",
+  "ex_en": "I will certainly attend.",
+  "ex_ko": "확실히 참석하겠습니다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "closely",
+  "meaning": "가까이서, 밀접하게",
+  "pos": "adverb",
+  "pron": "/ˈkloʊsli/",
+  "ex_en": "Watch closely.",
+  "ex_ko": "가까이서 보세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "commonly",
+  "meaning": "흔히",
+  "pos": "adverb",
+  "pron": "/ˈkɒmənli/",
+  "ex_en": "This is commonly known.",
+  "ex_ko": "이것은 흔히 알려져 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "completely",
+  "meaning": "완전히",
+  "pos": "adverb",
+  "pron": "/kəmˈpliːtli/",
+  "ex_en": "I completely agree.",
+  "ex_ko": "완전히 동의한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "consequently",
+  "meaning": "결과적으로",
+  "pos": "adverb",
+  "pron": "/ˈkɒnsɪkwəntli/",
+  "ex_en": "He was late; consequently, he missed the bus.",
+  "ex_ko": "그는 늦었고, 결과적으로 버스를 놓쳤다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "considerably",
+  "meaning": "상당히",
+  "pos": "adverb",
+  "pron": "/kənˈsɪdərəbli/",
+  "ex_en": "Prices have risen considerably.",
+  "ex_ko": "가격이 상당히 올랐다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "constantly",
+  "meaning": "끊임없이",
+  "pos": "adverb",
+  "pron": "/ˈkɒnstəntli/",
+  "ex_en": "She is constantly improving.",
+  "ex_ko": "그녀는 끊임없이 발전하고 있다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "conversely",
+  "meaning": "반대로",
+  "pos": "adverb",
+  "pron": "/ˈkɒnvɜːrsli/",
+  "ex_en": "Conversely, the opposite may be true.",
+  "ex_ko": "반대로, 반대가 사실일 수 있다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "currently",
+  "meaning": "현재",
+  "pos": "adverb",
+  "pron": "/ˈkɜːrəntli/",
+  "ex_en": "She is currently working abroad.",
+  "ex_ko": "그녀는 현재 해외에서 일하고 있다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "deeply",
+  "meaning": "깊이",
+  "pos": "adverb",
+  "pron": "/ˈdiːpli/",
+  "ex_en": "I deeply appreciate your help.",
+  "ex_ko": "당신의 도움에 깊이 감사합니다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "definitely",
+  "meaning": "확실히, 분명히",
+  "pos": "adverb",
+  "pron": "/ˈdefɪnɪtli/",
+  "ex_en": "I will definitely come.",
+  "ex_ko": "분명히 갈 것이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "deliberately",
+  "meaning": "의도적으로",
+  "pos": "adverb",
+  "pron": "/dɪˈlɪbərɪtli/",
+  "ex_en": "He deliberately ignored her.",
+  "ex_ko": "그는 의도적으로 그녀를 무시했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dramatically",
+  "meaning": "극적으로",
+  "pos": "adverb",
+  "pron": "/drəˈmætɪkli/",
+  "ex_en": "Sales increased dramatically.",
+  "ex_ko": "매출이 극적으로 증가했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "effectively",
+  "meaning": "효과적으로",
+  "pos": "adverb",
+  "pron": "/ɪˈfektɪvli/",
+  "ex_en": "She communicated effectively.",
+  "ex_ko": "그녀는 효과적으로 소통했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "efficiently",
+  "meaning": "효율적으로",
+  "pos": "adverb",
+  "pron": "/ɪˈfɪʃəntli/",
+  "ex_en": "Work efficiently to save time.",
+  "ex_ko": "시간을 절약하기 위해 효율적으로 일하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "elsewhere",
+  "meaning": "다른 곳에서",
+  "pos": "adverb",
+  "pron": "/ˌelsˈweər/",
+  "ex_en": "Look elsewhere for the answer.",
+  "ex_ko": "답을 다른 곳에서 찾으세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "enormously",
+  "meaning": "엄청나게",
+  "pos": "adverb",
+  "pron": "/ɪˈnɔːrməsli/",
+  "ex_en": "The project grew enormously.",
+  "ex_ko": "프로젝트가 엄청나게 성장했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "entirely",
+  "meaning": "전적으로",
+  "pos": "adverb",
+  "pron": "/ɪnˈtaɪərli/",
+  "ex_en": "That is entirely your choice.",
+  "ex_ko": "그것은 전적으로 당신의 선택이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "equally",
+  "meaning": "똑같이",
+  "pos": "adverb",
+  "pron": "/ˈiːkwəli/",
+  "ex_en": "Divide it equally.",
+  "ex_ko": "똑같이 나누세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "especially",
+  "meaning": "특히",
+  "pos": "adverb",
+  "pron": "/ɪˈspeʃəli/",
+  "ex_en": "I love fruit, especially apples.",
+  "ex_ko": "과일을 좋아하는데, 특히 사과를 좋아한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "essentially",
+  "meaning": "본질적으로",
+  "pos": "adverb",
+  "pron": "/ɪˈsenʃəli/",
+  "ex_en": "They are essentially the same.",
+  "ex_ko": "본질적으로 같다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "eventually",
+  "meaning": "결국",
+  "pos": "adverb",
+  "pron": "/ɪˈventʃuəli/",
+  "ex_en": "He eventually passed the exam.",
+  "ex_ko": "결국 시험에 합격했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "evidently",
+  "meaning": "분명히",
+  "pos": "adverb",
+  "pron": "/ˈevɪdəntli/",
+  "ex_en": "Evidently, she was not happy.",
+  "ex_ko": "분명히, 그녀는 행복하지 않았다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exactly",
+  "meaning": "정확히",
+  "pos": "adverb",
+  "pron": "/ɪɡˈzæktli/",
+  "ex_en": "That is exactly what I meant.",
+  "ex_ko": "그것이 정확히 내가 의미한 것이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "excessively",
+  "meaning": "과도하게",
+  "pos": "adverb",
+  "pron": "/ɪkˈsesɪvli/",
+  "ex_en": "He works excessively.",
+  "ex_ko": "그는 과도하게 일한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exclusively",
+  "meaning": "독점적으로",
+  "pos": "adverb",
+  "pron": "/ɪkˈskluːsɪvli/",
+  "ex_en": "This is exclusively for members.",
+  "ex_ko": "이것은 회원 전용이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "extremely",
+  "meaning": "극도로",
+  "pos": "adverb",
+  "pron": "/ɪkˈstriːmli/",
+  "ex_en": "It is extremely hot today.",
+  "ex_ko": "오늘 극도로 덥다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "fairly",
+  "meaning": "꽤, 공정하게",
+  "pos": "adverb",
+  "pron": "/ˈfeərli/",
+  "ex_en": "The test was fairly easy.",
+  "ex_ko": "시험이 꽤 쉬웠다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "firmly",
+  "meaning": "단호하게",
+  "pos": "adverb",
+  "pron": "/ˈfɜːrmli/",
+  "ex_en": "She firmly refused the offer.",
+  "ex_ko": "그녀는 단호하게 제안을 거절했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fluently",
+  "meaning": "유창하게",
+  "pos": "adverb",
+  "pron": "/ˈfluːəntli/",
+  "ex_en": "She speaks English fluently.",
+  "ex_ko": "그녀는 영어를 유창하게 한다.",
+  "domain": "EDUCATION",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "formally",
+  "meaning": "공식적으로",
+  "pos": "adverb",
+  "pron": "/ˈfɔːrməli/",
+  "ex_en": "He was formally invited.",
+  "ex_ko": "그는 공식적으로 초대받았다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fortunately",
+  "meaning": "다행히",
+  "pos": "adverb",
+  "pron": "/ˈfɔːrtʃənɪtli/",
+  "ex_en": "Fortunately, no one was hurt.",
+  "ex_ko": "다행히 아무도 다치지 않았다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "frankly",
+  "meaning": "솔직히",
+  "pos": "adverb",
+  "pron": "/ˈfræŋkli/",
+  "ex_en": "Frankly, I disagree.",
+  "ex_ko": "솔직히, 동의하지 않는다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "frequently",
+  "meaning": "자주",
+  "pos": "adverb",
+  "pron": "/ˈfriːkwəntli/",
+  "ex_en": "He frequently travels abroad.",
+  "ex_ko": "그는 자주 해외 여행을 한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "fully",
+  "meaning": "완전히",
+  "pos": "adverb",
+  "pron": "/ˈfʊli/",
+  "ex_en": "I fully understand.",
+  "ex_ko": "완전히 이해한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "fundamentally",
+  "meaning": "근본적으로",
+  "pos": "adverb",
+  "pron": "/ˌfʌndəˈmentəli/",
+  "ex_en": "The system is fundamentally flawed.",
+  "ex_ko": "시스템이 근본적으로 결함이 있다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "generally",
+  "meaning": "일반적으로",
+  "pos": "adverb",
+  "pron": "/ˈdʒenrəli/",
+  "ex_en": "Generally speaking, it works well.",
+  "ex_ko": "일반적으로, 잘 작동한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "genuinely",
+  "meaning": "진심으로",
+  "pos": "adverb",
+  "pron": "/ˈdʒenjuɪnli/",
+  "ex_en": "She was genuinely surprised.",
+  "ex_ko": "그녀는 진심으로 놀랐다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "gradually",
+  "meaning": "점차",
+  "pos": "adverb",
+  "pron": "/ˈɡrædʒuəli/",
+  "ex_en": "The weather gradually improved.",
+  "ex_ko": "날씨가 점차 좋아졌다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "hardly",
+  "meaning": "거의 ~않다",
+  "pos": "adverb",
+  "pron": "/ˈhɑːrdli/",
+  "ex_en": "I hardly knew him.",
+  "ex_ko": "거의 그를 몰랐다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "heavily",
+  "meaning": "무겁게, 크게",
+  "pos": "adverb",
+  "pron": "/ˈhevɪli/",
+  "ex_en": "It rained heavily.",
+  "ex_ko": "비가 크게 내렸다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "hence",
+  "meaning": "그러므로",
+  "pos": "adverb",
+  "pron": "/hens/",
+  "ex_en": "Hence, the decision was made.",
+  "ex_ko": "그러므로, 결정이 내려졌다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "honestly",
+  "meaning": "정직하게",
+  "pos": "adverb",
+  "pron": "/ˈɒnɪstli/",
+  "ex_en": "Honestly, I have no idea.",
+  "ex_ko": "정직하게, 전혀 모르겠다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "hopefully",
+  "meaning": "바라건대",
+  "pos": "adverb",
+  "pron": "/ˈhoʊpfəli/",
+  "ex_en": "Hopefully, it will work.",
+  "ex_ko": "바라건대, 작동할 것이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "ideally",
+  "meaning": "이상적으로",
+  "pos": "adverb",
+  "pron": "/aɪˈdiːəli/",
+  "ex_en": "Ideally, we should start early.",
+  "ex_ko": "이상적으로, 일찍 시작해야 한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "immediately",
+  "meaning": "즉시",
+  "pos": "adverb",
+  "pron": "/ɪˈmiːdiɪtli/",
+  "ex_en": "Call me immediately.",
+  "ex_ko": "즉시 전화해 주세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "increasingly",
+  "meaning": "점점 더",
+  "pos": "adverb",
+  "pron": "/ɪnˈkriːsɪŋli/",
+  "ex_en": "Prices are increasingly high.",
+  "ex_ko": "가격이 점점 더 높아지고 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "independently",
+  "meaning": "독립적으로",
+  "pos": "adverb",
+  "pron": "/ˌɪndɪˈpendəntli/",
+  "ex_en": "She works independently.",
+  "ex_ko": "그녀는 독립적으로 일한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inevitably",
+  "meaning": "불가피하게",
+  "pos": "adverb",
+  "pron": "/ɪnˈevɪtəbli/",
+  "ex_en": "Mistakes will inevitably occur.",
+  "ex_ko": "실수는 불가피하게 발생할 것이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "initially",
+  "meaning": "처음에",
+  "pos": "adverb",
+  "pron": "/ɪˈnɪʃəli/",
+  "ex_en": "Initially, I was skeptical.",
+  "ex_ko": "처음에, 나는 회의적이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "merely",
+  "meaning": "단지",
+  "pos": "adverb",
+  "pron": "/ˈmɪərli/",
+  "ex_en": "I merely suggested it.",
+  "ex_ko": "단지 제안했을 뿐이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "namely",
+  "meaning": "즉",
+  "pos": "adverb",
+  "pron": "/ˈneɪmli/",
+  "ex_en": "One country, namely Korea, led the way.",
+  "ex_ko": "한 나라, 즉 한국이 앞장섰다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "necessarily",
+  "meaning": "반드시",
+  "pos": "adverb",
+  "pron": "/ˌnesəˈserɪli/",
+  "ex_en": "That is not necessarily true.",
+  "ex_ko": "그것이 반드시 사실은 아니다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "nevertheless",
+  "meaning": "그럼에도 불구하고",
+  "pos": "adverb",
+  "pron": "/ˌnevərðəˈles/",
+  "ex_en": "It was difficult; nevertheless, he succeeded.",
+  "ex_ko": "어려웠지만, 그럼에도 불구하고 성공했다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "nonetheless",
+  "meaning": "그럼에도",
+  "pos": "adverb",
+  "pron": "/ˌnʌnðəˈles/",
+  "ex_en": "The plan had flaws; nonetheless, it was approved.",
+  "ex_ko": "계획에 결함이 있었지만, 그럼에도 승인되었다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "nowadays",
+  "meaning": "요즘",
+  "pos": "adverb",
+  "pron": "/ˈnaʊədeɪz/",
+  "ex_en": "Nowadays, everyone uses smartphones.",
+  "ex_ko": "요즘 모든 사람이 스마트폰을 사용한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "obviously",
+  "meaning": "명백히",
+  "pos": "adverb",
+  "pron": "/ˈɒbviəsli/",
+  "ex_en": "He was obviously tired.",
+  "ex_ko": "그는 명백히 피곤했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "occasionally",
+  "meaning": "가끔",
+  "pos": "adverb",
+  "pron": "/əˈkeɪʒənəli/",
+  "ex_en": "I occasionally eat out.",
+  "ex_ko": "가끔 외식한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "otherwise",
+  "meaning": "그렇지 않으면",
+  "pos": "adverb",
+  "pron": "/ˈʌðərwaɪz/",
+  "ex_en": "Hurry up, otherwise we will be late.",
+  "ex_ko": "서둘러, 그렇지 않으면 늦을 것이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "overall",
+  "meaning": "전체적으로",
+  "pos": "adverb",
+  "pron": "/ˌoʊvərˈɔːl/",
+  "ex_en": "Overall, the results were positive.",
+  "ex_ko": "전체적으로, 결과가 긍정적이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "partly",
+  "meaning": "부분적으로",
+  "pos": "adverb",
+  "pron": "/ˈpɑːrtli/",
+  "ex_en": "The failure was partly my fault.",
+  "ex_ko": "실패는 부분적으로 내 잘못이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "particularly",
+  "meaning": "특히",
+  "pos": "adverb",
+  "pron": "/pɑːrˈtɪkjʊlərli/",
+  "ex_en": "I particularly liked the dessert.",
+  "ex_ko": "특히 디저트가 좋았다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "permanently",
+  "meaning": "영구적으로",
+  "pos": "adverb",
+  "pron": "/ˈpɜːrmənəntli/",
+  "ex_en": "The store is permanently closed.",
+  "ex_ko": "가게는 영구적으로 문을 닫았다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "personally",
+  "meaning": "개인적으로",
+  "pos": "adverb",
+  "pron": "/ˈpɜːrsənəli/",
+  "ex_en": "Personally, I prefer coffee.",
+  "ex_ko": "개인적으로 커피를 선호한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "physically",
+  "meaning": "물리적으로, 신체적으로",
+  "pos": "adverb",
+  "pron": "/ˈfɪzɪkli/",
+  "ex_en": "She is physically fit.",
+  "ex_ko": "그녀는 신체적으로 건강하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "potentially",
+  "meaning": "잠재적으로",
+  "pos": "adverb",
+  "pron": "/pəˈtenʃəli/",
+  "ex_en": "This is potentially dangerous.",
+  "ex_ko": "이것은 잠재적으로 위험하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "precisely",
+  "meaning": "정확히",
+  "pos": "adverb",
+  "pron": "/prɪˈsaɪsli/",
+  "ex_en": "That is precisely the point.",
+  "ex_ko": "그것이 정확히 요점이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "previously",
+  "meaning": "이전에",
+  "pos": "adverb",
+  "pron": "/ˈpriːviəsli/",
+  "ex_en": "She had previously worked there.",
+  "ex_ko": "그녀는 이전에 거기서 일했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "primarily",
+  "meaning": "주로",
+  "pos": "adverb",
+  "pron": "/praɪˈmɛərɪli/",
+  "ex_en": "The product is primarily for students.",
+  "ex_ko": "제품은 주로 학생들을 위한 것이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "privately",
+  "meaning": "사적으로",
+  "pos": "adverb",
+  "pron": "/ˈpraɪvɪtli/",
+  "ex_en": "She spoke to him privately.",
+  "ex_ko": "그녀는 사적으로 그에게 말했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "properly",
+  "meaning": "제대로",
+  "pos": "adverb",
+  "pron": "/ˈprɒpərli/",
+  "ex_en": "Handle it properly.",
+  "ex_ko": "제대로 처리하세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "purely",
+  "meaning": "순전히",
+  "pos": "adverb",
+  "pron": "/ˈpjʊərli/",
+  "ex_en": "This is purely coincidental.",
+  "ex_ko": "이것은 순전히 우연이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rapidly",
+  "meaning": "빠르게",
+  "pos": "adverb",
+  "pron": "/ˈræpɪdli/",
+  "ex_en": "Technology is changing rapidly.",
+  "ex_ko": "기술이 빠르게 변화하고 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rarely",
+  "meaning": "드물게",
+  "pos": "adverb",
+  "pron": "/ˈreərli/",
+  "ex_en": "She rarely complains.",
+  "ex_ko": "그녀는 드물게 불평한다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "readily",
+  "meaning": "쉽게, 기꺼이",
+  "pos": "adverb",
+  "pron": "/ˈredɪli/",
+  "ex_en": "Help is readily available.",
+  "ex_ko": "도움이 쉽게 이용 가능하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "recently",
+  "meaning": "최근에",
+  "pos": "adverb",
+  "pron": "/ˈriːsəntli/",
+  "ex_en": "I recently moved here.",
+  "ex_ko": "최근에 여기로 이사했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "relatively",
+  "meaning": "비교적",
+  "pos": "adverb",
+  "pron": "/ˈrelətɪvli/",
+  "ex_en": "The task was relatively easy.",
+  "ex_ko": "과제가 비교적 쉬웠다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "remarkably",
+  "meaning": "놀랍게도",
+  "pos": "adverb",
+  "pron": "/rɪˈmɑːrkəbli/",
+  "ex_en": "She recovered remarkably fast.",
+  "ex_ko": "그녀는 놀랍게도 빨리 회복했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "repeatedly",
+  "meaning": "반복적으로",
+  "pos": "adverb",
+  "pron": "/rɪˈpiːtɪdli/",
+  "ex_en": "He repeatedly asked the same question.",
+  "ex_ko": "그는 반복적으로 같은 질문을 했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "respectively",
+  "meaning": "각각",
+  "pos": "adverb",
+  "pron": "/rɪˈspektɪvli/",
+  "ex_en": "Tom and Jane are 20 and 22, respectively.",
+  "ex_ko": "톰과 제인은 각각 20세와 22세이다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "roughly",
+  "meaning": "대략",
+  "pos": "adverb",
+  "pron": "/ˈrʌfli/",
+  "ex_en": "It takes roughly an hour.",
+  "ex_ko": "대략 한 시간이 걸린다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "severely",
+  "meaning": "심하게",
+  "pos": "adverb",
+  "pron": "/sɪˈvɪərli/",
+  "ex_en": "He was severely injured.",
+  "ex_ko": "그는 심하게 다쳤다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "significantly",
+  "meaning": "상당히",
+  "pos": "adverb",
+  "pron": "/sɪɡˈnɪfɪkəntli/",
+  "ex_en": "Sales increased significantly.",
+  "ex_ko": "매출이 상당히 증가했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "similarly",
+  "meaning": "유사하게",
+  "pos": "adverb",
+  "pron": "/ˈsɪmɪlərli/",
+  "ex_en": "Similarly, I had the same problem.",
+  "ex_ko": "유사하게, 나도 같은 문제가 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "simultaneously",
+  "meaning": "동시에",
+  "pos": "adverb",
+  "pron": "/ˌsaɪməlˈteɪniəsli/",
+  "ex_en": "Both events occurred simultaneously.",
+  "ex_ko": "두 사건이 동시에 발생했다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "sincerely",
+  "meaning": "진심으로",
+  "pos": "adverb",
+  "pron": "/sɪnˈsɪərli/",
+  "ex_en": "I sincerely apologize.",
+  "ex_ko": "진심으로 사과합니다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "slightly",
+  "meaning": "약간",
+  "pos": "adverb",
+  "pron": "/ˈslaɪtli/",
+  "ex_en": "Prices rose slightly.",
+  "ex_ko": "가격이 약간 올랐다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "solely",
+  "meaning": "오로지",
+  "pos": "adverb",
+  "pron": "/ˈsoʊlli/",
+  "ex_en": "This is solely your responsibility.",
+  "ex_ko": "이것은 오로지 당신의 책임이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "somehow",
+  "meaning": "어떻게든",
+  "pos": "adverb",
+  "pron": "/ˈsʌmhaʊ/",
+  "ex_en": "We will manage somehow.",
+  "ex_ko": "어떻게든 해낼 것이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "somewhat",
+  "meaning": "다소",
+  "pos": "adverb",
+  "pron": "/ˈsʌmwɒt/",
+  "ex_en": "The results were somewhat surprising.",
+  "ex_ko": "결과가 다소 놀라웠다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "steadily",
+  "meaning": "꾸준히",
+  "pos": "adverb",
+  "pron": "/ˈstedɪli/",
+  "ex_en": "The economy grew steadily.",
+  "ex_ko": "경제가 꾸준히 성장했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "strictly",
+  "meaning": "엄격히",
+  "pos": "adverb",
+  "pron": "/ˈstrɪktli/",
+  "ex_en": "Smoking is strictly prohibited.",
+  "ex_ko": "흡연은 엄격히 금지된다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "subsequently",
+  "meaning": "이후에",
+  "pos": "adverb",
+  "pron": "/ˈsʌbsɪkwəntli/",
+  "ex_en": "He moved and subsequently found a job.",
+  "ex_ko": "이사한 후 이후에 직장을 찾았다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "sufficiently",
+  "meaning": "충분히",
+  "pos": "adverb",
+  "pron": "/səˈfɪʃəntli/",
+  "ex_en": "Is the evidence sufficiently strong?",
+  "ex_ko": "증거가 충분히 강한가?",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "temporarily",
+  "meaning": "일시적으로",
+  "pos": "adverb",
+  "pron": "/ˌtempəˈrerɪli/",
+  "ex_en": "The road is temporarily closed.",
+  "ex_ko": "도로가 일시적으로 폐쇄되었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "thoroughly",
+  "meaning": "철저히",
+  "pos": "adverb",
+  "pron": "/ˈθʌrəli/",
+  "ex_en": "Check it thoroughly.",
+  "ex_ko": "철저히 확인하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "typically",
+  "meaning": "보통, 전형적으로",
+  "pos": "adverb",
+  "pron": "/ˈtɪpɪkli/",
+  "ex_en": "I typically wake up at 7.",
+  "ex_ko": "보통 7시에 일어난다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "ultimately",
+  "meaning": "궁극적으로",
+  "pos": "adverb",
+  "pron": "/ˈʌltɪmɪtli/",
+  "ex_en": "Ultimately, it is your decision.",
+  "ex_ko": "궁극적으로, 그것은 당신의 결정이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "undoubtedly",
+  "meaning": "의심할 여지 없이",
+  "pos": "adverb",
+  "pron": "/ʌnˈdaʊtɪdli/",
+  "ex_en": "She is undoubtedly talented.",
+  "ex_ko": "그녀는 의심할 여지 없이 재능이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "unfortunately",
+  "meaning": "불행히도",
+  "pos": "adverb",
+  "pron": "/ʌnˈfɔːrtʃənɪtli/",
+  "ex_en": "Unfortunately, the event was cancelled.",
+  "ex_ko": "불행히도, 행사가 취소되었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "universally",
+  "meaning": "보편적으로",
+  "pos": "adverb",
+  "pron": "/ˌjuːnɪˈvɜːrsəli/",
+  "ex_en": "The law is universally accepted.",
+  "ex_ko": "그 법은 보편적으로 받아들여진다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "virtually",
+  "meaning": "사실상",
+  "pos": "adverb",
+  "pron": "/ˈvɜːrtʃuəli/",
+  "ex_en": "It is virtually impossible.",
+  "ex_ko": "사실상 불가능하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "voluntarily",
+  "meaning": "자발적으로",
+  "pos": "adverb",
+  "pron": "/ˌvɒlənˈterɪli/",
+  "ex_en": "She voluntarily stepped down.",
+  "ex_ko": "그녀는 자발적으로 물러났다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "widely",
+  "meaning": "널리",
+  "pos": "adverb",
+  "pron": "/ˈwaɪdli/",
+  "ex_en": "The book is widely read.",
+  "ex_ko": "그 책은 널리 읽힌다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ }
+]

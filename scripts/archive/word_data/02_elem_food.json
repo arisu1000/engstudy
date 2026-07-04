@@ -1,0 +1,302 @@
+[
+ {
+  "w": "grape",
+  "p": "",
+  "m": "/ɡreɪp/",
+  "t": "포도",
+  "e": "I like grapes.",
+  "k": "포도를 좋아합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "strawberry",
+  "p": "",
+  "m": "/ˈstrɔːˌbɛri/",
+  "t": "딸기",
+  "e": "Strawberries are red.",
+  "k": "딸기는 빨갛습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "watermelon",
+  "p": "",
+  "m": "/ˈwɔːtərˌmɛlən/",
+  "t": "수박",
+  "e": "Watermelon is sweet.",
+  "k": "수박이 달콤합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "peach",
+  "p": "",
+  "m": "/piːtʃ/",
+  "t": "복숭아",
+  "e": "The peach is juicy.",
+  "k": "복숭아가 즙이 많습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "lemon",
+  "p": "",
+  "m": "/ˈlɛmən/",
+  "t": "레몬",
+  "e": "Lemons are sour.",
+  "k": "레몬은 시큼합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "tomato",
+  "p": "",
+  "m": "/təˈmeɪtoʊ/",
+  "t": "토마토",
+  "e": "I eat tomatoes in salad.",
+  "k": "샐러드에 토마토를 먹습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "potato",
+  "p": "",
+  "m": "/pəˈteɪtoʊ/",
+  "t": "감자",
+  "e": "I like baked potatoes.",
+  "k": "구운 감자를 좋아합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "carrot",
+  "p": "",
+  "m": "/ˈkærət/",
+  "t": "당근",
+  "e": "Rabbits eat carrots.",
+  "k": "토끼는 당근을 먹습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "onion",
+  "p": "",
+  "m": "/ˈʌnjən/",
+  "t": "양파",
+  "e": "Onions make me cry.",
+  "k": "양파가 눈물 나게 합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "corn",
+  "p": "",
+  "m": "/kɔːrn/",
+  "t": "옥수수",
+  "e": "We eat corn in summer.",
+  "k": "여름에 옥수수를 먹습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "meat",
+  "p": "",
+  "m": "/miːt/",
+  "t": "고기",
+  "e": "I eat meat for dinner.",
+  "k": "저녁에 고기를 먹습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "butter",
+  "p": "",
+  "m": "/ˈbʌtər/",
+  "t": "버터",
+  "e": "Put butter on the bread.",
+  "k": "빵에 버터를 바르세요.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "cheese",
+  "p": "",
+  "m": "/tʃiːz/",
+  "t": "치즈",
+  "e": "I like cheese pizza.",
+  "k": "치즈 피자를 좋아합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "sugar",
+  "p": "",
+  "m": "/ˈʃʊɡər/",
+  "t": "설탕",
+  "e": "Don't eat too much sugar.",
+  "k": "설탕을 너무 많이 먹지 마세요.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "salt",
+  "p": "",
+  "m": "/sɔːlt/",
+  "t": "소금",
+  "e": "Add some salt.",
+  "k": "소금을 좀 넣으세요.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "soup",
+  "p": "",
+  "m": "/suːp/",
+  "t": "수프",
+  "e": "The soup is hot.",
+  "k": "수프가 뜨겁습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "salad",
+  "p": "",
+  "m": "/ˈsæləd/",
+  "t": "샐러드",
+  "e": "I had a salad for lunch.",
+  "k": "점심에 샐러드를 먹었습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "sandwich",
+  "p": "",
+  "m": "/ˈsændwɪtʃ/",
+  "t": "샌드위치",
+  "e": "I made a sandwich.",
+  "k": "샌드위치를 만들었습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "pizza",
+  "p": "",
+  "m": "/ˈpiːtsə/",
+  "t": "피자",
+  "e": "Let's order pizza.",
+  "k": "피자를 주문하자.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "cake",
+  "p": "",
+  "m": "/keɪk/",
+  "t": "케이크",
+  "e": "She baked a cake.",
+  "k": "그녀가 케이크를 구웠습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "cookie",
+  "p": "",
+  "m": "/ˈkʊki/",
+  "t": "쿠키",
+  "e": "Cookies are sweet.",
+  "k": "쿠키는 달콤합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "candy",
+  "p": "",
+  "m": "/ˈkændi/",
+  "t": "사탕",
+  "e": "Don't eat too much candy.",
+  "k": "사탕을 너무 많이 먹지 마세요.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "ice cream",
+  "p": "",
+  "m": "/aɪs kriːm/",
+  "t": "아이스크림",
+  "e": "I want ice cream.",
+  "k": "아이스크림을 먹고 싶어요.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "chocolate",
+  "p": "",
+  "m": "/ˈtʃɔːklət/",
+  "t": "초콜릿",
+  "e": "I love chocolate.",
+  "k": "초콜릿을 좋아합니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "juice",
+  "p": "",
+  "m": "/dʒuːs/",
+  "t": "주스",
+  "e": "I drink orange juice.",
+  "k": "오렌지 주스를 마십니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "tea",
+  "p": "",
+  "m": "/tiː/",
+  "t": "차",
+  "e": "Would you like some tea?",
+  "k": "차 드시겠어요?",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "coffee",
+  "p": "",
+  "m": "/ˈkɔːfi/",
+  "t": "커피",
+  "e": "Adults drink coffee.",
+  "k": "어른들은 커피를 마십니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "breakfast",
+  "p": "",
+  "m": "/ˈbrɛkfəst/",
+  "t": "아침식사",
+  "e": "I eat breakfast at seven.",
+  "k": "7시에 아침을 먹습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "lunch",
+  "p": "",
+  "m": "/lʌntʃ/",
+  "t": "점심",
+  "e": "Lunch is at noon.",
+  "k": "점심은 정오입니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "dinner",
+  "p": "",
+  "m": "/ˈdɪnər/",
+  "t": "저녁식사",
+  "e": "We have dinner at six.",
+  "k": "6시에 저녁을 먹습니다.",
+  "d": "FOOD",
+  "a": "ELEMENTARY"
+ }
+]

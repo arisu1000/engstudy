@@ -96,7 +96,8 @@ com.wcjung.engstudy/
 - `Room.databaseBuilder().createFromAsset()` 사용
 - DB version 10 / 명시적 마이그레이션(4→10)으로 업그레이드 처리 (사용자 데이터 보존)
 - Room identity hash: 스키마 JSON `app/schemas/10.json` 참조 (asset DB의 room_master_table과 build_word_db.py의 ROOM_IDENTITY_HASH도 함께 갱신할 것)
-- DB 생성 스크립트: `scripts/generate_word_db.py` — kengdic + Free Dictionary API
+- DB 생성 스크립트: `scripts/build_word_db.py` — kengdic + wordfreq + 교육부 xls
+  (과거 일회성 스크립트는 `scripts/archive/` 참조)
 - 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
 - 대표 뜻 보정 (kengdic이 가나다순 정렬이라 희귀 의미가 먼저 노출되는 문제):
   - `scripts/apply_edu_meanings.py` — 교육부와 겹치는 단어는 교육부 검수 뜻 사용 (멱등).

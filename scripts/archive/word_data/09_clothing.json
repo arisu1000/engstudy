@@ -1,0 +1,202 @@
+[
+ {
+  "word": "sleeve",
+  "meaning": "소매",
+  "pos": "noun",
+  "pron": "/sliːv/",
+  "ex_en": "Roll up your sleeves.",
+  "ex_ko": "소매를 걷으세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "collar",
+  "meaning": "깃",
+  "pos": "noun",
+  "pron": "/ˈkɒlər/",
+  "ex_en": "His shirt has a stiff collar.",
+  "ex_ko": "뻣뻣한 깃이 있다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "zipper",
+  "meaning": "지퍼",
+  "pos": "noun",
+  "pron": "/ˈzɪpər/",
+  "ex_en": "The zipper is stuck.",
+  "ex_ko": "지퍼가 걸렸다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "fabric",
+  "meaning": "직물",
+  "pos": "noun",
+  "pron": "/ˈfæbrɪk/",
+  "ex_en": "Cotton is a natural fabric.",
+  "ex_ko": "면은 천연 직물이다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "garment",
+  "meaning": "의복",
+  "pos": "noun",
+  "pron": "/ˈɡɑːrmənt/",
+  "ex_en": "This garment needs dry cleaning.",
+  "ex_ko": "이 의복은 드라이클리닝이 필요하다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accessory",
+  "meaning": "액세서리",
+  "pos": "noun",
+  "pron": "/əkˈsesəri/",
+  "ex_en": "She chose matching accessories.",
+  "ex_ko": "어울리는 액세서리를 골랐다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "wardrobe",
+  "meaning": "옷장",
+  "pos": "noun",
+  "pron": "/ˈwɔːrdroʊb/",
+  "ex_en": "She updated her wardrobe.",
+  "ex_ko": "옷장을 업데이트했다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "outfit",
+  "meaning": "옷 한 벌",
+  "pos": "noun",
+  "pron": "/ˈaʊtfɪt/",
+  "ex_en": "She wore a stylish outfit.",
+  "ex_ko": "세련된 옷을 입었다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "apron",
+  "meaning": "앞치마",
+  "pos": "noun",
+  "pron": "/ˈeɪprən/",
+  "ex_en": "Wear an apron while cooking.",
+  "ex_ko": "요리할 때 앞치마를 입으세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "costume",
+  "meaning": "의상",
+  "pos": "noun",
+  "pron": "/ˈkɒstjuːm/",
+  "ex_en": "Children wore Halloween costumes.",
+  "ex_ko": "할로윈 의상을 입었다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "sandal",
+  "meaning": "샌들",
+  "pos": "noun",
+  "pron": "/ˈsændəl/",
+  "ex_en": "She wore sandals to the beach.",
+  "ex_ko": "해변에 샌들을 신었다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "sneaker",
+  "meaning": "운동화",
+  "pos": "noun",
+  "pron": "/ˈsniːkər/",
+  "ex_en": "He bought new sneakers.",
+  "ex_ko": "새 운동화를 샀다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "leather",
+  "meaning": "가죽",
+  "pos": "noun",
+  "pron": "/ˈleðər/",
+  "ex_en": "The bag is made of leather.",
+  "ex_ko": "가죽 가방이다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "silk",
+  "meaning": "실크",
+  "pos": "noun",
+  "pron": "/sɪlk/",
+  "ex_en": "The dress was silk.",
+  "ex_ko": "실크 드레스였다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "wool",
+  "meaning": "양모",
+  "pos": "noun",
+  "pron": "/wʊl/",
+  "ex_en": "Wool keeps you warm.",
+  "ex_ko": "양모는 따뜻하다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "cotton",
+  "meaning": "면",
+  "pos": "noun",
+  "pron": "/ˈkɒtən/",
+  "ex_en": "Cotton is breathable.",
+  "ex_ko": "면은 통기성이 좋다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "denim",
+  "meaning": "데님",
+  "pos": "noun",
+  "pron": "/ˈdenɪm/",
+  "ex_en": "Jeans are denim.",
+  "ex_ko": "청바지는 데님이다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "linen",
+  "meaning": "리넨",
+  "pos": "noun",
+  "pron": "/ˈlɪnɪn/",
+  "ex_en": "Linen is perfect for summer.",
+  "ex_ko": "리넨은 여름에 좋다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "satin",
+  "meaning": "새틴",
+  "pos": "noun",
+  "pron": "/ˈsætɪn/",
+  "ex_en": "The dress was made of satin.",
+  "ex_ko": "드레스는 새틴으로 만들어졌다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "velvet",
+  "meaning": "벨벳",
+  "pos": "noun",
+  "pron": "/ˈvelvɪt/",
+  "ex_en": "The curtains were made of velvet.",
+  "ex_ko": "커튼은 벨벳으로 만들어졌다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ }
+]

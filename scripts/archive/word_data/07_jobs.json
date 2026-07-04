@@ -1,0 +1,252 @@
+[
+ {
+  "word": "surgeon",
+  "meaning": "외과의사",
+  "pos": "noun",
+  "pron": "/ˈsɜːrdʒən/",
+  "ex_en": "The surgeon performed the operation.",
+  "ex_ko": "외과의사가 수술을 시행했다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "pharmacist",
+  "meaning": "약사",
+  "pos": "noun",
+  "pron": "/ˈfɑːrməsɪst/",
+  "ex_en": "The pharmacist dispensed medicine.",
+  "ex_ko": "약사가 약을 조제했다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "therapist",
+  "meaning": "치료사",
+  "pos": "noun",
+  "pron": "/ˈθerəpɪst/",
+  "ex_en": "She sees a therapist weekly.",
+  "ex_ko": "매주 치료사를 만난다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "attorney",
+  "meaning": "변호사",
+  "pos": "noun",
+  "pron": "/əˈtɜːrni/",
+  "ex_en": "The attorney represented the client.",
+  "ex_ko": "변호사가 의뢰인을 대리했다.",
+  "domain": "LAW",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "journalist",
+  "meaning": "기자",
+  "pos": "noun",
+  "pron": "/ˈdʒɜːrnəlɪst/",
+  "ex_en": "The journalist reported from the scene.",
+  "ex_ko": "기자가 현장에서 보도했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accountant",
+  "meaning": "회계사",
+  "pos": "noun",
+  "pron": "/əˈkaʊntənt/",
+  "ex_en": "The accountant prepared tax returns.",
+  "ex_ko": "회계사가 세금 신고서를 작성했다.",
+  "domain": "BUSINESS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "engineer",
+  "meaning": "엔지니어",
+  "pos": "noun",
+  "pron": "/ˌendʒɪˈnɪər/",
+  "ex_en": "The engineer designed the bridge.",
+  "ex_ko": "엔지니어가 다리를 설계했다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "electrician",
+  "meaning": "전기 기사",
+  "pos": "noun",
+  "pron": "/ɪˌlekˈtrɪʃən/",
+  "ex_en": "The electrician fixed the wiring.",
+  "ex_ko": "전기 기사가 배선을 수리했다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "plumber",
+  "meaning": "배관공",
+  "pos": "noun",
+  "pron": "/ˈplʌmər/",
+  "ex_en": "Call a plumber to fix the leak.",
+  "ex_ko": "누수 수리를 위해 배관공을 부르세요.",
+  "domain": "DAILY_LIFE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "carpenter",
+  "meaning": "목수",
+  "pos": "noun",
+  "pron": "/ˈkɑːrpəntər/",
+  "ex_en": "The carpenter built a cabinet.",
+  "ex_ko": "목수가 캐비넷을 만들었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "mechanic",
+  "meaning": "정비사",
+  "pos": "noun",
+  "pron": "/mɪˈkænɪk/",
+  "ex_en": "The mechanic repaired the engine.",
+  "ex_ko": "정비사가 엔진을 수리했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "astronaut",
+  "meaning": "우주비행사",
+  "pos": "noun",
+  "pron": "/ˈæstrənɔːt/",
+  "ex_en": "The astronaut floated in zero gravity.",
+  "ex_ko": "우주비행사가 무중력에서 떠다녔다.",
+  "domain": "SCIENCE",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "veterinarian",
+  "meaning": "수의사",
+  "pos": "noun",
+  "pron": "/ˌvetərɪˈnɛəriən/",
+  "ex_en": "The vet treated the sick dog.",
+  "ex_ko": "수의사가 아픈 개를 치료했다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "curator",
+  "meaning": "큐레이터",
+  "pos": "noun",
+  "pron": "/kjʊˈreɪtər/",
+  "ex_en": "The curator organized the exhibition.",
+  "ex_ko": "큐레이터가 전시를 기획했다.",
+  "domain": "ARTS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "executive",
+  "meaning": "경영자",
+  "pos": "noun",
+  "pron": "/ɪɡˈzekjʊtɪv/",
+  "ex_en": "The executive made the decision.",
+  "ex_ko": "경영진이 결정을 내렸다.",
+  "domain": "BUSINESS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "receptionist",
+  "meaning": "접수원",
+  "pos": "noun",
+  "pron": "/rɪˈsepʃənɪst/",
+  "ex_en": "The receptionist answered the phone.",
+  "ex_ko": "접수원이 전화를 받았다.",
+  "domain": "BUSINESS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "paramedic",
+  "meaning": "응급 구조사",
+  "pos": "noun",
+  "pron": "/ˌpærəˈmedɪk/",
+  "ex_en": "Paramedics arrived quickly.",
+  "ex_ko": "응급 구조사들이 빠르게 도착했다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "firefighter",
+  "meaning": "소방관",
+  "pos": "noun",
+  "pron": "/ˈfaɪərfaɪtər/",
+  "ex_en": "Firefighters rescued people.",
+  "ex_ko": "소방관들이 사람들을 구출했다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "pilot",
+  "meaning": "조종사",
+  "pos": "noun",
+  "pron": "/ˈpaɪlət/",
+  "ex_en": "The pilot landed safely.",
+  "ex_ko": "조종사가 안전하게 착륙했다.",
+  "domain": "TRAVEL",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "chef",
+  "meaning": "주방장",
+  "pos": "noun",
+  "pron": "/ʃef/",
+  "ex_en": "The chef prepared a gourmet meal.",
+  "ex_ko": "주방장이 미식 요리를 준비했다.",
+  "domain": "FOOD",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "librarian",
+  "meaning": "사서",
+  "pos": "noun",
+  "pron": "/laɪˈbrɛəriən/",
+  "ex_en": "The librarian helped me.",
+  "ex_ko": "사서가 도와줬다.",
+  "domain": "EDUCATION",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "translator",
+  "meaning": "번역가",
+  "pos": "noun",
+  "pron": "/trænsˈleɪtər/",
+  "ex_en": "The translator converted the text.",
+  "ex_ko": "번역가가 텍스트를 번역했다.",
+  "domain": "EDUCATION",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "broker",
+  "meaning": "중개인",
+  "pos": "noun",
+  "pron": "/ˈbroʊkər/",
+  "ex_en": "The broker handled trades.",
+  "ex_ko": "중개인이 거래를 처리했다.",
+  "domain": "BUSINESS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "detective",
+  "meaning": "형사",
+  "pos": "noun",
+  "pron": "/dɪˈtektɪv/",
+  "ex_en": "The detective solved the case.",
+  "ex_ko": "형사가 사건을 해결했다.",
+  "domain": "LAW",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "cashier",
+  "meaning": "계산원",
+  "pos": "noun",
+  "pron": "/kæˈʃɪər/",
+  "ex_en": "The cashier scanned the items.",
+  "ex_ko": "계산원이 물건을 스캔했다.",
+  "domain": "DAILY_LIFE",
+  "age_group": "MIDDLE_SCHOOL"
+ }
+]

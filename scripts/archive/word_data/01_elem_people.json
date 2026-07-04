@@ -1,0 +1,252 @@
+[
+ {
+  "w": "uncle",
+  "p": "",
+  "m": "/ˈʌŋkəl/",
+  "t": "삼촌",
+  "e": "My uncle lives in Busan.",
+  "k": "삼촌은 부산에 삽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "aunt",
+  "p": "",
+  "m": "/ɑːnt/",
+  "t": "이모, 고모",
+  "e": "My aunt is a nurse.",
+  "k": "이모는 간호사입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "cousin",
+  "p": "",
+  "m": "/ˈkʌzən/",
+  "t": "사촌",
+  "e": "I play with my cousin.",
+  "k": "사촌과 놉니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "grandfather",
+  "p": "",
+  "m": "/ˈɡrændfɑːðər/",
+  "t": "할아버지",
+  "e": "My grandfather is 80 years old.",
+  "k": "할아버지는 80세입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "grandmother",
+  "p": "",
+  "m": "/ˈɡrændmʌðər/",
+  "t": "할머니",
+  "e": "Grandmother bakes cookies.",
+  "k": "할머니가 쿠키를 구워요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "baby",
+  "p": "",
+  "m": "/ˈbeɪbi/",
+  "t": "아기",
+  "e": "The baby is sleeping.",
+  "k": "아기가 자고 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "boy",
+  "p": "",
+  "m": "/bɔɪ/",
+  "t": "소년",
+  "e": "The boy is running.",
+  "k": "소년이 달리고 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "girl",
+  "p": "",
+  "m": "/ɡɜːrl/",
+  "t": "소녀",
+  "e": "The girl is reading.",
+  "k": "소녀가 읽고 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "man",
+  "p": "",
+  "m": "/mæn/",
+  "t": "남자",
+  "e": "The man is tall.",
+  "k": "남자가 키가 큽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "woman",
+  "p": "",
+  "m": "/ˈwʊmən/",
+  "t": "여자",
+  "e": "The woman is kind.",
+  "k": "여자가 친절합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "child",
+  "p": "",
+  "m": "/tʃaɪld/",
+  "t": "아이",
+  "e": "The child is happy.",
+  "k": "아이가 행복합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "neighbor",
+  "p": "",
+  "m": "/ˈneɪbər/",
+  "t": "이웃",
+  "e": "Our neighbor is friendly.",
+  "k": "이웃이 친근합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "king",
+  "p": "",
+  "m": "/kɪŋ/",
+  "t": "왕",
+  "e": "The king lives in a castle.",
+  "k": "왕은 성에 삽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "queen",
+  "p": "",
+  "m": "/kwiːn/",
+  "t": "왕비, 여왕",
+  "e": "The queen is beautiful.",
+  "k": "여왕이 아름답습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "prince",
+  "p": "",
+  "m": "/prɪns/",
+  "t": "왕자",
+  "e": "The prince saved the princess.",
+  "k": "왕자가 공주를 구했습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "princess",
+  "p": "",
+  "m": "/prɪnˈsɛs/",
+  "t": "공주",
+  "e": "The princess wears a crown.",
+  "k": "공주가 왕관을 씁니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "police",
+  "p": "",
+  "m": "/pəˈliːs/",
+  "t": "경찰",
+  "e": "The police caught the thief.",
+  "k": "경찰이 도둑을 잡았습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "doctor",
+  "p": "",
+  "m": "/ˈdɑːktər/",
+  "t": "의사",
+  "e": "The doctor helps sick people.",
+  "k": "의사는 아픈 사람을 돕습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "nurse",
+  "p": "",
+  "m": "/nɜːrs/",
+  "t": "간호사",
+  "e": "The nurse is very kind.",
+  "k": "간호사가 매우 친절합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "farmer",
+  "p": "",
+  "m": "/ˈfɑːrmər/",
+  "t": "농부",
+  "e": "The farmer grows vegetables.",
+  "k": "농부가 채소를 기릅니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "soldier",
+  "p": "",
+  "m": "/ˈsoʊldʒər/",
+  "t": "군인",
+  "e": "The soldier is brave.",
+  "k": "군인이 용감합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "pilot",
+  "p": "",
+  "m": "/ˈpaɪlət/",
+  "t": "조종사",
+  "e": "The pilot flies the airplane.",
+  "k": "조종사가 비행기를 조종합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "driver",
+  "p": "",
+  "m": "/ˈdraɪvər/",
+  "t": "운전사",
+  "e": "The driver stopped the bus.",
+  "k": "운전사가 버스를 멈췄습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "cook",
+  "p": "",
+  "m": "/kʊk/",
+  "t": "요리사, 요리하다",
+  "e": "The cook makes delicious food.",
+  "k": "요리사가 맛있는 음식을 만듭니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "singer",
+  "p": "",
+  "m": "/ˈsɪŋər/",
+  "t": "가수",
+  "e": "She is a famous singer.",
+  "k": "그녀는 유명한 가수입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ }
+]

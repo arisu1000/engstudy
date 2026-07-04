@@ -1,0 +1,302 @@
+[
+ {
+  "w": "snake",
+  "p": "",
+  "m": "/sneɪk/",
+  "t": "뱀",
+  "e": "Snakes have no legs.",
+  "k": "뱀은 다리가 없습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "frog",
+  "p": "",
+  "m": "/frɔːɡ/",
+  "t": "개구리",
+  "e": "The frog jumps high.",
+  "k": "개구리가 높이 뜁니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "turtle",
+  "p": "",
+  "m": "/ˈtɜːrtəl/",
+  "t": "거북이",
+  "e": "The turtle is slow.",
+  "k": "거북이는 느립니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "ant",
+  "p": "",
+  "m": "/ænt/",
+  "t": "개미",
+  "e": "Ants work hard.",
+  "k": "개미는 열심히 일합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "bee",
+  "p": "",
+  "m": "/biː/",
+  "t": "벌",
+  "e": "Bees make honey.",
+  "k": "벌이 꿀을 만듭니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "butterfly",
+  "p": "",
+  "m": "/ˈbʌtərˌflaɪ/",
+  "t": "나비",
+  "e": "The butterfly is colorful.",
+  "k": "나비가 화려합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "spider",
+  "p": "",
+  "m": "/ˈspaɪdər/",
+  "t": "거미",
+  "e": "The spider made a web.",
+  "k": "거미가 거미줄을 쳤습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "whale",
+  "p": "",
+  "m": "/weɪl/",
+  "t": "고래",
+  "e": "Whales live in the ocean.",
+  "k": "고래는 바다에 삽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "dolphin",
+  "p": "",
+  "m": "/ˈdɑːlfɪn/",
+  "t": "돌고래",
+  "e": "Dolphins are smart.",
+  "k": "돌고래는 똑똑합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "shark",
+  "p": "",
+  "m": "/ʃɑːrk/",
+  "t": "상어",
+  "e": "Sharks swim fast.",
+  "k": "상어는 빨리 헤엄칩니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "deer",
+  "p": "",
+  "m": "/dɪr/",
+  "t": "사슴",
+  "e": "I saw a deer in the forest.",
+  "k": "숲에서 사슴을 봤습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "fox",
+  "p": "",
+  "m": "/fɑːks/",
+  "t": "여우",
+  "e": "The fox is clever.",
+  "k": "여우는 영리합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "wolf",
+  "p": "",
+  "m": "/wʊlf/",
+  "t": "늑대",
+  "e": "Wolves live in packs.",
+  "k": "늑대는 무리지어 삽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "duck",
+  "p": "",
+  "m": "/dʌk/",
+  "t": "오리",
+  "e": "Ducks swim in the pond.",
+  "k": "오리가 연못에서 헤엄칩니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "penguin",
+  "p": "",
+  "m": "/ˈpɛŋɡwɪn/",
+  "t": "펭귄",
+  "e": "Penguins live in cold places.",
+  "k": "펭귄은 추운 곳에 삽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "island",
+  "p": "",
+  "m": "/ˈaɪlənd/",
+  "t": "섬",
+  "e": "Jeju is a beautiful island.",
+  "k": "제주는 아름다운 섬입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "forest",
+  "p": "",
+  "m": "/ˈfɔːrɪst/",
+  "t": "숲",
+  "e": "We walked through the forest.",
+  "k": "숲을 걸었습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "lake",
+  "p": "",
+  "m": "/leɪk/",
+  "t": "호수",
+  "e": "The lake is calm.",
+  "k": "호수가 잔잔합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "hill",
+  "p": "",
+  "m": "/hɪl/",
+  "t": "언덕",
+  "e": "We climbed the hill.",
+  "k": "언덕을 올랐습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "rock",
+  "p": "",
+  "m": "/rɑːk/",
+  "t": "바위, 돌",
+  "e": "Sit on the rock.",
+  "k": "바위에 앉으세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "sand",
+  "p": "",
+  "m": "/sænd/",
+  "t": "모래",
+  "e": "Children play in the sand.",
+  "k": "아이들이 모래에서 놉니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "wave",
+  "p": "",
+  "m": "/weɪv/",
+  "t": "파도, 손 흔들다",
+  "e": "The waves are big today.",
+  "k": "오늘 파도가 큽니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "rainbow",
+  "p": "",
+  "m": "/ˈreɪnˌboʊ/",
+  "t": "무지개",
+  "e": "A rainbow appeared.",
+  "k": "무지개가 나타났습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "storm",
+  "p": "",
+  "m": "/stɔːrm/",
+  "t": "폭풍",
+  "e": "A storm is coming.",
+  "k": "폭풍이 옵니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "ice",
+  "p": "",
+  "m": "/aɪs/",
+  "t": "얼음",
+  "e": "The road has ice on it.",
+  "k": "도로에 얼음이 있습니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "fire",
+  "p": "",
+  "m": "/faɪr/",
+  "t": "불",
+  "e": "Be careful with fire.",
+  "k": "불을 조심하세요.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "smoke",
+  "p": "",
+  "m": "/smoʊk/",
+  "t": "연기",
+  "e": "I see smoke.",
+  "k": "연기가 보입니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "earth",
+  "p": "",
+  "m": "/ɜːrθ/",
+  "t": "지구, 땅",
+  "e": "The earth is round.",
+  "k": "지구는 둥급니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "air",
+  "p": "",
+  "m": "/ɛr/",
+  "t": "공기",
+  "e": "The air is fresh.",
+  "k": "공기가 신선합니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ },
+ {
+  "w": "space",
+  "p": "",
+  "m": "/speɪs/",
+  "t": "우주, 공간",
+  "e": "Astronauts go to space.",
+  "k": "우주비행사는 우주에 갑니다.",
+  "d": "DAILY_LIFE",
+  "a": "ELEMENTARY"
+ }
+]

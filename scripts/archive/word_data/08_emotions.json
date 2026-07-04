@@ -1,0 +1,302 @@
+[
+ {
+  "word": "anxious",
+  "meaning": "불안한",
+  "pos": "adjective",
+  "pron": "/ˈæŋkʃəs/",
+  "ex_en": "She felt anxious.",
+  "ex_ko": "그녀는 불안했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "cheerful",
+  "meaning": "쾌활한",
+  "pos": "adjective",
+  "pron": "/ˈtʃɪərfəl/",
+  "ex_en": "She has a cheerful personality.",
+  "ex_ko": "쾌활한 성격이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "confident",
+  "meaning": "자신감 있는",
+  "pos": "adjective",
+  "pron": "/ˈkɒnfɪdənt/",
+  "ex_en": "He is confident.",
+  "ex_ko": "그는 자신감이 있다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "courageous",
+  "meaning": "용감한",
+  "pos": "adjective",
+  "pron": "/kəˈreɪdʒəs/",
+  "ex_en": "The courageous firefighter saved lives.",
+  "ex_ko": "용감한 소방관이 생명을 구했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "curious",
+  "meaning": "호기심 많은",
+  "pos": "adjective",
+  "pron": "/ˈkjʊəriəs/",
+  "ex_en": "Children are naturally curious.",
+  "ex_ko": "아이들은 호기심이 많다.",
+  "domain": "GENERAL",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "depressed",
+  "meaning": "우울한",
+  "pos": "adjective",
+  "pron": "/dɪˈprest/",
+  "ex_en": "He felt depressed.",
+  "ex_ko": "그는 우울했다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "desperate",
+  "meaning": "절박한",
+  "pos": "adjective",
+  "pron": "/ˈdespərɪt/",
+  "ex_en": "She was desperate for help.",
+  "ex_ko": "그녀는 절박하게 도움을 구했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "embarrassed",
+  "meaning": "당황한",
+  "pos": "adjective",
+  "pron": "/ɪmˈbærəst/",
+  "ex_en": "She was embarrassed.",
+  "ex_ko": "그녀는 당황했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "enthusiastic",
+  "meaning": "열정적인",
+  "pos": "adjective",
+  "pron": "/ɪnˌθjuːziˈæstɪk/",
+  "ex_en": "The team was enthusiastic.",
+  "ex_ko": "팀은 열정적이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exhausted",
+  "meaning": "극도로 피곤한",
+  "pos": "adjective",
+  "pron": "/ɪɡˈzɔːstɪd/",
+  "ex_en": "I was exhausted.",
+  "ex_ko": "극도로 피곤했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "frustrated",
+  "meaning": "좌절한",
+  "pos": "adjective",
+  "pron": "/frʌˈstreɪtɪd/",
+  "ex_en": "He felt frustrated.",
+  "ex_ko": "좌절했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "generous",
+  "meaning": "관대한",
+  "pos": "adjective",
+  "pron": "/ˈdʒenərəs/",
+  "ex_en": "She is generous.",
+  "ex_ko": "그녀는 관대하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "grateful",
+  "meaning": "감사하는",
+  "pos": "adjective",
+  "pron": "/ˈɡreɪtfəl/",
+  "ex_en": "I'm grateful for your help.",
+  "ex_ko": "도움에 감사합니다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "guilty",
+  "meaning": "죄의식이 드는",
+  "pos": "adjective",
+  "pron": "/ˈɡɪlti/",
+  "ex_en": "He felt guilty.",
+  "ex_ko": "죄의식을 느꼈다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "humble",
+  "meaning": "겸손한",
+  "pos": "adjective",
+  "pron": "/ˈhʌmbəl/",
+  "ex_en": "She remained humble.",
+  "ex_ko": "그녀는 겸손했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "jealous",
+  "meaning": "질투하는",
+  "pos": "adjective",
+  "pron": "/ˈdʒeləs/",
+  "ex_en": "He was jealous.",
+  "ex_ko": "그는 질투했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "miserable",
+  "meaning": "비참한",
+  "pos": "adjective",
+  "pron": "/ˈmɪzrəbəl/",
+  "ex_en": "The weather was miserable.",
+  "ex_ko": "날씨가 비참했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "optimistic",
+  "meaning": "낙관적인",
+  "pos": "adjective",
+  "pron": "/ˌɒptɪˈmɪstɪk/",
+  "ex_en": "She is optimistic.",
+  "ex_ko": "그녀는 낙관적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "pessimistic",
+  "meaning": "비관적인",
+  "pos": "adjective",
+  "pron": "/ˌpesɪˈmɪstɪk/",
+  "ex_en": "He is pessimistic.",
+  "ex_ko": "그는 비관적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "passionate",
+  "meaning": "열정적인",
+  "pos": "adjective",
+  "pron": "/ˈpæʃənɪt/",
+  "ex_en": "She is passionate about music.",
+  "ex_ko": "음악에 열정적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "relieved",
+  "meaning": "안도하는",
+  "pos": "adjective",
+  "pron": "/rɪˈliːvd/",
+  "ex_en": "She was relieved.",
+  "ex_ko": "안도했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "sincere",
+  "meaning": "진실된",
+  "pos": "adjective",
+  "pron": "/sɪnˈsɪər/",
+  "ex_en": "She offered a sincere apology.",
+  "ex_ko": "진심 어린 사과를 했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stubborn",
+  "meaning": "완고한",
+  "pos": "adjective",
+  "pron": "/ˈstʌbərn/",
+  "ex_en": "He is stubborn.",
+  "ex_ko": "그는 완고하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "suspicious",
+  "meaning": "의심스러운",
+  "pos": "adjective",
+  "pron": "/səˈspɪʃəs/",
+  "ex_en": "Police were suspicious.",
+  "ex_ko": "경찰은 의심했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "terrified",
+  "meaning": "겁에 질린",
+  "pos": "adjective",
+  "pron": "/ˈterɪfaɪd/",
+  "ex_en": "She was terrified.",
+  "ex_ko": "그녀는 겁에 질렸다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "thoughtful",
+  "meaning": "사려 깊은",
+  "pos": "adjective",
+  "pron": "/ˈθɔːtfəl/",
+  "ex_en": "It was a thoughtful gift.",
+  "ex_ko": "사려 깊은 선물이었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "tolerant",
+  "meaning": "관용적인",
+  "pos": "adjective",
+  "pron": "/ˈtɒlərənt/",
+  "ex_en": "Be tolerant of others.",
+  "ex_ko": "다른 사람에게 관용적이세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "selfish",
+  "meaning": "이기적인",
+  "pos": "adjective",
+  "pron": "/ˈselfɪʃ/",
+  "ex_en": "Don't be selfish.",
+  "ex_ko": "이기적이지 마세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "modest",
+  "meaning": "겸손한, 적당한",
+  "pos": "adjective",
+  "pron": "/ˈmɒdɪst/",
+  "ex_en": "He is modest about his achievements.",
+  "ex_ko": "그는 성취에 대해 겸손하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "ambitious",
+  "meaning": "야심 있는",
+  "pos": "adjective",
+  "pron": "/æmˈbɪʃəs/",
+  "ex_en": "She is ambitious.",
+  "ex_ko": "그녀는 야심이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ }
+]

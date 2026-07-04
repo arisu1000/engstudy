@@ -1,0 +1,1702 @@
+[
+ {
+  "word": "abundant",
+  "meaning": "풍부한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Resources are abundant here.",
+  "ex_ko": "자원이 풍부하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "accessible",
+  "meaning": "접근 가능한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The building is wheelchair accessible.",
+  "ex_ko": "건물은 휠체어 접근이 가능하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "adjacent",
+  "meaning": "인접한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The park is adjacent to the school.",
+  "ex_ko": "공원은 학교에 인접해 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "adverse",
+  "meaning": "불리한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Adverse weather delayed the flight.",
+  "ex_ko": "악천후로 비행이 지연되었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "alert",
+  "meaning": "경계하는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Stay alert while driving.",
+  "ex_ko": "운전 중 경계하세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "anonymous",
+  "meaning": "익명의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The donor wished to remain anonymous.",
+  "ex_ko": "기부자는 익명으로 남기를 원했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "authentic",
+  "meaning": "진짜의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is an authentic painting.",
+  "ex_ko": "이것은 진짜 그림이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "automatic",
+  "meaning": "자동적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The car has automatic transmission.",
+  "ex_ko": "차는 자동 변속기가 있다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "bare",
+  "meaning": "벌거벗은, 최소한의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The trees were bare in winter.",
+  "ex_ko": "겨울에 나무들이 벌거벗었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "bitter",
+  "meaning": "쓴, 쓰라린",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The coffee was too bitter.",
+  "ex_ko": "커피가 너무 쓰다.",
+  "domain": "FOOD",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "blank",
+  "meaning": "빈, 공백의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The page was blank.",
+  "ex_ko": "페이지가 비어 있었다.",
+  "domain": "GENERAL",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "blind",
+  "meaning": "눈 먼",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He has been blind since birth.",
+  "ex_ko": "그는 태어날 때부터 눈이 보이지 않았다.",
+  "domain": "MEDICINE",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "bold",
+  "meaning": "대담한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She made a bold decision.",
+  "ex_ko": "그녀는 대담한 결정을 내렸다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "broad",
+  "meaning": "넓은",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The river is broad here.",
+  "ex_ko": "여기서 강이 넓다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "capable",
+  "meaning": "능력 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is capable of great things.",
+  "ex_ko": "그녀는 대단한 일을 할 능력이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "chronic",
+  "meaning": "만성적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He has chronic pain.",
+  "ex_ko": "그는 만성 통증이 있다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "civil",
+  "meaning": "시민의; 예의 바른",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Civil rights must be protected.",
+  "ex_ko": "시민 권리는 보호되어야 한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "collective",
+  "meaning": "집단적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It was a collective decision.",
+  "ex_ko": "집단적인 결정이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "compact",
+  "meaning": "소형의, 촘촘한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This compact car saves fuel.",
+  "ex_ko": "이 소형 차는 연료를 절약한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "comparable",
+  "meaning": "비교할 만한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The two products are comparable.",
+  "ex_ko": "두 제품은 비교할 만하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "comprehensive",
+  "meaning": "포괄적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "We need a comprehensive review.",
+  "ex_ko": "포괄적인 검토가 필요하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "compulsory",
+  "meaning": "의무적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Education is compulsory until age 16.",
+  "ex_ko": "교육은 16세까지 의무적이다.",
+  "domain": "EDUCATION",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "concrete",
+  "meaning": "구체적인; 콘크리트",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Give me a concrete example.",
+  "ex_ko": "구체적인 예를 들어주세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "consecutive",
+  "meaning": "연속적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It rained for three consecutive days.",
+  "ex_ko": "3일 연속 비가 왔다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "conscious",
+  "meaning": "의식하는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He was conscious during the operation.",
+  "ex_ko": "수술 중 의식이 있었다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "consistent",
+  "meaning": "일관된",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Be consistent in your work.",
+  "ex_ko": "일에서 일관되세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "conspicuous",
+  "meaning": "눈에 띄는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "His absence was conspicuous.",
+  "ex_ko": "그의 부재가 눈에 띄었다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "conventional",
+  "meaning": "전통적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She prefers conventional methods.",
+  "ex_ko": "그녀는 전통적인 방법을 선호한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "convincing",
+  "meaning": "설득력 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "His argument was convincing.",
+  "ex_ko": "그의 주장은 설득력 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "corrupt",
+  "meaning": "부패한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The corrupt official was arrested.",
+  "ex_ko": "부패한 관리가 체포되었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "costly",
+  "meaning": "비용이 많이 드는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Mistakes can be costly.",
+  "ex_ko": "실수는 비용이 많이 들 수 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "countless",
+  "meaning": "무수한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Countless stars filled the sky.",
+  "ex_ko": "무수한 별이 하늘을 채웠다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "crucial",
+  "meaning": "결정적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Timing is crucial.",
+  "ex_ko": "타이밍이 결정적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "current",
+  "meaning": "현재의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "What is the current situation?",
+  "ex_ko": "현재 상황은 어떤가?",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "decent",
+  "meaning": "괜찮은, 예의 바른",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He has a decent salary.",
+  "ex_ko": "그는 괜찮은 급여를 받는다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "delicate",
+  "meaning": "섬세한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Handle the glass with care, it is delicate.",
+  "ex_ko": "유리는 섬세하니 조심히 다루세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dense",
+  "meaning": "밀집한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The forest was dense.",
+  "ex_ko": "숲이 밀집했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "devoted",
+  "meaning": "헌신적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is devoted to her family.",
+  "ex_ko": "그녀는 가족에게 헌신적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dim",
+  "meaning": "어둑한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The light was dim.",
+  "ex_ko": "빛이 어둑했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "distinct",
+  "meaning": "뚜렷한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The two species are distinct.",
+  "ex_ko": "두 종은 뚜렷하게 다르다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "diverse",
+  "meaning": "다양한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "We live in a diverse society.",
+  "ex_ko": "다양한 사회에 살고 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "dramatic",
+  "meaning": "극적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There was a dramatic change.",
+  "ex_ko": "극적인 변화가 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "durable",
+  "meaning": "내구성 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This material is very durable.",
+  "ex_ko": "이 소재는 매우 내구성이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "eager",
+  "meaning": "열망하는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She was eager to learn.",
+  "ex_ko": "그녀는 배우기를 열망했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "eligible",
+  "meaning": "자격이 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "You are eligible for the scholarship.",
+  "ex_ko": "장학금을 받을 자격이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "enormous",
+  "meaning": "거대한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The building is enormous.",
+  "ex_ko": "건물이 거대하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "essential",
+  "meaning": "필수적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Water is essential for life.",
+  "ex_ko": "물은 생명에 필수적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "eternal",
+  "meaning": "영원한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Their love was eternal.",
+  "ex_ko": "그들의 사랑은 영원했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "evident",
+  "meaning": "분명한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The problem is evident.",
+  "ex_ko": "문제가 분명하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "excessive",
+  "meaning": "과도한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Excessive drinking is harmful.",
+  "ex_ko": "과도한 음주는 해롭다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exclusive",
+  "meaning": "독점적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is an exclusive offer.",
+  "ex_ko": "이것은 독점적 제안이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "exotic",
+  "meaning": "이국적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "They traveled to exotic places.",
+  "ex_ko": "이국적인 곳을 여행했다.",
+  "domain": "TRAVEL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "extinct",
+  "meaning": "멸종한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The dodo is extinct.",
+  "ex_ko": "도도새는 멸종했다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "extraordinary",
+  "meaning": "비범한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She has extraordinary talent.",
+  "ex_ko": "그녀는 비범한 재능이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "faint",
+  "meaning": "희미한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She heard a faint sound.",
+  "ex_ko": "희미한 소리를 들었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "fatal",
+  "meaning": "치명적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The accident was fatal.",
+  "ex_ko": "사고는 치명적이었다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fertile",
+  "meaning": "비옥한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The soil is very fertile.",
+  "ex_ko": "토양이 매우 비옥하다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fierce",
+  "meaning": "사나운",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The competition was fierce.",
+  "ex_ko": "경쟁이 사나웠다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "flexible",
+  "meaning": "유연한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She has a flexible schedule.",
+  "ex_ko": "그녀는 유연한 일정이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fluent",
+  "meaning": "유창한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is fluent in French.",
+  "ex_ko": "그녀는 프랑스어에 유창하다.",
+  "domain": "EDUCATION",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "formal",
+  "meaning": "공식적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Wear formal attire.",
+  "ex_ko": "공식 복장을 입으세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "fragile",
+  "meaning": "깨지기 쉬운",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Handle with care, it is fragile.",
+  "ex_ko": "깨지기 쉬우니 조심히 다루세요.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "frequent",
+  "meaning": "빈번한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Frequent breaks improve productivity.",
+  "ex_ko": "빈번한 휴식은 생산성을 향상시킨다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "genuine",
+  "meaning": "진짜의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is a genuine diamond.",
+  "ex_ko": "이것은 진짜 다이아몬드이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "gradual",
+  "meaning": "점진적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There was a gradual improvement.",
+  "ex_ko": "점진적인 개선이 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "harsh",
+  "meaning": "가혹한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The winter was harsh.",
+  "ex_ko": "겨울이 가혹했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "hollow",
+  "meaning": "속이 빈",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The tree trunk was hollow.",
+  "ex_ko": "나무 줄기가 속이 비어 있었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "hostile",
+  "meaning": "적대적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The crowd became hostile.",
+  "ex_ko": "군중이 적대적이 되었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "humane",
+  "meaning": "인도적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Animals should be treated humanely.",
+  "ex_ko": "동물은 인도적으로 대우받아야 한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "identical",
+  "meaning": "동일한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The twins are identical.",
+  "ex_ko": "쌍둥이는 동일하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "immense",
+  "meaning": "거대한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The ocean is immense.",
+  "ex_ko": "바다는 거대하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "immune",
+  "meaning": "면역의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is immune to the disease.",
+  "ex_ko": "그녀는 그 병에 면역이 있다.",
+  "domain": "MEDICINE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "imperial",
+  "meaning": "제국의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The imperial palace was magnificent.",
+  "ex_ko": "제국의 궁전은 웅장했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "implicit",
+  "meaning": "암묵적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There was an implicit agreement.",
+  "ex_ko": "암묵적인 합의가 있었다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "inferior",
+  "meaning": "열등한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This product is inferior.",
+  "ex_ko": "이 제품은 열등하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "infinite",
+  "meaning": "무한한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The universe seems infinite.",
+  "ex_ko": "우주는 무한해 보인다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "influential",
+  "meaning": "영향력 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is an influential leader.",
+  "ex_ko": "그녀는 영향력 있는 지도자이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "inherent",
+  "meaning": "타고난, 내재적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Risk is inherent in all investments.",
+  "ex_ko": "위험은 모든 투자에 내재적이다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "initial",
+  "meaning": "초기의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The initial results were promising.",
+  "ex_ko": "초기 결과가 유망했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "innocent",
+  "meaning": "결백한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He was declared innocent.",
+  "ex_ko": "그는 결백하다고 선언되었다.",
+  "domain": "LAW",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "innovative",
+  "meaning": "혁신적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The company is innovative.",
+  "ex_ko": "회사는 혁신적이다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "integral",
+  "meaning": "필수적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Teamwork is integral to success.",
+  "ex_ko": "팀워크는 성공에 필수적이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "intense",
+  "meaning": "강렬한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The heat was intense.",
+  "ex_ko": "열기가 강렬했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "intermediate",
+  "meaning": "중급의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is at an intermediate level.",
+  "ex_ko": "그녀는 중급 수준이다.",
+  "domain": "EDUCATION",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "internal",
+  "meaning": "내부의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It is an internal matter.",
+  "ex_ko": "내부 문제이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "intimate",
+  "meaning": "친밀한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "They had an intimate dinner.",
+  "ex_ko": "그들은 친밀한 저녁 식사를 했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "isolated",
+  "meaning": "고립된",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The village is isolated.",
+  "ex_ko": "마을이 고립되어 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "legitimate",
+  "meaning": "합법적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Is this a legitimate business?",
+  "ex_ko": "이것이 합법적인 사업인가?",
+  "domain": "LAW",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "lengthy",
+  "meaning": "긴",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The meeting was lengthy.",
+  "ex_ko": "회의가 길었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "literal",
+  "meaning": "문자 그대로의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is a literal translation.",
+  "ex_ko": "이것은 문자 그대로의 번역이다.",
+  "domain": "EDUCATION",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "logical",
+  "meaning": "논리적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "His argument was logical.",
+  "ex_ko": "그의 주장은 논리적이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "magnificent",
+  "meaning": "웅장한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The view was magnificent.",
+  "ex_ko": "경치가 웅장했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "massive",
+  "meaning": "거대한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The building is massive.",
+  "ex_ko": "건물이 거대하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "mature",
+  "meaning": "성숙한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is very mature for her age.",
+  "ex_ko": "그녀는 나이에 비해 매우 성숙하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "maximum",
+  "meaning": "최대의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The maximum speed is 120 km/h.",
+  "ex_ko": "최대 속도는 시속 120km이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "minimum",
+  "meaning": "최소의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The minimum age is 18.",
+  "ex_ko": "최소 나이는 18세이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "minor",
+  "meaning": "사소한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It is a minor issue.",
+  "ex_ko": "사소한 문제이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "mobile",
+  "meaning": "이동 가능한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Mobile phones are everywhere.",
+  "ex_ko": "모바일 폰은 어디에나 있다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "moderate",
+  "meaning": "적당한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Moderate exercise is healthy.",
+  "ex_ko": "적당한 운동은 건강에 좋다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "multiple",
+  "meaning": "다수의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There are multiple options.",
+  "ex_ko": "다수의 옵션이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "mutual",
+  "meaning": "상호간의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Mutual respect is important.",
+  "ex_ko": "상호 존중이 중요하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "narrow",
+  "meaning": "좁은",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The road is narrow.",
+  "ex_ko": "길이 좁다.",
+  "domain": "GENERAL",
+  "age_group": "ELEMENTARY"
+ },
+ {
+  "word": "native",
+  "meaning": "원주민의; 모국어의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is a native speaker.",
+  "ex_ko": "그녀는 원어민이다.",
+  "domain": "EDUCATION",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "neutral",
+  "meaning": "중립적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Switzerland remained neutral.",
+  "ex_ko": "스위스는 중립을 유지했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "novel",
+  "meaning": "새로운; 소설",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It was a novel approach.",
+  "ex_ko": "새로운 접근 방식이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "numerous",
+  "meaning": "수많은",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There are numerous benefits.",
+  "ex_ko": "수많은 이점이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "obvious",
+  "meaning": "명백한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The answer is obvious.",
+  "ex_ko": "답이 명백하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "occasional",
+  "meaning": "가끔의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He makes occasional visits.",
+  "ex_ko": "가끔 방문한다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "ongoing",
+  "meaning": "진행 중인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Research is ongoing.",
+  "ex_ko": "연구가 진행 중이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "outstanding",
+  "meaning": "뛰어난",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She did an outstanding job.",
+  "ex_ko": "그녀는 뛰어난 일을 했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "overwhelming",
+  "meaning": "압도적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The response was overwhelming.",
+  "ex_ko": "반응이 압도적이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "partial",
+  "meaning": "부분적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It was a partial success.",
+  "ex_ko": "부분적인 성공이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "passive",
+  "meaning": "수동적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He took a passive role.",
+  "ex_ko": "그는 수동적인 역할을 했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "permanent",
+  "meaning": "영구적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is a permanent solution.",
+  "ex_ko": "이것은 영구적인 해결책이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "pleasant",
+  "meaning": "즐거운",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It was a pleasant surprise.",
+  "ex_ko": "즐거운 놀라움이었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "portable",
+  "meaning": "휴대용의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This laptop is portable.",
+  "ex_ko": "이 노트북은 휴대용이다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "precise",
+  "meaning": "정밀한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Be precise in your measurements.",
+  "ex_ko": "측정에 정밀하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "primitive",
+  "meaning": "원시적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Primitive tools were made of stone.",
+  "ex_ko": "원시적 도구는 돌로 만들어졌다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "principal",
+  "meaning": "주요한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Safety is the principal concern.",
+  "ex_ko": "안전이 주요한 관심사이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "profound",
+  "meaning": "심오한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She had a profound impact.",
+  "ex_ko": "그녀는 심오한 영향을 미쳤다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "prominent",
+  "meaning": "저명한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He is a prominent scientist.",
+  "ex_ko": "그는 저명한 과학자이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "prone",
+  "meaning": "~하기 쉬운",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He is prone to mistakes.",
+  "ex_ko": "그는 실수하기 쉽다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "prospective",
+  "meaning": "잠재적인, 장래의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Prospective buyers visited the house.",
+  "ex_ko": "잠재적 구매자들이 집을 방문했다.",
+  "domain": "BUSINESS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "raw",
+  "meaning": "날것의, 가공되지 않은",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Eat raw vegetables.",
+  "ex_ko": "날것의 채소를 먹으세요.",
+  "domain": "FOOD",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "rear",
+  "meaning": "뒤쪽의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Park at the rear entrance.",
+  "ex_ko": "뒤쪽 입구에 주차하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "reasonable",
+  "meaning": "합리적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The price is reasonable.",
+  "ex_ko": "가격이 합리적이다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "relevant",
+  "meaning": "관련 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Please provide relevant information.",
+  "ex_ko": "관련 있는 정보를 제공하세요.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "reliable",
+  "meaning": "신뢰할 수 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "He is a reliable worker.",
+  "ex_ko": "그는 신뢰할 수 있는 직원이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "remote",
+  "meaning": "외진; 원격의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The village is remote.",
+  "ex_ko": "마을이 외지다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "renowned",
+  "meaning": "유명한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is a renowned artist.",
+  "ex_ko": "그녀는 유명한 예술가이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "respective",
+  "meaning": "각각의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "They returned to their respective homes.",
+  "ex_ko": "각각의 집으로 돌아갔다.",
+  "domain": "GENERAL",
+  "age_group": "COLLEGE"
+ },
+ {
+  "word": "rigid",
+  "meaning": "딱딱한, 엄격한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The rules are rigid.",
+  "ex_ko": "규칙이 엄격하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "robust",
+  "meaning": "건장한; 견고한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The economy is robust.",
+  "ex_ko": "경제가 견고하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "rough",
+  "meaning": "거친",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The road was rough.",
+  "ex_ko": "길이 거칠었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "rural",
+  "meaning": "시골의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Rural life is peaceful.",
+  "ex_ko": "시골 생활은 평화롭다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sacred",
+  "meaning": "신성한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The temple is sacred.",
+  "ex_ko": "사원은 신성하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "scarce",
+  "meaning": "부족한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Water is scarce in the desert.",
+  "ex_ko": "사막에서 물이 부족하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "scattered",
+  "meaning": "흩어진",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Clouds were scattered.",
+  "ex_ko": "구름이 흩어져 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "secure",
+  "meaning": "안전한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The building is secure.",
+  "ex_ko": "건물이 안전하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "senior",
+  "meaning": "상급의, 연장의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She is a senior manager.",
+  "ex_ko": "그녀는 선임 관리자이다.",
+  "domain": "BUSINESS",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "severe",
+  "meaning": "심각한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The damage was severe.",
+  "ex_ko": "피해가 심각했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "shallow",
+  "meaning": "얕은",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The pool is shallow.",
+  "ex_ko": "수영장이 얕다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "significant",
+  "meaning": "중요한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is a significant change.",
+  "ex_ko": "이것은 중요한 변화이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sole",
+  "meaning": "유일한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She was the sole survivor.",
+  "ex_ko": "그녀가 유일한 생존자였다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sophisticated",
+  "meaning": "세련된",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The system is sophisticated.",
+  "ex_ko": "시스템이 정교하다.",
+  "domain": "TECHNOLOGY",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "steep",
+  "meaning": "가파른",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The hill was steep.",
+  "ex_ko": "언덕이 가팔랐다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "stern",
+  "meaning": "엄격한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The teacher was stern.",
+  "ex_ko": "선생님이 엄격했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "stiff",
+  "meaning": "뻣뻣한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "His neck was stiff.",
+  "ex_ko": "그의 목이 뻣뻣했다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "subtle",
+  "meaning": "미묘한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There was a subtle difference.",
+  "ex_ko": "미묘한 차이가 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "sufficient",
+  "meaning": "충분한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The evidence is sufficient.",
+  "ex_ko": "증거가 충분하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "superior",
+  "meaning": "우수한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Their product is superior.",
+  "ex_ko": "그들의 제품이 우수하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "supreme",
+  "meaning": "최고의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The Supreme Court ruled.",
+  "ex_ko": "대법원이 판결했다.",
+  "domain": "LAW",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "surplus",
+  "meaning": "잉여의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There is surplus stock.",
+  "ex_ko": "잉여 재고가 있다.",
+  "domain": "BUSINESS",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "temporary",
+  "meaning": "임시적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is a temporary solution.",
+  "ex_ko": "이것은 임시적인 해결책이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "tense",
+  "meaning": "긴장된",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The atmosphere was tense.",
+  "ex_ko": "분위기가 긴장되었다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "toxic",
+  "meaning": "유독한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The chemicals are toxic.",
+  "ex_ko": "화학 물질이 유독하다.",
+  "domain": "SCIENCE",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "tremendous",
+  "meaning": "엄청난",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "There was tremendous growth.",
+  "ex_ko": "엄청난 성장이 있었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "trivial",
+  "meaning": "사소한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is a trivial matter.",
+  "ex_ko": "이것은 사소한 문제이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "unanimous",
+  "meaning": "만장일치의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The vote was unanimous.",
+  "ex_ko": "투표는 만장일치였다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "unique",
+  "meaning": "독특한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Everyone is unique.",
+  "ex_ko": "모든 사람은 독특하다.",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "universal",
+  "meaning": "보편적인",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Music is a universal language.",
+  "ex_ko": "음악은 보편적인 언어이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "urgent",
+  "meaning": "긴급한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "This is an urgent matter.",
+  "ex_ko": "이것은 긴급한 문제이다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "utter",
+  "meaning": "완전한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It was utter chaos.",
+  "ex_ko": "완전한 혼돈이었다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "vague",
+  "meaning": "모호한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "His answer was vague.",
+  "ex_ko": "그의 대답은 모호했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "valid",
+  "meaning": "유효한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Is your ticket valid?",
+  "ex_ko": "티켓이 유효한가?",
+  "domain": "GENERAL",
+  "age_group": "MIDDLE_SCHOOL"
+ },
+ {
+  "word": "vast",
+  "meaning": "광대한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "The desert is vast.",
+  "ex_ko": "사막은 광대하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "verbal",
+  "meaning": "구두의",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "We made a verbal agreement.",
+  "ex_ko": "구두 합의를 했다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "vivid",
+  "meaning": "선명한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "She has a vivid imagination.",
+  "ex_ko": "그녀는 선명한 상상력이 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "vulnerable",
+  "meaning": "취약한",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "Children are vulnerable.",
+  "ex_ko": "아이들은 취약하다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ },
+ {
+  "word": "worthy",
+  "meaning": "가치 있는",
+  "pos": "adjective",
+  "pron": "",
+  "ex_en": "It is worthy of attention.",
+  "ex_ko": "주목할 가치가 있다.",
+  "domain": "GENERAL",
+  "age_group": "HIGH_SCHOOL"
+ }
+]
