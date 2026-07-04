@@ -1,5 +1,6 @@
 package com.wcjung.engstudy.ui.screen.settings
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -34,6 +36,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @Composable
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
+    onNavigateToLicenses: () -> Unit,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
     val darkMode by viewModel.darkMode.collectAsState()
@@ -126,6 +129,31 @@ fun SettingsScreen(
                 checked = notificationEnabled,
                 onCheckedChange = { viewModel.setNotificationEnabled(it) }
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // 데이터 출처 (Tatoeba CC BY 등 저작자 표시 의무 이행)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(onClick = onNavigateToLicenses)
+                    .padding(vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text("데이터 출처 및 라이선스", style = MaterialTheme.typography.titleSmall)
+                    Text(
+                        text = "Tatoeba, kengdic 등 학습 데이터 저작자 표시",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+                Icon(
+                    Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
 
             Spacer(modifier = Modifier.height(32.dp))
 

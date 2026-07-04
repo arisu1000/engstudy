@@ -5,6 +5,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] - 2026-07-04
 
+### Added
+- **데이터 출처 및 라이선스 화면** (`LicensesScreen`): 설정에서 진입.
+  Tatoeba(CC BY 2.0 FR) 저작자 표시 의무 이행 + kengdic(MPL 2.0),
+  교육부 공공데이터, Semigradsky(MIT), wordfreq(MIT), Free Dictionary API 출처 표기.
+  UI 회귀 테스트 `LicensesScreenTest` 추가 (espresso-core 3.7.0 도입 —
+  API 35+ 에뮬레이터의 `InputManager.getInstance` 크래시 수정 버전)
+
 ### Fixed
 - **교육부 뜻 교차 검증 병합** (`build_meanings_llm.py --edu-merge`): 교육부 검수 뜻이
   다의어의 덜 흔한 의미인 경우 보정 (예: just → "올바른", burn → "시내", teen → "슬픔")

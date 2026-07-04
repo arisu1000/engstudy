@@ -45,6 +45,7 @@ import com.wcjung.engstudy.ui.screen.quiz.QuizScreen
 import com.wcjung.engstudy.ui.screen.review.ReviewScreen
 import com.wcjung.engstudy.ui.screen.spelling.SpellingQuizScreen
 import com.wcjung.engstudy.ui.screen.search.SearchScreen
+import com.wcjung.engstudy.ui.screen.settings.LicensesScreen
 import com.wcjung.engstudy.ui.screen.settings.SettingsScreen
 import com.wcjung.engstudy.ui.screen.statistics.StatisticsScreen
 import com.wcjung.engstudy.ui.screen.study.StudyScreen
@@ -218,6 +219,12 @@ fun EngStudyNavHost() {
             }
             composable<Screen.Settings> {
                 SettingsScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    onNavigateToLicenses = { navController.navigate(Screen.Licenses) }
+                )
+            }
+            composable<Screen.Licenses> {
+                LicensesScreen(
                     onNavigateBack = { navController.popBackStack() }
                 )
             }

@@ -224,13 +224,13 @@ com.wcjung.engstudy/
   - 미커버 9,226개 단어 목록: `scripts/uncovered_words.json`
   - 예상 비용: ~$0.15 (Claude Haiku Batch API)
 - [x] DB v9까지 정식 마이그레이션(4→9) 작성 및 `fallbackToDestructiveMigration` 제거 완료 (업그레이드 시 사용자 데이터 보존)
-- [ ] Tatoeba 저작자 표시 (CC BY 2.0 FR) 앱 설정/정보 화면에 추가
+- [x] Tatoeba 저작자 표시 (CC BY 2.0 FR) — 설정 → "데이터 출처 및 라이선스" 화면(`LicensesScreen`)
 
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
 - Room DB version 10 — 업그레이드는 명시적 Migration(4→10)으로 처리하며 사용자 데이터를 보존한다. v11+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud)
 - 콘텐츠(단어 뜻 등)만 갱신하는 릴리즈: `RefreshWordContentMigration`(9→10) 패턴 참조 — asset DB를 임시 복사해 콘텐츠 테이블만 교체. words는 FK CASCADE(wrong_answers 등) 때문에 DELETE 금지, id 기준 UPDATE만 사용. asset DB의 user_version과 room_master_table identity hash를 새 버전에 맞게 스탬프해야 신규 설치가 크래시하지 않음
-- Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 앱 설정/정보 화면에 표기할 것
+- Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 설정 → 라이선스 화면(`LicensesScreen`)에 표기됨. 데이터 소스 추가 시 이 화면의 `dataSources` 목록도 갱신할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요
 - `scripts/build_word_db.py` 실행 전 `wordfreq`, `kengdic` Python 의존성 설치 필요

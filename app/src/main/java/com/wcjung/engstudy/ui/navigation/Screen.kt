@@ -29,4 +29,5 @@ sealed interface Screen {
     @Serializable data object GrammarHome : Screen
     @Serializable data class GrammarList(val topic: String? = null) : Screen
     @Serializable data object ExcludedWords : Screen
+    @Serializable data object Licenses : Screen
 }

@@ -48,6 +48,8 @@ junit = { module = "junit:junit", version = "4.13.2" }
 room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+# API 35+ 에뮬레이터에서 InputManager.getInstance 크래시를 고친 espresso를 강제
+espresso-core = { module = "androidx.test.espresso:espresso-core", version = "3.7.0" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
