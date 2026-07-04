@@ -69,11 +69,14 @@ class QuizViewModel @Inject constructor(
 
     private fun loadQuestions() {
         launchSafely {
-            val words = wordRepository.getNewWordsForStudy(
-                count = 20,
-                stage = route.stage,
-                domain = route.domain
-            ).first()
+            // wordIds 지정 시(오답노트 재도전) 해당 단어로만 출제
+            val words = route.wordIds?.takeIf { it.isNotEmpty() }
+                ?.let { wordRepository.getWordsByIds(it).shuffled() }
+                ?: wordRepository.getNewWordsForStudy(
+                    count = 20,
+                    stage = route.stage,
+                    domain = route.domain
+                ).first()
 
             val questions = words.mapIndexed { index, word ->
                 val isEnToKo = index % 2 == 0

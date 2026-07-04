@@ -6,6 +6,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] - 2026-07-04
 
 ### Added
+- **오답노트 재도전**: 오답 노트에서 기록된 단어들로 바로 4지선다 퀴즈를 풀 수 있는
+  "오답 재도전" 버튼 추가. `Screen.Quiz`가 `wordIds` 목록을 받아 지정 단어로 출제
+  (DAO 회귀 테스트 `WordDaoByIdsTest`)
 - **데이터 출처 및 라이선스 화면** (`LicensesScreen`): 설정에서 진입.
   Tatoeba(CC BY 2.0 FR) 저작자 표시 의무 이행 + kengdic(MPL 2.0),
   교육부 공공데이터, Semigradsky(MIT), wordfreq(MIT), Free Dictionary API 출처 표기.

@@ -230,7 +230,10 @@ fun EngStudyNavHost() {
             }
             composable<Screen.WrongAnswers> {
                 WrongAnswerScreen(
-                    onNavigateBack = { navController.popBackStack() }
+                    onNavigateBack = { navController.popBackStack() },
+                    onRetryQuiz = { wordIds ->
+                        navController.navigate(Screen.Quiz(wordIds = wordIds))
+                    }
                 )
             }
             composable<Screen.PlacementTest> {

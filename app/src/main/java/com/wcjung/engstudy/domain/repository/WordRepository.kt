@@ -31,6 +31,8 @@ interface WordRepository {
 
     suspend fun getWordById(id: Int): Word?
 
+    suspend fun getWordsByIds(ids: List<Int>): List<Word>
+
     suspend fun getWordOfTheDay(): Word?
 
     suspend fun getRandomWordsInStage(stage: Int, excludeId: Int, count: Int = 3): List<Word>

@@ -137,6 +137,9 @@ interface WordDao {
     )
     suspend fun getRandomWordsInStage(stage: Int, excludeId: Int, count: Int = 3): List<WordEntity>
 
+    @Query("SELECT * FROM words WHERE id IN (:ids)")
+    suspend fun getWordsByIds(ids: List<Int>): List<WordEntity>
+
     @Query(
         """
         SELECT * FROM words

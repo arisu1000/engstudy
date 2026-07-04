@@ -10,7 +10,12 @@ sealed interface Screen {
     @Serializable data class WordList(val domain: String? = null, val stage: Int? = null) : Screen
     @Serializable data class WordDetail(val wordId: Int) : Screen
     @Serializable data class FlashCard(val domain: String? = null, val stage: Int? = null) : Screen
-    @Serializable data class Quiz(val domain: String? = null, val stage: Int? = null) : Screen
+    @Serializable data class Quiz(
+        val domain: String? = null,
+        val stage: Int? = null,
+        // 지정 시 stage/domain 대신 이 단어들로 출제 (오답노트 재도전 등)
+        val wordIds: List<Int>? = null
+    ) : Screen
     @Serializable data class SpellingQuiz(val domain: String? = null, val stage: Int? = null) : Screen
     @Serializable data object Bookmarks : Screen
     @Serializable data object Search : Screen
