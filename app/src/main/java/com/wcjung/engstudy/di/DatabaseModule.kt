@@ -13,6 +13,7 @@ import com.wcjung.engstudy.data.local.dao.ExampleSentenceDao
 import com.wcjung.engstudy.data.local.dao.IdiomDao
 import com.wcjung.engstudy.data.local.dao.KnownItemDao
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
+import com.wcjung.engstudy.data.local.dao.UserWordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
 import com.wcjung.engstudy.data.local.dao.WordMeaningDao
@@ -27,6 +28,25 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+
+    val MIGRATION_10_11 = object : Migration(10, 11) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // 사용자 정의 단어 의미 (콘텐츠 갱신에 유실되지 않는 사용자 테이블).
+            // DDL은 schemas/11.json의 createSql과 정확히 일치해야 한다 (DEFAULT 절 포함 비교됨).
+            db.execSQL(
+                """CREATE TABLE IF NOT EXISTS user_word_meanings (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    word_id INTEGER NOT NULL,
+                    meaning TEXT NOT NULL,
+                    is_primary INTEGER NOT NULL,
+                    created_at INTEGER NOT NULL,
+                    FOREIGN KEY (word_id) REFERENCES words(id) ON DELETE CASCADE)"""
+            )
+            db.execSQL(
+                "CREATE INDEX IF NOT EXISTS index_user_word_meanings_word_id ON user_word_meanings(word_id)"
+            )
+        }
+    }
 
     val MIGRATION_8_9 = object : Migration(8, 9) {
         override fun migrate(db: SupportSQLiteDatabase) {
@@ -131,12 +151,12 @@ object DatabaseModule {
             .createFromAsset("databases/engstudy.db")
             .addMigrations(
                 MIGRATION_4_5, MIGRATION_5_6, MIGRATION_6_7, MIGRATION_7_8, MIGRATION_8_9,
-                RefreshWordContentMigration(context)
+                RefreshWordContentMigration(context), MIGRATION_10_11
             )
-            // 업그레이드는 항상 명시적 마이그레이션(4→10)으로만 처리한다.
+            // 업그레이드는 항상 명시적 마이그레이션(4→11)으로만 처리한다.
             // learning_progress/bookmarks/wrong_answers/known_items 등 사용자 데이터가
             // 같은 DB에 저장되므로, 파괴적 폴백을 쓰면 스키마 변경 시 사용자 학습 기록이 전부 유실된다.
-            // 향후 v10+ 추가 시에는 반드시 대응 Migration을 addMigrations에 등록해야 하며,
+            // 향후 v12+ 추가 시에는 반드시 대응 Migration을 addMigrations에 등록해야 하며,
             // 누락 시 앱이 조용히 데이터를 지우는 대신 즉시 예외로 실패(fail-loud)한다.
             // 다운그레이드만 방어적으로 재생성 허용(정상 배포에서는 발생하지 않음).
             .fallbackToDestructiveMigrationOnDowngrade()
@@ -173,6 +193,10 @@ object DatabaseModule {
 
     @Provides
     fun provideWordExampleDao(database: AppDatabase): WordExampleDao = database.wordExampleDao()
+
+    @Provides
+    fun provideUserWordMeaningDao(database: AppDatabase): UserWordMeaningDao =
+        database.userWordMeaningDao()
 
     @Provides
     fun provideBackupDao(database: AppDatabase): BackupDao = database.backupDao()

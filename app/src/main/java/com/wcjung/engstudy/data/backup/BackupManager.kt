@@ -5,6 +5,7 @@ import com.wcjung.engstudy.data.local.dao.BackupDao
 import com.wcjung.engstudy.data.local.entity.BookmarkEntity
 import com.wcjung.engstudy.data.local.entity.KnownItemEntity
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
+import com.wcjung.engstudy.data.local.entity.UserWordMeaningEntity
 import com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.serialization.SerialName
@@ -36,7 +37,9 @@ class BackupManager @Inject constructor(
         val learningProgress: List<ProgressBackup>,
         val bookmarks: List<BookmarkBackup>,
         val wrongAnswers: List<WrongAnswerBackup>,
-        val knownItems: List<KnownItemBackup>
+        val knownItems: List<KnownItemBackup>,
+        // v11 추가 — 기본값이 있어 v1 백업 파일도 그대로 읽힌다
+        val userWordMeanings: List<UserWordMeaningBackup> = emptyList()
     )
 
     @Serializable
@@ -90,6 +93,14 @@ class BackupManager @Inject constructor(
         @SerialName("marked_at") val markedAt: Long
     )
 
+    @Serializable
+    data class UserWordMeaningBackup(
+        @SerialName("word_id") val wordId: Int,
+        val meaning: String,
+        @SerialName("is_primary") val isPrimary: Boolean,
+        @SerialName("created_at") val createdAt: Long
+    )
+
     /** 복원 결과 요약 (걸러진 행 수 포함). */
     data class RestoreResult(
         val progressCount: Int,
@@ -128,6 +139,9 @@ class BackupManager @Inject constructor(
             },
             knownItems = backupDao.getAllKnownItems().map {
                 KnownItemBackup(it.itemId, it.itemType, it.markedAt)
+            },
+            userWordMeanings = backupDao.getAllUserWordMeanings().map {
+                UserWordMeaningBackup(it.wordId, it.meaning, it.isPrimary, it.createdAt)
             }
         )
         return json.encodeToString(BackupFile.serializer(), backup)
@@ -149,9 +163,11 @@ class BackupManager @Inject constructor(
         val progress = backup.learningProgress.filter { it.wordId in validWordIds }
         val bookmarks = backup.bookmarks.filter { it.wordId in validWordIds }
         val wrongAnswers = backup.wrongAnswers.filter { it.wordId in validWordIds }
+        val userWordMeanings = backup.userWordMeanings.filter { it.wordId in validWordIds }
         val skipped = (backup.learningProgress.size - progress.size) +
             (backup.bookmarks.size - bookmarks.size) +
-            (backup.wrongAnswers.size - wrongAnswers.size)
+            (backup.wrongAnswers.size - wrongAnswers.size) +
+            (backup.userWordMeanings.size - userWordMeanings.size)
 
         backupDao.replaceAll(
             learningProgress = progress.map {
@@ -172,6 +188,12 @@ class BackupManager @Inject constructor(
             },
             knownItems = backup.knownItems.map {
                 KnownItemEntity(itemId = it.itemId, itemType = it.itemType, markedAt = it.markedAt)
+            },
+            userWordMeanings = userWordMeanings.map {
+                UserWordMeaningEntity(
+                    wordId = it.wordId, meaning = it.meaning,
+                    isPrimary = it.isPrimary, createdAt = it.createdAt
+                )
             }
         )
 

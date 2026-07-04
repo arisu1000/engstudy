@@ -6,6 +6,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] - 2026-07-04
 
 ### Added
+- **단어 의미 추가/변경** (DB v11, `user_word_meanings` 테이블): 단어 상세에서
+  - 대표 뜻 수정(연필 아이콘) — 목록·검색·퀴즈·복습 전역에 반영, "기본값으로 되돌리기" 지원
+  - "내 의미 추가" — 나만의 의미를 의미 목록에 추가/삭제
+  - 콘텐츠 테이블과 분리된 사용자 테이블이라 앱 업데이트(콘텐츠 갱신)에도 유실되지 않음.
+    백업/복원에 포함. Migration(10→11) + asset DB v11 스탬프,
+    회귀 테스트: `Migration10To11Test`, `UserWordMeaningDaoTest`(override 합성), 백업 왕복 확장
 - **단어 예문 커버리지 23.5% → 99.8%**: 로컬 LLM(Ollama gemma4)으로 미커버 9,226개 중
   9,199개 예문+한국어 번역 생성 (`scripts/build_examples_ollama.py`, API 비용 0원).
   `RefreshWordContentMigration`이 word_examples도 교체하도록 확장해 기존 사용자에게도 전달

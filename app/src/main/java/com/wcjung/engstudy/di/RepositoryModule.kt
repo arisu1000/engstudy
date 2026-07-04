@@ -5,6 +5,7 @@ import com.wcjung.engstudy.data.repository.EduWordRepositoryImpl
 import com.wcjung.engstudy.data.repository.IdiomRepositoryImpl
 import com.wcjung.engstudy.data.repository.LearningRepositoryImpl
 import com.wcjung.engstudy.data.repository.SentenceRepositoryImpl
+import com.wcjung.engstudy.data.repository.UserWordMeaningRepositoryImpl
 import com.wcjung.engstudy.data.repository.WordRepositoryImpl
 import com.wcjung.engstudy.data.repository.WrongAnswerRepositoryImpl
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
@@ -12,6 +13,7 @@ import com.wcjung.engstudy.domain.repository.EduWordRepository
 import com.wcjung.engstudy.domain.repository.IdiomRepository
 import com.wcjung.engstudy.domain.repository.LearningRepository
 import com.wcjung.engstudy.domain.repository.SentenceRepository
+import com.wcjung.engstudy.domain.repository.UserWordMeaningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.domain.repository.WrongAnswerRepository
 import dagger.Binds
@@ -51,4 +53,10 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindSentenceRepository(impl: SentenceRepositoryImpl): SentenceRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindUserWordMeaningRepository(
+        impl: UserWordMeaningRepositoryImpl
+    ): UserWordMeaningRepository
 }

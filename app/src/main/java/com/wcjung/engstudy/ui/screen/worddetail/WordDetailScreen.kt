@@ -2,6 +2,7 @@ package com.wcjung.engstudy.ui.screen.worddetail
 
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +17,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.outlined.BookmarkBorder
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -26,12 +30,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -49,6 +58,41 @@ fun WordDetailScreen(
     val isMarkedAsKnown by viewModel.isMarkedAsKnown.collectAsState()
     val meanings by viewModel.meanings.collectAsState()
     val examples by viewModel.examples.collectAsState()
+    val userMeanings by viewModel.userMeanings.collectAsState()
+    val hasPrimaryOverride = userMeanings.any { it.isPrimary }
+    val customMeanings = userMeanings.filter { !it.isPrimary }
+
+    // 대표 뜻 수정 다이얼로그
+    var showEditPrimaryDialog by remember { mutableStateOf(false) }
+    if (showEditPrimaryDialog) {
+        MeaningInputDialog(
+            title = "대표 뜻 수정",
+            description = "단어 목록·퀴즈·복습에도 반영됩니다.",
+            initialValue = word?.meaning ?: "",
+            confirmLabel = "저장",
+            onConfirm = { text ->
+                viewModel.editPrimaryMeaning(text)
+                showEditPrimaryDialog = false
+            },
+            onDismiss = { showEditPrimaryDialog = false }
+        )
+    }
+
+    // 내 의미 추가 다이얼로그
+    var showAddMeaningDialog by remember { mutableStateOf(false) }
+    if (showAddMeaningDialog) {
+        MeaningInputDialog(
+            title = "내 의미 추가",
+            description = "이 단어에 나만의 의미를 추가합니다.",
+            initialValue = "",
+            confirmLabel = "추가",
+            onConfirm = { text ->
+                viewModel.addUserMeaning(text)
+                showAddMeaningDialog = false
+            },
+            onDismiss = { showAddMeaningDialog = false }
+        )
+    }
 
     Scaffold(
         topBar = {
@@ -110,9 +154,34 @@ fun WordDetailScreen(
                             style = MaterialTheme.typography.labelLarge,
                             color = MaterialTheme.colorScheme.tertiary
                         )
-                        // 의미: word_meanings 테이블 우선, 없으면 meaning 필드 폴백
+                        // 대표 뜻 (사용자 수정 가능 — 연필 아이콘)
                         Spacer(modifier = Modifier.height(4.dp))
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Text(
+                                text = w.meaning,
+                                style = MaterialTheme.typography.titleLarge,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                modifier = Modifier.weight(1f)
+                            )
+                            IconButton(onClick = { showEditPrimaryDialog = true }) {
+                                Icon(
+                                    Icons.Default.Edit,
+                                    contentDescription = "대표 뜻 수정",
+                                    tint = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
+                                )
+                            }
+                        }
+                        if (hasPrimaryOverride) {
+                            Text(
+                                text = "내가 수정한 뜻 · 기본값으로 되돌리기",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.tertiary,
+                                modifier = Modifier.clickable { viewModel.resetPrimaryMeaning() }
+                            )
+                        }
+                        // 다중 의미: word_meanings 테이블 (빈도순)
                         if (meanings.isNotEmpty()) {
+                            Spacer(modifier = Modifier.height(4.dp))
                             meanings.forEachIndexed { index, wm ->
                                 Row(
                                     horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -131,17 +200,40 @@ fun WordDetailScreen(
                                     )
                                     Text(
                                         text = wm.meaning,
-                                        style = MaterialTheme.typography.titleMedium,
+                                        style = MaterialTheme.typography.bodyLarge,
                                         color = MaterialTheme.colorScheme.onPrimaryContainer
                                     )
                                 }
                             }
-                        } else {
-                            Text(
-                                text = w.meaning,
-                                style = MaterialTheme.typography.titleLarge,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer
-                            )
+                        }
+                        // 내가 추가한 의미
+                        customMeanings.forEach { um ->
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                Text(
+                                    text = "내 의미",
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.tertiary
+                                )
+                                Text(
+                                    text = um.meaning,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                IconButton(onClick = { viewModel.deleteUserMeaning(um.id) }) {
+                                    Icon(
+                                        Icons.Default.Close,
+                                        contentDescription = "내 의미 삭제",
+                                        tint = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.5f)
+                                    )
+                                }
+                            }
+                        }
+                        TextButton(onClick = { showAddMeaningDialog = true }) {
+                            Text("+ 내 의미 추가")
                         }
                     }
                 }
@@ -277,6 +369,48 @@ fun DetailSection(title: String, content: @Composable () -> Unit) {
             content()
         }
     }
+}
+
+/** 의미 입력 다이얼로그 (대표 뜻 수정 / 내 의미 추가 공용). 빈 입력은 확인 버튼 비활성화. */
+@Composable
+private fun MeaningInputDialog(
+    title: String,
+    description: String,
+    initialValue: String,
+    confirmLabel: String,
+    onConfirm: (String) -> Unit,
+    onDismiss: () -> Unit
+) {
+    var text by remember { mutableStateOf(initialValue) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(title) },
+        text = {
+            Column {
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                OutlinedTextField(
+                    value = text,
+                    onValueChange = { text = it },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = { onConfirm(text) },
+                enabled = text.isNotBlank()
+            ) { Text(confirmLabel) }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) { Text("취소") }
+        }
+    )
 }
 
 @Composable

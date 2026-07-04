@@ -62,6 +62,7 @@ class BackupManagerTest {
                    VALUES (3, '오답', '정답', 'MULTIPLE_CHOICE', 456)"""
             )
             execSQL("INSERT INTO known_items (item_id, item_type, marked_at) VALUES (10, 'edu_word', 789)")
+            execSQL("INSERT INTO user_word_meanings (word_id, meaning, is_primary, created_at) VALUES (1, '내가 고친 뜻', 1, 111)")
         }
     }
 
@@ -98,6 +99,9 @@ class BackupManagerTest {
         assertEquals(2, db.backupDao().getAllBookmarks().single().wordId)
         assertEquals("오답", db.backupDao().getAllWrongAnswers().single().wrongAnswer)
         assertEquals("edu_word", db.backupDao().getAllKnownItems().single().itemType)
+        val userMeaning = db.backupDao().getAllUserWordMeanings().single()
+        assertEquals("내가 고친 뜻", userMeaning.meaning)
+        assertTrue(userMeaning.isPrimary)
         assertEquals(55, userPreferences.dailyGoal.first())
         assertEquals(7, userPreferences.streakDays.first())
     }

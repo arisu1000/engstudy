@@ -28,7 +28,7 @@
 | 언어 | Kotlin 2.1 |
 | UI | Jetpack Compose + Material 3 |
 | 아키텍처 | MVVM + Clean Architecture |
-| DB | Room (pre-populated from assets), version 10 |
+| DB | Room (pre-populated from assets), version 11 |
 | DI | Hilt |
 | Navigation | Compose Navigation (type-safe routes) |
 | 비동기 | Coroutines + Flow |
@@ -94,8 +94,8 @@ com.wcjung.engstudy/
 
 - `assets/databases/engstudy.db`에 사전 생성된 SQLite DB 탑재
 - `Room.databaseBuilder().createFromAsset()` 사용
-- DB version 10 / 명시적 마이그레이션(4→10)으로 업그레이드 처리 (사용자 데이터 보존)
-- Room identity hash: 스키마 JSON `app/schemas/10.json` 참조 (asset DB의 room_master_table과 build_word_db.py의 ROOM_IDENTITY_HASH도 함께 갱신할 것)
+- DB version 11 / 명시적 마이그레이션(4→11)으로 업그레이드 처리 (사용자 데이터 보존)
+- Room identity hash: 스키마 JSON `app/schemas/11.json` 참조 (asset DB의 room_master_table과 build_word_db.py의 ROOM_IDENTITY_HASH도 함께 갱신할 것)
 - DB 생성 스크립트: `scripts/build_word_db.py` — kengdic + wordfreq + 교육부 xls
   (과거 일회성 스크립트는 `scripts/archive/` 참조)
 - 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
@@ -109,7 +109,7 @@ com.wcjung.engstudy/
     동의어 불일치로 잘못 교체되는 단어는 `EDU_MERGE_KEEP`에 수동 등록.
     파이프라인 순서: build_word_db → build_meanings → apply_edu_meanings → build_meanings_llm
 
-### 스키마 요약 (10개 테이블, DB v9)
+### 스키마 요약 (11개 테이블, DB v11)
 
 **`words` 테이블** — 12,068개 (kengdic MPL 2.0 + Free Dictionary API)
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
@@ -153,6 +153,12 @@ com.wcjung.engstudy/
 - `pos`: 품사 문자열 (noun/verb/adjective/adverb)
 - `meaning_type`: `'ko'` (한국어)
 - 생성: `scripts/build_meanings.py` (kengdic + NLTK WordNet)
+
+**`user_word_meanings` 테이블** (v11 추가) — 사용자 데이터
+- 사용자가 직접 추가("내 의미")하거나 변경(대표 뜻 교체, `is_primary=1`)한 단어 의미
+- 콘텐츠 테이블(words/word_meanings)은 콘텐츠 마이그레이션 때 교체되므로 사용자 편집본은 반드시 이 테이블에 저장
+- 대표 뜻 override는 WordRepositoryImpl/LearningRepositoryImpl에서 조회 시점에 합성되어 목록·퀴즈·복습 전역에 반영
+- 백업/복원 대상 포함
 
 **`word_examples` 테이블** (v9 추가) — 15,030개, 커버리지 99.8% (12,041/12,068 단어)
 - words 테이블의 단어별 예문 저장 (단어당 최대 3개)
@@ -237,7 +243,7 @@ com.wcjung.engstudy/
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
-- Room DB version 10 — 업그레이드는 명시적 Migration(4→10)으로 처리하며 사용자 데이터를 보존한다. v11+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud)
+- Room DB version 11 — 업그레이드는 명시적 Migration(4→11)으로 처리하며 사용자 데이터를 보존한다. v12+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud). 스키마 변경 시 asset DB의 user_version·room_master_table 해시와 build_word_db.py 상수도 함께 갱신
 - 콘텐츠(단어 뜻 등)만 갱신하는 릴리즈: `RefreshWordContentMigration`(9→10) 패턴 참조 — asset DB를 임시 복사해 콘텐츠 테이블만 교체. words는 FK CASCADE(wrong_answers 등) 때문에 DELETE 금지, id 기준 UPDATE만 사용. asset DB의 user_version과 room_master_table identity hash를 새 버전에 맞게 스탬프해야 신규 설치가 크래시하지 않음
 - Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 설정 → 라이선스 화면(`LicensesScreen`)에 표기됨. 데이터 소스 추가 시 이 화면의 `dataSources` 목록도 갱신할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요

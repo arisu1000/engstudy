@@ -4,11 +4,13 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
+import com.wcjung.engstudy.domain.model.UserWordMeaning
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.model.WordMeaning
 import com.wcjung.engstudy.domain.model.WordExample
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
 import com.wcjung.engstudy.domain.repository.LearningRepository
+import com.wcjung.engstudy.domain.repository.UserWordMeaningRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.ui.navigation.Screen
 import com.wcjung.engstudy.util.TtsManager
@@ -26,6 +28,7 @@ class WordDetailViewModel @Inject constructor(
     private val wordRepository: WordRepository,
     private val bookmarkRepository: BookmarkRepository,
     private val learningRepository: LearningRepository,
+    private val userWordMeaningRepository: UserWordMeaningRepository,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
@@ -44,9 +47,46 @@ class WordDetailViewModel @Inject constructor(
     val examples: StateFlow<List<WordExample>> = wordRepository.getExamplesForWord(wordId)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
+    /** 사용자가 추가/변경한 의미 (isPrimary=대표 뜻 교체분 포함) */
+    val userMeanings: StateFlow<List<UserWordMeaning>> =
+        userWordMeaningRepository.getForWord(wordId)
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
     init {
+        refreshWord()
+    }
+
+    private fun refreshWord() {
         launchSafely {
             _word.value = wordRepository.getWordById(wordId)
+        }
+    }
+
+    /** 대표 뜻을 사용자 입력으로 변경 — 목록/퀴즈/복습에도 반영된다 */
+    fun editPrimaryMeaning(meaning: String) {
+        launchSafely {
+            userWordMeaningRepository.setPrimaryMeaning(wordId, meaning)
+            refreshWord()
+        }
+    }
+
+    /** 대표 뜻 변경 취소, 기본 뜻으로 복원 */
+    fun resetPrimaryMeaning() {
+        launchSafely {
+            userWordMeaningRepository.clearPrimaryMeaning(wordId)
+            refreshWord()
+        }
+    }
+
+    fun addUserMeaning(meaning: String) {
+        launchSafely {
+            userWordMeaningRepository.addMeaning(wordId, meaning)
+        }
+    }
+
+    fun deleteUserMeaning(id: Long) {
+        launchSafely {
+            userWordMeaningRepository.deleteMeaning(id)
         }
     }
 

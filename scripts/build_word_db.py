@@ -30,10 +30,10 @@ UNMATCHED_PATH = os.path.join(SCRIPT_DIR, "unmatched_words.json")
 # Room 호환 설정 - AppDatabase.version과 일치시켜야 함
 # AppDatabase.kt의 version을 변경하면 여기도 함께 변경할 것
 # =====================================================================
-ROOM_DB_VERSION = 10  # AppDatabase.kt version과 일치 (v10: 콘텐츠 갱신 마이그레이션 이후)
+ROOM_DB_VERSION = 11  # AppDatabase.kt version과 일치 (v11: user_word_meanings 추가)
 # Room이 생성하는 identity hash (app/build/.../AppDatabase_Impl.java에서 확인 가능)
 # 스키마가 바뀌면 빌드 후 이 값을 업데이트해야 함
-ROOM_IDENTITY_HASH = "d9a370d56284b6ad115f4b62a7c57db1"
+ROOM_IDENTITY_HASH = "cedd4dc572c641d614ffd530918fb440"
 
 
 def get_stage(zipf_score):
@@ -311,6 +311,19 @@ def create_schema(cursor):
         )
     """)
     cursor.execute("CREATE UNIQUE INDEX index_known_items_item_id_item_type ON known_items(item_id, item_type)")
+
+    # user_word_meanings 테이블 (v11: 사용자 정의 단어 의미 — schemas/11.json createSql과 일치해야 함)
+    cursor.execute("""
+        CREATE TABLE user_word_meanings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            word_id INTEGER NOT NULL,
+            meaning TEXT NOT NULL,
+            is_primary INTEGER NOT NULL,
+            created_at INTEGER NOT NULL,
+            FOREIGN KEY (word_id) REFERENCES words(id) ON DELETE CASCADE
+        )
+    """)
+    cursor.execute("CREATE INDEX index_user_word_meanings_word_id ON user_word_meanings(word_id)")
 
 
 def set_room_metadata(conn):

@@ -11,6 +11,7 @@ import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.dao.WordDao
 import com.wcjung.engstudy.data.local.dao.IdiomDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
+import com.wcjung.engstudy.data.local.dao.UserWordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordExampleDao
 import com.wcjung.engstudy.data.local.entity.BookmarkEntity
@@ -21,6 +22,7 @@ import com.wcjung.engstudy.data.local.entity.KnownItemEntity
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
 import com.wcjung.engstudy.data.local.entity.WordEntity
 import com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
+import com.wcjung.engstudy.data.local.entity.UserWordMeaningEntity
 import com.wcjung.engstudy.data.local.entity.WordMeaningEntity
 import com.wcjung.engstudy.data.local.entity.WordExampleEntity
 
@@ -35,9 +37,10 @@ import com.wcjung.engstudy.data.local.entity.WordExampleEntity
         ExampleSentenceEntity::class,
         KnownItemEntity::class,
         WordMeaningEntity::class,
-        WordExampleEntity::class
+        WordExampleEntity::class,
+        UserWordMeaningEntity::class
     ],
-    version = 10,
+    version = 11,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -51,5 +54,6 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun knownItemDao(): KnownItemDao
     abstract fun wordMeaningDao(): WordMeaningDao
     abstract fun wordExampleDao(): WordExampleDao
+    abstract fun userWordMeaningDao(): UserWordMeaningDao
     abstract fun backupDao(): BackupDao
 }

@@ -1,6 +1,7 @@
 package com.wcjung.engstudy.data.repository
 
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
+import com.wcjung.engstudy.data.local.dao.UserWordMeaningDao
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
 import com.wcjung.engstudy.domain.model.DailyStudyRecord
 import com.wcjung.engstudy.domain.model.LearningProgress
@@ -8,16 +9,29 @@ import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.model.toDomain
 import com.wcjung.engstudy.domain.repository.LearningRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class LearningRepositoryImpl @Inject constructor(
-    private val learningProgressDao: LearningProgressDao
+    private val learningProgressDao: LearningProgressDao,
+    private val userWordMeaningDao: UserWordMeaningDao
 ) : LearningRepository {
+
+    // 사용자가 변경한 대표 뜻을 복습 카드에도 반영 (WordRepositoryImpl과 동일한 합성)
+    private val primaryOverridesFlow: Flow<Map<Int, String>> =
+        userWordMeaningDao.observePrimaryOverrides()
+            .map { rows -> rows.associate { it.wordId to it.meaning } }
 
     override fun getWordsForReview(count: Int): Flow<List<Word>> =
         learningProgressDao.getWordsForReview(count = count)
-            .map { entities -> entities.map { it.toDomain() } }
+            .combine(primaryOverridesFlow) { entities, overrides ->
+                entities.map { entity ->
+                    entity.toDomain().let { w ->
+                        overrides[w.id]?.let { w.copy(meaning = it) } ?: w
+                    }
+                }
+            }
 
     override fun getDueReviewCount(): Flow<Int> =
         learningProgressDao.getDueReviewCount()
@@ -83,7 +97,13 @@ class LearningRepositoryImpl @Inject constructor(
 
     override fun getExcludedWords(): Flow<List<Word>> =
         learningProgressDao.getExcludedWords()
-            .map { entities -> entities.map { it.toDomain() } }
+            .combine(primaryOverridesFlow) { entities, overrides ->
+                entities.map { entity ->
+                    entity.toDomain().let { w ->
+                        overrides[w.id]?.let { w.copy(meaning = it) } ?: w
+                    }
+                }
+            }
 
     override fun getExcludedWordCount(): Flow<Int> =
         learningProgressDao.getExcludedWordCount()
