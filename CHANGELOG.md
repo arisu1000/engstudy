@@ -6,6 +6,11 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] - 2026-07-04
 
 ### Added
+- **홈 위젯 상호작용**: 단어 탭 → 해당 단어 상세 화면으로 딥링크,
+  "다음 단어 →" 버튼 → 캐시된 10개 단어를 오프라인 순환.
+  위젯 데이터가 앱에서 갱신되지 않던 버그 수정 — `updateWidgetData`가
+  호출되지 않아 항상 플레이스홀더만 표시됐음. 이제 홈 진입 시
+  오늘의 단어 + 랜덤 9개를 SharedPreferences에 캐시 (`WidgetUpdateHelperTest` 5건)
 - **오답노트 재도전**: 오답 노트에서 기록된 단어들로 바로 4지선다 퀴즈를 풀 수 있는
   "오답 재도전" 버튼 추가. `Screen.Quiz`가 `wordIds` 목록을 받아 지정 단어로 출제
   (DAO 회귀 테스트 `WordDaoByIdsTest`)

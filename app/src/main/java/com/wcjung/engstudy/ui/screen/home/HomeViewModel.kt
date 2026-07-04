@@ -1,8 +1,12 @@
 package com.wcjung.engstudy.ui.screen.home
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wcjung.engstudy.data.datastore.UserPreferences
+import com.wcjung.engstudy.util.WidgetUpdateHelper
+import com.wcjung.engstudy.util.WidgetWord
+import dagger.hilt.android.qualifiers.ApplicationContext
 import com.wcjung.engstudy.domain.model.Stage
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.LearningRepository
@@ -20,6 +24,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    @ApplicationContext private val appContext: Context,
     private val wordRepository: WordRepository,
     private val learningRepository: LearningRepository,
     private val userPreferences: UserPreferences
@@ -76,7 +81,21 @@ class HomeViewModel @Inject constructor(
 
     private fun loadWordOfTheDay() {
         launchSafely {
-            _wordOfTheDay.value = wordRepository.getWordOfTheDay()
+            val wordOfTheDay = wordRepository.getWordOfTheDay()
+            _wordOfTheDay.value = wordOfTheDay
+            refreshWidgetCache(wordOfTheDay)
         }
+    }
+
+    /** 홈 위젯 순환 목록 캐시: 오늘의 단어 + 랜덤 9개 (위젯은 DB 접근 없이 이 캐시를 순환) */
+    private suspend fun refreshWidgetCache(wordOfTheDay: Word?) {
+        val first = wordOfTheDay ?: return
+        val extras = wordRepository.getRandomWordsExcluding(listOf(first.id), 9)
+        WidgetUpdateHelper.updateWidgetWords(
+            appContext,
+            (listOf(first) + extras).map {
+                WidgetWord(it.id, it.word, it.pronunciation, it.meaning)
+            }
+        )
     }
 }

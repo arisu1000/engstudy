@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.wcjung.engstudy.data.datastore.UserPreferences
 import com.wcjung.engstudy.ui.navigation.EngStudyNavHost
 import com.wcjung.engstudy.ui.theme.EngStudyTheme
+import com.wcjung.engstudy.util.WordWidgetReceiver
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -33,6 +34,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         requestNotificationPermissionIfNeeded()
+        // 위젯 단어 탭으로 진입한 경우 해당 단어 상세로 바로 이동
+        val startWordId = intent.getIntExtra(WordWidgetReceiver.EXTRA_WORD_ID, -1)
+            .takeIf { it > 0 }
         setContent {
             val themeMode by userPreferences.themeMode.collectAsState(initial = "system")
             val darkTheme = when (themeMode) {
@@ -41,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 else -> isSystemInDarkTheme()
             }
             EngStudyTheme(darkTheme = darkTheme) {
-                EngStudyNavHost()
+                EngStudyNavHost(startWordId = startWordId)
             }
         }
     }

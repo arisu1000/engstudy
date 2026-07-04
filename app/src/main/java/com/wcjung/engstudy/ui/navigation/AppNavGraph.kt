@@ -14,6 +14,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -60,10 +61,17 @@ data class BottomNavItem(
 )
 
 @Composable
-fun EngStudyNavHost() {
+fun EngStudyNavHost(startWordId: Int? = null) {
     val navController = rememberNavController()
     val homeViewModel: HomeViewModel = hiltViewModel()
     val dueReviewCount by homeViewModel.dueReviewCount.collectAsState()
+
+    // 위젯 탭 진입: 홈 위에 단어 상세를 얹는다 (뒤로가기 시 홈)
+    LaunchedEffect(startWordId) {
+        if (startWordId != null) {
+            navController.navigate(Screen.WordDetail(startWordId))
+        }
+    }
 
     val bottomNavItems = listOf(
         BottomNavItem(Screen.Home, "홈", Icons.Default.Home),
