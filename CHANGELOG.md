@@ -13,6 +13,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   API 35+ 에뮬레이터의 `InputManager.getInstance` 크래시 수정 버전)
 
 ### Fixed
+- **검색 관련도 정렬**: 단어/교육부 단어/숙어 검색이 "정확 일치 > 접두 일치 > 부분 일치 >
+  뜻 일치" 순으로 정렬되도록 개선 (기존엔 빈도·id 순만 적용되어 정확 일치가 뒤로 밀림).
+  DAO 회귀 테스트 `WordSearchRelevanceTest` 추가
 - **교육부 뜻 교차 검증 병합** (`build_meanings_llm.py --edu-merge`): 교육부 검수 뜻이
   다의어의 덜 흔한 의미인 경우 보정 (예: just → "올바른", burn → "시내", teen → "슬픔")
   - 교육부 겹침 2,772개 단어에 gemma4로 흔한 뜻 1~3개 생성 후 교차 검증:

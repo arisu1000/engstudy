@@ -65,12 +65,20 @@ interface WordDao {
         offset: Int
     ): List<WordEntity>
 
+    // 관련도 순 정렬: 단어 정확 일치 > 접두 일치 > 부분 일치 > 뜻 일치, 동순위는 빈도순
     @Query(
         """
         SELECT * FROM words
         WHERE word LIKE '%' || :query || '%'
         OR meaning LIKE '%' || :query || '%'
-        ORDER BY frequency_rank ASC
+        ORDER BY
+            CASE
+                WHEN lower(word) = lower(:query) THEN 0
+                WHEN word LIKE :query || '%' THEN 1
+                WHEN word LIKE '%' || :query || '%' THEN 2
+                ELSE 3
+            END,
+            frequency_rank ASC
         LIMIT 50
         """
     )

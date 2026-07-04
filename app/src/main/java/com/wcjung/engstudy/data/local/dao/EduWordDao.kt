@@ -17,12 +17,20 @@ interface EduWordDao {
     @Query("SELECT * FROM edu_words WHERE level = :level ORDER BY id ASC")
     fun getWordsByLevel(level: String): Flow<List<EduWordEntity>>
 
+    // 관련도 순 정렬: 단어 정확 일치 > 접두 일치 > 부분 일치 > 뜻 일치
     @Query(
         """
         SELECT * FROM edu_words
         WHERE word LIKE '%' || :query || '%'
         OR meaning LIKE '%' || :query || '%'
-        ORDER BY id ASC
+        ORDER BY
+            CASE
+                WHEN lower(word) = lower(:query) THEN 0
+                WHEN word LIKE :query || '%' THEN 1
+                WHEN word LIKE '%' || :query || '%' THEN 2
+                ELSE 3
+            END,
+            id ASC
         LIMIT 50
         """
     )

@@ -19,7 +19,14 @@ interface IdiomDao {
         SELECT * FROM idioms
         WHERE phrase LIKE '%' || :query || '%'
         OR meaning LIKE '%' || :query || '%'
-        ORDER BY id ASC
+        ORDER BY
+            CASE
+                WHEN lower(phrase) = lower(:query) THEN 0
+                WHEN phrase LIKE :query || '%' THEN 1
+                WHEN phrase LIKE '%' || :query || '%' THEN 2
+                ELSE 3
+            END,
+            id ASC
         LIMIT 50
         """
     )
