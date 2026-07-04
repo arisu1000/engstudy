@@ -206,6 +206,12 @@ com.wcjung.engstudy/
 - `StatisticsViewModel.generateReport()`: 학습 통계를 이모지 포함 텍스트로 포맷
 - `Intent.ACTION_SEND`로 카카오톡/메시지 등 모든 앱과 공유 가능
 
+### 학습 데이터 백업/복원
+- 설정 → "학습 데이터" — SAF로 JSON 파일 내보내기/가져오기 (`BackupManager`, `BackupDao`)
+- 대상: learning_progress, bookmarks, wrong_answers, known_items + DataStore 설정
+- 콘텐츠 테이블은 백업하지 않음 (앱 내장). 복원 시 현재 DB에 없는 word_id 행은 FK 보호를 위해 건너뜀
+- 백업 포맷 버전(`BackupManager.FORMAT_VERSION`) — 필드 추가 시 하위 호환 유지 (`ignoreUnknownKeys`)
+
 ### 단어 완전 제외 & 복원
 - `WordListScreen`에서 다중 선택 후 "완전 제외" 가능
 - `learning_progress.is_excluded = true`로 마킹 → 학습/퀴즈/복습 전 영역에서 제외

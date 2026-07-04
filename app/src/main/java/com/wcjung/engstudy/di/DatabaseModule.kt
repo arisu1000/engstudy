@@ -6,6 +6,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.wcjung.engstudy.data.local.AppDatabase
 import com.wcjung.engstudy.data.local.RefreshWordContentMigration
+import com.wcjung.engstudy.data.local.dao.BackupDao
 import com.wcjung.engstudy.data.local.dao.BookmarkDao
 import com.wcjung.engstudy.data.local.dao.EduWordDao
 import com.wcjung.engstudy.data.local.dao.ExampleSentenceDao
@@ -172,4 +173,7 @@ object DatabaseModule {
 
     @Provides
     fun provideWordExampleDao(database: AppDatabase): WordExampleDao = database.wordExampleDao()
+
+    @Provides
+    fun provideBackupDao(database: AppDatabase): BackupDao = database.backupDao()
 }

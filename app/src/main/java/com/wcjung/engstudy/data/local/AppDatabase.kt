@@ -2,6 +2,7 @@ package com.wcjung.engstudy.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.wcjung.engstudy.data.local.dao.BackupDao
 import com.wcjung.engstudy.data.local.dao.BookmarkDao
 import com.wcjung.engstudy.data.local.dao.EduWordDao
 import com.wcjung.engstudy.data.local.dao.ExampleSentenceDao
@@ -50,4 +51,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun knownItemDao(): KnownItemDao
     abstract fun wordMeaningDao(): WordMeaningDao
     abstract fun wordExampleDao(): WordExampleDao
+    abstract fun backupDao(): BackupDao
 }

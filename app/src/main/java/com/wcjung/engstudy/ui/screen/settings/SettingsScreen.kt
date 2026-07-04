@@ -1,5 +1,8 @@
 package com.wcjung.engstudy.ui.screen.settings
 
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +17,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -21,16 +25,26 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,6 +58,43 @@ fun SettingsScreen(
     val ttsSpeed by viewModel.ttsSpeed.collectAsState()
     val dailyGoal by viewModel.dailyGoal.collectAsState()
     val notificationEnabled by viewModel.notificationEnabled.collectAsState()
+    val backupMessage by viewModel.backupMessage.collectAsState()
+
+    val snackbarHostState = remember { SnackbarHostState() }
+    LaunchedEffect(backupMessage) {
+        backupMessage?.let {
+            snackbarHostState.showSnackbar(it)
+            viewModel.clearBackupMessage()
+        }
+    }
+
+    val exportLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument("application/json")
+    ) { uri -> uri?.let { viewModel.exportBackup(it) } }
+
+    var pendingImportUri by remember { mutableStateOf<Uri?>(null) }
+    val importLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.OpenDocument()
+    ) { uri -> pendingImportUri = uri }
+
+    pendingImportUri?.let { uri ->
+        AlertDialog(
+            onDismissRequest = { pendingImportUri = null },
+            title = { Text("학습 데이터 복원") },
+            text = {
+                Text("현재 기기의 학습 진도, 북마크, 오답 노트가 백업 파일 내용으로 교체됩니다. 계속할까요?")
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.importBackup(uri)
+                    pendingImportUri = null
+                }) { Text("복원") }
+            },
+            dismissButton = {
+                TextButton(onClick = { pendingImportUri = null }) { Text("취소") }
+            }
+        )
+    }
 
     Scaffold(
         topBar = {
@@ -55,7 +106,8 @@ fun SettingsScreen(
                     }
                 }
             )
-        }
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) }
     ) { innerPadding ->
         Column(
             modifier = Modifier
@@ -129,6 +181,47 @@ fun SettingsScreen(
                 checked = notificationEnabled,
                 onCheckedChange = { viewModel.setNotificationEnabled(it) }
             )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // 학습 데이터 백업/복원 (오프라인 앱 — 기기 변경 시 유일한 이전 수단)
+            Text("학습 데이터", style = MaterialTheme.typography.titleSmall)
+            Spacer(modifier = Modifier.height(4.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        val date = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(Date())
+                        exportLauncher.launch("engstudy_backup_$date.json")
+                    }
+                    .padding(vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text("백업 파일 내보내기", style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        text = "학습 진도·북마크·오답 노트·설정을 파일로 저장",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { importLauncher.launch(arrayOf("application/json", "application/octet-stream")) }
+                    .padding(vertical = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text("백업 파일 가져오기", style = MaterialTheme.typography.bodyLarge)
+                    Text(
+                        text = "저장한 백업으로 학습 데이터 복원 (기존 데이터 교체)",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 

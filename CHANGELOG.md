@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] - 2026-07-04
 
 ### Added
+- **학습 데이터 백업/복원**: 설정에서 학습 진도·북마크·오답 노트·"알아요" 표시·설정을
+  JSON 파일로 내보내고(SAF) 복원 가능. 오프라인 전용 앱의 기기 변경/분실 대비.
+  복원 시 현재 DB에 없는 단어를 참조하는 행은 건너뛰어 FK 위반 방지
+  (`BackupManagerTest` 왕복 테스트 3건)
 - **홈 위젯 상호작용**: 단어 탭 → 해당 단어 상세 화면으로 딥링크,
   "다음 단어 →" 버튼 → 캐시된 10개 단어를 오프라인 순환.
   위젯 데이터가 앱에서 갱신되지 않던 버그 수정 — `updateWidgetData`가
