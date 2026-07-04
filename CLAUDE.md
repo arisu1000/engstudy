@@ -99,16 +99,20 @@ com.wcjung.engstudy/
 - DB 생성 스크립트: `scripts/generate_word_db.py` — kengdic + Free Dictionary API
 - 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
 - 대표 뜻 보정 (kengdic이 가나다순 정렬이라 희귀 의미가 먼저 노출되는 문제):
-  - `scripts/apply_edu_meanings.py` — 교육부와 겹치는 단어는 교육부 검수 뜻 사용 (멱등)
+  - `scripts/apply_edu_meanings.py` — 교육부와 겹치는 단어는 교육부 검수 뜻 사용 (멱등).
+    기능어 56개(FUNCTION_WORDS)는 제외하고 수동 큐레이션 뜻을 보호·복원한다
   - `scripts/build_meanings_llm.py` — 나머지 단어는 로컬 LLM(Ollama gemma4)으로 재생성.
-    `--gate`(교육부 뜻 100개와 품질 대조), `--apply`(저장된 jsonl 재적용) 모드 지원.
+    `--gate`(교육부 뜻 100개와 품질 대조), `--apply`(저장된 jsonl 재적용),
+    `--edu-merge`(교육부 뜻이 덜 흔한 의미인 단어를 LLM 교차 검증으로 보정, 예: just→"올바른"),
+    `--selftest`(겹침 판정 회귀 테스트) 모드 지원.
+    동의어 불일치로 잘못 교체되는 단어는 `EDU_MERGE_KEEP`에 수동 등록.
     파이프라인 순서: build_word_db → build_meanings → apply_edu_meanings → build_meanings_llm
 
 ### 스키마 요약 (10개 테이블, DB v9)
 
 **`words` 테이블** — 12,068개 (kengdic MPL 2.0 + Free Dictionary API)
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
-- `meaning` TEXT: 단어 의미 — 교육부 겹침 2,736개는 교육부 검수 뜻, 나머지 9,240개는 로컬 LLM(gemma4) 재생성 뜻, 기능어 56개는 수동 큐레이션
+- `meaning` TEXT: 단어 의미 — 교육부 겹침 2,772개는 교차 검증 병합(교육부 뜻 유지 1,965 / LLM 뜻 교체 807), 나머지 9,240개는 로컬 LLM(gemma4) 재생성 뜻, 기능어 56개는 수동 큐레이션
 - `meaning_type` TEXT: 의미 언어 구분 (`'ko'` 또는 `'en'`)
 
 **`edu_words` 테이블** — 3,000개 (교육부 공공데이터)

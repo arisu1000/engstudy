@@ -5,6 +5,20 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] - 2026-07-04
 
+### Fixed
+- **교육부 뜻 교차 검증 병합** (`build_meanings_llm.py --edu-merge`): 교육부 검수 뜻이
+  다의어의 덜 흔한 의미인 경우 보정 (예: just → "올바른", burn → "시내", teen → "슬픔")
+  - 교육부 겹침 2,772개 단어에 gemma4로 흔한 뜻 1~3개 생성 후 교차 검증:
+    겹치면 교육부 뜻 유지(1,965개), 안 겹치면 LLM 뜻을 대표로 승격하고
+    교육부 뜻은 `word_meanings` 뒤 순서에 보존(807개)
+  - 1글자 뜻("흰", "물", "쓴")도 겹침 판정하도록 `_korean_tokens` 수정
+    (기존엔 2글자 미만 토큰이 버려져 white/water 등이 잘못 교체됨) — `--selftest` 회귀 테스트 추가
+  - 동의어 불일치로 잘못 교체되는 4개 단어(well, even, table, pat)는
+    `EDU_MERGE_KEEP` 수동 유지 목록으로 보호 (교체 목록 811개 전수 검토로 선정)
+- **기능어 큐레이션 뜻 보호** (`apply_edu_meanings.py`): 기능어 56개(FUNCTION_WORDS)를
+  교육부 뜻 적용 대상에서 제외하고, 과거 실행으로 덮인 뜻은 실행 시 자동 복원
+  (예: just "올바른"→"단지, 바로, 방금", will "의지"→"~할 것이다", the "art.저"→"관사: 그, 저")
+
 ### Added
 - **DB v10 콘텐츠 갱신 마이그레이션** (`RefreshWordContentMigration`): 기존 설치 사용자에게
   개선된 단어 뜻을 전달하면서 학습 데이터는 보존
