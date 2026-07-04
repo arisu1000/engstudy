@@ -3,14 +3,9 @@ package com.wcjung.engstudy.ui.screen.spelling
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.toRoute
-import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
-import com.wcjung.engstudy.domain.repository.LearningRepository
-import com.wcjung.engstudy.domain.repository.WrongAnswerRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
-import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
-import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
-import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
+import com.wcjung.engstudy.domain.usecase.RecordQuizAnswerUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,10 +18,7 @@ import javax.inject.Inject
 class SpellingQuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val wordRepository: WordRepository,
-    private val learningRepository: LearningRepository,
-    private val spacedRepetition: CalculateSpacedRepetitionUseCase,
-    private val updateStreak: UpdateStreakUseCase,
-    private val wrongAnswerRepository: WrongAnswerRepository
+    private val recordQuizAnswer: RecordQuizAnswerUseCase
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.SpellingQuiz>()
@@ -87,44 +79,26 @@ class SpellingQuizViewModel @Inject constructor(
         val isCorrect = _userInput.value.trim().equals(word.word, ignoreCase = true)
         _answerState.value = if (isCorrect) AnswerState.Correct else AnswerState.Incorrect(word.word)
 
-        launchSafely {
-            val progress = learningRepository.getProgressForWord(word.id)
-                ?: LearningProgress(wordId = word.id)
-            val rating = if (isCorrect) SimpleRating.GOOD else SimpleRating.AGAIN
-            val quality = spacedRepetition.qualityFromSimpleRating(rating)
-            val result = spacedRepetition.calculate(progress, quality)
-
-            if (isCorrect) {
-                correctCount++
-                _comboCount.value++
-                if (_comboCount.value > _maxCombo.value) {
-                    _maxCombo.value = _comboCount.value
-                }
-            } else {
-                incorrectCount++
-                _comboCount.value = 0
-                incorrectWords.add(word)
-                wrongAnswerRepository.insertWrongAnswer(
-                    wordId = word.id,
-                    wrongAnswer = _userInput.value.trim(),
-                    correctAnswer = word.word,
-                    quizType = "spelling"
-                )
+        if (isCorrect) {
+            correctCount++
+            _comboCount.value++
+            if (_comboCount.value > _maxCombo.value) {
+                _maxCombo.value = _comboCount.value
             }
+        } else {
+            incorrectCount++
+            _comboCount.value = 0
+            incorrectWords.add(word)
+        }
 
-            learningRepository.updateProgress(
-                progress.copy(
-                    easeFactor = result.easeFactor,
-                    intervalDays = result.intervalDays,
-                    repetitions = result.repetitions,
-                    nextReviewDate = result.nextReviewDate,
-                    lastReviewedDate = System.currentTimeMillis(),
-                    timesCorrect = progress.timesCorrect + if (isCorrect) 1 else 0,
-                    timesIncorrect = progress.timesIncorrect + if (!isCorrect) 1 else 0,
-                    isLearned = result.isLearned
-                )
+        launchSafely {
+            recordQuizAnswer(
+                wordId = word.id,
+                isCorrect = isCorrect,
+                quizType = "spelling",
+                wrongAnswer = _userInput.value.trim(),
+                correctAnswer = word.word
             )
-            updateStreak()
         }
     }
 

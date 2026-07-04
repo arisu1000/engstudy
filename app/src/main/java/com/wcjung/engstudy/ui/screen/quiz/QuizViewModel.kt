@@ -3,14 +3,9 @@ package com.wcjung.engstudy.ui.screen.quiz
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.toRoute
-import com.wcjung.engstudy.domain.model.LearningProgress
 import com.wcjung.engstudy.domain.model.Word
-import com.wcjung.engstudy.domain.repository.LearningRepository
-import com.wcjung.engstudy.domain.repository.WrongAnswerRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
-import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
-import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
-import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
+import com.wcjung.engstudy.domain.usecase.RecordQuizAnswerUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
 import com.wcjung.engstudy.util.TtsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,10 +26,7 @@ data class QuizQuestion(
 class QuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val wordRepository: WordRepository,
-    private val learningRepository: LearningRepository,
-    private val spacedRepetition: CalculateSpacedRepetitionUseCase,
-    private val updateStreak: UpdateStreakUseCase,
-    private val wrongAnswerRepository: WrongAnswerRepository,
+    private val recordQuizAnswer: RecordQuizAnswerUseCase,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
@@ -124,46 +116,26 @@ class QuizViewModel @Inject constructor(
         val question = currentQuestion ?: return
         val isCorrect = index == question.correctIndex
 
-        launchSafely {
-            val progress = learningRepository.getProgressForWord(question.word.id)
-                ?: LearningProgress(wordId = question.word.id)
-            val rating = if (isCorrect) SimpleRating.GOOD else SimpleRating.AGAIN
-            val quality = spacedRepetition.qualityFromSimpleRating(rating)
-            val result = spacedRepetition.calculate(progress, quality)
-
-            if (isCorrect) {
-                correctCount++
-                _comboCount.value++
-                if (_comboCount.value > _maxCombo.value) {
-                    _maxCombo.value = _comboCount.value
-                }
-            } else {
-                incorrectCount++
-                _comboCount.value = 0
-                incorrectWords.add(question.word)
-                val userAnswer = question.options[index]
-                val correctAnswer = question.options[question.correctIndex]
-                wrongAnswerRepository.insertWrongAnswer(
-                    wordId = question.word.id,
-                    wrongAnswer = userAnswer,
-                    correctAnswer = correctAnswer,
-                    quizType = "quiz"
-                )
+        if (isCorrect) {
+            correctCount++
+            _comboCount.value++
+            if (_comboCount.value > _maxCombo.value) {
+                _maxCombo.value = _comboCount.value
             }
+        } else {
+            incorrectCount++
+            _comboCount.value = 0
+            incorrectWords.add(question.word)
+        }
 
-            learningRepository.updateProgress(
-                progress.copy(
-                    easeFactor = result.easeFactor,
-                    intervalDays = result.intervalDays,
-                    repetitions = result.repetitions,
-                    nextReviewDate = result.nextReviewDate,
-                    lastReviewedDate = System.currentTimeMillis(),
-                    timesCorrect = progress.timesCorrect + if (isCorrect) 1 else 0,
-                    timesIncorrect = progress.timesIncorrect + if (!isCorrect) 1 else 0,
-                    isLearned = result.isLearned
-                )
+        launchSafely {
+            recordQuizAnswer(
+                wordId = question.word.id,
+                isCorrect = isCorrect,
+                quizType = if (route.listening) "listening_quiz" else "quiz",
+                wrongAnswer = question.options[index],
+                correctAnswer = question.options[question.correctIndex]
             )
-            updateStreak()
         }
     }
 
