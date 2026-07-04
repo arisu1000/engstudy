@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] - 2026-07-04
 
 ### Added
+- **교육부 단어 SM-2 복습 통합**: 교육부 퀴즈 응답이 words 테이블의 동일 단어에
+  학습 진도로 기록되어 복습(SM-2) 루프와 오답 노트에 포함됨.
+  퀴즈 기록 로직을 `RecordQuizAnswerUseCase`로 추출해 일반/듣기/스펠링/교육부 퀴즈가 공유
+  (단위 테스트 4건). words에 없는 교육부 단어(~8%)는 기존처럼 "알아요" 표시만 지원
 - **듣기 퀴즈 모드**: 학습 → "듣기 퀴즈" — TTS 발음을 듣고 뜻을 고르는 4지선다.
   문제 진입 시 자동 재생 + "다시 듣기" 버튼, 정답 선택 후 단어·발음기호 공개.
   기존 Quiz 구조 재사용(`Screen.Quiz(listening = true)`)으로 오답 기록·SM-2·콤보 동일 적용

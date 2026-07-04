@@ -33,6 +33,9 @@ interface WordRepository {
 
     suspend fun getWordsByIds(ids: List<Int>): List<Word>
 
+    /** 단어 텍스트로 words.id 조회 (교육부 단어 ↔ words 매핑). 없으면 null. */
+    suspend fun getWordIdByText(word: String): Int?
+
     suspend fun getWordOfTheDay(): Word?
 
     suspend fun getRandomWordsInStage(stage: Int, excludeId: Int, count: Int = 3): List<Word>

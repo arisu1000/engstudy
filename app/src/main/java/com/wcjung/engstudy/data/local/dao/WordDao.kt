@@ -140,6 +140,10 @@ interface WordDao {
     @Query("SELECT * FROM words WHERE id IN (:ids)")
     suspend fun getWordsByIds(ids: List<Int>): List<WordEntity>
 
+    // 교육부 단어 → words 매핑용 (SM-2 진도는 words.id 기준으로 기록)
+    @Query("SELECT id FROM words WHERE lower(word) = lower(:word) LIMIT 1")
+    suspend fun getWordIdByText(word: String): Int?
+
     @Query(
         """
         SELECT * FROM words

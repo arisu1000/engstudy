@@ -66,6 +66,7 @@ class GetDailyChallengeUseCaseTest {
         override fun getNewWordsForStudy(count: Int, stage: Int?, domain: String?): Flow<List<Word>> = notUsed()
         override suspend fun getWordById(id: Int): Word? = notUsed()
         override suspend fun getWordsByIds(ids: List<Int>): List<Word> = notUsed()
+        override suspend fun getWordIdByText(word: String): Int? = notUsed()
         override suspend fun getWordOfTheDay(): Word? = notUsed()
         override suspend fun getRandomWordsInStage(stage: Int, excludeId: Int, count: Int): List<Word> = notUsed()
         override suspend fun getRandomWordsInDomain(domain: String, excludeId: Int, count: Int): List<Word> = notUsed()

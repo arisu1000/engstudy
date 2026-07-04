@@ -177,6 +177,9 @@ com.wcjung.engstudy/
 - quality 0-5, ease factor 최소 1.3
 - 간소화 4단계: Again(1), Hard(3), Good(4), Easy(5)
 - interval >= 21일이면 "학습 완료"
+- 퀴즈 응답의 기록(진도+오답+스트릭)은 `RecordQuizAnswerUseCase`로 일원화 — 일반/듣기/스펠링/교육부 퀴즈 공용
+- 교육부 퀴즈도 SM-2 대상: words 테이블의 동일 단어(id 매핑, `getWordIdByText`)에 진도 기록.
+  words에 없는 교육부 단어(~8%)는 복습 추적 제외
 
 ### 일일 챌린지: `GetDailyChallengeUseCase`
 - 날짜(epoch day)를 시드로 사용해 결정적 의사난수로 10개 단어 선택

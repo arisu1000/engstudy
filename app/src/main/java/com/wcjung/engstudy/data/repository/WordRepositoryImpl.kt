@@ -60,6 +60,9 @@ class WordRepositoryImpl @Inject constructor(
     override suspend fun getWordsByIds(ids: List<Int>): List<Word> =
         wordDao.getWordsByIds(ids).map { it.toDomain() }
 
+    override suspend fun getWordIdByText(word: String): Int? =
+        wordDao.getWordIdByText(word)
+
     override suspend fun getWordOfTheDay(): Word? {
         val seed = LocalDate.now().toEpochDay()
         return wordDao.getWordOfTheDay(seed)?.toDomain()

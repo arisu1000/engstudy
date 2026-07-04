@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.toRoute
 import com.wcjung.engstudy.domain.model.EduWord
 import com.wcjung.engstudy.domain.repository.EduWordRepository
+import com.wcjung.engstudy.domain.repository.WordRepository
+import com.wcjung.engstudy.domain.usecase.RecordQuizAnswerUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,7 +25,9 @@ data class EduQuizQuestion(
 @HiltViewModel
 class EduQuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val eduWordRepository: EduWordRepository
+    private val eduWordRepository: EduWordRepository,
+    private val wordRepository: WordRepository,
+    private val recordQuizAnswer: RecordQuizAnswerUseCase
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.EduQuiz>()
@@ -103,6 +107,19 @@ class EduQuizViewModel @Inject constructor(
             incorrectCount++
             _comboCount.value = 0
             incorrectWords.add(question.word)
+        }
+
+        // 교육부 단어도 SM-2 복습 루프에 포함: words 테이블의 동일 단어에 진도 기록.
+        // words에 없는 단어(교육부 3,000 중 ~8%)는 복습 추적 없이 넘어간다.
+        launchSafely {
+            val wordId = wordRepository.getWordIdByText(question.word.word) ?: return@launchSafely
+            recordQuizAnswer(
+                wordId = wordId,
+                isCorrect = isCorrect,
+                quizType = "edu_quiz",
+                wrongAnswer = question.options.getOrNull(index),
+                correctAnswer = question.word.word
+            )
         }
     }
 
