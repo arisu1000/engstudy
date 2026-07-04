@@ -66,7 +66,7 @@ com.wcjung.engstudy/
 | home | 홈 (오늘의 단어, Stage 요약, 일일 챌린지 진입) |
 | study | 단어 학습 (Stage 선택) |
 | flashcard | 플래시카드 |
-| quiz | 4지선다 퀴즈 |
+| quiz | 4지선다 퀴즈 (`listening = true`면 듣기 퀴즈: TTS 듣고 뜻 고르기) |
 | spelling | 스펠링 퀴즈 |
 | review | SM-2 복습 |
 | wordlist | 단어 목록 |

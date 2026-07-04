@@ -14,6 +14,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Keyboard
 import androidx.compose.material.icons.automirrored.filled.LibraryBooks
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Quiz
 import androidx.compose.material.icons.filled.Style
 import androidx.compose.material3.Card
@@ -44,6 +45,7 @@ import com.wcjung.engstudy.ui.components.DomainChip
 fun StudyScreen(
     onStartFlashCard: (String?, Int?) -> Unit,
     onStartQuiz: (String?, Int?) -> Unit,
+    onStartListeningQuiz: (String?, Int?) -> Unit,
     onStartSpellingQuiz: (String?, Int?) -> Unit,
     onNavigateToWordList: (String?, Int?) -> Unit,
     viewModel: StudyViewModel = hiltViewModel()
@@ -123,6 +125,12 @@ fun StudyScreen(
                 description = "4지선다 문제를 풀며 단어를 확인합니다",
                 icon = Icons.Default.Quiz,
                 onClick = { onStartQuiz(selectedDomain?.key, selectedStage?.level) }
+            )
+            StudyModeCard(
+                title = "듣기 퀴즈",
+                description = "발음을 듣고 뜻을 고릅니다",
+                icon = Icons.AutoMirrored.Filled.VolumeUp,
+                onClick = { onStartListeningQuiz(selectedDomain?.key, selectedStage?.level) }
             )
             StudyModeCard(
                 title = "스펠링",

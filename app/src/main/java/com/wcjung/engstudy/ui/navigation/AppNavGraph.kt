@@ -151,6 +151,9 @@ fun EngStudyNavHost(startWordId: Int? = null) {
                     onStartQuiz = { domain, stage ->
                         navController.navigate(Screen.Quiz(domain, stage))
                     },
+                    onStartListeningQuiz = { domain, stage ->
+                        navController.navigate(Screen.Quiz(domain, stage, listening = true))
+                    },
                     onStartSpellingQuiz = { domain, stage ->
                         navController.navigate(Screen.SpellingQuiz(domain, stage))
                     },

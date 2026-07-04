@@ -14,7 +14,9 @@ sealed interface Screen {
         val domain: String? = null,
         val stage: Int? = null,
         // 지정 시 stage/domain 대신 이 단어들로 출제 (오답노트 재도전 등)
-        val wordIds: List<Int>? = null
+        val wordIds: List<Int>? = null,
+        // 듣기 모드: 발음을 듣고 뜻을 고른다 (문제 텍스트는 정답 후 공개)
+        val listening: Boolean = false
     ) : Screen
     @Serializable data class SpellingQuiz(val domain: String? = null, val stage: Int? = null) : Screen
     @Serializable data object Bookmarks : Screen

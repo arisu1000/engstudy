@@ -12,6 +12,7 @@ import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase
 import com.wcjung.engstudy.domain.usecase.CalculateSpacedRepetitionUseCase.SimpleRating
 import com.wcjung.engstudy.domain.usecase.UpdateStreakUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
+import com.wcjung.engstudy.util.TtsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,10 +34,18 @@ class QuizViewModel @Inject constructor(
     private val learningRepository: LearningRepository,
     private val spacedRepetition: CalculateSpacedRepetitionUseCase,
     private val updateStreak: UpdateStreakUseCase,
-    private val wrongAnswerRepository: WrongAnswerRepository
+    private val wrongAnswerRepository: WrongAnswerRepository,
+    val ttsManager: TtsManager
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.Quiz>()
+
+    /** 듣기 모드: 문제를 TTS로만 제시하고 정답 선택 후 단어를 공개한다. */
+    val isListening: Boolean = route.listening
+
+    fun speakCurrentWord() {
+        currentQuestion?.let { ttsManager.speak(it.word.word) }
+    }
 
     private val _questions = MutableStateFlow<List<QuizQuestion>>(emptyList())
     val questions: StateFlow<List<QuizQuestion>> = _questions
@@ -79,7 +88,8 @@ class QuizViewModel @Inject constructor(
                 ).first()
 
             val questions = words.mapIndexed { index, word ->
-                val isEnToKo = index % 2 == 0
+                // 듣기 모드는 항상 "단어를 듣고 뜻 고르기" (영→한)
+                val isEnToKo = route.listening || index % 2 == 0
                 val distractors = wordRepository.getRandomWordsInStage(
                     stage = word.stage.level,
                     excludeId = word.id,
