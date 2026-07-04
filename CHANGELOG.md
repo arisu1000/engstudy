@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] - 2026-07-04
 
 ### Added
+- **단어 예문 커버리지 23.5% → 99.8%**: 로컬 LLM(Ollama gemma4)으로 미커버 9,226개 중
+  9,199개 예문+한국어 번역 생성 (`scripts/build_examples_ollama.py`, API 비용 0원).
+  `RefreshWordContentMigration`이 word_examples도 교체하도록 확장해 기존 사용자에게도 전달
+  (마이그레이션 회귀 테스트 검증 항목 추가)
 - **교육부 단어 SM-2 복습 통합**: 교육부 퀴즈 응답이 words 테이블의 동일 단어에
   학습 진도로 기록되어 복습(SM-2) 루프와 오답 노트에 포함됨.
   퀴즈 기록 로직을 `RecordQuizAnswerUseCase`로 추출해 일반/듣기/스펠링/교육부 퀴즈가 공유

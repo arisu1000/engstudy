@@ -9,10 +9,10 @@ import androidx.sqlite.db.SupportSQLiteStatement
 import java.io.File
 
 /**
- * v9 → v10: 단어 뜻 콘텐츠 갱신 마이그레이션.
+ * v9 → v10: 단어 콘텐츠 갱신 마이그레이션.
  *
- * kengdic 가나다순 정렬 문제로 재생성한 대표 뜻(교육부 검수 + 로컬 LLM)을
- * 기존 설치 기기에 반영한다. Room은 createFromAsset을 최초 설치 때만 적용하므로,
+ * kengdic 가나다순 정렬 문제로 재생성한 대표 뜻(교육부 검수 + 로컬 LLM)과
+ * LLM 생성 예문(word_examples, 커버리지 99.8%)을 기존 설치 기기에 반영한다. Room은 createFromAsset을 최초 설치 때만 적용하므로,
  * 업그레이드 기기는 이 마이그레이션이 APK에 내장된 asset DB를 임시 파일로 복사해
  * 콘텐츠 테이블만 갱신한다.
  *
@@ -34,6 +34,7 @@ class RefreshWordContentMigration(private val context: Context) : Migration(9, 1
             ).use { assetDb ->
                 upsertWords(db, assetDb)
                 replaceContentTable(db, assetDb, "word_meanings")
+                replaceContentTable(db, assetDb, "word_examples")
             }
         } finally {
             tempFile.delete()

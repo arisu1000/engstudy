@@ -154,11 +154,12 @@ com.wcjung.engstudy/
 - `meaning_type`: `'ko'` (한국어)
 - 생성: `scripts/build_meanings.py` (kengdic + NLTK WordNet)
 
-**`word_examples` 테이블** (v9 추가)
+**`word_examples` 테이블** (v9 추가) — 15,030개, 커버리지 99.8% (12,041/12,068 단어)
 - words 테이블의 단어별 예문 저장 (단어당 최대 3개)
-- `word_id` FK → words.id, `source`: `'tatoeba'` 또는 `'llm'`
+- `word_id` FK → words.id, `source`: `'tatoeba'`(5,831) 또는 `'llm'`(9,199)
 - 생성 Phase 1: `scripts/build_examples.py` (Tatoeba, LLM 0토큰)
-- 생성 Phase 2: `scripts/build_examples_llm.py` (Claude Haiku Batch API, 미커버 단어만)
+- 생성 Phase 2: `scripts/build_examples_ollama.py` (로컬 Ollama gemma4, 미커버 단어만.
+  `--apply` 재적용 / `--gate` 샘플 검사 / `--selftest` 지원. Claude Batch API 버전은 build_examples_llm.py)
 
 ### 데이터 소스 라이선스
 
@@ -228,10 +229,8 @@ com.wcjung.engstudy/
 ## TODO
 
 - [x] **단어 뜻 LLM 재생성**: 9,240개 단어의 대표 뜻을 로컬 LLM(Ollama gemma4)으로 재생성 완료 (`scripts/build_meanings_llm.py`)
-- [ ] **단어 예문 LLM 보완**: `scripts/build_examples_llm.py` 실행 — Anthropic API 키 필요 (console.anthropic.com). 또는 build_meanings_llm.py처럼 로컬 Ollama 방식으로 전환 가능
-  - 현재 Tatoeba 커버리지: 23.5% (2,842/12,068 단어)
-  - 미커버 9,226개 단어 목록: `scripts/uncovered_words.json`
-  - 예상 비용: ~$0.15 (Claude Haiku Batch API)
+- [x] **단어 예문 LLM 보완**: `scripts/build_examples_ollama.py`(로컬 gemma4)로 9,199개 생성 완료
+  — 커버리지 23.5% → 99.8% (12,041/12,068). 잔여 27개는 생성 실패(무효 응답) 단어
 - [x] DB v9까지 정식 마이그레이션(4→9) 작성 및 `fallbackToDestructiveMigration` 제거 완료 (업그레이드 시 사용자 데이터 보존)
 - [x] Tatoeba 저작자 표시 (CC BY 2.0 FR) — 설정 → "데이터 출처 및 라이선스" 화면(`LicensesScreen`)
 

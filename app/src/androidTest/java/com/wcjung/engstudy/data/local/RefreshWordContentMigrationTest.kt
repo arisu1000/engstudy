@@ -48,6 +48,7 @@ class RefreshWordContentMigrationTest {
                     '', '', 1, 'GENERAL', 2, 1)"""
             )
             db.execSQL("INSERT INTO word_meanings (word_id, meaning, pos, meaning_type, sense_order, source) VALUES (1, '옛의미', 'noun', 'ko', 0, 'kengdic')")
+            db.execSQL("INSERT INTO word_examples (word_id, sentence_en, sentence_ko, source) VALUES (1, 'old example', '옛예문', 'tatoeba')")
             // 사용자 데이터
             db.execSQL(
                 """INSERT INTO learning_progress (word_id, ease_factor, interval_days, repetitions,
@@ -93,6 +94,15 @@ class RefreshWordContentMigrationTest {
         db.query("SELECT COUNT(*) FROM word_meanings").use { c ->
             c.moveToFirst()
             assertTrue("word_meanings가 비어 있음", c.getInt(0) > 10000)
+        }
+        // word_examples도 asset 내용으로 교체됨 (LLM 예문 커버리지 99.8% 반영)
+        db.query("SELECT COUNT(*) FROM word_examples WHERE sentence_ko = '옛예문'").use { c ->
+            c.moveToFirst()
+            assertEquals(0, c.getInt(0))
+        }
+        db.query("SELECT COUNT(DISTINCT word_id) FROM word_examples").use { c ->
+            c.moveToFirst()
+            assertTrue("word_examples 커버리지 부족", c.getInt(0) > 11000)
         }
         // 사용자 데이터 보존
         db.query(
