@@ -15,6 +15,7 @@ import com.wcjung.engstudy.data.local.dao.ExampleSentenceDao
 import com.wcjung.engstudy.data.local.dao.IdiomDao
 import com.wcjung.engstudy.data.local.dao.KnownItemDao
 import com.wcjung.engstudy.data.local.dao.LearningProgressDao
+import com.wcjung.engstudy.data.local.dao.UserWordDao
 import com.wcjung.engstudy.data.local.dao.UserWordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
@@ -226,6 +227,9 @@ object DatabaseModule {
     @Provides
     fun provideUserWordMeaningDao(database: AppDatabase): UserWordMeaningDao =
         database.userWordMeaningDao()
+
+    @Provides
+    fun provideUserWordDao(database: AppDatabase): UserWordDao = database.userWordDao()
 
     @Provides
     fun provideBackupDao(database: AppDatabase): BackupDao = database.backupDao()

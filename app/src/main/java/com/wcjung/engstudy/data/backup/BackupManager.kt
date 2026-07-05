@@ -2,7 +2,9 @@ package com.wcjung.engstudy.data.backup
 
 import com.wcjung.engstudy.data.datastore.UserPreferences
 import com.wcjung.engstudy.data.local.dao.BackupDao
+import com.wcjung.engstudy.data.local.dao.USER_WORD_ID_START
 import com.wcjung.engstudy.data.local.entity.BookmarkEntity
+import com.wcjung.engstudy.data.local.entity.WordEntity
 import com.wcjung.engstudy.data.local.entity.KnownItemEntity
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
 import com.wcjung.engstudy.data.local.entity.UserWordMeaningEntity
@@ -39,7 +41,9 @@ class BackupManager @Inject constructor(
         val wrongAnswers: List<WrongAnswerBackup>,
         val knownItems: List<KnownItemBackup>,
         // v11 추가 — 기본값이 있어 v1 백업 파일도 그대로 읽힌다
-        val userWordMeanings: List<UserWordMeaningBackup> = emptyList()
+        val userWordMeanings: List<UserWordMeaningBackup> = emptyList(),
+        // 사용자 추가 단어 (words의 id >= USER_WORD_ID_START 구간) — 기본값으로 하위 호환 유지
+        val userWords: List<UserWordBackup> = emptyList()
     )
 
     @Serializable
@@ -101,13 +105,30 @@ class BackupManager @Inject constructor(
         @SerialName("created_at") val createdAt: Long
     )
 
+    @Serializable
+    data class UserWordBackup(
+        val id: Int,
+        val word: String,
+        val pronunciation: String = "",
+        val meaning: String,
+        @SerialName("meaning_type") val meaningType: String = "ko",
+        @SerialName("part_of_speech") val partOfSpeech: String = "",
+        @SerialName("example_en") val exampleEn: String = "",
+        @SerialName("example_ko") val exampleKo: String = "",
+        val stage: Int = 1,
+        val domain: String = "GENERAL",
+        @SerialName("frequency_rank") val frequencyRank: Int = 0,
+        val difficulty: Int = 3
+    )
+
     /** 복원 결과 요약 (걸러진 행 수 포함). */
     data class RestoreResult(
         val progressCount: Int,
         val bookmarkCount: Int,
         val wrongAnswerCount: Int,
         val knownItemCount: Int,
-        val skippedCount: Int
+        val skippedCount: Int,
+        val userWordCount: Int = 0
     )
 
     suspend fun exportToJson(): String {
@@ -142,6 +163,13 @@ class BackupManager @Inject constructor(
             },
             userWordMeanings = backupDao.getAllUserWordMeanings().map {
                 UserWordMeaningBackup(it.wordId, it.meaning, it.isPrimary, it.createdAt)
+            },
+            userWords = backupDao.getAllUserWords().map {
+                UserWordBackup(
+                    it.id, it.word, it.pronunciation, it.meaning, it.meaningType,
+                    it.partOfSpeech, it.exampleEn, it.exampleKo, it.stage, it.domain,
+                    it.frequencyRank, it.difficulty
+                )
             }
         )
         return json.encodeToString(BackupFile.serializer(), backup)
@@ -159,7 +187,13 @@ class BackupManager @Inject constructor(
             "지원하지 않는 백업 파일 버전입니다 (v${backup.version})"
         }
 
-        val validWordIds = backupDao.getAllWordIds().toHashSet()
+        // 방어: id 예약 구간 밖의 사용자 단어는 콘텐츠 id를 덮어쓸 수 있으므로 거른다
+        val userWords = backup.userWords.filter { it.id >= USER_WORD_ID_START }
+        // 현재 기기의 사용자 단어는 백업 내용으로 교체되므로,
+        // FK 검증은 콘텐츠 단어(id < 예약 구간) + 백업의 사용자 단어 id로 판단한다
+        val validWordIds = backupDao.getAllWordIds()
+            .filterTo(HashSet()) { it < USER_WORD_ID_START }
+            .apply { addAll(userWords.map { it.id }) }
         val progress = backup.learningProgress.filter { it.wordId in validWordIds }
         val bookmarks = backup.bookmarks.filter { it.wordId in validWordIds }
         val wrongAnswers = backup.wrongAnswers.filter { it.wordId in validWordIds }
@@ -194,6 +228,15 @@ class BackupManager @Inject constructor(
                     wordId = it.wordId, meaning = it.meaning,
                     isPrimary = it.isPrimary, createdAt = it.createdAt
                 )
+            },
+            userWords = userWords.map {
+                WordEntity(
+                    id = it.id, word = it.word, pronunciation = it.pronunciation,
+                    meaning = it.meaning, meaningType = it.meaningType,
+                    partOfSpeech = it.partOfSpeech, exampleEn = it.exampleEn,
+                    exampleKo = it.exampleKo, stage = it.stage, domain = it.domain,
+                    frequencyRank = it.frequencyRank, difficulty = it.difficulty
+                )
             }
         )
 
@@ -214,7 +257,8 @@ class BackupManager @Inject constructor(
             bookmarkCount = bookmarks.size,
             wrongAnswerCount = wrongAnswers.size,
             knownItemCount = backup.knownItems.size,
-            skippedCount = skipped
+            skippedCount = skipped,
+            userWordCount = userWords.size
         )
     }
 

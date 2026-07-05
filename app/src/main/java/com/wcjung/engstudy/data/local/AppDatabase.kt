@@ -13,6 +13,7 @@ import com.wcjung.engstudy.data.local.dao.LearningProgressDao
 import com.wcjung.engstudy.data.local.dao.WordDao
 import com.wcjung.engstudy.data.local.dao.IdiomDao
 import com.wcjung.engstudy.data.local.dao.WrongAnswerDao
+import com.wcjung.engstudy.data.local.dao.UserWordDao
 import com.wcjung.engstudy.data.local.dao.UserWordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordExampleDao
@@ -61,6 +62,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun wordMeaningDao(): WordMeaningDao
     abstract fun wordExampleDao(): WordExampleDao
     abstract fun userWordMeaningDao(): UserWordMeaningDao
+    abstract fun userWordDao(): UserWordDao
     abstract fun backupDao(): BackupDao
     abstract fun eduBookmarkDao(): EduBookmarkDao
     abstract fun eduExcludedWordDao(): EduExcludedWordDao

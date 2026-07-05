@@ -20,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -38,6 +39,7 @@ import com.wcjung.engstudy.ui.components.WordCard
 @Composable
 fun SearchScreen(
     onNavigateToWordDetail: (Int) -> Unit,
+    onNavigateToAddWord: (String) -> Unit,
     onNavigateBack: () -> Unit,
     viewModel: SearchViewModel = hiltViewModel()
 ) {
@@ -109,6 +111,9 @@ fun SearchScreen(
                             style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
+                        TextButton(onClick = { onNavigateToAddWord(query.trim()) }) {
+                            Text("'${query.trim()}' 단어장에 직접 추가")
+                        }
                     }
                 } else {
                     LazyColumn(

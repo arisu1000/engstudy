@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Checklist
 import androidx.compose.material.icons.filled.Close
@@ -59,6 +60,7 @@ import kotlinx.coroutines.flow.filter
 @Composable
 fun WordListScreen(
     onNavigateToWordDetail: (Int) -> Unit,
+    onNavigateToAddWord: () -> Unit,
     onNavigateBack: () -> Unit,
     viewModel: WordListViewModel = hiltViewModel()
 ) {
@@ -133,6 +135,9 @@ fun WordListScreen(
                             Icon(Icons.Default.DoneAll, contentDescription = "전체 선택")
                         }
                     } else {
+                        IconButton(onClick = onNavigateToAddWord) {
+                            Icon(Icons.Default.Add, contentDescription = "단어 추가")
+                        }
                         // 제외 단어 표시 토글
                         IconButton(onClick = { viewModel.toggleShowExcluded() }) {
                             Icon(

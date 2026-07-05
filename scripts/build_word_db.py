@@ -464,6 +464,12 @@ def build_database(target_count=20000):
         stage_counts[entry['stage']] = stage_counts.get(entry['stage'], 0) + 1
         word_id += 1
 
+    # id >= 1,000,000은 사용자 추가 단어 예약 구간 (UserWordDao.USER_WORD_ID_START).
+    # 콘텐츠 id가 이 구간을 침범하면 콘텐츠 갱신 마이그레이션이 사용자 단어를 덮어쓴다.
+    assert word_id < 1_000_000, (
+        f"words id({word_id})가 사용자 단어 예약 구간(1,000,000)에 도달했습니다"
+    )
+
     # 교육부 3000 삽입
     edu_count = insert_edu_words(cursor)
     conn.commit()

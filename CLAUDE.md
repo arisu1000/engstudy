@@ -59,7 +59,7 @@ com.wcjung.engstudy/
 └── di/                 # Hilt 모듈 (App, Database, Repository)
 ```
 
-### 화면 목록 (27개)
+### 화면 목록 (28개)
 
 | 화면 | 설명 |
 |------|------|
@@ -90,6 +90,7 @@ com.wcjung.engstudy/
 | dailychallenge | 일일 챌린지 |
 | placementtest | 배치 테스트 |
 | excludedwords | 제외된 단어 관리 (탭: 기본 단어 / 교육부 단어, 복원 가능) |
+| addword | 사용자 단어 추가 (단어 목록 "+" / 검색 결과 없음에서 진입, 사전 링크 제공) |
 
 ## DB 전략
 
@@ -116,6 +117,12 @@ com.wcjung.engstudy/
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
 - `meaning` TEXT: 단어 의미 — 교육부 겹침 2,772개는 교차 검증 병합(교육부 뜻 유지 1,965 / LLM 뜻 교체 807), 나머지 9,240개는 로컬 LLM(gemma4) 재생성 뜻, 기능어 56개는 수동 큐레이션
 - `meaning_type` TEXT: 의미 언어 구분 (`'ko'` 또는 `'en'`)
+- **사용자 추가 단어**: id >= 1,000,000 예약 구간(`UserWordDao.USER_WORD_ID_START`)은 사용자가
+  직접 추가한 단어(사용자 데이터). 별도 테이블 없이 같은 테이블을 쓰므로 목록·검색·퀴즈·복습·
+  북마크·오답이 자동 통합됨. `frequency_rank = 0`(목록·학습 최우선 노출), `domain = 'GENERAL'`.
+  콘텐츠 갱신(`RefreshWordContentMigration`)은 asset id(< 1M) 기준 UPDATE라 유실되지 않음.
+  일일 챌린지 쿼리는 기기 간 동일 세트 보장을 위해 이 구간을 제외. 백업/복원 대상 포함.
+  build_word_db.py는 콘텐츠 id가 이 구간에 도달하면 assert로 실패한다
 
 **`edu_words` 테이블** — 3,000개 (교육부 공공데이터)
 - 초중고 교육과정 필수 영단어
@@ -230,8 +237,10 @@ com.wcjung.engstudy/
 
 ### 학습 데이터 백업/복원
 - 설정 → "학습 데이터" — SAF로 JSON 파일 내보내기/가져오기 (`BackupManager`, `BackupDao`)
-- 대상: learning_progress, bookmarks, wrong_answers, known_items + DataStore 설정
+- 대상: learning_progress, bookmarks, wrong_answers, known_items, user_word_meanings,
+  사용자 추가 단어(words의 id >= 1M 구간) + DataStore 설정
 - 콘텐츠 테이블은 백업하지 않음 (앱 내장). 복원 시 현재 DB에 없는 word_id 행은 FK 보호를 위해 건너뜀
+  (사용자 단어를 참조하는 행은 백업 파일 안의 사용자 단어 id 기준으로 검증)
 - 백업 포맷 버전(`BackupManager.FORMAT_VERSION`) — 필드 추가 시 하위 호환 유지 (`ignoreUnknownKeys`)
 
 ### 단어 완전 제외 & 복원
@@ -239,6 +248,15 @@ com.wcjung.engstudy/
 - 기본 단어: `learning_progress.is_excluded = true`로 마킹 → 학습/퀴즈/복습 전 영역에서 제외
 - 교육부 단어: `edu_excluded_words` 테이블에 별도 기록 → `EduWordList`/`EduFlashCard`/`EduQuiz`/`EduSpellingQuiz` 전 영역에서 제외
 - `ExcludedWordsScreen`(프로필 → 제외된 단어)에서 탭(기본 단어 / 교육부 단어)으로 구분해 확인 및 개별 복원
+
+### 사용자 단어 추가
+- `AddWordScreen`(단어 목록 상단 "+" / 검색 결과 없음 → "직접 추가") — 단어·뜻 필수,
+  발음·예문 선택, 학습 단계 선택. 입력 중 네이버/Cambridge 사전 링크로 뜻 확인 가능
+- 저장은 `UserWordDao`(리포지토리 없이 직접 주입 — known_items 컨벤션)가 words 테이블의
+  id 예약 구간(>= 1,000,000)에 트랜잭션으로 id를 발급해 삽입. 중복(대소문자 무시)은 거부하고
+  기존 단어 상세로 안내
+- 단어 상세에서 사용자 단어(id로 판별)는 "내가 추가한 단어" 표시 + 삭제 가능
+  (learning_progress·bookmarks·wrong_answers·user_word_meanings는 FK CASCADE로 함께 삭제)
 
 ### 교육부 단어 부가 기능 (기본 단어장과 기능 동등)
 - **북마크**: `edu_bookmarks` 테이블(독립), `EduWordCard`(`ui/components/EduWordCard.kt`)의 북마크 아이콘으로 토글. 프로필 → 즐겨찾기 → "교육부" 탭에서 확인

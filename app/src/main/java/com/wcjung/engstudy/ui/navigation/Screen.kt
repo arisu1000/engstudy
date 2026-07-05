@@ -9,6 +9,8 @@ sealed interface Screen {
     @Serializable data object Profile : Screen
     @Serializable data class WordList(val domain: String? = null, val stage: Int? = null) : Screen
     @Serializable data class WordDetail(val wordId: Int) : Screen
+    // 사용자 단어 추가 (검색 결과 없음에서 진입 시 검색어를 미리 채운다)
+    @Serializable data class AddWord(val prefillWord: String? = null) : Screen
     @Serializable data class FlashCard(val domain: String? = null, val stage: Int? = null) : Screen
     @Serializable data class Quiz(
         val domain: String? = null,

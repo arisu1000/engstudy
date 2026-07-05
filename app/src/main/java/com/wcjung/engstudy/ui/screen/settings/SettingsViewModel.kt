@@ -115,9 +115,10 @@ class SettingsViewModel @Inject constructor(
                     notificationHelper.cancelReminder()
                 }
                 val skipped = if (result.skippedCount > 0) " (${result.skippedCount}건 건너뜀)" else ""
+                val userWords = if (result.userWordCount > 0) ", 내 단어 ${result.userWordCount}건" else ""
                 _backupMessage.value =
                     "복원 완료: 학습 진도 ${result.progressCount}건, 북마크 ${result.bookmarkCount}건, " +
-                        "오답 ${result.wrongAnswerCount}건$skipped"
+                        "오답 ${result.wrongAnswerCount}건$userWords$skipped"
             }.onFailure {
                 _backupMessage.value = "복원 실패: 올바른 백업 파일인지 확인해 주세요"
             }

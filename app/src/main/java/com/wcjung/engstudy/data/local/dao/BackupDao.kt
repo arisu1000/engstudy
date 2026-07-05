@@ -8,11 +8,13 @@ import com.wcjung.engstudy.data.local.entity.BookmarkEntity
 import com.wcjung.engstudy.data.local.entity.KnownItemEntity
 import com.wcjung.engstudy.data.local.entity.LearningProgressEntity
 import com.wcjung.engstudy.data.local.entity.UserWordMeaningEntity
+import com.wcjung.engstudy.data.local.entity.WordEntity
 import com.wcjung.engstudy.data.local.entity.WrongAnswerEntity
 
 /**
- * 백업/복원 전용 DAO — 사용자 데이터 4개 테이블의 전체 덤프와 원자적 교체.
- * 콘텐츠 테이블(words 등)은 앱에 내장되므로 백업 대상이 아니다.
+ * 백업/복원 전용 DAO — 사용자 데이터 테이블의 전체 덤프와 원자적 교체.
+ * 콘텐츠 테이블(words 등)은 앱에 내장되므로 백업 대상이 아니지만,
+ * words의 사용자 추가 구간(id >= USER_WORD_ID_START)은 사용자 데이터이므로 포함한다.
  */
 @Dao
 interface BackupDao {
@@ -31,6 +33,9 @@ interface BackupDao {
 
     @Query("SELECT * FROM user_word_meanings")
     suspend fun getAllUserWordMeanings(): List<UserWordMeaningEntity>
+
+    @Query("SELECT * FROM words WHERE id >= $USER_WORD_ID_START")
+    suspend fun getAllUserWords(): List<WordEntity>
 
     /** FK 검증용 — 백업 파일의 word_id가 현재 DB에 없는 행은 복원에서 걸러낸다. */
     @Query("SELECT id FROM words")
@@ -51,6 +56,9 @@ interface BackupDao {
     @Query("DELETE FROM user_word_meanings")
     suspend fun clearUserWordMeanings()
 
+    @Query("DELETE FROM words WHERE id >= $USER_WORD_ID_START")
+    suspend fun clearUserWords()
+
     @Insert
     suspend fun insertLearningProgress(rows: List<LearningProgressEntity>)
 
@@ -66,6 +74,9 @@ interface BackupDao {
     @Insert
     suspend fun insertUserWordMeanings(rows: List<UserWordMeaningEntity>)
 
+    @Insert
+    suspend fun insertUserWords(rows: List<WordEntity>)
+
     /** 복원: 기존 사용자 데이터를 백업 내용으로 원자적으로 교체한다. */
     @Transaction
     suspend fun replaceAll(
@@ -73,13 +84,17 @@ interface BackupDao {
         bookmarks: List<BookmarkEntity>,
         wrongAnswers: List<WrongAnswerEntity>,
         knownItems: List<KnownItemEntity>,
-        userWordMeanings: List<UserWordMeaningEntity> = emptyList()
+        userWordMeanings: List<UserWordMeaningEntity> = emptyList(),
+        userWords: List<WordEntity> = emptyList()
     ) {
         clearLearningProgress()
         clearBookmarks()
         clearWrongAnswers()
         clearKnownItems()
         clearUserWordMeanings()
+        // 사용자 단어는 다른 사용자 데이터가 words.id를 FK로 참조하므로 먼저 교체한다
+        clearUserWords()
+        insertUserWords(userWords)
         insertLearningProgress(learningProgress)
         insertBookmarks(bookmarks)
         insertWrongAnswers(wrongAnswers)

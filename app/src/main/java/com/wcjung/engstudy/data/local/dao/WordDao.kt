@@ -168,10 +168,12 @@ interface WordDao {
      * 제외 단어(is_excluded)는 기기마다 다르므로, 여기서 필터링하면 같은 날에도
      * 기기별로 다른 단어가 나와 "가족이 같은 단어로 경쟁"이라는 핵심 설계가 깨진다.
      * 따라서 일일 챌린지는 의도적으로 제외 목록을 무시하고 모든 기기에서 동일한 세트를 보장한다.
+     * 사용자 추가 단어(id >= USER_WORD_ID_START)도 기기마다 다르므로 같은 이유로 제외한다.
      */
     @Query(
         """
         SELECT * FROM words
+        WHERE id < $USER_WORD_ID_START
         ORDER BY (id * :seed) % 99991
         LIMIT :count
         """

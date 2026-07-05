@@ -18,6 +18,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material3.AlertDialog
@@ -36,6 +37,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -59,8 +61,32 @@ fun WordDetailScreen(
     val meanings by viewModel.meanings.collectAsState()
     val examples by viewModel.examples.collectAsState()
     val userMeanings by viewModel.userMeanings.collectAsState()
+    val isDeleted by viewModel.isDeleted.collectAsState()
     val hasPrimaryOverride = userMeanings.any { it.isPrimary }
     val customMeanings = userMeanings.filter { !it.isPrimary }
+
+    LaunchedEffect(isDeleted) {
+        if (isDeleted) onNavigateBack()
+    }
+
+    // 사용자 추가 단어 삭제 확인 다이얼로그
+    var showDeleteDialog by remember { mutableStateOf(false) }
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text("단어 삭제") },
+            text = { Text("내가 추가한 단어를 삭제합니다. 이 단어의 학습 기록·북마크·오답 기록도 함께 삭제됩니다.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showDeleteDialog = false
+                    viewModel.deleteUserWord()
+                }) { Text("삭제", color = MaterialTheme.colorScheme.error) }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteDialog = false }) { Text("취소") }
+            }
+        )
+    }
 
     // 대표 뜻 수정 다이얼로그
     var showEditPrimaryDialog by remember { mutableStateOf(false) }
@@ -104,6 +130,11 @@ fun WordDetailScreen(
                     }
                 },
                 actions = {
+                    if (viewModel.isUserWord) {
+                        IconButton(onClick = { showDeleteDialog = true }) {
+                            Icon(Icons.Default.Delete, contentDescription = "단어 삭제")
+                        }
+                    }
                     IconButton(onClick = { viewModel.toggleBookmark() }) {
                         Icon(
                             if (isBookmarked) Icons.Default.Bookmark else Icons.Outlined.BookmarkBorder,
@@ -131,6 +162,13 @@ fun WordDetailScreen(
                     )
                 ) {
                     Column(modifier = Modifier.padding(20.dp)) {
+                        if (viewModel.isUserWord) {
+                            Text(
+                                text = "내가 추가한 단어",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.tertiary
+                            )
+                        }
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(12.dp)

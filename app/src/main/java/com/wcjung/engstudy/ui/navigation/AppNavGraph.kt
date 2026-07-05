@@ -26,6 +26,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.wcjung.engstudy.ui.screen.addword.AddWordScreen
 import com.wcjung.engstudy.ui.screen.bookmarks.BookmarksScreen
 import com.wcjung.engstudy.ui.screen.excluded.ExcludedWordsScreen
 import com.wcjung.engstudy.ui.screen.challenge.DailyChallengeScreen
@@ -185,12 +186,28 @@ fun EngStudyNavHost(startWordId: Int? = null) {
                     onNavigateToWordDetail = { wordId ->
                         navController.navigate(Screen.WordDetail(wordId))
                     },
+                    onNavigateToAddWord = { navController.navigate(Screen.AddWord()) },
                     onNavigateBack = { navController.popBackStack() }
                 )
             }
             composable<Screen.WordDetail> {
                 WordDetailScreen(
                     onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.AddWord> {
+                AddWordScreen(
+                    onNavigateBack = { navController.popBackStack() },
+                    // 저장 완료: 추가 화면을 스택에서 제거하고 새 단어 상세를 보여준다
+                    onSaved = { wordId ->
+                        navController.navigate(Screen.WordDetail(wordId)) {
+                            popUpTo<Screen.AddWord> { inclusive = true }
+                        }
+                    },
+                    // 중복 단어: 기존 단어 상세로 이동 (추가 화면은 뒤로가기로 복귀 가능)
+                    onNavigateToWordDetail = { wordId ->
+                        navController.navigate(Screen.WordDetail(wordId))
+                    }
                 )
             }
             composable<Screen.FlashCard> {
@@ -220,6 +237,9 @@ fun EngStudyNavHost(startWordId: Int? = null) {
                 SearchScreen(
                     onNavigateToWordDetail = { wordId ->
                         navController.navigate(Screen.WordDetail(wordId))
+                    },
+                    onNavigateToAddWord = { prefill ->
+                        navController.navigate(Screen.AddWord(prefillWord = prefill))
                     },
                     onNavigateBack = { navController.popBackStack() }
                 )
