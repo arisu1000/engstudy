@@ -30,7 +30,7 @@ UNMATCHED_PATH = os.path.join(SCRIPT_DIR, "unmatched_words.json")
 # Room 호환 설정 - AppDatabase.version과 일치시켜야 함
 # AppDatabase.kt의 version을 변경하면 여기도 함께 변경할 것
 # =====================================================================
-ROOM_DB_VERSION = 11  # AppDatabase.kt version과 일치 (v11: user_word_meanings 추가)
+ROOM_DB_VERSION = 12  # AppDatabase.kt version과 일치 (v12: edu_bookmarks/edu_excluded_words 추가, 자산 DB 콘텐츠 변경 없음)
 # Room이 생성하는 identity hash (app/build/.../AppDatabase_Impl.java에서 확인 가능)
 # 스키마가 바뀌면 빌드 후 이 값을 업데이트해야 함
 ROOM_IDENTITY_HASH = "cedd4dc572c641d614ffd530918fb440"

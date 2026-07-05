@@ -27,7 +27,12 @@ sealed interface Screen {
     @Serializable data class EduWordList(val level: String? = null) : Screen
     @Serializable data object WrongAnswers : Screen
     @Serializable data class EduFlashCard(val level: String? = null) : Screen
-    @Serializable data class EduQuiz(val level: String? = null) : Screen
+    @Serializable data class EduQuiz(
+        val level: String? = null,
+        // 듣기 모드: 발음을 듣고 알맞은 단어를 고른다 (뜻은 정답 후 공개)
+        val listening: Boolean = false
+    ) : Screen
+    @Serializable data class EduSpellingQuiz(val level: String? = null) : Screen
     @Serializable data object PlacementTest : Screen
     @Serializable data object DailyChallenge : Screen
     @Serializable data object IdiomHome : Screen

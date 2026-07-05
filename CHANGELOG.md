@@ -3,9 +3,31 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] - 2026-07-04
+## [Unreleased] - 2026-07-05
+
+### Changed
+- **홈 화면 컴팩트 정리**: 풀폭 카드 14~15장 나열로 번잡했던 홈을 재구성
+  - 유색 카드를 "오늘의 단어" 히어로 1장으로 축소 (기존 7장+) — 시각적 위계 확립
+  - 학습 목표 + 누적 통계(학습 완료/복습 예정) + 챌린지 진입을 요약 카드 1장으로 통합
+    (`TodaySummaryCard`, 기존 `DailyProgressCard`·`StatCard` 2장 대체)
+  - 교육부/숙어·구동사/문법 예문 바로가기 카드 3장 → 3열 타일 그리드(`ContentTile`)로 압축
+  - 단계별 단어 카드 6장 → 구분선 리스트 카드 1장(`StageProgressRow`),
+    테마에 정의만 되어 있던 Stage 전용 색상(초록~골드)을 진행 바·단계 점에 적용.
+    단어가 0개인 단계는 표시하지 않음 (탭해도 빈 목록만 나오던 행 제거)
+  - 레벨 테스트 배너를 가로형으로 컴팩트화. 화면 진입점·표시 정보는 모두 유지
 
 ### Added
+- **교육부 단어 기능 확장** (DB v12, `edu_bookmarks`/`edu_excluded_words` 테이블):
+  기본 단어장과 동등한 부가 기능을 교육부 필수 영단어에도 추가
+  - 북마크 — 프로필 → 즐겨찾기 "교육부" 탭에서 확인 (기본 단어장과 독립된 테이블)
+  - 검색 — 검색 화면에 "단어"/"교육부" 탭 추가 (`EduWordRepository.searchWords` 연결)
+  - 완전 제외 & 복원 — 교육부 단어 목록에서 다중 선택 제외, 프로필 → 제외된 단어
+    "교육부 단어" 탭에서 복원. 제외된 단어는 플래시카드·퀴즈·스펠링 출제 풀에서도 제외
+  - 스펠링 퀴즈 (`EduSpellingQuizScreen`) — 뜻을 보고 영어 철자 입력
+  - 듣기 퀴즈 — 교육부 퀴즈에 `listening = true` 모드 추가, TTS 발음만으로 정답을 고름
+  - 신규 퀴즈 응답도 `RecordQuizAnswerUseCase`로 기록되어 겹치는 단어는 SM-2 복습에 반영
+    (quizType: `edu_spelling`, `edu_listening_quiz`)
+  - DAO 회귀 테스트 `EduBookmarkDaoTest`, `EduExcludedWordDaoTest` (총 5건)
 - **단어 의미 추가/변경** (DB v11, `user_word_meanings` 테이블): 단어 상세에서
   - 대표 뜻 수정(연필 아이콘) — 목록·검색·퀴즈·복습 전역에 반영, "기본값으로 되돌리기" 지원
   - "내 의미 추가" — 나만의 의미를 의미 목록에 추가/삭제

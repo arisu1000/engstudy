@@ -1,7 +1,7 @@
 package com.wcjung.engstudy.data.repository
 
 import com.wcjung.engstudy.data.local.dao.EduWordDao
-import com.wcjung.engstudy.domain.model.EduLevel
+import com.wcjung.engstudy.data.local.entity.toDomain
 import com.wcjung.engstudy.domain.model.EduWord
 import com.wcjung.engstudy.domain.repository.EduWordRepository
 import kotlinx.coroutines.flow.Flow
@@ -33,14 +33,4 @@ class EduWordRepositoryImpl @Inject constructor(
 
     override suspend fun getRandomWordsInLevel(level: String, excludeId: Int, count: Int): List<EduWord> =
         eduWordDao.getRandomWordsInLevel(level, excludeId, count).map { it.toDomain() }
-
-    private fun com.wcjung.engstudy.data.local.entity.EduWordEntity.toDomain(): EduWord = EduWord(
-        id = id,
-        word = word,
-        meaning = meaning,
-        level = EduLevel.fromKey(level),
-        partOfSpeech = partOfSpeech,
-        variant1 = variant1,
-        variant2 = variant2
-    )
 }

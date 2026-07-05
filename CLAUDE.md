@@ -28,7 +28,7 @@
 | 언어 | Kotlin 2.1 |
 | UI | Jetpack Compose + Material 3 |
 | 아키텍처 | MVVM + Clean Architecture |
-| DB | Room (pre-populated from assets), version 11 |
+| DB | Room (pre-populated from assets), version 12 |
 | DI | Hilt |
 | Navigation | Compose Navigation (type-safe routes) |
 | 비동기 | Coroutines + Flow |
@@ -53,13 +53,13 @@ com.wcjung.engstudy/
 ├── ui/
 │   ├── navigation/     # NavGraph, Screen routes
 │   ├── theme/          # Material 3 테마 (커스텀 브랜드 컬러, Dynamic Color 미사용)
-│   ├── components/     # 공유 컴포넌트 (WordCard, DomainChip, ComboEffect, LevelUpEffect)
+│   ├── components/     # 공유 컴포넌트 (WordCard, EduWordCard, DomainChip, ComboEffect, LevelUpEffect)
 │   └── screen/         # 26개 화면 (아래 목록 참조)
 ├── util/               # TtsManager, NotificationHelper, Receivers
 └── di/                 # Hilt 모듈 (App, Database, Repository)
 ```
 
-### 화면 목록 (25개)
+### 화면 목록 (27개)
 
 | 화면 | 설명 |
 |------|------|
@@ -71,15 +71,16 @@ com.wcjung.engstudy/
 | review | SM-2 복습 |
 | wordlist | 단어 목록 |
 | worddetail | 단어 상세 |
-| bookmarks | 북마크 |
-| search | 검색 |
+| bookmarks | 북마크 (탭: 단어 / 교육부) |
+| search | 검색 (탭: 단어 / 교육부) |
 | statistics | 학습 통계 + 리포트 공유 |
 | settings | 설정 |
 | profile | 프로필 |
-| eduhome | 교육부 단어 홈 |
-| eduwordlist | 교육부 단어 목록 |
+| eduhome | 교육부 단어 홈 (레벨별 플래시카드/퀴즈/스펠링/듣기 진입) |
+| eduwordlist | 교육부 단어 목록 (북마크, 다중 선택 완전 제외 지원) |
 | eduflashcard | 교육부 플래시카드 |
-| eduquiz | 교육부 퀴즈 |
+| eduquiz | 교육부 퀴즈 (`listening = true`면 듣기 퀴즈) |
+| eduspellingquiz | 교육부 스펠링 퀴즈 |
 | wronganswers | 오답 노트 |
 | idiomhome | 숙어/구동사 홈 |
 | idiomlist | 숙어/구동사 목록 |
@@ -88,14 +89,14 @@ com.wcjung.engstudy/
 | grammarlist | 문법 예문 목록 |
 | dailychallenge | 일일 챌린지 |
 | placementtest | 배치 테스트 |
-| excludedwords | 제외된 단어 관리 (복원 가능) |
+| excludedwords | 제외된 단어 관리 (탭: 기본 단어 / 교육부 단어, 복원 가능) |
 
 ## DB 전략
 
 - `assets/databases/engstudy.db`에 사전 생성된 SQLite DB 탑재
 - `Room.databaseBuilder().createFromAsset()` 사용
-- DB version 11 / 명시적 마이그레이션(4→11)으로 업그레이드 처리 (사용자 데이터 보존)
-- Room identity hash: 스키마 JSON `app/schemas/11.json` 참조 (asset DB의 room_master_table과 build_word_db.py의 ROOM_IDENTITY_HASH도 함께 갱신할 것)
+- DB version 12 / 명시적 마이그레이션(4→12)으로 업그레이드 처리 (사용자 데이터 보존)
+- Room identity hash: 스키마 JSON `app/schemas/12.json` 참조 (asset DB의 room_master_table과 build_word_db.py의 ROOM_IDENTITY_HASH도 함께 갱신할 것)
 - DB 생성 스크립트: `scripts/build_word_db.py` — kengdic + wordfreq + 교육부 xls
   (과거 일회성 스크립트는 `scripts/archive/` 참조)
 - 다중 의미/예문 생성: `scripts/build_meanings.py`, `scripts/build_examples.py`, `scripts/build_examples_llm.py`
@@ -109,7 +110,7 @@ com.wcjung.engstudy/
     동의어 불일치로 잘못 교체되는 단어는 `EDU_MERGE_KEEP`에 수동 등록.
     파이프라인 순서: build_word_db → build_meanings → apply_edu_meanings → build_meanings_llm
 
-### 스키마 요약 (11개 테이블, DB v11)
+### 스키마 요약 (13개 테이블, DB v12)
 
 **`words` 테이블** — 12,068개 (kengdic MPL 2.0 + Free Dictionary API)
 - `stage` INT (1-6): 빈도 기반 학습 단계 (1=최고빈도 ~ 6=저빈도)
@@ -167,6 +168,16 @@ com.wcjung.engstudy/
 - 생성 Phase 2: `scripts/build_examples_ollama.py` (로컬 Ollama gemma4, 미커버 단어만.
   `--apply` 재적용 / `--gate` 샘플 검사 / `--selftest` 지원. Claude Batch API 버전은 build_examples_llm.py)
 
+**`edu_bookmarks` 테이블** (v12 추가) — 사용자 데이터
+- 교육부 단어 전용 북마크. `edu_word_id` FK → edu_words.id (unique)
+- 기본 단어장의 `bookmarks` 테이블과 완전히 독립 (겹치는 단어라도 서로 영향 없음)
+- DAO 직접 주입 방식 사용(리포지토리 계층 없음) — `known_items`와 동일한 컨벤션
+
+**`edu_excluded_words` 테이블** (v12 추가) — 사용자 데이터
+- 교육부 단어 전용 완전 제외. `edu_word_id` FK → edu_words.id (unique)
+- 기본 단어장의 `learning_progress.is_excluded`와 독립적으로 동작
+- 제외된 단어는 `EduWordList`뿐 아니라 `EduFlashCard`/`EduQuiz`/`EduSpellingQuiz`의 출제 풀에서도 제외됨 (각 ViewModel이 로드 시점에 필터링)
+
 ### 데이터 소스 라이선스
 
 | 소스 | 라이선스 | 용도 |
@@ -185,7 +196,8 @@ com.wcjung.engstudy/
 - 간소화 4단계: Again(1), Hard(3), Good(4), Easy(5)
 - interval >= 21일이면 "학습 완료"
 - 퀴즈 응답의 기록(진도+오답+스트릭)은 `RecordQuizAnswerUseCase`로 일원화 — 일반/듣기/스펠링/교육부 퀴즈 공용
-- 교육부 퀴즈도 SM-2 대상: words 테이블의 동일 단어(id 매핑, `getWordIdByText`)에 진도 기록.
+  (quizType: `quiz`/`listening_quiz`/`spelling`/`edu_quiz`/`edu_listening_quiz`/`edu_spelling`)
+- 교육부 퀴즈·스펠링도 SM-2 대상: words 테이블의 동일 단어(id 매핑, `getWordIdByText`)에 진도 기록.
   words에 없는 교육부 단어(~8%)는 복습 추적 제외
 
 ### 일일 챌린지: `GetDailyChallengeUseCase`
@@ -223,9 +235,16 @@ com.wcjung.engstudy/
 - 백업 포맷 버전(`BackupManager.FORMAT_VERSION`) — 필드 추가 시 하위 호환 유지 (`ignoreUnknownKeys`)
 
 ### 단어 완전 제외 & 복원
-- `WordListScreen`에서 다중 선택 후 "완전 제외" 가능
-- `learning_progress.is_excluded = true`로 마킹 → 학습/퀴즈/복습 전 영역에서 제외
-- `ExcludedWordsScreen`(프로필 → 제외된 단어)에서 제외 목록 확인 및 개별 복원
+- `WordListScreen`/`EduWordListScreen`에서 다중 선택 후 "완전 제외" 가능
+- 기본 단어: `learning_progress.is_excluded = true`로 마킹 → 학습/퀴즈/복습 전 영역에서 제외
+- 교육부 단어: `edu_excluded_words` 테이블에 별도 기록 → `EduWordList`/`EduFlashCard`/`EduQuiz`/`EduSpellingQuiz` 전 영역에서 제외
+- `ExcludedWordsScreen`(프로필 → 제외된 단어)에서 탭(기본 단어 / 교육부 단어)으로 구분해 확인 및 개별 복원
+
+### 교육부 단어 부가 기능 (기본 단어장과 기능 동등)
+- **북마크**: `edu_bookmarks` 테이블(독립), `EduWordCard`(`ui/components/EduWordCard.kt`)의 북마크 아이콘으로 토글. 프로필 → 즐겨찾기 → "교육부" 탭에서 확인
+- **검색**: `SearchScreen`에 "단어"/"교육부" 탭 추가, `EduWordRepository.searchWords()`(기존엔 미사용 dead code였음)를 연결
+- **스펠링 퀴즈**: `EduSpellingQuizScreen`/`ViewModel` — `SpellingQuizViewModel`과 동일 패턴(뜻 보고 철자 입력)
+- **듣기 퀴즈**: `EduQuizScreen`에서 `Screen.EduQuiz.listening = true`로 진입 시 뜻을 숨기고 TTS 발음만으로 정답(영단어)을 고르는 모드
 
 ### 브랜드 컬러 (Dynamic Color 미사용)
 - Light: Indigo blue + Deep orange + Teal
@@ -243,7 +262,7 @@ com.wcjung.engstudy/
 ## 주의사항
 
 - 오프라인 전용 앱 — 네트워크 통신 없음
-- Room DB version 11 — 업그레이드는 명시적 Migration(4→11)으로 처리하며 사용자 데이터를 보존한다. v12+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud). 스키마 변경 시 asset DB의 user_version·room_master_table 해시와 build_word_db.py 상수도 함께 갱신
+- Room DB version 12 — 업그레이드는 명시적 Migration(4→12)으로 처리하며 사용자 데이터를 보존한다. v13+ 추가 시 반드시 대응 Migration을 `DatabaseModule.addMigrations`에 등록할 것 (누락 시 fail-loud). 스키마 변경 시 asset DB의 user_version·room_master_table 해시와 build_word_db.py 상수도 함께 갱신 (단, v12처럼 순수 사용자 데이터 테이블만 추가하는 경우 asset DB 콘텐츠 자체는 재생성 불필요 — `RefreshWordContentMigration`과 무관)
 - 콘텐츠(단어 뜻 등)만 갱신하는 릴리즈: `RefreshWordContentMigration`(9→10) 패턴 참조 — asset DB를 임시 복사해 콘텐츠 테이블만 교체. words는 FK CASCADE(wrong_answers 등) 때문에 DELETE 금지, id 기준 UPDATE만 사용. asset DB의 user_version과 room_master_table identity hash를 새 버전에 맞게 스탬프해야 신규 설치가 크래시하지 않음
 - Tatoeba 예문 사용 시 저작자 표시(CC BY 2.0 FR) 필요 — 설정 → 라이선스 화면(`LicensesScreen`)에 표기됨. 데이터 소스 추가 시 이 화면의 `dataSources` 목록도 갱신할 것
 - `@Serializable` 사용을 위해 kotlin-serialization 플러그인 필요

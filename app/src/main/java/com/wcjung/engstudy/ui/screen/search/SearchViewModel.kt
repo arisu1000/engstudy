@@ -2,8 +2,11 @@ package com.wcjung.engstudy.ui.screen.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.wcjung.engstudy.data.local.dao.EduBookmarkDao
+import com.wcjung.engstudy.domain.model.EduWord
 import com.wcjung.engstudy.domain.model.Word
 import com.wcjung.engstudy.domain.repository.BookmarkRepository
+import com.wcjung.engstudy.domain.repository.EduWordRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.util.TtsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,6 +27,8 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val wordRepository: WordRepository,
     private val bookmarkRepository: BookmarkRepository,
+    private val eduWordRepository: EduWordRepository,
+    private val eduBookmarkDao: EduBookmarkDao,
     val ttsManager: TtsManager
 ) : ViewModel() {
 
@@ -37,8 +42,19 @@ class SearchViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
+    val eduSearchResults: StateFlow<List<EduWord>> = _query
+        .debounce(300)
+        .flatMapLatest { q ->
+            if (q.length >= 2) eduWordRepository.searchWords(q) else flowOf(emptyList())
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
     val bookmarkedIds: StateFlow<Set<Int>> = bookmarkRepository.getBookmarkedWords()
         .map { words -> words.map { it.id }.toSet() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
+
+    val eduBookmarkedIds: StateFlow<Set<Int>> = eduBookmarkDao.getBookmarkedIds()
+        .map { it.toSet() }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
 
     fun updateQuery(query: String) {
@@ -48,6 +64,12 @@ class SearchViewModel @Inject constructor(
     fun toggleBookmark(wordId: Int) {
         launchSafely {
             bookmarkRepository.toggleBookmark(wordId)
+        }
+    }
+
+    fun toggleEduBookmark(eduWordId: Int) {
+        launchSafely {
+            eduBookmarkDao.toggleBookmarkAtomic(eduWordId)
         }
     }
 }

@@ -11,13 +11,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.Celebration
 import androidx.compose.material.icons.filled.EditNote
+import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.material.icons.filled.RemoveCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -43,6 +48,7 @@ fun ProfileScreen(
         TopAppBar(title = { Text("프로필") })
 
         Column(modifier = Modifier.padding(16.dp)) {
+            AppIntroCard()
             ProfileMenuItem(
                 icon = Icons.Default.BarChart,
                 title = "학습 통계",
@@ -80,6 +86,71 @@ fun ProfileScreen(
                 onClick = onNavigateToSettings
             )
         }
+    }
+}
+
+@Composable
+fun AppIntroCard() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 12.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer
+        )
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "EngStudy, 제대로 만든 단어장",
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+            Text(
+                text = "21,000단어, 오프라인으로 제대로 끝내는 영어 단어장",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            AppIntroFeature(
+                icon = Icons.AutoMirrored.Filled.MenuBook,
+                text = "단어 12,068개 · 교육부 필수 3,000개 · 숙어 1,092개 · 예문 5,108개, 인터넷 없이 학습"
+            )
+            AppIntroFeature(
+                icon = Icons.Default.Psychology,
+                text = "실제 자주 쓰는 단어 순 Stage 1~6 + SM-2 간격반복으로 최적의 복습 타이밍 안내"
+            )
+            AppIntroFeature(
+                icon = Icons.Default.VerifiedUser,
+                text = "교육부 검수 데이터와 교차 검증하고 AI로 다듬은, 믿을 수 있는 뜻풀이"
+            )
+            AppIntroFeature(
+                icon = Icons.Default.Celebration,
+                text = "콤보·배지·스트릭과 일일 챌린지로 가족·친구와 즐겁게 경쟁"
+            )
+        }
+    }
+}
+
+@Composable
+private fun AppIntroFeature(icon: ImageVector, text: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        verticalAlignment = Alignment.Top
+    ) {
+        Icon(
+            icon,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onPrimaryContainer,
+            modifier = Modifier.padding(top = 2.dp)
+        )
+        Spacer(modifier = Modifier.width(12.dp))
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onPrimaryContainer
+        )
     }
 }
 

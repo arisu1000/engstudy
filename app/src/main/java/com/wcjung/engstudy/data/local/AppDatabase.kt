@@ -4,6 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.wcjung.engstudy.data.local.dao.BackupDao
 import com.wcjung.engstudy.data.local.dao.BookmarkDao
+import com.wcjung.engstudy.data.local.dao.EduBookmarkDao
+import com.wcjung.engstudy.data.local.dao.EduExcludedWordDao
 import com.wcjung.engstudy.data.local.dao.EduWordDao
 import com.wcjung.engstudy.data.local.dao.ExampleSentenceDao
 import com.wcjung.engstudy.data.local.dao.KnownItemDao
@@ -15,6 +17,8 @@ import com.wcjung.engstudy.data.local.dao.UserWordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordMeaningDao
 import com.wcjung.engstudy.data.local.dao.WordExampleDao
 import com.wcjung.engstudy.data.local.entity.BookmarkEntity
+import com.wcjung.engstudy.data.local.entity.EduBookmarkEntity
+import com.wcjung.engstudy.data.local.entity.EduExcludedWordEntity
 import com.wcjung.engstudy.data.local.entity.EduWordEntity
 import com.wcjung.engstudy.data.local.entity.ExampleSentenceEntity
 import com.wcjung.engstudy.data.local.entity.IdiomEntity
@@ -38,9 +42,11 @@ import com.wcjung.engstudy.data.local.entity.WordExampleEntity
         KnownItemEntity::class,
         WordMeaningEntity::class,
         WordExampleEntity::class,
-        UserWordMeaningEntity::class
+        UserWordMeaningEntity::class,
+        EduBookmarkEntity::class,
+        EduExcludedWordEntity::class
     ],
-    version = 11,
+    version = 12,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -56,4 +62,6 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun wordExampleDao(): WordExampleDao
     abstract fun userWordMeaningDao(): UserWordMeaningDao
     abstract fun backupDao(): BackupDao
+    abstract fun eduBookmarkDao(): EduBookmarkDao
+    abstract fun eduExcludedWordDao(): EduExcludedWordDao
 }

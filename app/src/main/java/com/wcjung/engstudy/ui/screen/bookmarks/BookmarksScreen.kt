@@ -2,6 +2,7 @@ package com.wcjung.engstudy.ui.screen.bookmarks
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,16 +17,22 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.wcjung.engstudy.ui.components.EduWordCard
 import com.wcjung.engstudy.ui.components.WordCard
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,7 +43,9 @@ fun BookmarksScreen(
     viewModel: BookmarksViewModel = hiltViewModel()
 ) {
     val words by viewModel.bookmarkedWords.collectAsState()
+    val eduWords by viewModel.eduBookmarkedWords.collectAsState()
     val context = LocalContext.current
+    var selectedTab by remember { mutableIntStateOf(0) }
 
     Scaffold(
         topBar = {
@@ -48,7 +57,7 @@ fun BookmarksScreen(
                     }
                 },
                 actions = {
-                    if (words.isNotEmpty()) {
+                    if (selectedTab == 0 && words.isNotEmpty()) {
                         IconButton(onClick = {
                             val text = viewModel.getShareText()
                             if (text.isNotBlank()) {
@@ -67,37 +76,85 @@ fun BookmarksScreen(
             )
         }
     ) { innerPadding ->
-        if (words.isEmpty()) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "즐겨찾기한 단어가 없습니다",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-        } else {
-            LazyColumn(
-                contentPadding = PaddingValues(
-                    start = 16.dp,
-                    end = 16.dp,
-                    top = innerPadding.calculateTopPadding() + 8.dp,
-                    bottom = 16.dp
-                ),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(words, key = { it.id }) { word ->
-                    WordCard(
-                        word = word,
-                        isBookmarked = true,
-                        onTap = { onNavigateToWordDetail(word.id) },
-                        onSpeak = { viewModel.ttsManager.speak(word.word) },
-                        onToggleBookmark = { viewModel.toggleBookmark(word.id) }
+        Box(modifier = Modifier.padding(innerPadding)) {
+            Column {
+                TabRow(selectedTabIndex = selectedTab) {
+                    Tab(
+                        selected = selectedTab == 0,
+                        onClick = { selectedTab = 0 },
+                        text = { Text("단어") }
                     )
+                    Tab(
+                        selected = selectedTab == 1,
+                        onClick = { selectedTab = 1 },
+                        text = { Text("교육부") }
+                    )
+                }
+
+                if (selectedTab == 0) {
+                    if (words.isEmpty()) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "즐겨찾기한 단어가 없습니다",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    } else {
+                        LazyColumn(
+                            contentPadding = PaddingValues(
+                                start = 16.dp,
+                                end = 16.dp,
+                                top = 8.dp,
+                                bottom = 16.dp
+                            ),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            items(words, key = { it.id }) { word ->
+                                WordCard(
+                                    word = word,
+                                    isBookmarked = true,
+                                    onTap = { onNavigateToWordDetail(word.id) },
+                                    onSpeak = { viewModel.ttsManager.speak(word.word) },
+                                    onToggleBookmark = { viewModel.toggleBookmark(word.id) }
+                                )
+                            }
+                        }
+                    }
+                } else {
+                    if (eduWords.isEmpty()) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "즐겨찾기한 교육부 단어가 없습니다",
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    } else {
+                        LazyColumn(
+                            contentPadding = PaddingValues(
+                                start = 16.dp,
+                                end = 16.dp,
+                                top = 8.dp,
+                                bottom = 16.dp
+                            ),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            items(eduWords, key = { it.id }) { word ->
+                                EduWordCard(
+                                    word = word,
+                                    isBookmarked = true,
+                                    onToggleBookmark = { viewModel.toggleEduBookmark(word.id) }
+                                )
+                            }
+                        }
+                    }
                 }
             }
         }

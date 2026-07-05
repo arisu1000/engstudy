@@ -3,6 +3,7 @@ package com.wcjung.engstudy.ui.screen.edu
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.toRoute
+import com.wcjung.engstudy.data.local.dao.EduExcludedWordDao
 import com.wcjung.engstudy.domain.model.EduWord
 import com.wcjung.engstudy.domain.repository.EduWordRepository
 import com.wcjung.engstudy.ui.navigation.Screen
@@ -17,7 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class EduFlashCardViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    private val eduWordRepository: EduWordRepository
+    private val eduWordRepository: EduWordRepository,
+    private val eduExcludedWordDao: EduExcludedWordDao
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.EduFlashCard>()
@@ -43,7 +45,8 @@ class EduFlashCardViewModel @Inject constructor(
             } else {
                 eduWordRepository.getAllWords().first()
             }
-            _words.value = wordList.shuffled().take(20)
+            val excludedIds = eduExcludedWordDao.getExcludedIds().first().toSet()
+            _words.value = wordList.filterNot { it.id in excludedIds }.shuffled().take(20)
         }
     }
 

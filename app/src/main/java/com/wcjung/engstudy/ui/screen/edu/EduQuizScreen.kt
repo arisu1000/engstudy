@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -24,6 +26,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -122,7 +125,15 @@ fun EduQuizScreen(
                 }
             } else {
                 viewModel.currentQuestion?.let { question ->
-                    // Korean meaning prompt
+                    // 듣기 모드: 문제가 바뀔 때마다 자동으로 발음 재생
+                    if (viewModel.isListening) {
+                        LaunchedEffect(currentIndex, questions) {
+                            viewModel.speakCurrentWord()
+                        }
+                    }
+                    // 듣기 모드는 정답 선택 전까지 뜻을 숨긴다
+                    val hideMeaning = viewModel.isListening && selectedAnswer == null
+
                     Card(
                         modifier = Modifier.fillMaxWidth(),
                         colors = CardDefaults.cardColors(
@@ -134,21 +145,40 @@ fun EduQuizScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = "다음 뜻에 해당하는 영어 단어는?",
+                                text = if (viewModel.isListening) {
+                                    "발음을 듣고 알맞은 단어를 고르세요"
+                                } else {
+                                    "다음 뜻에 해당하는 영어 단어는?"
+                                },
                                 style = MaterialTheme.typography.labelLarge
                             )
                             Spacer(modifier = Modifier.height(16.dp))
-                            Text(
-                                text = question.word.meaning,
-                                style = MaterialTheme.typography.headlineMedium,
-                                textAlign = TextAlign.Center
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Text(
-                                text = question.word.partOfSpeech,
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
-                            )
+                            if (viewModel.isListening) {
+                                IconButton(
+                                    onClick = { viewModel.speakCurrentWord() },
+                                    modifier = Modifier.size(64.dp)
+                                ) {
+                                    Icon(
+                                        Icons.AutoMirrored.Filled.VolumeUp,
+                                        contentDescription = "다시 듣기",
+                                        modifier = Modifier.size(48.dp),
+                                        tint = MaterialTheme.colorScheme.primary
+                                    )
+                                }
+                            }
+                            if (!hideMeaning) {
+                                Text(
+                                    text = question.word.meaning,
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    textAlign = TextAlign.Center
+                                )
+                                Spacer(modifier = Modifier.height(8.dp))
+                                Text(
+                                    text = question.word.partOfSpeech,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.7f)
+                                )
+                            }
                         }
                     }
 

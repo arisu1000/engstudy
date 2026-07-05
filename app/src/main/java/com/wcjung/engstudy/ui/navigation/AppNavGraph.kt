@@ -32,6 +32,7 @@ import com.wcjung.engstudy.ui.screen.challenge.DailyChallengeScreen
 import com.wcjung.engstudy.ui.screen.edu.EduFlashCardScreen
 import com.wcjung.engstudy.ui.screen.edu.EduHomeScreen
 import com.wcjung.engstudy.ui.screen.edu.EduQuizScreen
+import com.wcjung.engstudy.ui.screen.edu.EduSpellingQuizScreen
 import com.wcjung.engstudy.ui.screen.edu.EduWordListScreen
 import com.wcjung.engstudy.ui.screen.flashcard.FlashCardScreen
 import com.wcjung.engstudy.ui.screen.grammar.GrammarHomeScreen
@@ -269,6 +270,12 @@ fun EngStudyNavHost(startWordId: Int? = null) {
                     },
                     onNavigateToQuiz = { level ->
                         navController.navigate(Screen.EduQuiz(level))
+                    },
+                    onNavigateToSpellingQuiz = { level ->
+                        navController.navigate(Screen.EduSpellingQuiz(level))
+                    },
+                    onNavigateToListeningQuiz = { level ->
+                        navController.navigate(Screen.EduQuiz(level, listening = true))
                     }
                 )
             }
@@ -284,6 +291,11 @@ fun EngStudyNavHost(startWordId: Int? = null) {
             }
             composable<Screen.EduQuiz> {
                 EduQuizScreen(
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable<Screen.EduSpellingQuiz> {
+                EduSpellingQuizScreen(
                     onNavigateBack = { navController.popBackStack() }
                 )
             }

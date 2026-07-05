@@ -20,12 +20,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -40,11 +45,14 @@ fun ExcludedWordsScreen(
 ) {
     val excludedWords by viewModel.excludedWords.collectAsState()
     val count by viewModel.excludedCount.collectAsState()
+    val eduExcludedWords by viewModel.eduExcludedWords.collectAsState()
+    val eduCount by viewModel.eduExcludedCount.collectAsState()
+    var selectedTab by remember { mutableIntStateOf(0) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("제외된 단어 (${count}개)") },
+                title = { Text("제외된 단어") },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, "뒤로")
@@ -53,70 +61,122 @@ fun ExcludedWordsScreen(
             )
         }
     ) { padding ->
-        if (excludedWords.isEmpty()) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    "제외된 단어가 없습니다",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+        Column(modifier = Modifier.padding(padding)) {
+            TabRow(selectedTabIndex = selectedTab) {
+                Tab(
+                    selected = selectedTab == 0,
+                    onClick = { selectedTab = 0 },
+                    text = { Text("기본 단어 (${count}개)") }
+                )
+                Tab(
+                    selected = selectedTab == 1,
+                    onClick = { selectedTab = 1 },
+                    text = { Text("교육부 단어 (${eduCount}개)") }
                 )
             }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .padding(horizontal = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                item {
-                    Text(
-                        "아래 단어들은 모든 학습/복습에서 제외됩니다.\n복원하면 다시 학습 대상이 됩니다.",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(vertical = 8.dp)
-                    )
-                }
-                items(excludedWords, key = { it.id }) { word ->
-                    Card(modifier = Modifier.fillMaxWidth()) {
-                        Row(
-                            modifier = Modifier
-                                .padding(12.dp)
-                                .fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.SpaceBetween
-                        ) {
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text(
-                                    word.word,
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Bold
-                                )
-                                Spacer(modifier = Modifier.height(2.dp))
-                                Text(
-                                    word.meaning,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
-                                    maxLines = 1
-                                )
-                            }
-                            TextButton(onClick = { viewModel.restoreWord(word.id) }) {
-                                Icon(
-                                    Icons.Default.Restore,
-                                    contentDescription = null,
-                                    modifier = Modifier.padding(end = 4.dp)
-                                )
-                                Text("복원")
-                            }
+
+            if (selectedTab == 0) {
+                if (excludedWords.isEmpty()) {
+                    EmptyExcludedMessage()
+                } else {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = 16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        item { ExcludedHint() }
+                        items(excludedWords, key = { it.id }) { word ->
+                            ExcludedWordRow(
+                                title = word.word,
+                                subtitle = word.meaning,
+                                onRestore = { viewModel.restoreWord(word.id) }
+                            )
                         }
+                        item { Spacer(modifier = Modifier.height(16.dp)) }
                     }
                 }
-                item { Spacer(modifier = Modifier.height(16.dp)) }
+            } else {
+                if (eduExcludedWords.isEmpty()) {
+                    EmptyExcludedMessage()
+                } else {
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = 16.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        item { ExcludedHint() }
+                        items(eduExcludedWords, key = { it.id }) { word ->
+                            ExcludedWordRow(
+                                title = word.word,
+                                subtitle = word.meaning,
+                                onRestore = { viewModel.restoreEduWord(word.id) }
+                            )
+                        }
+                        item { Spacer(modifier = Modifier.height(16.dp)) }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun EmptyExcludedMessage() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            "제외된 단어가 없습니다",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    }
+}
+
+@Composable
+private fun ExcludedHint() {
+    Text(
+        "아래 단어들은 모든 학습/복습에서 제외됩니다.\n복원하면 다시 학습 대상이 됩니다.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(vertical = 8.dp)
+    )
+}
+
+@Composable
+private fun ExcludedWordRow(title: String, subtitle: String, onRestore: () -> Unit) {
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .padding(12.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    title,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                    maxLines = 1
+                )
+            }
+            TextButton(onClick = onRestore) {
+                Icon(
+                    Icons.Default.Restore,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 4.dp)
+                )
+                Text("복원")
             }
         }
     }

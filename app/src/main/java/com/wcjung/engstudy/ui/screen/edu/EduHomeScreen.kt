@@ -15,6 +15,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Quiz
 import androidx.compose.material.icons.filled.School
 import androidx.compose.material.icons.filled.Style
@@ -45,6 +47,8 @@ fun EduHomeScreen(
     onNavigateToWordList: (String?) -> Unit,
     onNavigateToFlashCard: (String?) -> Unit = {},
     onNavigateToQuiz: (String?) -> Unit = {},
+    onNavigateToSpellingQuiz: (String?) -> Unit = {},
+    onNavigateToListeningQuiz: (String?) -> Unit = {},
     viewModel: EduHomeViewModel = hiltViewModel()
 ) {
     val totalCount by viewModel.totalCount.collectAsState()
@@ -136,7 +140,9 @@ fun EduHomeScreen(
                     count = totalCount,
                     onClick = { onNavigateToWordList(null) },
                     onFlashCard = { onNavigateToFlashCard(null) },
-                    onQuiz = { onNavigateToQuiz(null) }
+                    onQuiz = { onNavigateToQuiz(null) },
+                    onSpellingQuiz = { onNavigateToSpellingQuiz(null) },
+                    onListeningQuiz = { onNavigateToListeningQuiz(null) }
                 )
             }
 
@@ -153,7 +159,9 @@ fun EduHomeScreen(
                     count = count,
                     onClick = { onNavigateToWordList(level.key) },
                     onFlashCard = { onNavigateToFlashCard(level.key) },
-                    onQuiz = { onNavigateToQuiz(level.key) }
+                    onQuiz = { onNavigateToQuiz(level.key) },
+                    onSpellingQuiz = { onNavigateToSpellingQuiz(level.key) },
+                    onListeningQuiz = { onNavigateToListeningQuiz(level.key) }
                 )
             }
         }
@@ -167,7 +175,9 @@ private fun LevelCard(
     count: Int,
     onClick: () -> Unit,
     onFlashCard: () -> Unit,
-    onQuiz: () -> Unit
+    onQuiz: () -> Unit,
+    onSpellingQuiz: () -> Unit,
+    onListeningQuiz: () -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -227,6 +237,35 @@ private fun LevelCard(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text("퀴즈")
+                }
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                FilledTonalButton(
+                    onClick = onSpellingQuiz,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Icon(
+                        Icons.Default.Edit,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text("스펠링")
+                }
+                FilledTonalButton(
+                    onClick = onListeningQuiz,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Icon(
+                        Icons.AutoMirrored.Filled.VolumeUp,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp)
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Text("듣기")
                 }
             }
         }

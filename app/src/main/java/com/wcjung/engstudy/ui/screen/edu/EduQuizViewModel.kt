@@ -3,11 +3,13 @@ package com.wcjung.engstudy.ui.screen.edu
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.toRoute
+import com.wcjung.engstudy.data.local.dao.EduExcludedWordDao
 import com.wcjung.engstudy.domain.model.EduWord
 import com.wcjung.engstudy.domain.repository.EduWordRepository
 import com.wcjung.engstudy.domain.repository.WordRepository
 import com.wcjung.engstudy.domain.usecase.RecordQuizAnswerUseCase
 import com.wcjung.engstudy.ui.navigation.Screen
+import com.wcjung.engstudy.util.TtsManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -27,11 +29,20 @@ class EduQuizViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val eduWordRepository: EduWordRepository,
     private val wordRepository: WordRepository,
-    private val recordQuizAnswer: RecordQuizAnswerUseCase
+    private val eduExcludedWordDao: EduExcludedWordDao,
+    private val recordQuizAnswer: RecordQuizAnswerUseCase,
+    val ttsManager: TtsManager
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.EduQuiz>()
     val level: String? = route.level
+
+    /** 듣기 모드: 뜻을 숨기고 발음만 듣고 알맞은 단어를 고른다. */
+    val isListening: Boolean = route.listening
+
+    fun speakCurrentWord() {
+        currentQuestion?.let { ttsManager.speak(it.word.word) }
+    }
 
     private val _questions = MutableStateFlow<List<EduQuizQuestion>>(emptyList())
     val questions: StateFlow<List<EduQuizQuestion>> = _questions.asStateFlow()
@@ -69,8 +80,9 @@ class EduQuizViewModel @Inject constructor(
             } else {
                 eduWordRepository.getAllWords().first()
             }
+            val excludedIds = eduExcludedWordDao.getExcludedIds().first().toSet()
 
-            val selectedWords = wordList.shuffled().take(20)
+            val selectedWords = wordList.filterNot { it.id in excludedIds }.shuffled().take(20)
 
             val questions = selectedWords.map { word ->
                 val effectiveLevel = level ?: word.level.key
@@ -116,7 +128,7 @@ class EduQuizViewModel @Inject constructor(
             recordQuizAnswer(
                 wordId = wordId,
                 isCorrect = isCorrect,
-                quizType = "edu_quiz",
+                quizType = if (isListening) "edu_listening_quiz" else "edu_quiz",
                 wrongAnswer = question.options.getOrNull(index),
                 correctAnswer = question.word.word
             )

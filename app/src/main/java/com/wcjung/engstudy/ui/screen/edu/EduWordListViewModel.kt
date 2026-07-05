@@ -4,6 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
+import com.wcjung.engstudy.data.local.dao.EduBookmarkDao
+import com.wcjung.engstudy.data.local.dao.EduExcludedWordDao
 import com.wcjung.engstudy.data.local.dao.KnownItemDao
 import com.wcjung.engstudy.data.local.entity.KnownItemEntity
 import com.wcjung.engstudy.domain.model.EduWord
@@ -15,6 +17,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import com.wcjung.engstudy.util.launchSafely
 import javax.inject.Inject
@@ -23,7 +26,9 @@ import javax.inject.Inject
 class EduWordListViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val eduWordRepository: EduWordRepository,
-    private val knownItemDao: KnownItemDao
+    private val knownItemDao: KnownItemDao,
+    private val eduBookmarkDao: EduBookmarkDao,
+    private val eduExcludedWordDao: EduExcludedWordDao
 ) : ViewModel() {
 
     private val route = savedStateHandle.toRoute<Screen.EduWordList>()
@@ -38,11 +43,20 @@ class EduWordListViewModel @Inject constructor(
         .combine(MutableStateFlow(Unit)) { ids, _ -> ids.toSet() }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
 
-    /** 필터링된 단어 목록: hideKnown이 true이면 이미 아는 단어를 숨긴다 */
+    val bookmarkedIds: StateFlow<Set<Int>> = eduBookmarkDao.getBookmarkedIds()
+        .map { it.toSet() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
+
+    private val excludedIds: StateFlow<Set<Int>> = eduExcludedWordDao.getExcludedIds()
+        .map { it.toSet() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptySet())
+
+    /** 필터링된 단어 목록: hideKnown이 true이면 이미 아는 단어를 숨기고, 완전 제외된 단어는 항상 숨긴다 */
     val words: StateFlow<List<EduWord>> = combine(
-        _allWords, knownIds, _hideKnown
-    ) { all, known, hide ->
-        if (hide) all.filter { it.id !in known } else all
+        _allWords, knownIds, _hideKnown, excludedIds
+    ) { all, known, hide, excluded ->
+        all.filter { it.id !in excluded }
+            .let { if (hide) it.filter { word -> word.id !in known } else it }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     private val _isLoading = MutableStateFlow(true)
@@ -71,8 +85,28 @@ class EduWordListViewModel @Inject constructor(
         }
     }
 
+    fun markMultipleAsKnown(wordIds: List<Int>) {
+        launchSafely {
+            wordIds.forEach {
+                knownItemDao.markAsKnown(KnownItemEntity(itemId = it, itemType = ITEM_TYPE))
+            }
+        }
+    }
+
     fun toggleHideKnown() {
         _hideKnown.value = !_hideKnown.value
+    }
+
+    fun toggleBookmark(wordId: Int) {
+        launchSafely {
+            eduBookmarkDao.toggleBookmarkAtomic(wordId)
+        }
+    }
+
+    fun excludeMultiple(wordIds: List<Int>) {
+        launchSafely {
+            wordIds.forEach { eduExcludedWordDao.excludeWord(it) }
+        }
     }
 
     companion object {
