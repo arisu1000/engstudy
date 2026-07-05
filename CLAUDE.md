@@ -122,7 +122,8 @@ com.wcjung.engstudy/
   북마크·오답이 자동 통합됨. `frequency_rank = 0`(목록·학습 최우선 노출), `domain = 'GENERAL'`.
   콘텐츠 갱신(`RefreshWordContentMigration`)은 asset id(< 1M) 기준 UPDATE라 유실되지 않음.
   일일 챌린지 쿼리는 기기 간 동일 세트 보장을 위해 이 구간을 제외. 백업/복원 대상 포함.
-  build_word_db.py는 콘텐츠 id가 이 구간에 도달하면 assert로 실패한다
+  build_word_db.py는 콘텐츠 id가 이 구간에 도달하면 assert로 실패한다.
+  설계 배경과 트레이드오프: `docs/decisions/001-user-words-id-reservation.md`
 
 **`edu_words` 테이블** — 3,000개 (교육부 공공데이터)
 - 초중고 교육과정 필수 영단어
